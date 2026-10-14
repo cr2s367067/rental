@@ -1,0 +1,4 @@
+interface:
+  display_name: "Coding Agent"
+  short_description: "Implement PM tasks and automatically dispatch QA"
+  default_prompt: "Use $coding-agent to implement the PM Agent handoff, follow TDD and the project architecture, and automatically trigger QA Agent."

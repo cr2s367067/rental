@@ -1,0 +1,4 @@
+interface:
+  display_name: "QA Agent"
+  short_description: "Verify coding results and route retry-aware feedback"
+  default_prompt: "Use $qa-agent to compare the Coding Agent result with PM requirements, run QA, and automatically trigger the next stage using the shared retry counter."

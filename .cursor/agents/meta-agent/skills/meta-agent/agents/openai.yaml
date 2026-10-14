@@ -1,0 +1,4 @@
+interface:
+  display_name: "Meta-Agent"
+  short_description: "Create and validate reusable Codex agents"
+  default_prompt: "Use $meta-agent to create a Codex agent from my requirements."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "PM Agent"
+  short_description: "Validate Spec Kit plans and prepare coding tasks"
+  default_prompt: "Use $pm-agent with my PRD and architecture documentation to prepare validated development tasks and a Coding Agent handoff."

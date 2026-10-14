@@ -306,6 +306,32 @@ Deliverable:
 
 `skills/{skill-name}/SKILL.md`
 
+### Skill Index
+
+Once skill creation and publishing are complete, create:
+
+`docs/docs.md`
+
+This file is the agent's skill discovery index. Enumerate every immediate skill
+directory under `.codex/agents/{agent-name}/skills/` containing a `SKILL.md`.
+Read the YAML frontmatter and record the exact skill name and description, plus
+a relative link to its `SKILL.md`. Include the invocation skill. Do not copy the
+full skill instructions into the index or system prompt.
+
+Refresh the index whenever a skill is added, renamed, removed, or its description
+changes. If there are no local skills, state that explicitly.
+
+Every generated agent must follow this same convention. Its system prompt must
+reference its own `docs/docs.md`; when a task needs a capability, read that index
+to assess relevant skills, then open only the selected `SKILL.md` files and follow
+their instructions. Verify selected paths before use. Reconcile a missing or
+stale index against the actual skills folder instead of assuming indexed skills
+exist. Discover installed skills separately through the runtime's skill catalog.
+
+Deliverable:
+
+`docs/docs.md`
+
 ---
 
 ## 6. Generate System Prompt
@@ -377,6 +403,9 @@ Follow the workflow below when processing user requests.
 ## 4. Identify and Use Skills
 
 - Identify required capabilities.
+- Read `.codex/agents/{agent-name}/docs/docs.md` for local skill names, descriptions, and paths.
+- Assess which indexed skills apply, then read only the selected `SKILL.md` files.
+- Reconcile a missing or stale index with the actual agent skills folder.
 - Discover available skills.
 - Select appropriate skills.
 - Invoke existing skills when necessary.
@@ -441,6 +470,8 @@ When generating a new agent's system prompt:
 5. Define specific actions rather than generic instructions.
 6. Identify required tools and MCP integrations.
 7. Include skill invocation instructions when applicable.
+   Reference the agent's `docs/docs.md` for skill discovery rather than embedding
+   the skill list in the system prompt. Replace the agent-name path placeholder.
 8. Define a concrete output format.
 9. Avoid instructions unrelated to the agent's purpose.
 10. Ensure the resulting prompt is independently usable.
@@ -523,6 +554,7 @@ Create the agent using the required directory structure.
         ├── docs/
         │   ├── requirements.md
         │   ├── architecture.md
+        │   ├── docs.md
         │   ├── references.md
         │   └── test-cases.md
         │
@@ -548,6 +580,7 @@ Required documents:
 
 - `requirements.md`
 - `architecture.md`
+- `docs.md` (index of every local skill's name, description, and relative path)
 - `test-cases.md`
 
 Optional documents:
@@ -602,6 +635,8 @@ Prefer relative symlinks to the organizational skills directory when supported.
 Otherwise, copy the complete skill directory.
 
 Ensure that published skills and their supporting resources remain accessible.
+After publishing, generate or refresh `docs/docs.md` from the actual local
+`SKILL.md` frontmatter. Every new agent's prompt must refer to its own index.
 
 ### Agent Invocation
 
@@ -672,6 +707,8 @@ Verify:
 - Registered instructions match the canonical system prompt.
 - Skill YAML frontmatter is valid.
 - Published skills are discoverable.
+- `docs/docs.md` exactly reflects all local skills' names, descriptions, and paths.
+- The system prompt references the agent's own skill index.
 
 ### Functional Validation
 
@@ -707,6 +744,7 @@ Before completing the task:
 4. Verify that instructions are internally consistent.
 5. Confirm that skills are reusable and appropriately scoped.
 6. Verify tool and MCP dependencies.
+   Confirm the skill index matches the skills folder and the prompt uses it as a reference.
 7. Confirm agent registration is valid.
 8. Verify the required directory structure.
 9. Remove unnecessary generated resources.
@@ -751,6 +789,7 @@ Follow this format:
 - Configuration: PASS / FAIL
 - System Prompt Template: PASS / FAIL
 - Skills: PASS / FAIL
+- Skill Index: PASS / FAIL
 - File Structure: PASS / FAIL
 - Runtime Test: PASS / FAIL / NOT TESTED
 
