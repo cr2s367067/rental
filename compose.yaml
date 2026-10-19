@@ -1,0 +1,57 @@
+name: rental-demo
+services:
+  postgres:
+    image: postgres@sha256:b0f9560a2de083e2cc7382e75f808c7381a32852a7ec49117deedb300e552b24
+    environment:
+      POSTGRES_USER: rental
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Configure .env}
+      POSTGRES_DB: rental_demo
+    ports: ["127.0.0.1:55432:5432"]
+    volumes: ["postgres_data:/var/lib/postgresql/data"]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U rental -d rental_demo"]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+  redis:
+    image: redis@sha256:858f009f9709ce576febc734aa78b8f6d624b82571f9ddb6bda4377c833b3499
+    ports: ["127.0.0.1:56379:6379"]
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+  backend:
+    build: {context: ., dockerfile: backend/Dockerfile}
+    environment:
+      PORT: 3000
+      DATABASE_URL: postgresql://rental:${POSTGRES_PASSWORD}@postgres:5432/rental_demo
+      REDIS_URL: redis://redis:6379
+      APP_ORIGIN: http://localhost:5173
+      DEMO_MODE: "true"
+      DEMO_DATABASE: rental_demo
+      DEMO_PASSWORD: ${DEMO_PASSWORD:?Configure .env}
+      NODE_ENV: development
+    ports: ["127.0.0.1:3100:3000"]
+    depends_on:
+      postgres: {condition: service_healthy}
+      redis: {condition: service_healthy}
+    healthcheck:
+      test: ["CMD", "bun", "-e", "if (!(await fetch('http://localhost:3000/api/health')).ok) process.exit(1)"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+  frontend:
+    build: {context: ., dockerfile: frontend/Dockerfile}
+    environment:
+      API_PROXY: http://backend:3000
+    ports: ["127.0.0.1:5173:5173"]
+    depends_on:
+      backend: {condition: service_healthy}
+    healthcheck:
+      test: ["CMD", "bun", "-e", "if (!(await fetch('http://localhost:5173')).ok) process.exit(1)"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+volumes:
+  postgres_data:

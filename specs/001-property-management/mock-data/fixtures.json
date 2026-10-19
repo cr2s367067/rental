@@ -1,0 +1,706 @@
+{
+  "schema_version": 1,
+  "is_synthetic": true,
+  "policy_status": "DRAFT_FOR_REVIEW",
+  "business_timezone": "Asia/Taipei",
+  "as_of_date": "2026-10-19",
+  "as_of_instant": "2026-10-19T00:00:00+08:00",
+  "currency": "TWD",
+  "users": [
+    {
+      "id": "U001",
+      "email": "owner@example.test",
+      "display_name": "Demo Owner",
+      "role": "OWNER",
+      "enabled": true
+    },
+    {
+      "id": "U002",
+      "email": "manager@example.test",
+      "display_name": "Demo Manager",
+      "role": "MANAGER",
+      "enabled": true
+    },
+    {
+      "id": "U003",
+      "email": "viewer@example.test",
+      "display_name": "Demo Viewer",
+      "role": "VIEWER",
+      "enabled": true
+    }
+  ],
+  "property_access": [
+    {
+      "user_id": "U002",
+      "property_id": "P001"
+    },
+    {
+      "user_id": "U002",
+      "property_id": "P002"
+    },
+    {
+      "user_id": "U003",
+      "property_id": "P001"
+    }
+  ],
+  "properties": [
+    {
+      "id": "P001",
+      "name": "Demo Taipei House",
+      "city": "Taipei",
+      "owner_user_id": "U001",
+      "rental_mode": "ROOMS",
+      "address": "DEMO-ADDRESS-P001"
+    },
+    {
+      "id": "P002",
+      "name": "Demo Taichung House",
+      "city": "Taichung",
+      "owner_user_id": "U001",
+      "rental_mode": "ROOMS",
+      "address": "DEMO-ADDRESS-P002"
+    },
+    {
+      "id": "P003",
+      "name": "Demo Kaohsiung House",
+      "city": "Kaohsiung",
+      "owner_user_id": "U001",
+      "rental_mode": "ROOMS",
+      "address": "DEMO-ADDRESS-P003"
+    },
+    {
+      "id": "P004",
+      "name": "Demo Tainan Whole Home",
+      "city": "Tainan",
+      "owner_user_id": "U001",
+      "rental_mode": "WHOLE_PROPERTY",
+      "address": "DEMO-ADDRESS-P004"
+    }
+  ],
+  "resources": [
+    {
+      "id": "R101",
+      "property_id": "P001",
+      "name": "Room 101",
+      "kind": "ROOM",
+      "capacity": 1
+    },
+    {
+      "id": "R102",
+      "property_id": "P001",
+      "name": "Room 102",
+      "kind": "ROOM",
+      "capacity": 1
+    },
+    {
+      "id": "R103",
+      "property_id": "P001",
+      "name": "Room 103",
+      "kind": "ROOM",
+      "capacity": 1
+    },
+    {
+      "id": "R104",
+      "property_id": "P001",
+      "name": "Room 104",
+      "kind": "ROOM",
+      "capacity": 2
+    },
+    {
+      "id": "R201",
+      "property_id": "P002",
+      "name": "Room 201",
+      "kind": "ROOM",
+      "capacity": 1
+    },
+    {
+      "id": "R202",
+      "property_id": "P002",
+      "name": "Room 202",
+      "kind": "ROOM",
+      "capacity": 1
+    },
+    {
+      "id": "R203",
+      "property_id": "P002",
+      "name": "Room 203",
+      "kind": "ROOM",
+      "capacity": 1
+    },
+    {
+      "id": "R301",
+      "property_id": "P003",
+      "name": "Room 301",
+      "kind": "ROOM",
+      "capacity": 1
+    },
+    {
+      "id": "R302",
+      "property_id": "P003",
+      "name": "Room 302",
+      "kind": "ROOM",
+      "capacity": 1
+    },
+    {
+      "id": "R303",
+      "property_id": "P003",
+      "name": "Room 303",
+      "kind": "ROOM",
+      "capacity": 1
+    },
+    {
+      "id": "R401",
+      "property_id": "P004",
+      "name": "Whole Home",
+      "kind": "WHOLE_PROPERTY",
+      "capacity": 1
+    }
+  ],
+  "tenants": [
+    {
+      "id": "TEN001",
+      "name": "Demo Tenant 01",
+      "email": "tenant01@example.test",
+      "phone": null
+    },
+    {
+      "id": "TEN002",
+      "name": "Demo Tenant 02",
+      "email": "tenant02@example.test",
+      "phone": null
+    },
+    {
+      "id": "TEN003",
+      "name": "Demo Tenant 03",
+      "email": "tenant03@example.test",
+      "phone": null
+    },
+    {
+      "id": "TEN004",
+      "name": "Demo Tenant 04",
+      "email": "tenant04@example.test",
+      "phone": null
+    },
+    {
+      "id": "TEN005",
+      "name": "Demo Tenant 05",
+      "email": "tenant05@example.test",
+      "phone": null
+    },
+    {
+      "id": "TEN006",
+      "name": "Demo Tenant 06",
+      "email": "tenant06@example.test",
+      "phone": null
+    },
+    {
+      "id": "TEN007",
+      "name": "Demo Tenant 07",
+      "email": "tenant07@example.test",
+      "phone": null
+    },
+    {
+      "id": "TEN008",
+      "name": "Demo Tenant 08",
+      "email": "tenant08@example.test",
+      "phone": null
+    },
+    {
+      "id": "TEN009",
+      "name": "Demo Tenant 09",
+      "email": "tenant09@example.test",
+      "phone": null
+    },
+    {
+      "id": "TEN010",
+      "name": "Demo Tenant 10",
+      "email": "tenant10@example.test",
+      "phone": null
+    }
+  ],
+  "contracts": [
+    {
+      "id": "C001",
+      "tenant_id": "TEN001",
+      "resource_id": "R101",
+      "property_id": "P001",
+      "start_date": "2026-09-01",
+      "end_date": "2027-09-01",
+      "termination_date": null,
+      "monthly_rent_twd": "20000",
+      "deposit_twd": "40000",
+      "due_day": 1,
+      "document_id": "DOC-C001"
+    },
+    {
+      "id": "C002",
+      "tenant_id": "TEN002",
+      "resource_id": "R102",
+      "property_id": "P001",
+      "start_date": "2026-09-01",
+      "end_date": "2026-11-01",
+      "termination_date": null,
+      "monthly_rent_twd": "22000",
+      "deposit_twd": "44000",
+      "due_day": 1,
+      "document_id": "DOC-C002"
+    },
+    {
+      "id": "C003",
+      "tenant_id": "TEN003",
+      "resource_id": "R201",
+      "property_id": "P002",
+      "start_date": "2026-10-01",
+      "end_date": "2027-10-01",
+      "termination_date": null,
+      "monthly_rent_twd": "18000",
+      "deposit_twd": "36000",
+      "due_day": 1,
+      "document_id": "DOC-C003"
+    },
+    {
+      "id": "C004",
+      "tenant_id": "TEN004",
+      "resource_id": "R301",
+      "property_id": "P003",
+      "start_date": "2026-10-01",
+      "end_date": "2027-10-01",
+      "termination_date": null,
+      "monthly_rent_twd": "16000",
+      "deposit_twd": "32000",
+      "due_day": 25,
+      "document_id": "DOC-C004"
+    },
+    {
+      "id": "C005",
+      "tenant_id": "TEN005",
+      "resource_id": "R104",
+      "property_id": "P001",
+      "start_date": "2026-09-01",
+      "end_date": "2026-12-01",
+      "termination_date": null,
+      "monthly_rent_twd": "10000",
+      "deposit_twd": "20000",
+      "due_day": 1,
+      "document_id": "DOC-C005"
+    },
+    {
+      "id": "C006",
+      "tenant_id": "TEN006",
+      "resource_id": "R104",
+      "property_id": "P001",
+      "start_date": "2026-10-01",
+      "end_date": "2026-10-24",
+      "termination_date": null,
+      "monthly_rent_twd": "11000",
+      "deposit_twd": "22000",
+      "due_day": 1,
+      "document_id": "DOC-C006"
+    },
+    {
+      "id": "C007",
+      "tenant_id": "TEN007",
+      "resource_id": "R103",
+      "property_id": "P001",
+      "start_date": "2026-10-22",
+      "end_date": "2027-10-22",
+      "termination_date": null,
+      "monthly_rent_twd": "21000",
+      "deposit_twd": "42000",
+      "due_day": 1,
+      "document_id": "DOC-C007"
+    },
+    {
+      "id": "C008",
+      "tenant_id": "TEN008",
+      "resource_id": "R203",
+      "property_id": "P002",
+      "start_date": "2026-09-10",
+      "end_date": "2026-10-10",
+      "termination_date": null,
+      "monthly_rent_twd": "15000",
+      "deposit_twd": "30000",
+      "due_day": 1,
+      "document_id": "DOC-C008"
+    },
+    {
+      "id": "C009",
+      "tenant_id": "TEN009",
+      "resource_id": "R302",
+      "property_id": "P003",
+      "start_date": "2026-09-01",
+      "end_date": "2027-09-01",
+      "termination_date": "2026-10-15",
+      "monthly_rent_twd": "19000",
+      "deposit_twd": "38000",
+      "due_day": 1,
+      "document_id": "DOC-C009"
+    }
+  ],
+  "obligations": [
+    {
+      "id": "OBL001",
+      "contract_id": "C001",
+      "period_start": "2026-10-01",
+      "period_end": "2026-11-01",
+      "due_date": "2026-10-01",
+      "amount_due_twd": "20000",
+      "entry_mode": "FULL_MONTH"
+    },
+    {
+      "id": "OBL002",
+      "contract_id": "C002",
+      "period_start": "2026-10-01",
+      "period_end": "2026-11-01",
+      "due_date": "2026-10-01",
+      "amount_due_twd": "22000",
+      "entry_mode": "FULL_MONTH"
+    },
+    {
+      "id": "OBL003",
+      "contract_id": "C003",
+      "period_start": "2026-10-01",
+      "period_end": "2026-11-01",
+      "due_date": "2026-10-01",
+      "amount_due_twd": "18000",
+      "entry_mode": "FULL_MONTH"
+    },
+    {
+      "id": "OBL004",
+      "contract_id": "C004",
+      "period_start": "2026-10-01",
+      "period_end": "2026-11-01",
+      "due_date": "2026-10-25",
+      "amount_due_twd": "16000",
+      "entry_mode": "FULL_MONTH"
+    },
+    {
+      "id": "OBL005",
+      "contract_id": "C005",
+      "period_start": "2026-10-01",
+      "period_end": "2026-11-01",
+      "due_date": "2026-10-01",
+      "amount_due_twd": "10000",
+      "entry_mode": "FULL_MONTH"
+    },
+    {
+      "id": "OBL006",
+      "contract_id": "C006",
+      "period_start": "2026-10-01",
+      "period_end": "2026-10-24",
+      "due_date": "2026-10-01",
+      "amount_due_twd": "11000",
+      "entry_mode": "MANUAL_PARTIAL_PERIOD"
+    },
+    {
+      "id": "OBL007",
+      "contract_id": "C007",
+      "period_start": "2026-10-22",
+      "period_end": "2026-11-01",
+      "due_date": "2026-10-22",
+      "amount_due_twd": "21000",
+      "entry_mode": "MANUAL_PARTIAL_PERIOD"
+    },
+    {
+      "id": "OBL008",
+      "contract_id": "C008",
+      "period_start": "2026-10-01",
+      "period_end": "2026-10-10",
+      "due_date": "2026-10-01",
+      "amount_due_twd": "4500",
+      "entry_mode": "MANUAL_PARTIAL_PERIOD"
+    },
+    {
+      "id": "OBL009",
+      "contract_id": "C009",
+      "period_start": "2026-10-01",
+      "period_end": "2026-10-15",
+      "due_date": "2026-10-01",
+      "amount_due_twd": "9000",
+      "entry_mode": "MANUAL_PARTIAL_PERIOD"
+    }
+  ],
+  "payments": [
+    {
+      "id": "PAY001",
+      "obligation_id": "OBL001",
+      "amount_twd": "20000",
+      "kind": "PAYMENT",
+      "reverses_payment_id": null,
+      "recorded_at": "2026-10-01T10:00:00+08:00",
+      "request_key": "demo-payment-001"
+    },
+    {
+      "id": "PAY002",
+      "obligation_id": "OBL003",
+      "amount_twd": "9000",
+      "kind": "PAYMENT",
+      "reverses_payment_id": null,
+      "recorded_at": "2026-10-10T10:00:00+08:00",
+      "request_key": "demo-payment-002"
+    },
+    {
+      "id": "PAY003",
+      "obligation_id": "OBL004",
+      "amount_twd": "5000",
+      "kind": "PAYMENT",
+      "reverses_payment_id": null,
+      "recorded_at": "2026-10-10T10:00:00+08:00",
+      "request_key": "demo-payment-003"
+    },
+    {
+      "id": "PAY004",
+      "obligation_id": "OBL005",
+      "amount_twd": "10000",
+      "kind": "PAYMENT",
+      "reverses_payment_id": null,
+      "recorded_at": "2026-10-01T10:00:00+08:00",
+      "request_key": "demo-payment-004"
+    },
+    {
+      "id": "PAY005",
+      "obligation_id": "OBL008",
+      "amount_twd": "4500",
+      "kind": "PAYMENT",
+      "reverses_payment_id": null,
+      "recorded_at": "2026-10-02T10:00:00+08:00",
+      "request_key": "demo-payment-005"
+    },
+    {
+      "id": "PAY006",
+      "obligation_id": "OBL009",
+      "amount_twd": "9000",
+      "kind": "PAYMENT",
+      "reverses_payment_id": null,
+      "recorded_at": "2026-10-14T10:00:00+08:00",
+      "request_key": "demo-payment-006"
+    }
+  ],
+  "documents": [
+    {
+      "id": "DOC-C001",
+      "kind": "CONTRACT",
+      "contract_id": "C001",
+      "payment_id": null,
+      "tenant_id": "TEN001",
+      "property_id": "P001",
+      "file_name": "DEMO-CONTRACT-C001.txt",
+      "file_type": "txt",
+      "mime_type": "text/plain",
+      "size_bytes": 191,
+      "uploaded_at": "2026-09-01T09:00:00+08:00",
+      "content_utf8": "SYNTHETIC DEMO CONTRACT C001\nTenant: TEN001\nResource: R101\nTerm: 2026-09-01 inclusive to 2027-09-01 exclusive\nMonthly rent: TWD 20000\nFor software demonstration only; not a signed agreement.\n",
+      "sha256": "a2a4699ad3a284654d0cdc7cb5e179fa981715c6c9b5cb9abaa09df203efcc72"
+    },
+    {
+      "id": "DOC-C002",
+      "kind": "CONTRACT",
+      "contract_id": "C002",
+      "payment_id": null,
+      "tenant_id": "TEN002",
+      "property_id": "P001",
+      "file_name": "DEMO-CONTRACT-C002.txt",
+      "file_type": "txt",
+      "mime_type": "text/plain",
+      "size_bytes": 191,
+      "uploaded_at": "2026-09-01T09:00:00+08:00",
+      "content_utf8": "SYNTHETIC DEMO CONTRACT C002\nTenant: TEN002\nResource: R102\nTerm: 2026-09-01 inclusive to 2026-11-01 exclusive\nMonthly rent: TWD 22000\nFor software demonstration only; not a signed agreement.\n",
+      "sha256": "d682500e0cb8a847799d9eb312d5b23ed1cddb9822bff8e323e7f60b845ae500"
+    },
+    {
+      "id": "DOC-C003",
+      "kind": "CONTRACT",
+      "contract_id": "C003",
+      "payment_id": null,
+      "tenant_id": "TEN003",
+      "property_id": "P002",
+      "file_name": "DEMO-CONTRACT-C003.txt",
+      "file_type": "txt",
+      "mime_type": "text/plain",
+      "size_bytes": 191,
+      "uploaded_at": "2026-10-01T09:00:00+08:00",
+      "content_utf8": "SYNTHETIC DEMO CONTRACT C003\nTenant: TEN003\nResource: R201\nTerm: 2026-10-01 inclusive to 2027-10-01 exclusive\nMonthly rent: TWD 18000\nFor software demonstration only; not a signed agreement.\n",
+      "sha256": "03589274c66d88373ba53021cbf50e80f1eab97ba11038caecf78afa42826aa0"
+    },
+    {
+      "id": "DOC-C004",
+      "kind": "CONTRACT",
+      "contract_id": "C004",
+      "payment_id": null,
+      "tenant_id": "TEN004",
+      "property_id": "P003",
+      "file_name": "DEMO-CONTRACT-C004.txt",
+      "file_type": "txt",
+      "mime_type": "text/plain",
+      "size_bytes": 191,
+      "uploaded_at": "2026-10-01T09:00:00+08:00",
+      "content_utf8": "SYNTHETIC DEMO CONTRACT C004\nTenant: TEN004\nResource: R301\nTerm: 2026-10-01 inclusive to 2027-10-01 exclusive\nMonthly rent: TWD 16000\nFor software demonstration only; not a signed agreement.\n",
+      "sha256": "f9cb066915773c54190284ca0bb9f9d9f48d1cdae21c0c961f79c3fcddf26ef4"
+    },
+    {
+      "id": "DOC-C005",
+      "kind": "CONTRACT",
+      "contract_id": "C005",
+      "payment_id": null,
+      "tenant_id": "TEN005",
+      "property_id": "P001",
+      "file_name": "DEMO-CONTRACT-C005.txt",
+      "file_type": "txt",
+      "mime_type": "text/plain",
+      "size_bytes": 191,
+      "uploaded_at": "2026-09-01T09:00:00+08:00",
+      "content_utf8": "SYNTHETIC DEMO CONTRACT C005\nTenant: TEN005\nResource: R104\nTerm: 2026-09-01 inclusive to 2026-12-01 exclusive\nMonthly rent: TWD 10000\nFor software demonstration only; not a signed agreement.\n",
+      "sha256": "dd102882a77309ffce3b1fe07224f36573d0d9e5edefa65e4ccb2eb972bc0798"
+    },
+    {
+      "id": "DOC-C006",
+      "kind": "CONTRACT",
+      "contract_id": "C006",
+      "payment_id": null,
+      "tenant_id": "TEN006",
+      "property_id": "P001",
+      "file_name": "DEMO-CONTRACT-C006.txt",
+      "file_type": "txt",
+      "mime_type": "text/plain",
+      "size_bytes": 191,
+      "uploaded_at": "2026-10-01T09:00:00+08:00",
+      "content_utf8": "SYNTHETIC DEMO CONTRACT C006\nTenant: TEN006\nResource: R104\nTerm: 2026-10-01 inclusive to 2026-10-24 exclusive\nMonthly rent: TWD 11000\nFor software demonstration only; not a signed agreement.\n",
+      "sha256": "4d6be7c2b6516fd14e31f4b28b0a76f779b2d40638bb4ec5c351222ffb7775ac"
+    },
+    {
+      "id": "DOC-C007",
+      "kind": "CONTRACT",
+      "contract_id": "C007",
+      "payment_id": null,
+      "tenant_id": "TEN007",
+      "property_id": "P001",
+      "file_name": "DEMO-CONTRACT-C007.txt",
+      "file_type": "txt",
+      "mime_type": "text/plain",
+      "size_bytes": 191,
+      "uploaded_at": "2026-10-18T09:00:00+08:00",
+      "content_utf8": "SYNTHETIC DEMO CONTRACT C007\nTenant: TEN007\nResource: R103\nTerm: 2026-10-22 inclusive to 2027-10-22 exclusive\nMonthly rent: TWD 21000\nFor software demonstration only; not a signed agreement.\n",
+      "sha256": "bc4a97317d175442eb09611d227c86ffc46bbb53d832b384b0df377b1270a759"
+    },
+    {
+      "id": "DOC-C008",
+      "kind": "CONTRACT",
+      "contract_id": "C008",
+      "payment_id": null,
+      "tenant_id": "TEN008",
+      "property_id": "P002",
+      "file_name": "DEMO-CONTRACT-C008.txt",
+      "file_type": "txt",
+      "mime_type": "text/plain",
+      "size_bytes": 191,
+      "uploaded_at": "2026-09-10T09:00:00+08:00",
+      "content_utf8": "SYNTHETIC DEMO CONTRACT C008\nTenant: TEN008\nResource: R203\nTerm: 2026-09-10 inclusive to 2026-10-10 exclusive\nMonthly rent: TWD 15000\nFor software demonstration only; not a signed agreement.\n",
+      "sha256": "15f2d052b4266607728ee0ab402cd5075bb9a4f067ac0cbc18b0865261e7e11b"
+    },
+    {
+      "id": "DOC-C009",
+      "kind": "CONTRACT",
+      "contract_id": "C009",
+      "payment_id": null,
+      "tenant_id": "TEN009",
+      "property_id": "P003",
+      "file_name": "DEMO-CONTRACT-C009.txt",
+      "file_type": "txt",
+      "mime_type": "text/plain",
+      "size_bytes": 191,
+      "uploaded_at": "2026-09-01T09:00:00+08:00",
+      "content_utf8": "SYNTHETIC DEMO CONTRACT C009\nTenant: TEN009\nResource: R302\nTerm: 2026-09-01 inclusive to 2027-09-01 exclusive\nMonthly rent: TWD 19000\nFor software demonstration only; not a signed agreement.\n",
+      "sha256": "f698e8284b3dc2ae9b13c3864d13c15119121f656c0e5cccdc41a55a9a5ec962"
+    },
+    {
+      "id": "DOC-PAY001",
+      "kind": "RECEIPT",
+      "contract_id": "C001",
+      "payment_id": "PAY001",
+      "tenant_id": "TEN001",
+      "property_id": "P001",
+      "file_name": "DEMO-RECEIPT-PAY001.txt",
+      "file_type": "txt",
+      "mime_type": "text/plain",
+      "size_bytes": 109,
+      "uploaded_at": "2026-10-01T10:00:00+08:00",
+      "content_utf8": "SYNTHETIC DEMO RECEIPT PAY001\nObligation: OBL001\nRecorded amount: TWD 20000\nFor software demonstration only.\n",
+      "sha256": "a12d4135675ce41acff000772d2c02099c38e5556caf39009bfeb8f68aa5d2e4"
+    },
+    {
+      "id": "DOC-PAY002",
+      "kind": "RECEIPT",
+      "contract_id": "C003",
+      "payment_id": "PAY002",
+      "tenant_id": "TEN003",
+      "property_id": "P002",
+      "file_name": "DEMO-RECEIPT-PAY002.txt",
+      "file_type": "txt",
+      "mime_type": "text/plain",
+      "size_bytes": 108,
+      "uploaded_at": "2026-10-10T10:00:00+08:00",
+      "content_utf8": "SYNTHETIC DEMO RECEIPT PAY002\nObligation: OBL003\nRecorded amount: TWD 9000\nFor software demonstration only.\n",
+      "sha256": "32f9edd14ff7bbe56cc2488d687845e9473bd820646dfc67ef71bec80b4c7092"
+    },
+    {
+      "id": "DOC-PAY003",
+      "kind": "RECEIPT",
+      "contract_id": "C004",
+      "payment_id": "PAY003",
+      "tenant_id": "TEN004",
+      "property_id": "P003",
+      "file_name": "DEMO-RECEIPT-PAY003.txt",
+      "file_type": "txt",
+      "mime_type": "text/plain",
+      "size_bytes": 108,
+      "uploaded_at": "2026-10-10T10:00:00+08:00",
+      "content_utf8": "SYNTHETIC DEMO RECEIPT PAY003\nObligation: OBL004\nRecorded amount: TWD 5000\nFor software demonstration only.\n",
+      "sha256": "a3ae12438d59595624802c96503a35220422c5cb7d7d0b72cb5be64778b9dd26"
+    },
+    {
+      "id": "DOC-PAY004",
+      "kind": "RECEIPT",
+      "contract_id": "C005",
+      "payment_id": "PAY004",
+      "tenant_id": "TEN005",
+      "property_id": "P001",
+      "file_name": "DEMO-RECEIPT-PAY004.txt",
+      "file_type": "txt",
+      "mime_type": "text/plain",
+      "size_bytes": 109,
+      "uploaded_at": "2026-10-01T10:00:00+08:00",
+      "content_utf8": "SYNTHETIC DEMO RECEIPT PAY004\nObligation: OBL005\nRecorded amount: TWD 10000\nFor software demonstration only.\n",
+      "sha256": "7b8224425feef593e45ef9d2b7bb21183cb62f7ac02a2e1e2cec11b3f9d9bf90"
+    },
+    {
+      "id": "DOC-PAY005",
+      "kind": "RECEIPT",
+      "contract_id": "C008",
+      "payment_id": "PAY005",
+      "tenant_id": "TEN008",
+      "property_id": "P002",
+      "file_name": "DEMO-RECEIPT-PAY005.txt",
+      "file_type": "txt",
+      "mime_type": "text/plain",
+      "size_bytes": 108,
+      "uploaded_at": "2026-10-02T10:00:00+08:00",
+      "content_utf8": "SYNTHETIC DEMO RECEIPT PAY005\nObligation: OBL008\nRecorded amount: TWD 4500\nFor software demonstration only.\n",
+      "sha256": "c073748a4edf8e5588512f3ee631bc991fe308658c27882cd9b48a644b63c4fd"
+    },
+    {
+      "id": "DOC-PAY006",
+      "kind": "RECEIPT",
+      "contract_id": "C009",
+      "payment_id": "PAY006",
+      "tenant_id": "TEN009",
+      "property_id": "P003",
+      "file_name": "DEMO-RECEIPT-PAY006.txt",
+      "file_type": "txt",
+      "mime_type": "text/plain",
+      "size_bytes": 108,
+      "uploaded_at": "2026-10-14T10:00:00+08:00",
+      "content_utf8": "SYNTHETIC DEMO RECEIPT PAY006\nObligation: OBL009\nRecorded amount: TWD 9000\nFor software demonstration only.\n",
+      "sha256": "60ec886a55f91eeb8141039666f67b94fa34d995a33a071e5bd1154749c28734"
+    }
+  ]
+}

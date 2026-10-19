@@ -1,0 +1,12 @@
+bun test v1.3.14 (0d9b296a)
+
+backend/tests/integration/users-roles.test.ts:
+(pass) Owner creates users, grants scope, role/password/grant changes invalidate sessions [582.73ms]
+(pass) Manager/Viewer cannot escalate or grant/assign ownership; last/owning Owner protected [214.36ms]
+(pass) owner assignment and demotion serialize on shared administration lock [251.60ms]
+(pass) concurrent Owner demotions cannot remove every enabled Owner [244.83ms]
+
+ 4 pass
+ 0 fail
+ 18 expect() calls
+Ran 4 tests across 1 file. [1494.00ms]

@@ -1,0 +1,2 @@
+import {CircleCheck,Clock,TriangleAlert} from 'lucide-react';
+export function StatusBadge({status,isPartial=false}:{status:string;isPartial?:boolean}){const alert=/Overdue|Expiring|Terminated/.test(status);const good=/Paid|Active|Current|Available/.test(status);const Icon=alert?TriangleAlert:good?CircleCheck:Clock;return <span className={`status ${alert?'status-alert':good?'status-good':''}`}><Icon size={13} aria-hidden/>{status}{isPartial&&status==='Overdue'?' · Partial payment':''}</span>;}

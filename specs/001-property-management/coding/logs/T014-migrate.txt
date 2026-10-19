@@ -1,0 +1,16 @@
+$ bunx prisma migrate deploy --schema backend/prisma/schema.prisma
+Environment variables loaded from .env
+Prisma schema loaded from backend/prisma/schema.prisma
+Datasource "db": PostgreSQL database "rental_demo", schema "public" at "localhost:55432"
+
+2 migrations found in prisma/migrations
+
+Applying migration `0002_constraints`
+
+The following migration(s) have been applied:
+
+migrations/
+  └─ 0002_constraints/
+    └─ migration.sql
+      
+All migrations have been successfully applied.

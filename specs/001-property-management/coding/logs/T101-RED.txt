@@ -1,0 +1,66 @@
+bun test v1.3.14 (0d9b296a)
+
+backend/tests/integration/users-roles.test.ts:
+1 | import {Injectable,ForbiddenException} from '@nestjs/common';import {Database} from '../Src/Infrastructure/database';import {Access,Actor} from '../Src/Infrastructure/access';import type {CreateUserInput,UpdateUserInput} from '../Src/Contracts/user.contract';import type {GrantsInput,OwnerInput} from '../Src/Contracts/property-access.contract';
+2 | @Injectable()
+3 | export class UsersManager {
+4 |  constructor(private db:Database,private access:Access){}
+5 |  async list(actor:Actor){this.access.owner(actor);return [];}
+6 |  async create(actor:Actor,input:CreateUserInput):Promise<unknown>{throw new ForbiddenException('User changes unavailable');}
+                                                                            ^
+ForbiddenException: User changes unavailable
+ response: {
+  message: "User changes unavailable",
+  error: "Forbidden",
+  statusCode: 403,
+},
+   status: 403,
+  options: {},
+
+      at create (/Users/kuan/Library/Mobile Documents/com~apple~CloudDocs/ELearning/Rental/backend/Managers/users-manager.ts:6:73)
+      at <anonymous> (/Users/kuan/Library/Mobile Documents/com~apple~CloudDocs/ELearning/Rental/backend/tests/integration/users-roles.test.ts:4:170)
+(fail) Owner creates users, grants scope, role/password/grant changes invalidate sessions [271.91ms]
+(pass) Manager/Viewer cannot escalate or grant/assign ownership; last/owning Owner protected [179.21ms]
+1 | import {Injectable,ForbiddenException} from '@nestjs/common';import {Database} from '../Src/Infrastructure/database';import {Access,Actor} from '../Src/Infrastructure/access';import type {CreateUserInput,UpdateUserInput} from '../Src/Contracts/user.contract';import type {GrantsInput,OwnerInput} from '../Src/Contracts/property-access.contract';
+2 | @Injectable()
+3 | export class UsersManager {
+4 |  constructor(private db:Database,private access:Access){}
+5 |  async list(actor:Actor){this.access.owner(actor);return [];}
+6 |  async create(actor:Actor,input:CreateUserInput):Promise<unknown>{throw new ForbiddenException('User changes unavailable');}
+                                                                            ^
+ForbiddenException: User changes unavailable
+ response: {
+  message: "User changes unavailable",
+  error: "Forbidden",
+  statusCode: 403,
+},
+   status: 403,
+  options: {},
+
+      at create (/Users/kuan/Library/Mobile Documents/com~apple~CloudDocs/ELearning/Rental/backend/Managers/users-manager.ts:6:73)
+      at <anonymous> (/Users/kuan/Library/Mobile Documents/com~apple~CloudDocs/ELearning/Rental/backend/tests/integration/users-roles.test.ts:11:156)
+(fail) owner assignment and demotion serialize on shared administration lock [184.95ms]
+1 | import {Injectable,ForbiddenException} from '@nestjs/common';import {Database} from '../Src/Infrastructure/database';import {Access,Actor} from '../Src/Infrastructure/access';import type {CreateUserInput,UpdateUserInput} from '../Src/Contracts/user.contract';import type {GrantsInput,OwnerInput} from '../Src/Contracts/property-access.contract';
+2 | @Injectable()
+3 | export class UsersManager {
+4 |  constructor(private db:Database,private access:Access){}
+5 |  async list(actor:Actor){this.access.owner(actor);return [];}
+6 |  async create(actor:Actor,input:CreateUserInput):Promise<unknown>{throw new ForbiddenException('User changes unavailable');}
+                                                                            ^
+ForbiddenException: User changes unavailable
+ response: {
+  message: "User changes unavailable",
+  error: "Forbidden",
+  statusCode: 403,
+},
+   status: 403,
+  options: {},
+
+      at create (/Users/kuan/Library/Mobile Documents/com~apple~CloudDocs/ELearning/Rental/backend/Managers/users-manager.ts:6:73)
+      at <anonymous> (/Users/kuan/Library/Mobile Documents/com~apple~CloudDocs/ELearning/Rental/backend/tests/integration/users-roles.test.ts:15:147)
+(fail) concurrent Owner demotions cannot remove every enabled Owner [174.82ms]
+
+ 1 pass
+ 3 fail
+ 9 expect() calls
+Ran 4 tests across 1 file. [1022.00ms]

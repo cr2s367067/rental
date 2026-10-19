@@ -9,9 +9,21 @@ description: "Task list template for feature implementation"
 
 **Prerequisites**: plan.md (required), spec.md (required for user stories), research.md, data-model.md, contracts/
 
-**Tests**: The examples below include test tasks. Tests are OPTIONAL - only include them if explicitly requested in the feature specification.
+**Tests**: Read `.specify/memory/constitution.md`. Automated business-rule tests are
+required for occupancy, contract dates, rent amounts, and payment status; integration
+verification is required for API contracts, persistence, and document storage changes.
+Include applicable test tasks even if the feature does not repeat these obligations.
+Additional tests depend on the specification and change risk. Documentation-only
+changes require relevant static checks rather than application tests.
 
 **Organization**: Tasks are grouped by user story to enable independent implementation and testing of each story.
+
+**Constitution coverage**: Map applicable principles I-V to task IDs and evidence.
+Include data consistency, generated API/client synchronization, migrations and file
+metadata, responsive/theme checks, authorization, and upload restrictions as needed.
+Record unresolved product decisions and blocked dependent tasks. Check QA retry
+state before new development or dispatch; honor explicit user limits on agents.
+Automatic Coding/QA dispatch remains disabled until the user changes that instruction.
 
 ## Format: `[ID] [P?] [Story] Description`
 
@@ -80,7 +92,7 @@ Examples of foundational tasks (adjust based on your project):
 
 **Independent Test**: [How to verify this story works on its own]
 
-### Tests for User Story 1 (OPTIONAL - only if tests requested) ⚠️
+### Tests for User Story 1 (required where constitution/specification applies)
 
 > **NOTE: Write these tests FIRST, ensure they FAIL before implementation**
 
@@ -106,7 +118,7 @@ Examples of foundational tasks (adjust based on your project):
 
 **Independent Test**: [How to verify this story works on its own]
 
-### Tests for User Story 2 (OPTIONAL - only if tests requested) ⚠️
+### Tests for User Story 2 (required where constitution/specification applies)
 
 - [ ] T018 [P] [US2] Contract test for [endpoint] in tests/contract/test_[name].py
 - [ ] T019 [P] [US2] Integration test for [user journey] in tests/integration/test_[name].py
@@ -128,7 +140,7 @@ Examples of foundational tasks (adjust based on your project):
 
 **Independent Test**: [How to verify this story works on its own]
 
-### Tests for User Story 3 (OPTIONAL - only if tests requested) ⚠️
+### Tests for User Story 3 (required where constitution/specification applies)
 
 - [ ] T024 [P] [US3] Contract test for [endpoint] in tests/contract/test_[name].py
 - [ ] T025 [P] [US3] Integration test for [user journey] in tests/integration/test_[name].py
@@ -154,7 +166,7 @@ Examples of foundational tasks (adjust based on your project):
 - [ ] TXXX [P] Documentation updates in docs/
 - [ ] TXXX Code cleanup and refactoring
 - [ ] TXXX Performance optimization across all stories
-- [ ] TXXX [P] Additional unit tests (if requested) in tests/unit/
+- [ ] TXXX [P] Additional unit tests (if required by constitution/specification) in tests/unit/
 - [ ] TXXX Security hardening
 - [ ] TXXX Run quickstart.md validation
 
@@ -179,7 +191,7 @@ Examples of foundational tasks (adjust based on your project):
 
 ### Within Each User Story
 
-- Tests (if included) MUST be written and FAIL before implementation
+- Required tests MUST be written and FAIL before their corresponding implementation
 - Models before services
 - Services before endpoints
 - Core implementation before integration
@@ -199,7 +211,7 @@ Examples of foundational tasks (adjust based on your project):
 ## Parallel Example: User Story 1
 
 ```bash
-# Launch all tests for User Story 1 together (if tests requested):
+# Launch independent required tests for User Story 1 together when prerequisites pass:
 Task: "Contract test for [endpoint] in tests/contract/test_[name].py"
 Task: "Integration test for [user journey] in tests/integration/test_[name].py"
 

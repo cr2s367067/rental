@@ -1,0 +1,13 @@
+bun test v1.3.14 (0d9b296a)
+
+frontend/tests/application.test.tsx:
+(pass) application starts a session check before protected navigation [14.99ms]
+
+frontend/tests/session.test.tsx:
+(pass) session VM checks saved session and handles sign-in/sign-out [164.08ms]
+(pass) session failure renders signed-out and preserves actionable login error [122.02ms]
+
+ 3 pass
+ 0 fail
+ 12 expect() calls
+Ran 3 tests across 2 files. [563.00ms]

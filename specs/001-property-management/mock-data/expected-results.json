@@ -1,0 +1,186 @@
+{
+  "schema_version": 1,
+  "as_of_date": "2026-10-19",
+  "timezone": "Asia/Taipei",
+  "currency": "TWD",
+  "counts": {
+    "users": 3,
+    "properties": 4,
+    "resources": 11,
+    "tenants": 10,
+    "contracts": 9,
+    "obligations": 9,
+    "payments": 6,
+    "documents": 15
+  },
+  "dashboard_by_user": {
+    "U001": {
+      "total_properties": 4,
+      "total_resources": 11,
+      "occupied_resources": 5,
+      "available_resources": 6,
+      "current_tenants": 6,
+      "upcoming_contract_starts": 1,
+      "upcoming_contract_ends": 1,
+      "unpaid_rent_periods": 5,
+      "outstanding_twd": "74000",
+      "contracts_expiring": 2,
+      "document_metadata_count": 15
+    },
+    "U002": {
+      "total_properties": 2,
+      "total_resources": 7,
+      "occupied_resources": 4,
+      "available_resources": 3,
+      "current_tenants": 5,
+      "upcoming_contract_starts": 1,
+      "upcoming_contract_ends": 1,
+      "unpaid_rent_periods": 4,
+      "outstanding_twd": "63000",
+      "contracts_expiring": 2,
+      "document_metadata_count": 11
+    },
+    "U003": {
+      "total_properties": 1,
+      "total_resources": 4,
+      "occupied_resources": 3,
+      "available_resources": 1,
+      "current_tenants": 4,
+      "upcoming_contract_starts": 1,
+      "upcoming_contract_ends": 1,
+      "unpaid_rent_periods": 3,
+      "outstanding_twd": "54000",
+      "contracts_expiring": 2,
+      "document_metadata_count": 7
+    }
+  },
+  "contract_statuses": {
+    "C001": "Active",
+    "C002": "Expiring Soon",
+    "C003": "Active",
+    "C004": "Active",
+    "C005": "Active",
+    "C006": "Expiring Soon",
+    "C007": "Upcoming",
+    "C008": "Expired",
+    "C009": "Terminated"
+  },
+  "obligations": {
+    "OBL001": {
+      "amount_paid_twd": "20000",
+      "outstanding_twd": "0",
+      "status": "Paid",
+      "is_partial": false
+    },
+    "OBL002": {
+      "amount_paid_twd": "0",
+      "outstanding_twd": "22000",
+      "status": "Overdue",
+      "is_partial": false
+    },
+    "OBL003": {
+      "amount_paid_twd": "9000",
+      "outstanding_twd": "9000",
+      "status": "Overdue",
+      "is_partial": true
+    },
+    "OBL004": {
+      "amount_paid_twd": "5000",
+      "outstanding_twd": "11000",
+      "status": "Partial Payment",
+      "is_partial": true
+    },
+    "OBL005": {
+      "amount_paid_twd": "10000",
+      "outstanding_twd": "0",
+      "status": "Paid",
+      "is_partial": false
+    },
+    "OBL006": {
+      "amount_paid_twd": "0",
+      "outstanding_twd": "11000",
+      "status": "Overdue",
+      "is_partial": false
+    },
+    "OBL007": {
+      "amount_paid_twd": "0",
+      "outstanding_twd": "21000",
+      "status": "Unpaid",
+      "is_partial": false
+    },
+    "OBL008": {
+      "amount_paid_twd": "4500",
+      "outstanding_twd": "0",
+      "status": "Paid",
+      "is_partial": false
+    },
+    "OBL009": {
+      "amount_paid_twd": "9000",
+      "outstanding_twd": "0",
+      "status": "Paid",
+      "is_partial": false
+    }
+  },
+  "document_sha256": {
+    "DOC-C001": "a2a4699ad3a284654d0cdc7cb5e179fa981715c6c9b5cb9abaa09df203efcc72",
+    "DOC-C002": "d682500e0cb8a847799d9eb312d5b23ed1cddb9822bff8e323e7f60b845ae500",
+    "DOC-C003": "03589274c66d88373ba53021cbf50e80f1eab97ba11038caecf78afa42826aa0",
+    "DOC-C004": "f9cb066915773c54190284ca0bb9f9d9f48d1cdae21c0c961f79c3fcddf26ef4",
+    "DOC-C005": "dd102882a77309ffce3b1fe07224f36573d0d9e5edefa65e4ccb2eb972bc0798",
+    "DOC-C006": "4d6be7c2b6516fd14e31f4b28b0a76f779b2d40638bb4ec5c351222ffb7775ac",
+    "DOC-C007": "bc4a97317d175442eb09611d227c86ffc46bbb53d832b384b0df377b1270a759",
+    "DOC-C008": "15f2d052b4266607728ee0ab402cd5075bb9a4f067ac0cbc18b0865261e7e11b",
+    "DOC-C009": "f698e8284b3dc2ae9b13c3864d13c15119121f656c0e5cccdc41a55a9a5ec962",
+    "DOC-PAY001": "a12d4135675ce41acff000772d2c02099c38e5556caf39009bfeb8f68aa5d2e4",
+    "DOC-PAY002": "32f9edd14ff7bbe56cc2488d687845e9473bd820646dfc67ef71bec80b4c7092",
+    "DOC-PAY003": "a3ae12438d59595624802c96503a35220422c5cb7d7d0b72cb5be64778b9dd26",
+    "DOC-PAY004": "7b8224425feef593e45ef9d2b7bb21183cb62f7ac02a2e1e2cec11b3f9d9bf90",
+    "DOC-PAY005": "c073748a4edf8e5588512f3ee631bc991fe308658c27882cd9b48a644b63c4fd",
+    "DOC-PAY006": "60ec886a55f91eeb8141039666f67b94fa34d995a33a071e5bd1154749c28734"
+  },
+  "viewer_download_allowed": false,
+  "negative_scenarios": [
+    {
+      "id": "NEG-OVERLAP",
+      "description": "Create an overlapping contract on full resource R101 during October 2026",
+      "expected_http_status": 409,
+      "expected_change": "none"
+    },
+    {
+      "id": "NEG-SHARED-CAPACITY",
+      "description": "Add a third overlapping tenant contract to R104 on 2026-10-19",
+      "expected_http_status": 409,
+      "expected_change": "none"
+    },
+    {
+      "id": "NEG-OVERPAY",
+      "description": "Pay TWD 11001 against OBL004 with TWD 11000 outstanding",
+      "expected_http_status": 409,
+      "expected_change": "none"
+    },
+    {
+      "id": "NEG-OUT-OF-SCOPE",
+      "description": "U002 requests P003 contract C004",
+      "expected_http_status": 403,
+      "expected_change": "none"
+    },
+    {
+      "id": "NEG-VIEWER-DOWNLOAD",
+      "description": "U003 downloads DOC-C001 content",
+      "expected_http_status": 403,
+      "expected_change": "none"
+    },
+    {
+      "id": "NEG-LAST-OWNER",
+      "description": "Demote or disable the last enabled Owner U001",
+      "expected_http_status": 409,
+      "expected_change": "none"
+    },
+    {
+      "id": "NEG-DUPLICATE-KEY",
+      "description": "Replay a payment key with changed payload",
+      "expected_http_status": 409,
+      "expected_change": "none"
+    }
+  ]
+}

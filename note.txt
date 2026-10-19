@@ -1,0 +1,30 @@
+using /speckit-tasks skill to breakdown task for me
+ 
+You (Oct 19, 2026, 7:47 PM)
+speckit-implement
+help me use /speckit-analyze to check entire spec
+ 
+You (Oct 19, 2026, 8:03 PM)
+here's the fix plan\
+1. Assign minimal runnable entry points to setup tasks, then enhance them later.
+2. add the ownership and role management\
+3. stay rule will be follow by the contract, instead of check in / out
+4. add missing part
+5. help me draft the policy for this demo app
+6. for now we're using tw-time for this demo app
+7. base on current architecture help me add the missing part back
+8 and 9. skip it, thiss just for demo app
+
+help me plan and add the mock data for this demo app
+once you complete help me use /speckit-implement to implement the code also enable coding agent and qa agent, using complete workflow that we defined to complete this entire process
+ 
+You (Oct 19, 2026, 8:37 PM)
+once you done, start the container using docker compose, also help me create makefile which contains
+up -> docker compose up
+down -> compose down
+build -> compose build
+reload -> down, build, up
+once its running on container help me using chome-devtool-mcp for testing
+ 
+You (Oct 19, 2026, 8:48 PM)
+docker ps

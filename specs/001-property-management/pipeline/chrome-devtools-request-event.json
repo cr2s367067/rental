@@ -1,0 +1,37 @@
+{
+  "event_key": "001-property-management:chrome-devtools-container-testing:3322469c7baba519bd76ff547ce4110e56a4b7501e46f185f152d17f1323bcae",
+  "target_role": "coding-agent",
+  "target_thread": "/root/coding_property_management",
+  "payload_digest": "3322469c7baba519bd76ff547ce4110e56a4b7501e46f185f152d17f1323bcae",
+  "artifact_hashes": {
+    "specs/001-property-management/chrome-devtools-testing-request.md": "c6448b4cffc5317020bfce0f0d21a14e48f2d0ede774473b280ee587fa77dc85",
+    "specs/001-property-management/chrome-devtools-capability.json": "854125f6a6cd70ac9c31992e6dd1f5e79576d81451c3991d1402fa5d6f90a7da"
+  },
+  "source_qa_run_id": null,
+  "delivery_status": "queued",
+  "created_at": "2026-10-19T12:44:32.318130+00:00",
+  "tool": "collaboration.followup_task",
+  "receipt": {
+    "target": "/root/coding_property_management",
+    "tool_completed": true,
+    "returned_payload": null
+  },
+  "reason": "User requested Chrome DevTools MCP testing against running Compose application",
+  "post_acceptance_action": {
+    "id": "chrome-devtools-container-testing",
+    "required": true,
+    "status": "pending",
+    "owner_role": "qa-agent",
+    "depends_on": [
+      "local-compose-start"
+    ],
+    "source": "specs/001-property-management/chrome-devtools-testing-request.md",
+    "evidence": null,
+    "acceptance": [
+      "Actual Chrome DevTools MCP tools used against final running container app",
+      "Roles/main workflows/themes and console/network checks recorded with expected/actual evidence",
+      "Runtime identity matches final running build/configuration; defects routed through audited QA gate"
+    ]
+  },
+  "dispatched_at": "2026-10-19T12:44:53.100345+00:00"
+}

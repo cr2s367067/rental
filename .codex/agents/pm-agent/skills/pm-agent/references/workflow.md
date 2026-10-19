@@ -17,8 +17,12 @@
   in handoff.md; compare after each mutating stage/hook. Preserve source docs too.
 - Existing empty or scaffold files still count as existing. Report substantive
   gaps and request a specific authorized completion/amendment; never delete a
-  template file to force the missing-file branch. This repository currently has
-  a template constitution, so a future PM run must surface that gap.
+  template file to force the missing-file branch. This repository's adopted
+  constitution is `.specify/memory/constitution.md`; reuse it and validate its
+  substantive principles and gates without regenerating it.
+- Honor explicit user restrictions on agent dispatch. Automatic Coding and QA
+  dispatch is disabled for the current planning workflow until the user changes
+  that instruction; completing planning does not override this restriction.
 - Supply each stage with its scoped input and the existence/protection policy.
   Inspect extension hooks before dispatch; routine in-scope hooks retain existing
   authorization. A hook may not bypass spec protection or begin implementation.

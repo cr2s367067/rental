@@ -1,0 +1,10 @@
+bun test v1.3.14 (0d9b296a)
+
+backend/tests/integration/http-boundary.test.ts:
+(pass) HTTP session cookie security, invalid fields, origin/CSRF, logout and safe errors [365.82ms]
+(pass) HTTP login and principal limits return429 with Retry-After [1691.57ms]
+
+ 2 pass
+ 0 fail
+ 144 expect() calls
+Ran 2 tests across 1 file. [3.02s]

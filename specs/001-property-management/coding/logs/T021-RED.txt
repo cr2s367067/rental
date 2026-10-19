@@ -1,0 +1,74 @@
+bun test v1.3.14 (0d9b296a)
+
+frontend/tests/application.test.tsx:
+49 | ? (0, _getQueriesForElement.getQueriesForElement)(document.body, queries, initialValue) : Object.keys(queries).reduce((helpers, key) => {
+50 |   // `key` is for all intents and purposes the type of keyof `helpers`, which itself is the type of `initialValue` plus incoming properties from `queries`
+51 |   // if `Object.keys(something)` returned Array<keyof typeof something> this explicit type assertion would not be necessary
+52 |   // see https://stackoverflow.com/questions/55012174/why-doesnt-object-keys-return-a-keyof-type-in-typescript
+53 |   helpers[key] = () => {
+54 |     throw new TypeError('For queries bound to document.body a global document has to be available... Learn more: https://testing-library.com/s/screen-global-error');
+                                                                                                                                                                        ^
+TypeError: For queries bound to document.body a global document has to be available... Learn more: https://testing-library.com/s/screen-global-error
+      at <anonymous> (/Users/kuan/Library/Mobile Documents/com~apple~CloudDocs/ELearning/Rental/node_modules/.bun/@testing-library+dom@10.4.1/node_modules/@testing-library/dom/dist/screen.js:54:164)
+      at <anonymous> (/Users/kuan/Library/Mobile Documents/com~apple~CloudDocs/ELearning/Rental/frontend/tests/application.test.tsx:2:124)
+(fail) application starts a session check before protected navigation [17.08ms]
+
+frontend/tests/session.test.tsx:
+42 |   computedStyleSupportsPseudoElements: false
+43 | };
+44 | function runWithExpensiveErrorDiagnosticsDisabled(callback) {
+45 |   try {
+46 |     config._disableExpensiveErrorDiagnostics = true;
+47 |     return callback();
+                ^
+error: expect(received).toEqual(expected)
+
+- {
+-   "business_date": "2026-10-19",
+-   "csrf_token": "test",
+-   "demo_mode": true,
+-   "properties": [],
+-   "timezone": "Asia/Taipei",
+-   "user": {
+-     "display_name": "Owner",
+-     "email": "a@example.test",
+-     "id": "U1",
+-     "role": "OWNER",
+-   },
+- }
++ null
+
+- Expected  - 13
++ Received  + 1
+
+
+Ignored nodes: comments, script, style
+[36m<html>[39m
+  [36m<head />[39m
+  [36m<body>[39m
+    [36m<div />[39m
+  [36m</body>[39m
+[36m</html>[39m
+      at runWithExpensiveErrorDiagnosticsDisabled (/Users/kuan/Library/Mobile Documents/com~apple~CloudDocs/ELearning/Rental/node_modules/.bun/@testing-library+dom@10.4.1/node_modules/@testing-library/dom/dist/config.js:47:12)
+      at checkCallback (/Users/kuan/Library/Mobile Documents/com~apple~CloudDocs/ELearning/Rental/node_modules/.bun/@testing-library+dom@10.4.1/node_modules/@testing-library/dom/dist/wait-for.js:124:36)
+      at <anonymous> (/Users/kuan/Library/Mobile Documents/com~apple~CloudDocs/ELearning/Rental/node_modules/.bun/happy-dom@20.0.10/node_modules/happy-dom/lib/window/BrowserWindow.js:1260:30)
+(fail) session VM checks saved session and handles sign-in/sign-out [1024.16ms]
+1 | import './setup';import {test,expect,afterEach} from 'bun:test';import {renderHook,waitFor,act,cleanup} from '@testing-library/react';import {useSession} from '../VMs/session.vm';import type {SessionService} from '../Services/client';import type {SessionView} from '../Generated/types.gen';
+2 | const data:SessionView={user:{id:'U1',email:'a@example.test',display_name:'Owner',role:'OWNER'},properties:[],csrf_token:'test',business_date:'2026-10-19',timezone:'Asia/Taipei',demo_mode:true};
+3 | afterEach(cleanup);test('session VM checks saved session and handles sign-in/sign-out',async()=>{
+4 |  const service:SessionService={read:async()=>data,signIn:async()=>data,signOut:async()=>{}};const {result}=renderHook(()=>useSession(service));await waitFor(()=>expect(result.current.session).toEqual(data));await act(()=>result.current.signOut());expect(result.current.session).toBeNull();await act(()=>result.current.signIn('a@example.test','password'));expect(result.current.session).toEqual(data);
+5 | });
+6 | test('session failure renders signed-out and preserves actionable login error',async()=>{const service:SessionService={read:async()=>{throw {status_code:401,message:'Session expired'};},signIn:async()=>{throw {message:'Invalid credentials'};},signOut:async()=>{}};const {result}=renderHook(()=>useSession(service));await waitFor(()=>expect(result.current.loading).toBe(false));await act(()=>result.current.signIn('a@example.test','wrong'));expect(result.current.error).toBe('Invalid credentials');expect(result.current.session).toBeNull();});
+
+error: expect(received).toBe(expected)
+
+Expected: "Invalid credentials"
+Received: ""
+
+      at <anonymous> (/Users/kuan/Library/Mobile Documents/com~apple~CloudDocs/ELearning/Rental/frontend/tests/session.test.tsx:6:470)
+(fail) session failure renders signed-out and preserves actionable login error [13.31ms]
+
+ 0 pass
+ 3 fail
+ 21 expect() calls
+Ran 3 tests across 2 files. [1360.00ms]

@@ -78,7 +78,7 @@ You **MUST** consider the user input before proceeding (if not empty).
    - Phase 1: Setup tasks (project initialization)
    - Phase 2: Foundational tasks (blocking prerequisites for all user stories)
    - Phase 3+: One phase per user story (in priority order from spec.md)
-   - Each phase includes: story goal, independent test criteria, tests (if requested), implementation tasks
+   - Each phase includes: story goal, independent test criteria, tests required by the constitution/specification or user, implementation tasks
    - Final Phase: Polish & cross-cutting concerns
    - All tasks must follow the strict checklist format (see Task Generation Rules below)
    - Clear file paths for each task
@@ -139,7 +139,13 @@ The tasks.md should be immediately executable - each task must be specific enoug
 
 **CRITICAL**: Tasks MUST be organized by user story to enable independent implementation and testing.
 
-**Tests are OPTIONAL**: Only generate test tasks if explicitly requested in the feature specification or if user requests TDD approach.
+**Constitution-required tests are mandatory**: Read the adopted constitution before
+deciding test scope. Generate applicable business-rule and integration test tasks
+mandated there even when the feature specification does not repeat them. Additional
+test tasks depend on the specification, user request, and change risk. For this
+project, cover occupancy, contract dates, rent/payment behavior, and applicable API,
+persistence, and document-storage integrations. Documentation-only changes require
+relevant static verification rather than application tests.
 
 ### Checklist Format (REQUIRED)
 
@@ -181,12 +187,12 @@ Every task MUST strictly follow this format:
      - Models needed for that story
      - Services needed for that story
      - Interfaces/UI needed for that story
-     - If tests requested: Tests specific to that story
+     - Where required by the constitution/specification or user: Tests specific to that story
    - Mark story dependencies (most stories should be independent)
 
 2. **From Contracts**:
    - Map each interface contract → to the user story it serves
-   - If tests requested: Each interface contract → contract test task [P] before implementation in that story's phase
+   - Where required by the constitution/specification or user: Each interface contract → contract test task [P] before implementation in that story's phase (only mark [P] when prerequisites pass and file ownership is independent)
 
 3. **From Data Model**:
    - Map each entity to the user story(ies) that need it
@@ -203,7 +209,7 @@ Every task MUST strictly follow this format:
 - **Phase 1**: Setup (project initialization)
 - **Phase 2**: Foundational (blocking prerequisites - MUST complete before user stories)
 - **Phase 3+**: User Stories in priority order (P1, P2, P3...)
-  - Within each story: Tests (if requested) → Models → Services → Endpoints → Integration
+  - Within each story: Required tests → Models → Services → Endpoints → Integration
   - Each phase should be a complete, independently testable increment
 - **Final Phase**: Polish & Cross-Cutting Concerns
 

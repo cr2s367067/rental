@@ -1,0 +1,238 @@
+{
+  "date": "2026-10-19",
+  "scope": "isolated generic compatibility probe; no application feature acceptance or independent QA",
+  "host": "macOS arm64; Bun 1.3.14; Node 26.12.0 observed but Bun used for runtime/CLI checks; Docker 29.8.2",
+  "scratch_path": "/var/folders/j8/g_zmrxcj2p9cslyxjcv3r5fr0000gn/T/rental-compat-qjgajeij",
+  "scratch_artifact_hashes": {
+    "package.json": "9b9eee8842986e8d36269bc0b6eb381feec6297c78d912180af2656229c5bad0",
+    "bun.lock": "3cebcd55b220abf6de1699d572df4903310ffc5f3e53d47bedd26fd5edb7ba2a",
+    "schema.prisma": "54ea2db53556ec3030ffa53007155b897d537717ea04aa5a65c7986050dbc04c",
+    "probe.ts": "5480621ad25b3ca60aa457c9027dbc456b00ea2784dec3138eda754d90312a1e",
+    "tsconfig.json": "d7afb9f941548e7ee88bcb1fd3eed06d2a6149dcb2e07130e4d4165ff304e7e1",
+    "tsconfig.ui.json": "203976e52e199ed93d847bb68a70fbc399f5a6a41f3f7790c481c3029562a772",
+    "ui.tsx": "8c08275251c283824b530e923807d19f8609846d6bfa8282fbd0c3b3dcf57149",
+    "vite.config.mts": "21825b8bccd4ff3a52692a972f6813231f191ae7a12acded2c4a76dc593f89e4",
+    "probe.test.tsx": "fd5e55105bcbd24e029de3d8c67c61b4602f5cab703a95ec505ac3da1e4d148a",
+    "dom.setup.ts": "062550458ed12c61d8c1308bfc445f8ab7d8fca9930fa75b3ec36facdb739f5d",
+    "run-probe.py": "7263fb5f9e0ea968a7cf21a1704b1460c8e4a4e58e8d00b2260c6e1fcf9c022e"
+  },
+  "commands": [
+    {
+      "command": [
+        "docker",
+        "run",
+        "--detach",
+        "--rm",
+        "--name",
+        "rental-compat-pg-9c8099a5",
+        "-e",
+        "[REDACTED]",
+        "-e",
+        "POSTGRES_DB=rental_compat",
+        "-p",
+        "127.0.0.1::5432",
+        "postgres@sha256:b0f9560a2de083e2cc7382e75f808c7381a32852a7ec49117deedb300e552b24"
+      ],
+      "exit_code": 0,
+      "stdout": "27f1aa7c0e91828c89e2294b772a5455b0233f415e0c8bf6bfd002299b5a073a\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "run",
+        "--detach",
+        "--rm",
+        "--name",
+        "rental-compat-redis-903f0834",
+        "-p",
+        "127.0.0.1::6379",
+        "redis@sha256:858f009f9709ce576febc734aa78b8f6d624b82571f9ddb6bda4377c833b3499"
+      ],
+      "exit_code": 0,
+      "stdout": "a1f52806b10b557a4518a60b9bf5dffce393a0db49c38992e3196090b458fb88\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "port",
+        "rental-compat-pg-9c8099a5",
+        "5432/tcp"
+      ],
+      "exit_code": 0,
+      "stdout": "127.0.0.1:63765\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "port",
+        "rental-compat-redis-903f0834",
+        "6379/tcp"
+      ],
+      "exit_code": 0,
+      "stdout": "127.0.0.1:63766\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "exec",
+        "rental-compat-pg-9c8099a5",
+        "postgres",
+        "--version"
+      ],
+      "exit_code": 0,
+      "stdout": "postgres (PostgreSQL) 17.11\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "exec",
+        "rental-compat-redis-903f0834",
+        "redis-server",
+        "--version"
+      ],
+      "exit_code": 0,
+      "stdout": "Redis server v=7.4.11 sha=00000000:0 malloc=jemalloc-5.3.0 bits=64 build=dc395baf3ab4da8b\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "bun",
+        "--bun",
+        "node_modules/prisma/build/index.js",
+        "validate",
+        "--schema",
+        "schema.prisma"
+      ],
+      "exit_code": 0,
+      "stdout": "Prisma schema loaded from schema.prisma\nThe schema at schema.prisma is valid \ud83d\ude80\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "bun",
+        "--bun",
+        "node_modules/prisma/build/index.js",
+        "generate",
+        "--schema",
+        "schema.prisma"
+      ],
+      "exit_code": 0,
+      "stdout": "Prisma schema loaded from schema.prisma\n\n\u2714 Generated Prisma Client (v6.19.0) to ./node_modules/@prisma/client in 29ms\n\nStart by importing your Prisma Client (See: https://pris.ly/d/importing-client)\n\nTip: Interested in query caching in just a few lines of code? Try Accelerate today! https://pris.ly/tip-3-accelerate\n\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "bun",
+        "--bun",
+        "node_modules/prisma/build/index.js",
+        "migrate",
+        "diff",
+        "--from-empty",
+        "--to-schema-datamodel",
+        "schema.prisma",
+        "--script"
+      ],
+      "exit_code": 0,
+      "stdout": "-- CreateTable\nCREATE TABLE \"Probe\" (\n    \"id\" TEXT NOT NULL,\n    \"bytes\" BYTEA NOT NULL,\n    \"amount\" DECIMAL(12,0) NOT NULL,\n\n    CONSTRAINT \"Probe_pkey\" PRIMARY KEY (\"id\")\n);\n\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "bun",
+        "--bun",
+        "node_modules/prisma/build/index.js",
+        "migrate",
+        "deploy",
+        "--schema",
+        "schema.prisma"
+      ],
+      "exit_code": 0,
+      "stdout": "Prisma schema loaded from schema.prisma\nDatasource \"db\": PostgreSQL database \"rental_compat\", schema \"public\" at \"127.0.0.1:63765\"\n\n1 migration found in prisma/migrations\n\nApplying migration `0001_probe`\n\nThe following migration(s) have been applied:\n\nmigrations/\n  \u2514\u2500 0001_probe/\n    \u2514\u2500 migration.sql\n      \nAll migrations have been successfully applied.\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "bun",
+        "x",
+        "tsc",
+        "-p",
+        "tsconfig.json"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "bun",
+        "dist/probe.js"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"nest_di_http\":\"PASS\",\"openapi_export\":\"3.0.0\",\"prisma_bytea_decimal_transaction_lock\":\"PASS\",\"redis\":\"PASS\"}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "bun",
+        "x",
+        "openapi-ts",
+        "-i",
+        "openapi.json",
+        "-o",
+        "generated",
+        "-p",
+        "@hey-api/typescript",
+        "@hey-api/sdk",
+        "@hey-api/client-fetch"
+      ],
+      "exit_code": 0,
+      "stdout": "\n\u001b[36m888   |                           e      888~-_   888\u001b[39m\n\u001b[36m888___|  e88~~8e  Y88b  /        d8b     888   \\  888\u001b[39m\n\u001b[36m888   | d888  88b  Y888/        /Y88b    888    | 888\u001b[39m\n\u001b[36m888   | 8888__888   Y8/        /  Y88b   888   /  888\u001b[39m\n\u001b[36m888   | Y888    ,    Y        /____Y88b  888_-~   888\u001b[39m\n\u001b[36m888   |  \"88___/    /        /      Y88b 888      888\u001b[39m\n\u001b[36m                  _/\u001b[39m\n\n\u001b[90m@hey-api/openapi-ts v0.87.5\u001b[39m\n\n\u001b[90m[Job 1] \u001b[39m\u23f3 \u001b[36mGenerating from 1 input:\u001b[39m\n\u001b[90m[Job 1] \u001b[39m\u001b[36m  [1] \u001b[39mopenapi.json\n\u001b[90m[Job 1] \u001b[39m\u001b[32m\u2705 Done!\u001b[39m Your output is in \u001b[96m/private/var/folders/j8/g_zmrxcj2p9cslyxjcv3r5fr0000gn/T/rental-compat-qjgajeij/generated\u001b[39m\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "bun",
+        "x",
+        "tsc",
+        "-p",
+        "tsconfig.ui.json"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "bun",
+        "--bun",
+        "node_modules/vite/bin/vite.js",
+        "build"
+      ],
+      "exit_code": 0,
+      "stdout": "vite v7.2.2 building client environment for production...\ntransforming...\n\u2713 158 modules transformed.\nrendering chunks...\ncomputing gzip size...\nui-dist/index.html                   0.24 kB \u2502 gzip:  0.19 kB\nui-dist/assets/index-DFO67_b0.css    3.93 kB \u2502 gzip:  1.34 kB\nui-dist/assets/index-CVmG_tws.js   296.99 kB \u2502 gzip: 93.09 kB\n\u2713 built in 832ms\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "bun",
+        "test",
+        "--preload",
+        "./dom.setup.ts",
+        "probe.test.tsx"
+      ],
+      "exit_code": 0,
+      "stdout": "bun test v1.3.14 (0d9b296a)\n",
+      "stderr": "\nprobe.test.tsx:\n(pass) React DOM renders on Bun [11.19ms]\n\n 1 pass\n 0 fail\n 1 expect() calls\nRan 1 test across 1 file. [280.00ms]\n"
+    }
+  ],
+  "limits": [
+    "The first harness attempt incorrectly merged a Prisma update notice from stderr into SQL; the harness was corrected to separate streams and all checks passed on a fresh isolated database.",
+    "The temporary PostgreSQL/Redis containers were removed after the probe. No existing database was changed.",
+    "Application schema, four-service Compose startup, business concurrency, browser acceptance, and recovery remain Coding/QA tasks."
+  ]
+}

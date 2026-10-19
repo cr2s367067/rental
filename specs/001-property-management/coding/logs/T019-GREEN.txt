@@ -1,0 +1,16 @@
+bun test v1.3.14 (0d9b296a)
+
+backend/tests/integration/access.test.ts:
+(pass) valid credentials create an opaque Redis session with persisted role and grants [405.81ms]
+(pass) invalid credentials and stale/disabled sessions fail [286.59ms]
+(pass) Owner, Manager and Viewer checks use server scope [192.02ms]
+
+backend/tests/integration/transport.test.ts:
+(pass) mutations require exact Origin and session CSRF token [0.18ms]
+(pass) Redis rate windows implement login10 and authenticated120 with Retry-After [151.50ms]
+(pass) safe errors contain actionable status without raw payload [0.11ms]
+
+ 6 pass
+ 0 fail
+ 154 expect() calls
+Ran 6 tests across 2 files. [1320.00ms]

@@ -129,3 +129,26 @@
 - [Assumption about scope boundaries, e.g., "Mobile support is out of scope for v1"]
 - [Assumption about data/environment, e.g., "Existing authentication system will be reused"]
 - [Dependency on existing system/service, e.g., "Requires access to the existing user profile API"]
+
+## Constitutional Acceptance and Open Decisions *(mandatory)*
+
+Read `.specify/memory/constitution.md`. Add applicable requirements and acceptance
+scenarios to the sections above; reference their FR/SC IDs here. Use justified N/A
+for concerns outside this feature. Keep technical design in the implementation plan.
+
+- **Record consistency:** Entity relationships, occupancy/availability, contract and
+  payment rules, dashboard totals, and drill-down agreement.
+- **Devices and themes:** Essential actions and information across mobile, tablet,
+  laptop, desktop, and both themes; manual/system selection and preference persistence.
+- **Protection:** Who may access tenant data/documents, upload restrictions, and
+  sensitive-data handling where applicable.
+- **Verification:** Acceptance scenarios for relevant state transitions, date
+  boundaries, invalid inputs, and failure cases. Explicitly require the automated
+  business-rule and integration checks mandated by Constitution V.
+- **Open decisions:** Record the decision, source ambiguity, affected FR/SC IDs,
+  and dependent work blocked pending confirmation. Cover applicable tenant statuses,
+  shared/overlapping occupancy, date thresholds, rent periods/due dates, payment
+  precedence, currency/rounding/timezone, access/retention, scale, and performance.
+
+Material unknowns MUST NOT be silently resolved as assumptions. PRD examples do
+not establish thresholds, capacity limits, or status-transition rules.

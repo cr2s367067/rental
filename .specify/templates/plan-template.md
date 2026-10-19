@@ -40,7 +40,27 @@
 
 *GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
 
-[Gates determined based on constitution file]
+Assess each gate against `.specify/memory/constitution.md`, citing the design or an
+explicit blocking decision. Record PASS, BLOCKED, or justified N/A for every gate:
+
+- **I. Record consistency:** Entity relationships, authoritative PostgreSQL data,
+  transactional/concurrent updates, cache behavior, and dashboard/detail agreement.
+- **II. API contracts:** Backend-owned NestJS definitions, generated OpenAPI and
+  `@hey-api/openapi-ts` client, regeneration, consumer checks, and server validation.
+- **III. Architecture/storage:** Approved stack, separate services, Prisma migrations,
+  PostgreSQL `BYTEA` plus file metadata, Redis boundaries, and recovery considerations.
+- **IV. Devices/themes:** Mobile through desktop acceptance, light/dark/system/manual
+  themes with persistence, metric drill-downs, and status cues beyond color.
+- **V. Verification/protection:** Business-rule tests, applicable integration checks,
+  server authorization, upload restrictions, sensitive-data handling, and evidence.
+- **Readiness:** Material status, occupancy, date, payment, access, and performance
+  decisions are confirmed before dependent work. Record unresolved decisions and
+  their blocked work; do not invent product rules from examples.
+- **Execution scope:** Read QA retry state before new development or dispatch. Honor
+  the user's prohibition on automatic Coding/QA dispatch until explicitly changed.
+
+An unresolved applicable gate blocks dependent work. Complexity justification does
+not waive a constitutional MUST; departures require an approved amendment.
 
 ## Project Structure
 

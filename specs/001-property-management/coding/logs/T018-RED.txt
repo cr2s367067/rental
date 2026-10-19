@@ -1,0 +1,24 @@
+bun test v1.3.14 (0d9b296a)
+
+backend/tests/integration/transport.test.ts:
+1 | import {test,expect,afterAll} from 'bun:test';
+2 | import {checkOrigin,checkCSRF,safeError} from '../../Src/Infrastructure/transport';
+3 | import {TemporaryStore} from '../../Src/Infrastructure/redis';import {Config} from '../../Src/Infrastructure/config';
+4 | const store=new TemporaryStore(new Config());afterAll(()=>store.onModuleDestroy());
+5 | test('mutations require exact Origin and session CSRF token',()=>{
+6 |  expect(()=>checkOrigin('https://evil.example','http://localhost:5173')).toThrow();expect(()=>checkOrigin(undefined,'http://localhost:5173')).toThrow();
+                                                                             ^
+error: expect(received).toThrow()
+
+Received function did not throw
+Received value: undefined
+
+      at <anonymous> (/Users/kuan/Library/Mobile Documents/com~apple~CloudDocs/ELearning/Rental/backend/tests/integration/transport.test.ts:6:74)
+(fail) mutations require exact Origin and session CSRF token [0.88ms]
+(pass) Redis rate windows implement login10 and authenticated120 with Retry-After [127.61ms]
+(pass) safe errors contain actionable status without raw payload [0.13ms]
+
+ 2 pass
+ 1 fail
+ 138 expect() calls
+Ran 3 tests across 1 file. [358.00ms]

@@ -1,0 +1,44 @@
+bun test v1.3.14 (0d9b296a)
+
+frontend/tests/users.vm.test.ts:
+1 | import {test,expect} from 'bun:test';import {UsersVM} from '../VMs/users.vm';import type {UsersService} from '../Services/users.service';
+2 | const user={id:'U4',email:'x@example.test',display_name:'X',role:'VIEWER' as const,enabled:true,version:1,property_ids:[]};
+3 | function service(overrides:Partial<UsersService>={}):UsersService{return {list:async()=>({items:[user],total:1,page:1,page_size:100,business_date:'2026-10-19'}),create:async()=>user,update:async()=>user,password:async()=>({ok:true}),grants:async()=>user,owner:async()=>({id:'P1',name:'Property',owner_user_id:'U1',version:2}),date:async business_date=>({business_date,timezone:'Asia/Taipei',demo_mode:true}),reset:async()=>({ok:true}),...overrides};}
+4 | test('role creation uses injected generated service and invalidates server context',async()=>{let refreshed=0;const vm=new UsersVM(service(),async()=>{refreshed++;});const result=await vm.create({email:user.email,display_name:'X',password:'twelve-characters',role:'VIEWER',enabled:true});expect(result).toEqual(user);expect(refreshed).toBe(1);expect(vm.pending).toBe(false);});
+                                                                                                                                                                                                                                                                                                                   ^
+error: expect(received).toEqual(expected)
+
+- {
+-   "display_name": "X",
+-   "email": "x@example.test",
+-   "enabled": true,
+-   "id": "U4",
+-   "property_ids": [],
+-   "role": "VIEWER",
+-   "version": 1,
+- }
++ undefined
+
+- Expected  - 9
++ Received  + 1
+
+      at <anonymous> (/Users/kuan/Library/Mobile Documents/com~apple~CloudDocs/ELearning/Rental/frontend/tests/users.vm.test.ts:4:304)
+(fail) role creation uses injected generated service and invalidates server context [0.59ms]
+1 | import {test,expect} from 'bun:test';import {UsersVM} from '../VMs/users.vm';import type {UsersService} from '../Services/users.service';
+2 | const user={id:'U4',email:'x@example.test',display_name:'X',role:'VIEWER' as const,enabled:true,version:1,property_ids:[]};
+3 | function service(overrides:Partial<UsersService>={}):UsersService{return {list:async()=>({items:[user],total:1,page:1,page_size:100,business_date:'2026-10-19'}),create:async()=>user,update:async()=>user,password:async()=>({ok:true}),grants:async()=>user,owner:async()=>({id:'P1',name:'Property',owner_user_id:'U1',version:2}),date:async business_date=>({business_date,timezone:'Asia/Taipei',demo_mode:true}),reset:async()=>({ok:true}),...overrides};}
+4 | test('role creation uses injected generated service and invalidates server context',async()=>{let refreshed=0;const vm=new UsersVM(service(),async()=>{refreshed++;});const result=await vm.create({email:user.email,display_name:'X',password:'twelve-characters',role:'VIEWER',enabled:true});expect(result).toEqual(user);expect(refreshed).toBe(1);expect(vm.pending).toBe(false);});
+5 | test('denied/conflicting grants show actionable error and retain input',async()=>{const input={version:1,property_ids:['P1']};const vm=new UsersVM(service({grants:async()=>{throw {message:'Record changed. Refresh'};}}),async()=>{});await vm.grants('U4',input);expect(vm.error).toBe('Record changed. Refresh');expect(input.property_ids).toEqual(['P1']);expect(vm.pending).toBe(false);});
+                                                                                                                                                                                                                                                                                         ^
+error: expect(received).toBe(expected)
+
+Expected: "Record changed. Refresh"
+Received: ""
+
+      at <anonymous> (/Users/kuan/Library/Mobile Documents/com~apple~CloudDocs/ELearning/Rental/frontend/tests/users.vm.test.ts:5:278)
+(fail) denied/conflicting grants show actionable error and retain input [0.24ms]
+
+ 0 pass
+ 2 fail
+ 2 expect() calls
+Ran 2 tests across 1 file. [19.00ms]

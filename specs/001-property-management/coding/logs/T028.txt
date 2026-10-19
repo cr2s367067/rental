@@ -1,0 +1,24 @@
+bun test v1.3.14 (0d9b296a)
+
+frontend/tests/shell.test.tsx:
+(pass) shell exposes navigation, Taiwan demo date, theme controls and role scope [28.65ms]
+
+frontend/tests/application.test.tsx:
+(pass) application starts a session check before protected navigation [4.71ms]
+
+frontend/tests/shared.test.tsx:
+(pass) responsive table keeps labeled headings and status meaning beyond color [5.97ms]
+(pass) accessible dialog labels and close action remain available [19.47ms]
+
+frontend/tests/theme.vm.test.ts:
+(pass) system follows media changes, manual persists and return visit restores [1.06ms]
+(pass) invalid or unavailable storage falls back safely and permits manual choice [0.12ms]
+
+frontend/tests/session.test.tsx:
+(pass) session VM checks saved session and handles sign-in/sign-out [164.24ms]
+(pass) session failure renders signed-out and preserves actionable login error [116.12ms]
+
+ 8 pass
+ 0 fail
+ 31 expect() calls
+Ran 8 tests across 5 files. [719.00ms]

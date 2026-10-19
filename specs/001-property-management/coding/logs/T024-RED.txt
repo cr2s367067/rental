@@ -1,0 +1,18 @@
+bun test v1.3.14 (0d9b296a)
+
+frontend/tests/shell.test.tsx:
+1 | import './setup';import {test,expect,afterEach} from 'bun:test';import {render,cleanup} from '@testing-library/react';import {AppShell} from '../Views/AppShell';import type {SessionView} from '../Generated/types.gen';
+2 | afterEach(cleanup);const session:SessionView={user:{id:'U1',role:'VIEWER',email:'viewer@example.test',display_name:'Viewer'},properties:[],business_date:'2026-10-19',timezone:'Asia/Taipei',demo_mode:true,csrf_token:'x'};
+3 | test('shell exposes navigation, Taiwan demo date, theme controls and role scope',()=>{const ui=render(<AppShell session={session} onSignOut={()=>{}}><p>Page body</p></AppShell>);expect(ui.queryByRole('navigation')).not.toBeNull();expect(ui.queryByText(/2026-10-19/)).not.toBeNull();expect(ui.queryByLabelText('Theme')).not.toBeNull();expect(ui.queryByText('Users')).toBeNull();expect(ui.queryByText('Page body')).not.toBeNull();});
+                                                                                                                                                                                                                               ^
+error: expect(received).not.toBeNull()
+
+Received: null
+
+      at <anonymous> (/Users/kuan/Library/Mobile Documents/com~apple~CloudDocs/ELearning/Rental/frontend/tests/shell.test.tsx:3:220)
+(fail) shell exposes navigation, Taiwan demo date, theme controls and role scope [11.74ms]
+
+ 0 pass
+ 1 fail
+ 1 expect() calls
+Ran 1 test across 1 file. [236.00ms]

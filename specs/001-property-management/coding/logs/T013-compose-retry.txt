@@ -1,0 +1,136 @@
+ Image rental-demo-backend Building 
+ Image rental-demo-frontend Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 1.15kB done
+#1 DONE 0.0s
+
+#2 [frontend internal] load build definition from Dockerfile
+#2 DONE 0.0s
+
+#3 [backend internal] load build definition from Dockerfile
+#3 transferring dockerfile: 473B done
+#3 DONE 0.0s
+
+#2 [frontend internal] load build definition from Dockerfile
+#2 transferring dockerfile: 445B done
+#2 DONE 0.0s
+
+#4 [frontend internal] load metadata for docker.io/oven/bun@sha256:e10577f0db68676a7024391c6e5cb4b879ebd17188ab750cf10024a6d700e5c4
+#4 DONE 0.0s
+
+#5 [frontend internal] load .dockerignore
+#5 transferring context: 134B done
+#5 DONE 0.0s
+
+#6 [backend stage-0 1/8] FROM docker.io/oven/bun@sha256:e10577f0db68676a7024391c6e5cb4b879ebd17188ab750cf10024a6d700e5c4
+#6 resolve docker.io/oven/bun@sha256:e10577f0db68676a7024391c6e5cb4b879ebd17188ab750cf10024a6d700e5c4 0.0s done
+#6 DONE 0.0s
+
+#7 [backend internal] load build context
+#7 transferring context: 1.28MB 0.0s done
+#7 DONE 0.0s
+
+#8 [frontend stage-0 2/8] WORKDIR /app
+#8 CACHED
+
+#9 [frontend stage-0 3/8] COPY package.json bun.lock ./
+#9 CACHED
+
+#10 [frontend stage-0 4/8] COPY frontend/package.json frontend/package.json
+#10 CACHED
+
+#11 [frontend stage-0 5/8] COPY backend/package.json backend/package.json
+#11 CACHED
+
+#12 [frontend stage-0 6/8] RUN --mount=type=cache,target=/root/.bun/install/cache bun install --frozen-lockfile --ignore-scripts --network-concurrency 8
+#12 0.087 bun install v1.3.14 (0d9b296a)
+#12 6.495 
+#12 6.495 + @hey-api/openapi-ts@0.87.5
+#12 6.495 + @playwright/test@1.56.1
+#12 6.495 + @types/bun@1.3.2
+#12 6.495 + prisma@6.19.0
+#12 6.495 + typescript@5.9.3
+#12 6.495 
+#12 6.495 676 packages installed [6.41s]
+#12 DONE 7.8s
+
+#13 [backend stage-0 7/8] COPY . .
+#13 DONE 0.2s
+
+#14 [frontend] exporting to image
+#14 exporting layers
+#14 ...
+
+#15 [backend stage-0 8/8] RUN bun run --filter backend build
+#15 1.218 backend build: Exited with code 0
+#15 DONE 1.2s
+
+#16 [backend] exporting to image
+#16 ...
+
+#14 [frontend] exporting to image
+#14 exporting layers 10.6s done
+#14 exporting manifest sha256:adc91037231aad22749f97514fe6dbb6f44772764be1c8ca2adf84990f681202 done
+#14 exporting config sha256:89cfaead312c9e38a0cbcc5995bef692987b85c20908adbb50ed8ea94d6781da done
+#14 exporting attestation manifest sha256:ac08699ab8b0076829eb46d7d259e1c5bf3cbd399c47a09f7688332a7205226d 0.0s done
+#14 exporting manifest list sha256:e48fd700e6d010d40c2109c0850cd128897e255fc70f2cb5292bb2a2c17fb92b done
+#14 naming to docker.io/library/rental-demo-frontend:latest done
+#14 unpacking to docker.io/library/rental-demo-frontend:latest
+#14 unpacking to docker.io/library/rental-demo-frontend:latest 4.3s done
+#14 DONE 14.9s
+
+#16 [backend] exporting to image
+#16 exporting layers 9.4s done
+#16 exporting manifest sha256:2da5c271278e1c3ea82f089ae10a2cf04fbb2d47a9ff91671dbe8ce10e0839dd done
+#16 exporting config sha256:0b1188b00753a9977350281e4ae1a4f95710467c7a8afae3529cfe6e7989f833 done
+#16 exporting attestation manifest sha256:099f3662d614b91ed4802e68c78f0d40de01ce0c39ed42176c42b4a0c6df510f 0.0s done
+#16 exporting manifest list sha256:c88c1a40cf5ef50879c2552c553b3f6cfaaf5f4548ef319e393226ea41e7466f done
+#16 naming to docker.io/library/rental-demo-backend:latest done
+#16 unpacking to docker.io/library/rental-demo-backend:latest 4.3s done
+#16 DONE 13.7s
+
+#17 [frontend] resolving provenance for metadata file
+#17 DONE 0.0s
+
+#18 [backend] resolving provenance for metadata file
+#18 DONE 0.0s
+ Image rental-demo-backend Built 
+ Image rental-demo-frontend Built 
+ Network rental-demo_default Creating 
+ Network rental-demo_default Creating 
+ Volume rental-demo_postgres_data Creating 
+ Volume rental-demo_postgres_data Creating 
+ Volume rental-demo_postgres_data Created 
+ Volume rental-demo_postgres_data Created 
+ Network rental-demo_default Created 
+ Network rental-demo_default Created 
+ Container rental-demo-redis-1 Creating 
+ Container rental-demo-postgres-1 Creating 
+ Container rental-demo-redis-1 Created 
+ Container rental-demo-postgres-1 Created 
+ Container rental-demo-backend-1 Creating 
+ Container rental-demo-backend-1 Created 
+ Container rental-demo-frontend-1 Creating 
+ Container rental-demo-frontend-1 Created 
+ Container rental-demo-redis-1 Starting 
+ Container rental-demo-postgres-1 Starting 
+ Container rental-demo-redis-1 Started 
+ Container rental-demo-postgres-1 Started 
+ Container rental-demo-postgres-1 Waiting 
+ Container rental-demo-redis-1 Waiting 
+ Container rental-demo-redis-1 Healthy 
+ Container rental-demo-postgres-1 Healthy 
+ Container rental-demo-backend-1 Starting 
+ Container rental-demo-backend-1 Started 
+ Container rental-demo-backend-1 Waiting 
+ Container rental-demo-backend-1 Healthy 
+ Container rental-demo-frontend-1 Starting 
+ Container rental-demo-frontend-1 Started 
+ Container rental-demo-redis-1 Waiting 
+ Container rental-demo-backend-1 Waiting 
+ Container rental-demo-frontend-1 Waiting 
+ Container rental-demo-postgres-1 Waiting 
+ Container rental-demo-postgres-1 Healthy 
+ Container rental-demo-backend-1 Healthy 
+ Container rental-demo-redis-1 Healthy 
+ Container rental-demo-frontend-1 Healthy 

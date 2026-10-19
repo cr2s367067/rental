@@ -1,0 +1,11 @@
+bun test v1.3.14 (0d9b296a)
+
+backend/tests/integration/access.test.ts:
+(pass) valid credentials create an opaque Redis session with persisted role and grants [359.82ms]
+(pass) invalid credentials and stale/disabled sessions fail [305.89ms]
+(pass) Owner, Manager and Viewer checks use server scope [161.80ms]
+
+ 3 pass
+ 0 fail
+ 11 expect() calls
+Ran 3 tests across 1 file. [1080.00ms]

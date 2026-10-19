@@ -1,0 +1,15 @@
+docker compose up
+docker compose down
+docker compose build
+/Applications/Xcode-27.0.0.app/Contents/Developer/usr/bin/make down
+docker compose down
+/Applications/Xcode-27.0.0.app/Contents/Developer/usr/bin/make build
+docker compose build
+/Applications/Xcode-27.0.0.app/Contents/Developer/usr/bin/make up
+docker compose up
+/Applications/Xcode-27.0.0.app/Contents/Developer/usr/bin/make down
+docker compose down
+/Applications/Xcode-27.0.0.app/Contents/Developer/usr/bin/make build
+docker compose build
+/Applications/Xcode-27.0.0.app/Contents/Developer/usr/bin/make up
+docker compose up

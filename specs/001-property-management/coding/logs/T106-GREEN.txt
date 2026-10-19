@@ -1,0 +1,10 @@
+bun test v1.3.14 (0d9b296a)
+
+frontend/tests/users.vm.test.ts:
+(pass) role creation uses injected generated service and invalidates server context [0.30ms]
+(pass) denied/conflicting grants show actionable error and retain input [0.20ms]
+
+ 2 pass
+ 0 fail
+ 6 expect() calls
+Ran 2 tests across 1 file. [35.00ms]

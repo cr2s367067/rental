@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "feature": "001-property-management",
+  "feature_dir": "specs/001-property-management",
+  "workspace": "/Users/kuan/Library/Mobile Documents/com~apple~CloudDocs/ELearning/Rental",
+  "status": "CODING_DISPATCHED",
+  "role_threads": {
+    "pm-agent": "/root",
+    "coding-agent": "/root/coding_property_management",
+    "qa-agent": null
+  },
+  "queued_requirements": [],
+  "retry_state": {
+    "retry_count": 0,
+    "revision": 0,
+    "development_status": "ACTIVE",
+    "last_run_id": null
+  },
+  "events": [
+    {
+      "event_key": "001-property-management:coding-agent:1014909dea24477022eca3898f2671817eda4ea4599a4af3bad6a58eafa20b43",
+      "target_role": "coding-agent",
+      "payload_digest": "1014909dea24477022eca3898f2671817eda4ea4599a4af3bad6a58eafa20b43",
+      "accepted_packet": "specs/001-property-management/pipeline/pm-handoff-accepted.json",
+      "source_qa_run_id": null,
+      "delivery_status": "dispatched",
+      "created_at": "2026-10-19T12:35:59.479682+00:00",
+      "tool": "collaboration.spawn_agent",
+      "receipt": {
+        "task_name": "/root/coding_property_management"
+      },
+      "dispatched_at": "2026-10-19T12:37:09.359551+00:00",
+      "target_thread": "/root/coding_property_management"
+    },
+    {
+      "event_key": "001-property-management:coding-agent:f5aaf7001c23c335ab798b0da729938506de4769a053a581742f5c8b3ca93bc4",
+      "target_role": "coding-agent",
+      "target_thread": "/root/coding_property_management",
+      "payload_digest": "f5aaf7001c23c335ab798b0da729938506de4769a053a581742f5c8b3ca93bc4",
+      "accepted_packet": "specs/001-property-management/pipeline/pm-handoff-compose-addendum.json",
+      "source_qa_run_id": null,
+      "delivery_status": "queued",
+      "created_at": "2026-10-19T12:40:31.754231+00:00",
+      "tool": "collaboration.followup_task",
+      "receipt": {
+        "target": "/root/coding_property_management",
+        "tool_completed": true,
+        "returned_payload": null
+      },
+      "reason": "Same-feature user steering: Makefile and post-QA local Compose startup",
+      "dispatched_at": "2026-10-19T12:41:03.353454+00:00"
+    },
+    {
+      "event_key": "001-property-management:chrome-devtools-container-testing:3322469c7baba519bd76ff547ce4110e56a4b7501e46f185f152d17f1323bcae",
+      "target_role": "coding-agent",
+      "target_thread": "/root/coding_property_management",
+      "payload_digest": "3322469c7baba519bd76ff547ce4110e56a4b7501e46f185f152d17f1323bcae",
+      "artifact_hashes": {
+        "specs/001-property-management/chrome-devtools-testing-request.md": "c6448b4cffc5317020bfce0f0d21a14e48f2d0ede774473b280ee587fa77dc85",
+        "specs/001-property-management/chrome-devtools-capability.json": "854125f6a6cd70ac9c31992e6dd1f5e79576d81451c3991d1402fa5d6f90a7da"
+      },
+      "source_qa_run_id": null,
+      "delivery_status": "queued",
+      "created_at": "2026-10-19T12:44:32.318130+00:00",
+      "tool": "collaboration.followup_task",
+      "receipt": {
+        "target": "/root/coding_property_management",
+        "tool_completed": true,
+        "returned_payload": null
+      },
+      "reason": "User requested Chrome DevTools MCP testing against running Compose application",
+      "dispatched_at": "2026-10-19T12:44:53.100345+00:00"
+    }
+  ],
+  "post_acceptance_actions": [
+    {
+      "id": "local-compose-start",
+      "source": "specs/001-property-management/compose-delivery-addendum.md#completionstartup-contract-op-002",
+      "required": true,
+      "status": "pending",
+      "owner_role": "pm-agent",
+      "condition": "Latest accepted implementation independently passes QA and audited retry gate resets; start before final delivery closeout",
+      "workspace": "/Users/kuan/Library/Mobile Documents/com~apple~CloudDocs/ELearning/Rental",
+      "commands": [
+        "docker compose up -d",
+        "docker compose ps"
+      ],
+      "acceptance": [
+        "Four configured local services running/healthy",
+        "Actual frontend endpoint responds; report observed local URL",
+        "Preserve database volumes and unrelated containers"
+      ],
+      "evidence": null
+    },
+    {
+      "id": "chrome-devtools-container-testing",
+      "required": true,
+      "status": "pending",
+      "owner_role": "qa-agent",
+      "depends_on": [
+        "local-compose-start"
+      ],
+      "source": "specs/001-property-management/chrome-devtools-testing-request.md",
+      "evidence": null,
+      "acceptance": [
+        "Actual Chrome DevTools MCP tools used against final running container app",
+        "Roles/main workflows/themes and console/network checks recorded with expected/actual evidence",
+        "Runtime identity matches final running build/configuration; defects routed through audited QA gate"
+      ]
+    }
+  ]
+}

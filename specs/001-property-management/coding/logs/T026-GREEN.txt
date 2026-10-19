@@ -1,0 +1,13 @@
+bun test v1.3.14 (0d9b296a)
+
+frontend/tests/shell.test.tsx:
+(pass) shell exposes navigation, Taiwan demo date, theme controls and role scope [38.58ms]
+
+frontend/tests/shared.test.tsx:
+(pass) responsive table keeps labeled headings and status meaning beyond color [5.73ms]
+(pass) accessible dialog labels and close action remain available [19.12ms]
+
+ 3 pass
+ 0 fail
+ 10 expect() calls
+Ran 3 tests across 2 files. [400.00ms]

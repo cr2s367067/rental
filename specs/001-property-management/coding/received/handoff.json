@@ -1,0 +1,3357 @@
+{
+  "schema_version": 1,
+  "feature_dir": "specs/001-property-management",
+  "inputs": {
+    "prd": "prd.md",
+    "architecture": "Architecture.md"
+  },
+  "checklists": [
+    "specs/001-property-management/checklists/requirements.md",
+    "specs/001-property-management/checklists/implementation-readiness.md"
+  ],
+  "artifact_hashes": {
+    "prd.md": "8d4b444631d1d92ab4a0360f79113e9e80e7290d6f25f00185396496f83f73a4",
+    "Architecture.md": "78f8c3474e681106fe9ec04471d323a911e4d4089af87e36ab6766ba9da53372",
+    ".specify/memory/constitution.md": "ca610aae3abef14cbf3af786b2042c1395c630742eacab33c9a2f3af910ad8a3",
+    "specs/001-property-management/analysis.md": "10dcdaf8162b89ce549a2f85dad05602afdcb1317dd063fbb90ec803529bce4d",
+    "specs/001-property-management/checklists/implementation-readiness.md": "e0ce7f6e4d658e25a3d0eb5a21d0a6dbbf7bffd2213765dbf250e49912665316",
+    "specs/001-property-management/checklists/requirements.md": "e15f4ea42611c354d9fea976a20c01ef2463997223dd024354b2bcd619ade608",
+    "specs/001-property-management/compatibility-evidence.json": "f45e187bd86386e6649487306126349266c7324ab9a9fc40c2b04373ec609ae4",
+    "specs/001-property-management/compatibility-registry.json": "68ea013bfaaaf9a184b76a86ee8605ac7e3b094355f613462f7c20fbc042a607",
+    "specs/001-property-management/contracts/api-design.md": "45be1b1c8bbfeb5c171f29ae82f826c17cd77285e9fbf223a5a50d6d5c168e55",
+    "specs/001-property-management/data-model.md": "6d2839656cf7e6193f075e5e2811d5868b108fa3ef4272f56048cbb742c2c5e3",
+    "specs/001-property-management/demo-policy.md": "80843792d3e4882615d494a96aa075d97e9bfddd1688051b6c0db52c4a8eced3",
+    "specs/001-property-management/demo-validation.md": "f7111bbc31edcdb5a3f2936ee69c5c5e2508f1c7fa5f1c0f4433b2ca331b7ae9",
+    "specs/001-property-management/execution-authorization.md": "051fba582a9bd84870278e5eb417854688e2cdc2280a7c8a6f73432409fc8b52",
+    "specs/001-property-management/mock-data/expected-results.json": "eb79cfac72a56380e4ec90b5849e1311fe95206e0b7d9ab0d16cd62a63e19edd",
+    "specs/001-property-management/mock-data/fixtures.json": "f85eb4d2a679a62600537fc47a84b4ce822693ff33df7ac2b2c335fab1f83bc8",
+    "specs/001-property-management/mock-data-plan.md": "84ea73a8454ec4c8addb9e130aa79970457c9243ff10536aa8d6fd91938b2f45",
+    "specs/001-property-management/plan.md": "00519e5bc8a85568fffd32abb337fdee5a0c7bc6cc846e00508d71ae714cba4e",
+    "specs/001-property-management/quickstart.md": "9dd9af6043d65df2f26752daa1473e4017ad593770858cdac1b26de26d3fe6c7",
+    "specs/001-property-management/research.md": "43038b4bd8fde27cb50d547733b667e37493af747d437ba171d11e35efc02ff9",
+    "specs/001-property-management/spec.md": "d9214045416972fea9637cdefadc6e5671b5aeaba9084f97aa87b5309e436bf0",
+    "specs/001-property-management/tasks.md": "de47e34d15ee9d3f09c6ecae609d33e2842bfec3b119d5d041febe230156afd8",
+    "specs/001-property-management/toolchain.json": "38c89bcadfde8f2dbf462233f85893ed1e2e9ae6f74389c12df09360b0c7ae2e"
+  },
+  "analysis": {
+    "status": "passed",
+    "report": "specs/001-property-management/analysis.md"
+  },
+  "handoff": {
+    "status": "dispatched",
+    "recipient": "/root/coding_property_management",
+    "evidence": "collaboration.spawn_agent returned {\"task_name\": \"/root/coding_property_management\"}; pipeline-state.json records event and accepted packet digest."
+  },
+  "tasks": [
+    {
+      "id": "T001",
+      "description": "Verify and record a compatible, pinned toolchain in `specs/001-property-management/research.md`, `specs/001-property-management/toolchain.json`, `specs/001-property-management/compatibility-evidence.json`, `specs/001-property-management/compatibility-registry.json`",
+      "technical_requirements": [
+        "Record exact versions, official sources, Bun/NestJS/Prisma/OpenAPI/test-tool compatibility evidence and limits. Sixteen isolated commands passed; application acceptance remains pending.",
+        "Traceability: shared architectural/readiness prerequisite; Constitution workflow gates. Preserve approved stack and assigned ownership."
+      ],
+      "dependencies": [],
+      "priority": "P1",
+      "acceptance_criteria": [
+        "Record exact versions, official sources, Bun/NestJS/Prisma/OpenAPI/test-tool compatibility evidence and limits. Sixteen isolated commands passed; application acceptance remains pending."
+      ],
+      "spec_refs": [
+        "specs/001-property-management/spec.md#constitutional-acceptance-and-open-decisions-mandatory"
+      ],
+      "architecture_refs": [
+        "Architecture.md#backend",
+        "specs/001-property-management/plan.md#verification-plan"
+      ],
+      "files": [
+        "specs/001-property-management/research.md",
+        "specs/001-property-management/toolchain.json",
+        "specs/001-property-management/compatibility-evidence.json",
+        "specs/001-property-management/compatibility-registry.json"
+      ],
+      "blockers": [],
+      "status": "done"
+    },
+    {
+      "id": "T097",
+      "description": "Draft the demo policy and mock-data import plan in `specs/001-property-management/demo-policy.md`, `specs/001-property-management/mock-data-plan.md`",
+      "technical_requirements": [
+        "Document confirmed user directions separately from proposed defaults, role/ownership rules, fixed clock, dataset stories and future isolated import/reset without writing a loader.",
+        "Traceability: FR-024, FR-032, FR-036, FR-037, FR-038, FR-039. Preserve approved stack and assigned ownership."
+      ],
+      "dependencies": [],
+      "priority": "P1",
+      "acceptance_criteria": [
+        "Document confirmed user directions separately from proposed defaults, role/ownership rules, fixed clock, dataset stories and future isolated import/reset without writing a loader."
+      ],
+      "spec_refs": [
+        "specs/001-property-management/spec.md#functional-requirements"
+      ],
+      "architecture_refs": [
+        "Architecture.md#backend",
+        "specs/001-property-management/plan.md#verification-plan"
+      ],
+      "files": [
+        "specs/001-property-management/demo-policy.md",
+        "specs/001-property-management/mock-data-plan.md"
+      ],
+      "blockers": [],
+      "status": "done"
+    },
+    {
+      "id": "T002",
+      "description": "Record contract-driven occupancy and interval proposals in `specs/001-property-management/research.md`",
+      "technical_requirements": [
+        "User contract authority and Asia/Taipei are recorded; inclusive/exclusive, capacity and history defaults are explicitly proposed for review, not falsely marked confirmed.",
+        "Traceability: FR-003, FR-005, FR-006, FR-007, FR-008, FR-029, FR-030, FR-031. Preserve approved stack and assigned ownership."
+      ],
+      "dependencies": [
+        "T097"
+      ],
+      "priority": "P1",
+      "acceptance_criteria": [
+        "User contract authority and Asia/Taipei are recorded; inclusive/exclusive, capacity and history defaults are explicitly proposed for review, not falsely marked confirmed."
+      ],
+      "spec_refs": [
+        "specs/001-property-management/spec.md#functional-requirements"
+      ],
+      "architecture_refs": [
+        "Architecture.md#backend",
+        "specs/001-property-management/plan.md#verification-plan"
+      ],
+      "files": [
+        "specs/001-property-management/research.md"
+      ],
+      "blockers": [],
+      "status": "done"
+    },
+    {
+      "id": "T003",
+      "description": "Record the proposed demo billing defaults in `specs/001-property-management/research.md`",
+      "technical_requirements": [
+        "Record exact whole TWD, explicit periods/due dates, seven/thirty-day windows, status precedence and append-only correction/overpayment proposals for review.",
+        "Traceability: FR-010, FR-011, FR-014, FR-015, FR-016, FR-032, FR-033, FR-034, FR-035. Preserve approved stack and assigned ownership."
+      ],
+      "dependencies": [
+        "T097"
+      ],
+      "priority": "P1",
+      "acceptance_criteria": [
+        "Record exact whole TWD, explicit periods/due dates, seven/thirty-day windows, status precedence and append-only correction/overpayment proposals for review."
+      ],
+      "spec_refs": [
+        "specs/001-property-management/spec.md#functional-requirements"
+      ],
+      "architecture_refs": [
+        "Architecture.md#backend",
+        "specs/001-property-management/plan.md#verification-plan"
+      ],
+      "files": [
+        "specs/001-property-management/research.md"
+      ],
+      "blockers": [],
+      "status": "done"
+    },
+    {
+      "id": "T004",
+      "description": "Record the reopened demo access and role policy draft in `specs/001-property-management/research.md`",
+      "technical_requirements": [
+        "User request reopens policy drafting; Owner/Manager/Viewer, grants, ownership, sessions and upload restrictions are documented as proposals, with no credential creation.",
+        "Traceability: FR-012, FR-013, FR-024, FR-025, FR-027. Preserve approved stack and assigned ownership."
+      ],
+      "dependencies": [
+        "T097"
+      ],
+      "priority": "P1",
+      "acceptance_criteria": [
+        "User request reopens policy drafting; Owner/Manager/Viewer, grants, ownership, sessions and upload restrictions are documented as proposals, with no credential creation."
+      ],
+      "spec_refs": [
+        "specs/001-property-management/spec.md#functional-requirements"
+      ],
+      "architecture_refs": [
+        "Architecture.md#backend",
+        "specs/001-property-management/plan.md#verification-plan"
+      ],
+      "files": [
+        "specs/001-property-management/research.md"
+      ],
+      "blockers": [],
+      "status": "done"
+    },
+    {
+      "id": "T005",
+      "description": "Record proposed demo smoke and recovery budgets in `specs/001-property-management/research.md`",
+      "technical_requirements": [
+        "Separate confirmed Asia/Taipei from proposed three-session/two-second smoke and five-minute reimport recovery budgets; no production SLA or stress-test project is implied.",
+        "Traceability: shared architectural/readiness prerequisite; Constitution workflow gates. Preserve approved stack and assigned ownership."
+      ],
+      "dependencies": [
+        "T097"
+      ],
+      "priority": "P1",
+      "acceptance_criteria": [
+        "Separate confirmed Asia/Taipei from proposed three-session/two-second smoke and five-minute reimport recovery budgets; no production SLA or stress-test project is implied."
+      ],
+      "spec_refs": [
+        "specs/001-property-management/spec.md#constitutional-acceptance-and-open-decisions-mandatory"
+      ],
+      "architecture_refs": [
+        "Architecture.md#backend",
+        "specs/001-property-management/plan.md#verification-plan"
+      ],
+      "files": [
+        "specs/001-property-management/research.md"
+      ],
+      "blockers": [],
+      "status": "done"
+    },
+    {
+      "id": "T098",
+      "description": "Create deterministic synthetic fixture records in `specs/001-property-management/mock-data/fixtures.json`",
+      "technical_requirements": [
+        "Provide stable-ID users/grants/properties/resources/tenants/contracts/obligations/payments and synthetic document bytes with no credentials or real personal data.",
+        "Traceability: FR-038, SC-007. Preserve approved stack and assigned ownership."
+      ],
+      "dependencies": [
+        "T097"
+      ],
+      "priority": "P1",
+      "acceptance_criteria": [
+        "Provide stable-ID users/grants/properties/resources/tenants/contracts/obligations/payments and synthetic document bytes with no credentials or real personal data."
+      ],
+      "spec_refs": [
+        "specs/001-property-management/spec.md#functional-requirements",
+        "specs/001-property-management/spec.md#measurable-outcomes"
+      ],
+      "architecture_refs": [
+        "Architecture.md#backend",
+        "specs/001-property-management/plan.md#verification-plan"
+      ],
+      "files": [
+        "specs/001-property-management/mock-data/fixtures.json"
+      ],
+      "blockers": [],
+      "status": "done"
+    },
+    {
+      "id": "T006",
+      "description": "Amend the specification and requirement checklist for the requested demo fixes in `specs/001-property-management/spec.md`, `specs/001-property-management/checklists/requirements.md`",
+      "technical_requirements": [
+        "Preserve existing FR/SC/story IDs, add US7 and new requirements, replace check-in/out with contracts, identify proposed defaults and keep runtime/review gates explicit.",
+        "Traceability: shared architectural/readiness prerequisite; Constitution workflow gates. Preserve approved stack and assigned ownership."
+      ],
+      "dependencies": [
+        "T002",
+        "T003",
+        "T004",
+        "T005"
+      ],
+      "priority": "P1",
+      "acceptance_criteria": [
+        "Preserve existing FR/SC/story IDs, add US7 and new requirements, replace check-in/out with contracts, identify proposed defaults and keep runtime/review gates explicit."
+      ],
+      "spec_refs": [
+        "specs/001-property-management/spec.md#constitutional-acceptance-and-open-decisions-mandatory"
+      ],
+      "architecture_refs": [
+        "Architecture.md#backend",
+        "specs/001-property-management/plan.md#verification-plan"
+      ],
+      "files": [
+        "specs/001-property-management/spec.md",
+        "specs/001-property-management/checklists/requirements.md"
+      ],
+      "blockers": [],
+      "status": "done"
+    },
+    {
+      "id": "T099",
+      "description": "Create and verify scoped golden results and scenario expectations in `specs/001-property-management/mock-data/expected-results.json`",
+      "technical_requirements": [
+        "Verify IDs/FKs, capacity, money/status arithmetic, document sizes/hashes, role-scoped totals and negative cases at the fixed Taiwan date; fixture validation is not an app runtime pass.",
+        "Traceability: FR-018, FR-019, FR-038, FR-039, SC-002, SC-003, SC-006, SC-007. Preserve approved stack and assigned ownership."
+      ],
+      "dependencies": [
+        "T098"
+      ],
+      "priority": "P1",
+      "acceptance_criteria": [
+        "Verify IDs/FKs, capacity, money/status arithmetic, document sizes/hashes, role-scoped totals and negative cases at the fixed Taiwan date; fixture validation is not an app runtime pass."
+      ],
+      "spec_refs": [
+        "specs/001-property-management/spec.md#functional-requirements",
+        "specs/001-property-management/spec.md#measurable-outcomes"
+      ],
+      "architecture_refs": [
+        "Architecture.md#backend",
+        "specs/001-property-management/plan.md#verification-plan"
+      ],
+      "files": [
+        "specs/001-property-management/mock-data/expected-results.json"
+      ],
+      "blockers": [],
+      "status": "done"
+    },
+    {
+      "id": "T007",
+      "description": "Draft the architecture-aligned demo data model in `specs/001-property-management/data-model.md`",
+      "technical_requirements": [
+        "Provide data-model.md with users/grants, ownership, contract-derived Stay, exact date/money, append-only payments, idempotency and BYTEA relationships; draft status is explicit.",
+        "Traceability: shared architectural/readiness prerequisite; Constitution workflow gates. Preserve approved stack and assigned ownership."
+      ],
+      "dependencies": [
+        "T006"
+      ],
+      "priority": "P1",
+      "acceptance_criteria": [
+        "Provide data-model.md with users/grants, ownership, contract-derived Stay, exact date/money, append-only payments, idempotency and BYTEA relationships; draft status is explicit."
+      ],
+      "spec_refs": [
+        "specs/001-property-management/spec.md#constitutional-acceptance-and-open-decisions-mandatory"
+      ],
+      "architecture_refs": [
+        "Architecture.md#backend",
+        "specs/001-property-management/plan.md#verification-plan"
+      ],
+      "files": [
+        "specs/001-property-management/data-model.md"
+      ],
+      "blockers": [],
+      "status": "done"
+    },
+    {
+      "id": "T008",
+      "description": "Draft API intent and the demo validation quickstart in `specs/001-property-management/contracts/api-design.md`, `specs/001-property-management/quickstart.md`",
+      "technical_requirements": [
+        "Provide policy-scoped operations and explicit registration ownership, plus present-versus-future command/fixture guidance. No runtime OpenAPI or executable command result is fabricated.",
+        "Traceability: shared architectural/readiness prerequisite; Constitution workflow gates. Preserve approved stack and assigned ownership."
+      ],
+      "dependencies": [
+        "T007"
+      ],
+      "priority": "P1",
+      "acceptance_criteria": [
+        "Provide policy-scoped operations and explicit registration ownership, plus present-versus-future command/fixture guidance. No runtime OpenAPI or executable command result is fabricated."
+      ],
+      "spec_refs": [
+        "specs/001-property-management/spec.md#constitutional-acceptance-and-open-decisions-mandatory"
+      ],
+      "architecture_refs": [
+        "Architecture.md#backend",
+        "specs/001-property-management/plan.md#verification-plan"
+      ],
+      "files": [
+        "specs/001-property-management/contracts/api-design.md",
+        "specs/001-property-management/quickstart.md"
+      ],
+      "blockers": [],
+      "status": "done"
+    },
+    {
+      "id": "T009",
+      "description": "Record updated demo plan and research disposition in `specs/001-property-management/plan.md`, `specs/001-property-management/research.md`",
+      "technical_requirements": [
+        "Reviewed corrections and missing design drafts are linked. Version verification, policy review and fresh analysis remain implementation gates; no completed formal runtime stage is claimed.",
+        "Traceability: shared architectural/readiness prerequisite; Constitution workflow gates. Preserve approved stack and assigned ownership."
+      ],
+      "dependencies": [
+        "T006",
+        "T007",
+        "T008"
+      ],
+      "priority": "P1",
+      "acceptance_criteria": [
+        "Reviewed corrections and missing design drafts are linked. Version verification, policy review and fresh analysis remain implementation gates; no completed formal runtime stage is claimed."
+      ],
+      "spec_refs": [
+        "specs/001-property-management/spec.md#constitutional-acceptance-and-open-decisions-mandatory"
+      ],
+      "architecture_refs": [
+        "Architecture.md#backend",
+        "specs/001-property-management/plan.md#verification-plan"
+      ],
+      "files": [
+        "specs/001-property-management/plan.md",
+        "specs/001-property-management/research.md"
+      ],
+      "blockers": [],
+      "status": "done"
+    },
+    {
+      "id": "T112",
+      "description": "Review proposed demo defaults and rerun artifact readiness analysis in `specs/001-property-management/demo-policy.md`, `specs/001-property-management/checklists/requirements.md`, `specs/001-property-management/checklists/implementation-readiness.md`, `specs/001-property-management/analysis.md`, `specs/001-property-management/execution-authorization.md`",
+      "technical_requirements": [
+        "Record the later user implementation authorization and PM interpretation of the drafted defaults, evaluate readiness checklists and fresh read-only cross-artifact analysis. Retain compatibility limits; do not claim application QA or weaken constitution.",
+        "Traceability: FR-032, FR-036, FR-037, FR-038, FR-039. Preserve approved stack and assigned ownership."
+      ],
+      "dependencies": [
+        "T001",
+        "T009",
+        "T097",
+        "T099"
+      ],
+      "priority": "P1",
+      "acceptance_criteria": [
+        "Record the later user implementation authorization and PM interpretation of the drafted defaults, evaluate readiness checklists and fresh read-only cross-artifact analysis. Retain compatibility limits; do not claim application QA or weaken constitution."
+      ],
+      "spec_refs": [
+        "specs/001-property-management/spec.md#functional-requirements"
+      ],
+      "architecture_refs": [
+        "Architecture.md#backend",
+        "specs/001-property-management/plan.md#verification-plan"
+      ],
+      "files": [
+        "specs/001-property-management/demo-policy.md",
+        "specs/001-property-management/checklists/requirements.md",
+        "specs/001-property-management/checklists/implementation-readiness.md",
+        "specs/001-property-management/analysis.md",
+        "specs/001-property-management/execution-authorization.md"
+      ],
+      "blockers": [],
+      "status": "done"
+    },
+    {
+      "id": "T010",
+      "description": "Initialize the Bun workspace and shared TypeScript/quality configuration in `package.json`, `bun.lock`, `tsconfig.base.json`, `.gitignore`",
+      "technical_requirements": [
+        "Use the selected exact versions; workspace commands resolve frontend/backend checks and omit secrets/generated noise according to the accepted output policy.",
+        "Traceability: shared architectural/readiness prerequisite; Constitution workflow gates. Preserve approved stack and assigned ownership."
+      ],
+      "dependencies": [
+        "T001",
+        "T009",
+        "T112"
+      ],
+      "priority": "P1",
+      "acceptance_criteria": [
+        "Use the selected exact versions; workspace commands resolve frontend/backend checks and omit secrets/generated noise according to the accepted output policy."
+      ],
+      "spec_refs": [
+        "specs/001-property-management/spec.md#constitutional-acceptance-and-open-decisions-mandatory"
+      ],
+      "architecture_refs": [
+        "Architecture.md#backend",
+        "specs/001-property-management/plan.md#verification-plan"
+      ],
+      "files": [
+        "package.json",
+        "bun.lock",
+        "tsconfig.base.json",
+        ".gitignore"
+      ],
+      "blockers": [],
+      "status": "ready"
+    },
+    {
+      "id": "T011",
+      "description": "Initialize the React/Vite frontend package in `frontend/package.json`, `frontend/tsconfig.json`, `frontend/vite.config.ts`, `frontend/index.html`, `frontend/main.tsx`, `frontend/Views/App.tsx`",
+      "technical_requirements": [
+        "Create a minimal runnable React entry/App before service startup. It compiles/builds with pinned tooling and can later be enhanced by T022/T028 without waiting for feature code.",
+        "Traceability: FR-021, FR-022. Preserve approved stack and assigned ownership."
+      ],
+      "dependencies": [
+        "T010"
+      ],
+      "priority": "P1",
+      "acceptance_criteria": [
+        "Create a minimal runnable React entry/App before service startup. It compiles/builds with pinned tooling and can later be enhanced by T022/T028 without waiting for feature code."
+      ],
+      "spec_refs": [
+        "specs/001-property-management/spec.md#functional-requirements"
+      ],
+      "architecture_refs": [
+        "Architecture.md#frontend",
+        "specs/001-property-management/plan.md#verification-plan"
+      ],
+      "files": [
+        "frontend/package.json",
+        "frontend/tsconfig.json",
+        "frontend/vite.config.ts",
+        "frontend/index.html",
+        "frontend/main.tsx",
+        "frontend/Views/App.tsx"
+      ],
+      "blockers": [],
+      "status": "waiting"
+    },
+    {
+      "id": "T012",
+      "description": "Initialize the NestJS backend package in `backend/package.json`, `backend/tsconfig.json`, `backend/nest-cli.json`, `backend/Src/main.ts`, `backend/Src/app.module.ts`",
+      "technical_requirements": [
+        "Create a minimal runnable NestJS entry/root module and health response before T013; start without domain/database modules until T019 enhances bootstrap. Verify Bun DI/decorator support.",
+        "Traceability: shared architectural/readiness prerequisite; Constitution workflow gates. Preserve approved stack and assigned ownership."
+      ],
+      "dependencies": [
+        "T010"
+      ],
+      "priority": "P1",
+      "acceptance_criteria": [
+        "Create a minimal runnable NestJS entry/root module and health response before T013; start without domain/database modules until T019 enhances bootstrap. Verify Bun DI/decorator support."
+      ],
+      "spec_refs": [
+        "specs/001-property-management/spec.md#constitutional-acceptance-and-open-decisions-mandatory"
+      ],
+      "architecture_refs": [
+        "Architecture.md#backend",
+        "specs/001-property-management/plan.md#verification-plan"
+      ],
+      "files": [
+        "backend/package.json",
+        "backend/tsconfig.json",
+        "backend/nest-cli.json",
+        "backend/Src/main.ts",
+        "backend/Src/app.module.ts"
+      ],
+      "blockers": [],
+      "status": "waiting"
+    },
+    {
+      "id": "T013",
+      "description": "Configure the four local services and environment boundaries in `compose.yaml`, `frontend/Dockerfile`, `backend/Dockerfile`, `.dockerignore`, `.env.example`, `.env.development.example`, `.env.staging.example`, `.env.production.example`",
+      "technical_requirements": [
+        "Start all four services and basic health checks using T011/T012 minimal entries. Database/Redis persistence/config are available before later infrastructure/security enhancements; no dependency on T019/T022 startup. Supply separate environment examples with no real secrets and preserve required example files in ignore rules.",
+        "Traceability: shared architectural/readiness prerequisite; Constitution workflow gates. Preserve approved stack and assigned ownership."
+      ],
+      "dependencies": [
+        "T011",
+        "T012"
+      ],
+      "priority": "P1",
+      "acceptance_criteria": [
+        "Start all four services and basic health checks using T011/T012 minimal entries. Database/Redis persistence/config are available before later infrastructure/security enhancements; no dependency on T019/T022 startup. Supply separate environment examples with no real secrets and preserve required example files in ignore rules."
+      ],
+      "spec_refs": [
+        "specs/001-property-management/spec.md#constitutional-acceptance-and-open-decisions-mandatory"
+      ],
+      "architecture_refs": [
+        "Architecture.md#backend",
+        "specs/001-property-management/plan.md#verification-plan"
+      ],
+      "files": [
+        "compose.yaml",
+        "frontend/Dockerfile",
+        "backend/Dockerfile",
+        ".dockerignore",
+        ".env.example",
+        ".env.development.example",
+        ".env.staging.example",
+        ".env.production.example"
+      ],
+      "blockers": [],
+      "status": "waiting"
+    },
+    {
+      "id": "T014",
+      "description": "Implement the approved Prisma schema and initial migration in `backend/prisma/schema.prisma`, `backend/prisma/migrations/0001_initial/migration.sql`, `backend/tests/fixtures.ts`",
+      "technical_requirements": [
+        "Implement approved demo entity/FK/uniqueness/BYTEA design and fresh migrations. Provide isolated valid fixture loading for tests before business endpoints exist, with environment-supplied credentials and no production reset.",
+        "Traceability: FR-005, FR-009, FR-013, FR-014, FR-028, FR-036, FR-037, FR-038. Preserve approved stack and assigned ownership."
+      ],
+      "dependencies": [
+        "T007",
+        "T013"
+      ],
+      "priority": "P1",
+      "acceptance_criteria": [
+        "Implement approved demo entity/FK/uniqueness/BYTEA design and fresh migrations. Provide isolated valid fixture loading for tests before business endpoints exist, with environment-supplied credentials and no production reset."
+      ],
+      "spec_refs": [
+        "specs/001-property-management/spec.md#functional-requirements"
+      ],
+      "architecture_refs": [
+        "Architecture.md#backend",
+        "specs/001-property-management/plan.md#verification-plan"
+      ],
+      "files": [
+        "backend/prisma/schema.prisma",
+        "backend/prisma/migrations/0001_initial/migration.sql",
+        "backend/tests/fixtures.ts"
+      ],
+      "blockers": [],
+      "status": "waiting"
+    },
+    {
+      "id": "T015",
+      "description": "Provide database, transaction, Redis and environment adapters in `backend/Src/Infrastructure/database.ts`, `backend/Src/Infrastructure/redis.ts`, `backend/Src/Infrastructure/config.ts`",
+      "technical_requirements": [
+        "Adapters use injected dependencies, validated environment settings and controlled lifecycle; cache loss cannot lose authoritative records; real-service smoke checks pass.",
+        "Traceability: FR-028. Preserve approved stack and assigned ownership."
+      ],
+      "dependencies": [
+        "T014"
+      ],
+      "priority": "P1",
+      "acceptance_criteria": [
+        "Adapters use injected dependencies, validated environment settings and controlled lifecycle; cache loss cannot lose authoritative records; real-service smoke checks pass."
+      ],
+      "spec_refs": [
+        "specs/001-property-management/spec.md#functional-requirements"
+      ],
+      "architecture_refs": [
+        "Architecture.md#backend",
+        "specs/001-property-management/plan.md#verification-plan"
+      ],
+      "files": [
+        "backend/Src/Infrastructure/database.ts",
+        "backend/Src/Infrastructure/redis.ts",
+        "backend/Src/Infrastructure/config.ts"
+      ],
+      "blockers": [],
+      "status": "waiting"
+    },
+    {
+      "id": "T016",
+      "description": "Write access-policy and session boundary tests in `backend/tests/integration/access.test.ts`",
+      "technical_requirements": [
+        "Tests cover the confirmed sign-in/session flow, allowed/denied roles, property boundaries and document access; record meaningful behavioral RED without import/setup failures.",
+        "Traceability: FR-024, SC-005. Preserve approved stack and assigned ownership."
+      ],
+      "dependencies": [
+        "T008",
+        "T015"
+      ],
+      "priority": "P1",
+      "acceptance_criteria": [
+        "Tests cover the confirmed sign-in/session flow, allowed/denied roles, property boundaries and document access; record meaningful behavioral RED without import/setup failures."
+      ],
+      "spec_refs": [
+        "specs/001-property-management/spec.md#functional-requirements",
+        "specs/001-property-management/spec.md#measurable-outcomes"
+      ],
+      "architecture_refs": [
+        "Architecture.md#backend",
+        "specs/001-property-management/plan.md#verification-plan"
+      ],
+      "files": [
+        "backend/tests/integration/access.test.ts"
+      ],
+      "blockers": [],
+      "status": "waiting"
+    },
+    {
+      "id": "T018",
+      "description": "Write request, error, rate-limit and sensitive-log tests in `backend/tests/integration/transport.test.ts`",
+      "technical_requirements": [
+        "Assert invalid requests, failure response shapes, approved rate-limit behavior and absence of secrets/document contents/tenant-sensitive fields in logs; observe intended RED. Rate limits are 10 login attempts/IP/minute and 120 authenticated requests/principal/minute; assert 429/Retry-After and CSRF/origin denial.",
+        "Traceability: FR-026, FR-027. Preserve approved stack and assigned ownership."
+      ],
+      "dependencies": [
+        "T008",
+        "T015"
+      ],
+      "priority": "P1",
+      "acceptance_criteria": [
+        "Assert invalid requests, failure response shapes, approved rate-limit behavior and absence of secrets/document contents/tenant-sensitive fields in logs; observe intended RED. Rate limits are 10 login attempts/IP/minute and 120 authenticated requests/principal/minute; assert 429/Retry-After and CSRF/origin denial."
+      ],
+      "spec_refs": [
+        "specs/001-property-management/spec.md#functional-requirements"
+      ],
+      "architecture_refs": [
+        "Architecture.md#backend",
+        "specs/001-property-management/plan.md#verification-plan"
+      ],
+      "files": [
+        "backend/tests/integration/transport.test.ts"
+      ],
+      "blockers": [],
+      "status": "waiting"
+    },
+    {
+      "id": "T017",
+      "description": "Implement the approved authentication and authorization boundary in `backend/Src/Infrastructure/access.ts`, `backend/Src/Contracts/session.contract.ts`, `backend/Src/Handler/session-logic.ts`",
+      "technical_requirements": [
+        "Enforce approved demo server sessions and Owner/Manager/Viewer property scope; T016 passes. Persist durable roles/grants in PostgreSQL; invalidate role-changed sessions; no client role-switch trust. Session read DTO also supplies business_date/timezone/demo_mode so the early themed shell can label the server clock before US7 adds privileged clock-change operations. Session context also includes scoped property IDs/names and owner IDs for early ownership controls; changes to grants/password/enabled state invalidate affected sessions.",
+        "Traceability: FR-024, SC-005. Preserve approved stack and assigned ownership."
+      ],
+      "dependencies": [
+        "T016"
+      ],
+      "priority": "P1",
+      "acceptance_criteria": [
+        "Enforce approved demo server sessions and Owner/Manager/Viewer property scope; T016 passes. Persist durable roles/grants in PostgreSQL; invalidate role-changed sessions; no client role-switch trust. Session read DTO also supplies business_date/timezone/demo_mode so the early themed shell can label the server clock before US7 adds privileged clock-change operations. Session context also includes scoped property IDs/names and owner IDs for early ownership controls; changes to grants/password/enabled state invalidate affected sessions."
+      ],
+      "spec_refs": [
+        "specs/001-property-management/spec.md#functional-requirements",
+        "specs/001-property-management/spec.md#measurable-outcomes"
+      ],
+      "architecture_refs": [
+        "Architecture.md#backend",
+        "specs/001-property-management/plan.md#verification-plan"
+      ],
+      "files": [
+        "backend/Src/Infrastructure/access.ts",
+        "backend/Src/Contracts/session.contract.ts",
+        "backend/Src/Handler/session-logic.ts"
+      ],
+      "blockers": [],
+      "status": "waiting"
+    },
+    {
+      "id": "T019",
+      "description": "Implement NestJS bootstrap and shared transport protections in `backend/Src/main.ts`, `backend/Src/app.module.ts`, `backend/Src/Infrastructure/transport.ts`",
+      "technical_requirements": [
+        "Enhance the runnable T012 entry/module with database/Redis, validation, documented errors and redacted logging. Pass T018 and register session/access boundaries; do not recreate startup as a late prerequisite.",
+        "Traceability: FR-024, FR-026, FR-027. Preserve approved stack and assigned ownership."
+      ],
+      "dependencies": [
+        "T017",
+        "T018"
+      ],
+      "priority": "P1",
+      "acceptance_criteria": [
+        "Enhance the runnable T012 entry/module with database/Redis, validation, documented errors and redacted logging. Pass T018 and register session/access boundaries; do not recreate startup as a late prerequisite."
+      ],
+      "spec_refs": [
+        "specs/001-property-management/spec.md#functional-requirements"
+      ],
+      "architecture_refs": [
+        "Architecture.md#backend",
+        "specs/001-property-management/plan.md#verification-plan"
+      ],
+      "files": [
+        "backend/Src/main.ts",
+        "backend/Src/app.module.ts",
+        "backend/Src/Infrastructure/transport.ts"
+      ],
+      "blockers": [],
+      "status": "waiting"
+    },
+    {
+      "id": "T020",
+      "description": "Wire deterministic backend schema export and frontend generation in `backend/OpenAPI/openapi.json`, `frontend/Generated/`, `frontend/Services/client.ts`, `openapi-ts.config.ts`, `package.json`",
+      "technical_requirements": [
+        "NestJS definitions export a validated schema; pinned hey-api generates a compiling client/types/models; repeat generation is deterministic and generated files are not hand-edited.",
+        "Traceability: shared architectural/readiness prerequisite; Constitution workflow gates. Preserve approved stack and assigned ownership."
+      ],
+      "dependencies": [
+        "T008",
+        "T019"
+      ],
+      "priority": "P1",
+      "acceptance_criteria": [
+        "NestJS definitions export a validated schema; pinned hey-api generates a compiling client/types/models; repeat generation is deterministic and generated files are not hand-edited."
+      ],
+      "spec_refs": [
+        "specs/001-property-management/spec.md#constitutional-acceptance-and-open-decisions-mandatory"
+      ],
+      "architecture_refs": [
+        "Architecture.md#backend",
+        "Architecture.md#api-flow",
+        "specs/001-property-management/plan.md#verification-plan"
+      ],
+      "files": [
+        "backend/OpenAPI/openapi.json",
+        "frontend/Generated/",
+        "frontend/Services/client.ts",
+        "openapi-ts.config.ts",
+        "package.json"
+      ],
+      "blockers": [],
+      "status": "waiting"
+    },
+    {
+      "id": "T021",
+      "description": "Write application-provider and approved session UI tests in `frontend/tests/application.test.tsx`, `frontend/tests/session.test.tsx`",
+      "technical_requirements": [
+        "Cover query/router setup, sign-in/session outcomes, loading/errors and protected navigation against the approved policy; test setup compiles before behavioral RED is recorded.",
+        "Traceability: FR-024, FR-026. Preserve approved stack and assigned ownership."
+      ],
+      "dependencies": [
+        "T011",
+        "T020"
+      ],
+      "priority": "P1",
+      "acceptance_criteria": [
+        "Cover query/router setup, sign-in/session outcomes, loading/errors and protected navigation against the approved policy; test setup compiles before behavioral RED is recorded."
+      ],
+      "spec_refs": [
+        "specs/001-property-management/spec.md#functional-requirements"
+      ],
+      "architecture_refs": [
+        "Architecture.md#frontend",
+        "specs/001-property-management/plan.md#verification-plan"
+      ],
+      "files": [
+        "frontend/tests/application.test.tsx",
+        "frontend/tests/session.test.tsx"
+      ],
+      "blockers": [],
+      "status": "waiting"
+    },
+    {
+      "id": "T022",
+      "description": "Implement application providers and the approved sign-in/session flow in `frontend/Views/App.tsx`, `frontend/Views/SignIn.tsx`, `frontend/VMs/session.vm.ts`, `frontend/Services/query.ts`",
+      "technical_requirements": [
+        "Enhance the runnable T011 App with session/query/router providers and generated operations; T021 passes. Preserve entry startup and keep I/O/business rules out of Views.",
+        "Traceability: FR-024, FR-026. Preserve approved stack and assigned ownership."
+      ],
+      "dependencies": [
+        "T021"
+      ],
+      "priority": "P1",
+      "acceptance_criteria": [
+        "Enhance the runnable T011 App with session/query/router providers and generated operations; T021 passes. Preserve entry startup and keep I/O/business rules out of Views."
+      ],
+      "spec_refs": [
+        "specs/001-property-management/spec.md#functional-requirements"
+      ],
+      "architecture_refs": [
+        "Architecture.md#frontend",
+        "specs/001-property-management/plan.md#verification-plan"
+      ],
+      "files": [
+        "frontend/Views/App.tsx",
+        "frontend/Views/SignIn.tsx",
+        "frontend/VMs/session.vm.ts",
+        "frontend/Services/query.ts"
+      ],
+      "blockers": [],
+      "status": "waiting"
+    },
+    {
+      "id": "T023",
+      "description": "Write theme preference and system-detection VM tests in `frontend/tests/theme.vm.test.ts`",
+      "technical_requirements": [
+        "Test no preference, system preference, manual override, persistence, return visits, and unavailable preference storage using meaningful behavioral failures.",
+        "Traceability: FR-022, SC-004. Preserve approved stack and assigned ownership."
+      ],
+      "dependencies": [
+        "T022"
+      ],
+      "priority": "P1",
+      "acceptance_criteria": [
+        "Test no preference, system preference, manual override, persistence, return visits, and unavailable preference storage using meaningful behavioral failures."
+      ],
+      "spec_refs": [
+        "specs/001-property-management/spec.md#functional-requirements",
+        "specs/001-property-management/spec.md#measurable-outcomes"
+      ],
+      "architecture_refs": [
+        "Architecture.md#frontend",
+        "specs/001-property-management/plan.md#verification-plan"
+      ],
+      "files": [
+        "frontend/tests/theme.vm.test.ts"
+      ],
+      "blockers": [],
+      "status": "waiting"
+    },
+    {
+      "id": "T024",
+      "description": "Write shell, responsive-component and theme acceptance tests in `frontend/tests/shell.test.tsx`, `tests/e2e/shell-theme.spec.ts`",
+      "technical_requirements": [
+        "Specify essential shared-shell/theme behavior for basic four-device-category/two-theme smoke. Do not add a formal multi-browser certification or automated viewport-matrix project.",
+        "Traceability: FR-021, FR-022, FR-023, SC-004. Preserve approved stack and assigned ownership."
+      ],
+      "dependencies": [
+        "T022"
+      ],
+      "priority": "P1",
+      "acceptance_criteria": [
+        "Specify essential shared-shell/theme behavior for basic four-device-category/two-theme smoke. Do not add a formal multi-browser certification or automated viewport-matrix project."
+      ],
+      "spec_refs": [
+        "specs/001-property-management/spec.md#functional-requirements",
+        "specs/001-property-management/spec.md#measurable-outcomes"
+      ],
+      "architecture_refs": [
+        "Architecture.md#frontend",
+        "specs/001-property-management/plan.md#verification-plan"
+      ],
+      "files": [
+        "frontend/tests/shell.test.tsx",
+        "tests/e2e/shell-theme.spec.ts"
+      ],
+      "blockers": [],
+      "status": "waiting"
+    },
+    {
+      "id": "T025",
+      "description": "Implement theme model and presentation actions in `frontend/Models/theme.ts`, `frontend/VMs/theme.vm.ts`",
+      "technical_requirements": [
+        "System/manual precedence, persistence and fallback behavior pass T023; no server data is duplicated into local state.",
+        "Traceability: FR-022, SC-004. Preserve approved stack and assigned ownership."
+      ],
+      "dependencies": [
+        "T023"
+      ],
+      "priority": "P1",
+      "acceptance_criteria": [
+        "System/manual precedence, persistence and fallback behavior pass T023; no server data is duplicated into local state."
+      ],
+      "spec_refs": [
+        "specs/001-property-management/spec.md#functional-requirements",
+        "specs/001-property-management/spec.md#measurable-outcomes"
+      ],
+      "architecture_refs": [
+        "Architecture.md#frontend",
+        "specs/001-property-management/plan.md#verification-plan"
+      ],
+      "files": [
+        "frontend/Models/theme.ts",
+        "frontend/VMs/theme.vm.ts"
+      ],
+      "blockers": [],
+      "status": "waiting"
+    },
+    {
+      "id": "T027",
+      "description": "Implement responsive shared form, table, dialog and status components in `frontend/Views/shared/ResponsiveTable.tsx`, `frontend/Views/shared/FormLayout.tsx`, `frontend/Views/shared/ResponsiveDialog.tsx`, `frontend/Views/shared/StatusBadge.tsx`",
+      "technical_requirements": [
+        "Essential information/actions remain accessible at supported viewport categories and statuses include labels/icons beyond color; matching component tests pass. Use locally owned accessible shadcn/ui components with the pinned Radix primitives and Tailwind; avoid introducing a separate UI framework.",
+        "Traceability: FR-021, FR-022, FR-023, SC-004. Preserve approved stack and assigned ownership."
+      ],
+      "dependencies": [
+        "T024"
+      ],
+      "priority": "P1",
+      "acceptance_criteria": [
+        "Essential information/actions remain accessible at supported viewport categories and statuses include labels/icons beyond color; matching component tests pass. Use locally owned accessible shadcn/ui components with the pinned Radix primitives and Tailwind; avoid introducing a separate UI framework."
+      ],
+      "spec_refs": [
+        "specs/001-property-management/spec.md#functional-requirements",
+        "specs/001-property-management/spec.md#measurable-outcomes"
+      ],
+      "architecture_refs": [
+        "Architecture.md#frontend",
+        "specs/001-property-management/plan.md#verification-plan"
+      ],
+      "files": [
+        "frontend/Views/shared/ResponsiveTable.tsx",
+        "frontend/Views/shared/FormLayout.tsx",
+        "frontend/Views/shared/ResponsiveDialog.tsx",
+        "frontend/Views/shared/StatusBadge.tsx"
+      ],
+      "blockers": [],
+      "status": "waiting"
+    },
+    {
+      "id": "T026",
+      "description": "Implement the themed shell and theme controls in `frontend/Views/AppShell.tsx`, `frontend/Views/ThemeControl.tsx`, `frontend/Views/styles.css`",
+      "technical_requirements": [
+        "Implement readable themed navigation/theme controls and a visible fixed Asia/Taipei demo-date label; privileged date change controls are integrated by US7.",
+        "Traceability: FR-021, FR-022, FR-023, FR-039, SC-004. Preserve approved stack and assigned ownership."
+      ],
+      "dependencies": [
+        "T024",
+        "T025"
+      ],
+      "priority": "P1",
+      "acceptance_criteria": [
+        "Implement readable themed navigation/theme controls and a visible fixed Asia/Taipei demo-date label; privileged date change controls are integrated by US7."
+      ],
+      "spec_refs": [
+        "specs/001-property-management/spec.md#functional-requirements",
+        "specs/001-property-management/spec.md#measurable-outcomes"
+      ],
+      "architecture_refs": [
+        "Architecture.md#frontend",
+        "specs/001-property-management/plan.md#verification-plan"
+      ],
+      "files": [
+        "frontend/Views/AppShell.tsx",
+        "frontend/Views/ThemeControl.tsx",
+        "frontend/Views/styles.css"
+      ],
+      "blockers": [],
+      "status": "waiting"
+    },
+    {
+      "id": "T028",
+      "description": "Integrate the themed shell with application providers in `frontend/Views/App.tsx`",
+      "technical_requirements": [
+        "Routes render inside the shell with saved theme restored before normal use; session and query behavior remain correct.",
+        "Traceability: FR-021, FR-022, FR-024, SC-004. Preserve approved stack and assigned ownership."
+      ],
+      "dependencies": [
+        "T022",
+        "T026",
+        "T027"
+      ],
+      "priority": "P1",
+      "acceptance_criteria": [
+        "Routes render inside the shell with saved theme restored before normal use; session and query behavior remain correct."
+      ],
+      "spec_refs": [
+        "specs/001-property-management/spec.md#functional-requirements",
+        "specs/001-property-management/spec.md#measurable-outcomes"
+      ],
+      "architecture_refs": [
+        "Architecture.md#frontend",
+        "specs/001-property-management/plan.md#verification-plan"
+      ],
+      "files": [
+        "frontend/Views/App.tsx"
+      ],
+      "blockers": [],
+      "status": "waiting"
+    },
+    {
+      "id": "T029",
+      "description": "Verify basic shell/theme/device smoke in `tests/e2e/shell-theme.spec.ts`",
+      "technical_requirements": [
+        "Record essential shell/dialog/status/theme behavior in the four constitutional device categories and both themes. Formal browser certification and background timer tests are skipped.",
+        "Traceability: FR-021, FR-022, FR-023, SC-004. Preserve approved stack and assigned ownership."
+      ],
+      "dependencies": [
+        "T028"
+      ],
+      "priority": "P1",
+      "acceptance_criteria": [
+        "Record essential shell/dialog/status/theme behavior in the four constitutional device categories and both themes. Formal browser certification and background timer tests are skipped."
+      ],
+      "spec_refs": [
+        "specs/001-property-management/spec.md#functional-requirements",
+        "specs/001-property-management/spec.md#measurable-outcomes"
+      ],
+      "architecture_refs": [
+        "Architecture.md#frontend",
+        "specs/001-property-management/plan.md#verification-plan"
+      ],
+      "files": [
+        "tests/e2e/shell-theme.spec.ts"
+      ],
+      "blockers": [],
+      "status": "waiting"
+    },
+    {
+      "id": "T030",
+      "description": "Record US6 acceptance evidence in `specs/001-property-management/validation/us6.md`",
+      "technical_requirements": [
+        "Link actual commands/results for the shell matrix and VM/component suites; scope evidence to implemented UI and retain full-workflow checks for later stories.",
+        "Traceability: SC-004. Preserve approved stack and assigned ownership."
+      ],
+      "dependencies": [
+        "T029"
+      ],
+      "priority": "P1",
+      "acceptance_criteria": [
+        "Link actual commands/results for the shell matrix and VM/component suites; scope evidence to implemented UI and retain full-workflow checks for later stories."
+      ],
+      "spec_refs": [
+        "specs/001-property-management/spec.md#functional-requirements",
+        "specs/001-property-management/spec.md#measurable-outcomes"
+      ],
+      "architecture_refs": [
+        "Architecture.md#backend",
+        "specs/001-property-management/plan.md#verification-plan"
+      ],
+      "files": [
+        "specs/001-property-management/validation/us6.md"
+      ],
+      "blockers": [],
+      "status": "waiting"
+    },
+    {
+      "id": "T100",
+      "description": "Define user, ownership, grants and demo-context operations in `backend/Src/Contracts/user.contract.ts`, `backend/Src/Contracts/property-access.contract.ts`, `backend/Src/Contracts/demo-context.contract.ts`",
+      "technical_requirements": [
+        "Specify Owner-only account/role/grant/owner operations, read scopes, last-Owner conflicts and explicit demo-date/reset permissions without exposing credentials.",
+        "Traceability: FR-024, FR-036, FR-037, FR-039, SC-005. Preserve approved stack and assigned ownership."
+      ],
+      "dependencies": [
+        "T008",
+        "T020"
+      ],
+      "priority": "P1",
+      "acceptance_criteria": [
+        "Specify Owner-only account/role/grant/owner operations, read scopes, last-Owner conflicts and explicit demo-date/reset permissions without exposing credentials."
+      ],
+      "spec_refs": [
+        "specs/001-property-management/spec.md#functional-requirements",
+        "specs/001-property-management/spec.md#measurable-outcomes"
+      ],
+      "architecture_refs": [
+        "Architecture.md#backend",
+        "specs/001-property-management/plan.md#verification-plan"
+      ],
+      "files": [
+        "backend/Src/Contracts/user.contract.ts",
+        "backend/Src/Contracts/property-access.contract.ts",
+        "backend/Src/Contracts/demo-context.contract.ts"
+      ],
+      "blockers": [],
+      "status": "waiting"
+    },
+    {
+      "id": "T101",
+      "description": "Write role, grant, ownership and last-Owner integration tests in `backend/tests/integration/users-roles.test.ts`",
+      "technical_requirements": [
+        "Cover allowed/denied actions for all three roles, out-of-scope IDs, Viewer content denial, last enabled Owner and property-owner demotion, session invalidation and demo-date privileges. Include simultaneous Owner demotions and ownership reassignments versus demotion; transactional protection must remain true across both paths.",
+        "Traceability: FR-024, FR-036, FR-037, FR-039, SC-005. Preserve approved stack and assigned ownership."
+      ],
+      "dependencies": [
+        "T100"
+      ],
+      "priority": "P1",
+      "acceptance_criteria": [
+        "Cover allowed/denied actions for all three roles, out-of-scope IDs, Viewer content denial, last enabled Owner and property-owner demotion, session invalidation and demo-date privileges. Include simultaneous Owner demotions and ownership reassignments versus demotion; transactional protection must remain true across both paths."
+      ],
+      "spec_refs": [
+        "specs/001-property-management/spec.md#functional-requirements",
+        "specs/001-property-management/spec.md#measurable-outcomes"
+      ],
+      "architecture_refs": [
+        "Architecture.md#backend",
+        "specs/001-property-management/plan.md#verification-plan"
+      ],
+      "files": [
+        "backend/tests/integration/users-roles.test.ts"
+      ],
+      "blockers": [],
+      "status": "waiting"
+    },
+    {
+      "id": "T102",
+      "description": "Implement account, property-grant and owner administration use cases in `backend/Managers/users-manager.ts`",
+      "technical_requirements": [
+        "Pass role/grant/ownership transaction tests; prevent escalation and invalid owner changes; invalidate affected sessions and keep password hashes out of outputs.",
+        "Traceability: FR-024, FR-036, FR-037, SC-005. Preserve approved stack and assigned ownership."
+      ],
+      "dependencies": [
+        "T101"
+      ],
+      "priority": "P1",
+      "acceptance_criteria": [
+        "Pass role/grant/ownership transaction tests; prevent escalation and invalid owner changes; invalidate affected sessions and keep password hashes out of outputs."
+      ],
+      "spec_refs": [
+        "specs/001-property-management/spec.md#functional-requirements",
+        "specs/001-property-management/spec.md#measurable-outcomes"
+      ],
+      "architecture_refs": [
+        "Architecture.md#backend",
+        "specs/001-property-management/plan.md#verification-plan"
+      ],
+      "files": [
+        "backend/Managers/users-manager.ts"
+      ],
+      "blockers": [],
+      "status": "waiting"
+    },
+    {
+      "id": "T103",
+      "description": "Implement and register user/ownership/demo-context handlers in `backend/Src/Handler/users-logic.ts`, `backend/Src/Handler/property-access-logic.ts`, `backend/Src/Handler/demo-logic.ts`, `backend/Src/app.module.ts`",
+      "technical_requirements": [
+        "Register handlers/providers and owner-only clock/reset boundaries in root module; exported schema contains them and unauthorized payloads fail server-side. Actual fixture-loader integration follows T110.",
+        "Traceability: FR-024, FR-036, FR-037, FR-039, SC-005. Preserve approved stack and assigned ownership."
+      ],
+      "dependencies": [
+        "T100",
+        "T102"
+      ],
+      "priority": "P1",
+      "acceptance_criteria": [
+        "Register handlers/providers and owner-only clock/reset boundaries in root module; exported schema contains them and unauthorized payloads fail server-side. Actual fixture-loader integration follows T110."
+      ],
+      "spec_refs": [
+        "specs/001-property-management/spec.md#functional-requirements",
+        "specs/001-property-management/spec.md#measurable-outcomes"
+      ],
+      "architecture_refs": [
+        "Architecture.md#backend",
+        "specs/001-property-management/plan.md#verification-plan"
+      ],
+      "files": [
+        "backend/Src/Handler/users-logic.ts",
+        "backend/Src/Handler/property-access-logic.ts",
+        "backend/Src/Handler/demo-logic.ts",
+        "backend/Src/app.module.ts"
+      ],
+      "blockers": [],
+      "status": "waiting"
+    },
+    {
+      "id": "T104",
+      "description": "Regenerate the client for role/ownership/demo-context operations in `backend/OpenAPI/openapi.json`, `frontend/Generated/`",
+      "technical_requirements": [
+        "Compile registered operations with deterministic generator output before property-domain export; never hand-edit generated files.",
+        "Traceability: FR-036, FR-037, FR-039. Preserve approved stack and assigned ownership."
+      ],
+      "dependencies": [
+        "T020",
+        "T103"
+      ],
+      "priority": "P1",
+      "acceptance_criteria": [
+        "Compile registered operations with deterministic generator output before property-domain export; never hand-edit generated files."
+      ],
+      "spec_refs": [
+        "specs/001-property-management/spec.md#functional-requirements"
+      ],
+      "architecture_refs": [
+        "Architecture.md#backend",
+        "Architecture.md#api-flow",
+        "specs/001-property-management/plan.md#verification-plan"
+      ],
+      "files": [
+        "backend/OpenAPI/openapi.json",
+        "frontend/Generated/"
+      ],
+      "blockers": [],
+      "status": "waiting"
+    },
+    {
+      "id": "T105",
+      "description": "Write role/ownership VM and browser acceptance tests in `frontend/tests/users.vm.test.ts`, `tests/e2e/users-roles.spec.ts`",
+      "technical_requirements": [
+        "Specify Owner administration, scoped Manager/Viewer navigation, denied role escalation/downloads, ownership reassignment and explicit demo-date controls before UI behavior.",
+        "Traceability: FR-024, FR-036, FR-037, FR-039, SC-001, SC-005. Preserve approved stack and assigned ownership."
+      ],
+      "dependencies": [
+        "T030",
+        "T104"
+      ],
+      "priority": "P1",
+      "acceptance_criteria": [
+        "Specify Owner administration, scoped Manager/Viewer navigation, denied role escalation/downloads, ownership reassignment and explicit demo-date controls before UI behavior."
+      ],
+      "spec_refs": [
+        "specs/001-property-management/spec.md#functional-requirements",
+        "specs/001-property-management/spec.md#measurable-outcomes"
+      ],
+      "architecture_refs": [
+        "Architecture.md#frontend",
+        "specs/001-property-management/plan.md#verification-plan"
+      ],
+      "files": [
+        "frontend/tests/users.vm.test.ts",
+        "tests/e2e/users-roles.spec.ts"
+      ],
+      "blockers": [],
+      "status": "waiting"
+    },
+    {
+      "id": "T106",
+      "description": "Implement role, property-access and demo-context presentation actions in `frontend/Models/user.ts`, `frontend/VMs/users.vm.ts`",
+      "technical_requirements": [
+        "Reuse generated DTOs and server session/context facts; permitted role/grant/date changes invalidate affected queries and session views; no client-only role switch.",
+        "Traceability: FR-024, FR-036, FR-037, FR-039. Preserve approved stack and assigned ownership."
+      ],
+      "dependencies": [
+        "T105"
+      ],
+      "priority": "P1",
+      "acceptance_criteria": [
+        "Reuse generated DTOs and server session/context facts; permitted role/grant/date changes invalidate affected queries and session views; no client-only role switch."
+      ],
+      "spec_refs": [
+        "specs/001-property-management/spec.md#functional-requirements"
+      ],
+      "architecture_refs": [
+        "Architecture.md#frontend",
+        "specs/001-property-management/plan.md#verification-plan"
+      ],
+      "files": [
+        "frontend/Models/user.ts",
+        "frontend/VMs/users.vm.ts"
+      ],
+      "blockers": [],
+      "status": "waiting"
+    },
+    {
+      "id": "T107",
+      "description": "Implement and register account/property-access/demo-context Views in `frontend/Views/Users.tsx`, `frontend/Views/PropertyAccess.tsx`, `frontend/Views/DemoContext.tsx`, `frontend/Views/App.tsx`, `frontend/Views/AppShell.tsx`",
+      "technical_requirements": [
+        "Register routes/nav and bind VMs with role-aware controls, ownership selection, last-Owner conflict feedback and visible manual demo date.",
+        "Traceability: FR-021, FR-022, FR-024, FR-036, FR-037, FR-039, SC-004, SC-005. Preserve approved stack and assigned ownership."
+      ],
+      "dependencies": [
+        "T106"
+      ],
+      "priority": "P1",
+      "acceptance_criteria": [
+        "Register routes/nav and bind VMs with role-aware controls, ownership selection, last-Owner conflict feedback and visible manual demo date."
+      ],
+      "spec_refs": [
+        "specs/001-property-management/spec.md#functional-requirements",
+        "specs/001-property-management/spec.md#measurable-outcomes"
+      ],
+      "architecture_refs": [
+        "Architecture.md#frontend",
+        "specs/001-property-management/plan.md#verification-plan"
+      ],
+      "files": [
+        "frontend/Views/Users.tsx",
+        "frontend/Views/PropertyAccess.tsx",
+        "frontend/Views/DemoContext.tsx",
+        "frontend/Views/App.tsx",
+        "frontend/Views/AppShell.tsx"
+      ],
+      "blockers": [],
+      "status": "waiting"
+    },
+    {
+      "id": "T108",
+      "description": "Verify and record ownership/role management acceptance in `specs/001-property-management/validation/us7.md`",
+      "technical_requirements": [
+        "Record actual backend/UI allow/deny, session invalidation, owner protection and manual date-change results; no independent QA or dispatch claimed.",
+        "Traceability: FR-036, FR-037, FR-039, SC-001, SC-005. Preserve approved stack and assigned ownership."
+      ],
+      "dependencies": [
+        "T107"
+      ],
+      "priority": "P1",
+      "acceptance_criteria": [
+        "Record actual backend/UI allow/deny, session invalidation, owner protection and manual date-change results; no independent QA or dispatch claimed."
+      ],
+      "spec_refs": [
+        "specs/001-property-management/spec.md#functional-requirements",
+        "specs/001-property-management/spec.md#measurable-outcomes"
+      ],
+      "architecture_refs": [
+        "Architecture.md#backend",
+        "specs/001-property-management/plan.md#verification-plan"
+      ],
+      "files": [
+        "specs/001-property-management/validation/us7.md"
+      ],
+      "blockers": [],
+      "status": "waiting"
+    },
+    {
+      "id": "T031",
+      "description": "Define property and resource NestJS operation contracts in `backend/Src/Contracts/property.contract.ts`",
+      "technical_requirements": [
+        "Define Owner creation/ownership/mode versus Manager editable fields, resource capacity, contract-derived availability, validation, operation IDs, errors and property scope.",
+        "Traceability: FR-001, FR-002, FR-003, FR-029, FR-037. Preserve approved stack and assigned ownership."
+      ],
+      "dependencies": [
+        "T008",
+        "T020"
+      ],
+      "priority": "P1",
+      "acceptance_criteria": [
+        "Define Owner creation/ownership/mode versus Manager editable fields, resource capacity, contract-derived availability, validation, operation IDs, errors and property scope."
+      ],
+      "spec_refs": [
+        "specs/001-property-management/spec.md#functional-requirements"
+      ],
+      "architecture_refs": [
+        "Architecture.md#backend",
+        "specs/001-property-management/plan.md#verification-plan"
+      ],
+      "files": [
+        "backend/Src/Contracts/property.contract.ts"
+      ],
+      "blockers": [],
+      "status": "waiting"
+    },
+    {
+      "id": "T032",
+      "description": "Write property/resource Manager and integration tests in `backend/tests/unit/properties-manager.test.ts`, `backend/tests/integration/properties.test.ts`",
+      "technical_requirements": [
+        "Cover save/reopen, invalid input, capacity fields, transaction failure, protected scope and preserved prior records; observe intended RED.",
+        "Traceability: FR-001, FR-002, FR-003, FR-026, FR-028, FR-029, SC-001. Preserve approved stack and assigned ownership."
+      ],
+      "dependencies": [
+        "T031"
+      ],
+      "priority": "P1",
+      "acceptance_criteria": [
+        "Cover save/reopen, invalid input, capacity fields, transaction failure, protected scope and preserved prior records; observe intended RED."
+      ],
+      "spec_refs": [
+        "specs/001-property-management/spec.md#functional-requirements",
+        "specs/001-property-management/spec.md#measurable-outcomes"
+      ],
+      "architecture_refs": [
+        "Architecture.md#backend",
+        "specs/001-property-management/plan.md#verification-plan"
+      ],
+      "files": [
+        "backend/tests/unit/properties-manager.test.ts",
+        "backend/tests/integration/properties.test.ts"
+      ],
+      "blockers": [],
+      "status": "waiting"
+    },
+    {
+      "id": "T033",
+      "description": "Implement property and resource business operations in `backend/Managers/properties-manager.ts`",
+      "technical_requirements": [
+        "Property/resource operations preserve owner/mode constraints and validate capacity reductions against effective contract intervals using the same transactional lock protocol as Contract Manager.",
+        "Traceability: FR-001, FR-002, FR-003, FR-028, FR-029, FR-030, FR-037. Preserve approved stack and assigned ownership."
+      ],
+      "dependencies": [
+        "T032"
+      ],
+      "priority": "P1",
+      "acceptance_criteria": [
+        "Property/resource operations preserve owner/mode constraints and validate capacity reductions against effective contract intervals using the same transactional lock protocol as Contract Manager."
+      ],
+      "spec_refs": [
+        "specs/001-property-management/spec.md#functional-requirements"
+      ],
+      "architecture_refs": [
+        "Architecture.md#backend",
+        "specs/001-property-management/plan.md#verification-plan"
+      ],
+      "files": [
+        "backend/Managers/properties-manager.ts"
+      ],
+      "blockers": [],
+      "status": "waiting"
+    },
+    {
+      "id": "T034",
+      "description": "Implement property and resource HTTP operation handlers in `backend/Src/Handler/properties-logic.ts`, `backend/Src/Handler/resources-logic.ts`, `backend/Src/app.module.ts`",
+      "technical_requirements": [
+        "Implement and register property/resource handlers/providers in the root or explicitly owned feature module. Exported schema contains the operations; role and capacity checks precede success.",
+        "Traceability: FR-001, FR-002, FR-003, FR-024, FR-026. Preserve approved stack and assigned ownership."
+      ],
+      "dependencies": [
+        "T031",
+        "T033",
+        "T103"
+      ],
+      "priority": "P1",
+      "acceptance_criteria": [
+        "Implement and register property/resource handlers/providers in the root or explicitly owned feature module. Exported schema contains the operations; role and capacity checks precede success."
+      ],
+      "spec_refs": [
+        "specs/001-property-management/spec.md#functional-requirements"
+      ],
+      "architecture_refs": [
+        "Architecture.md#backend",
+        "specs/001-property-management/plan.md#verification-plan"
+      ],
+      "files": [
+        "backend/Src/Handler/properties-logic.ts",
+        "backend/Src/Handler/resources-logic.ts",
+        "backend/Src/app.module.ts"
+      ],
+      "blockers": [],
+      "status": "waiting"
+    },
+    {
+      "id": "T035",
+      "description": "Regenerate the client for property/resource operations in `backend/OpenAPI/openapi.json`, `frontend/Generated/`",
+      "technical_requirements": [
+        "Generated operations/models compile and match the exported property/resource contract without manual generated-file edits.",
+        "Traceability: FR-001, FR-002, FR-003. Preserve approved stack and assigned ownership."
+      ],
+      "dependencies": [
+        "T020",
+        "T034",
+        "T104"
+      ],
+      "priority": "P1",
+      "acceptance_criteria": [
+        "Generated operations/models compile and match the exported property/resource contract without manual generated-file edits."
+      ],
+      "spec_refs": [
+        "specs/001-property-management/spec.md#functional-requirements"
+      ],
+      "architecture_refs": [
+        "Architecture.md#backend",
+        "Architecture.md#api-flow",
+        "specs/001-property-management/plan.md#verification-plan"
+      ],
+      "files": [
+        "backend/OpenAPI/openapi.json",
+        "frontend/Generated/"
+      ],
+      "blockers": [],
+      "status": "waiting"
+    },
+    {
+      "id": "T036",
+      "description": "Write property/resource VM tests in `frontend/tests/properties.vm.test.ts`",
+      "technical_requirements": [
+        "Test list/detail/forms, validation feedback, loading/empty/error states, generated-client use and query invalidation with intended RED.",
+        "Traceability: FR-001, FR-002, FR-003, FR-020, FR-026. Preserve approved stack and assigned ownership."
+      ],
+      "dependencies": [
+        "T035"
+      ],
+      "priority": "P1",
+      "acceptance_criteria": [
+        "Test list/detail/forms, validation feedback, loading/empty/error states, generated-client use and query invalidation with intended RED."
+      ],
+      "spec_refs": [
+        "specs/001-property-management/spec.md#functional-requirements"
+      ],
+      "architecture_refs": [
+        "Architecture.md#frontend",
+        "specs/001-property-management/plan.md#verification-plan"
+      ],
+      "files": [
+        "frontend/tests/properties.vm.test.ts"
+      ],
+      "blockers": [],
+      "status": "waiting"
+    },
+    {
+      "id": "T037",
+      "description": "Write property/resource user-journey acceptance tests in `tests/e2e/properties.spec.ts`",
+      "technical_requirements": [
+        "Define create/edit/reopen, invalid-save preservation and capacity display checks across representative device/theme contexts before Views are built.",
+        "Traceability: FR-001, FR-002, FR-003, FR-021, FR-022, FR-026, SC-001, SC-004. Preserve approved stack and assigned ownership."
+      ],
+      "dependencies": [
+        "T030",
+        "T035"
+      ],
+      "priority": "P1",
+      "acceptance_criteria": [
+        "Define create/edit/reopen, invalid-save preservation and capacity display checks across representative device/theme contexts before Views are built."
+      ],
+      "spec_refs": [
+        "specs/001-property-management/spec.md#functional-requirements",
+        "specs/001-property-management/spec.md#measurable-outcomes"
+      ],
+      "architecture_refs": [
+        "Architecture.md#frontend",
+        "specs/001-property-management/plan.md#verification-plan"
+      ],
+      "files": [
+        "tests/e2e/properties.spec.ts"
+      ],
+      "blockers": [],
+      "status": "waiting"
+    },
+    {
+      "id": "T038",
+      "description": "Define property/resource presentation models in `frontend/Models/property.ts`",
+      "technical_requirements": [
+        "Represent display/form concepts using generated DTOs at the boundary without independently duplicating API request/response interfaces.",
+        "Traceability: FR-001, FR-002, FR-003. Preserve approved stack and assigned ownership."
+      ],
+      "dependencies": [
+        "T035",
+        "T036"
+      ],
+      "priority": "P1",
+      "acceptance_criteria": [
+        "Represent display/form concepts using generated DTOs at the boundary without independently duplicating API request/response interfaces."
+      ],
+      "spec_refs": [
+        "specs/001-property-management/spec.md#functional-requirements"
+      ],
+      "architecture_refs": [
+        "Architecture.md#frontend",
+        "specs/001-property-management/plan.md#verification-plan"
+      ],
+      "files": [
+        "frontend/Models/property.ts"
+      ],
+      "blockers": [],
+      "status": "waiting"
+    },
+    {
+      "id": "T039",
+      "description": "Implement property/resource presentation actions in `frontend/VMs/properties.vm.ts`",
+      "technical_requirements": [
+        "VM tests pass; successful changes refresh relevant server queries, errors preserve user input, and Views do not make raw API calls.",
+        "Traceability: FR-001, FR-002, FR-003, FR-020, FR-026. Preserve approved stack and assigned ownership."
+      ],
+      "dependencies": [
+        "T036",
+        "T038"
+      ],
+      "priority": "P1",
+      "acceptance_criteria": [
+        "VM tests pass; successful changes refresh relevant server queries, errors preserve user input, and Views do not make raw API calls."
+      ],
+      "spec_refs": [
+        "specs/001-property-management/spec.md#functional-requirements"
+      ],
+      "architecture_refs": [
+        "Architecture.md#frontend",
+        "specs/001-property-management/plan.md#verification-plan"
+      ],
+      "files": [
+        "frontend/VMs/properties.vm.ts"
+      ],
+      "blockers": [],
+      "status": "waiting"
+    },
+    {
+      "id": "T040",
+      "description": "Implement property/resource list, detail and form Views in `frontend/Views/Properties.tsx`, `frontend/Views/Resources.tsx`, `frontend/Views/App.tsx`, `frontend/Views/AppShell.tsx`",
+      "technical_requirements": [
+        "Implement property/resource forms/list/detail plus route/nav registration. Owner-only creation/mode/owner actions and scoped Manager edits follow policy, with contract-derived occupancy and responsive/theme behavior.",
+        "Traceability: FR-001, FR-002, FR-003, FR-021, FR-022, FR-023, FR-026, FR-029. Preserve approved stack and assigned ownership."
+      ],
+      "dependencies": [
+        "T027",
+        "T037",
+        "T039",
+        "T108"
+      ],
+      "priority": "P1",
+      "acceptance_criteria": [
+        "Implement property/resource forms/list/detail plus route/nav registration. Owner-only creation/mode/owner actions and scoped Manager edits follow policy, with contract-derived occupancy and responsive/theme behavior."
+      ],
+      "spec_refs": [
+        "specs/001-property-management/spec.md#functional-requirements"
+      ],
+      "architecture_refs": [
+        "Architecture.md#frontend",
+        "specs/001-property-management/plan.md#verification-plan"
+      ],
+      "files": [
+        "frontend/Views/Properties.tsx",
+        "frontend/Views/Resources.tsx",
+        "frontend/Views/App.tsx",
+        "frontend/Views/AppShell.tsx"
+      ],
+      "blockers": [],
+      "status": "waiting"
+    },
+    {
+      "id": "T041",
+      "description": "Verify and record US1 acceptance in `specs/001-property-management/validation/us1.md`",
+      "technical_requirements": [
+        "Record backend, VM and browser results proving create/edit/reopen, relationship consistency and invalid-save behavior; do not claim independent QA.",
+        "Traceability: SC-001, SC-004. Preserve approved stack and assigned ownership."
+      ],
+      "dependencies": [
+        "T040"
+      ],
+      "priority": "P1",
+      "acceptance_criteria": [
+        "Record backend, VM and browser results proving create/edit/reopen, relationship consistency and invalid-save behavior; do not claim independent QA."
+      ],
+      "spec_refs": [
+        "specs/001-property-management/spec.md#functional-requirements",
+        "specs/001-property-management/spec.md#measurable-outcomes"
+      ],
+      "architecture_refs": [
+        "Architecture.md#backend",
+        "specs/001-property-management/plan.md#verification-plan"
+      ],
+      "files": [
+        "specs/001-property-management/validation/us1.md"
+      ],
+      "blockers": [],
+      "status": "waiting"
+    },
+    {
+      "id": "T042",
+      "description": "Define tenant CRUD and read-only contract-occupancy contracts in `backend/Src/Contracts/stay.contract.ts`",
+      "technical_requirements": [
+        "Define tenant contacts and read-only Stay/history/date projections. No movement/status-mutation endpoints or manual arrival/departure fields. Assignment writes belong to contract operations.",
+        "Traceability: FR-004, FR-005, FR-006, FR-007, FR-008, FR-031, FR-033. Preserve approved stack and assigned ownership."
+      ],
+      "dependencies": [
+        "T008",
+        "T034"
+      ],
+      "priority": "P1",
+      "acceptance_criteria": [
+        "Define tenant contacts and read-only Stay/history/date projections. No movement/status-mutation endpoints or manual arrival/departure fields. Assignment writes belong to contract operations."
+      ],
+      "spec_refs": [
+        "specs/001-property-management/spec.md#functional-requirements"
+      ],
+      "architecture_refs": [
+        "Architecture.md#backend",
+        "specs/001-property-management/plan.md#verification-plan"
+      ],
+      "files": [
+        "backend/Src/Contracts/stay.contract.ts"
+      ],
+      "blockers": [],
+      "status": "waiting"
+    },
+    {
+      "id": "T043",
+      "description": "Write tenant CRUD and contract-projection boundary tests in `backend/tests/unit/stays-manager.test.ts`, `backend/tests/unit/tenants-manager.test.ts`",
+      "technical_requirements": [
+        "Test tenant create/contact edit/invalid data and contract start-inclusive/end-exclusive, termination, future terms and history using isolated fixture contracts; no manual check-in/out transitions. Standalone Owner creation and Manager scoped edits are covered; Manager creation with a first contract is verified in T056.",
+        "Traceability: FR-004, FR-005, FR-006, FR-007, FR-008, FR-031, FR-033, SC-003. Preserve approved stack and assigned ownership."
+      ],
+      "dependencies": [
+        "T042"
+      ],
+      "priority": "P1",
+      "acceptance_criteria": [
+        "Test tenant create/contact edit/invalid data and contract start-inclusive/end-exclusive, termination, future terms and history using isolated fixture contracts; no manual check-in/out transitions. Standalone Owner creation and Manager scoped edits are covered; Manager creation with a first contract is verified in T056."
+      ],
+      "spec_refs": [
+        "specs/001-property-management/spec.md#functional-requirements",
+        "specs/001-property-management/spec.md#measurable-outcomes"
+      ],
+      "architecture_refs": [
+        "Architecture.md#backend",
+        "specs/001-property-management/plan.md#verification-plan"
+      ],
+      "files": [
+        "backend/tests/unit/stays-manager.test.ts",
+        "backend/tests/unit/tenants-manager.test.ts"
+      ],
+      "blockers": [],
+      "status": "waiting"
+    },
+    {
+      "id": "T044",
+      "description": "Write fixture-based occupancy and capacity-edit integration tests in `backend/tests/integration/occupancy.test.ts`",
+      "technical_requirements": [
+        "Using persisted contract fixtures, test shared capacity/date projection, capacity reduction rejection and failed/concurrent capacity edits. Full concurrent contract mutation coverage is T109 after its contract definitions exist.",
+        "Traceability: FR-003, FR-005, FR-028, FR-029, FR-030, SC-003. Preserve approved stack and assigned ownership."
+      ],
+      "dependencies": [
+        "T042"
+      ],
+      "priority": "P1",
+      "acceptance_criteria": [
+        "Using persisted contract fixtures, test shared capacity/date projection, capacity reduction rejection and failed/concurrent capacity edits. Full concurrent contract mutation coverage is T109 after its contract definitions exist."
+      ],
+      "spec_refs": [
+        "specs/001-property-management/spec.md#functional-requirements",
+        "specs/001-property-management/spec.md#measurable-outcomes"
+      ],
+      "architecture_refs": [
+        "Architecture.md#backend",
+        "specs/001-property-management/plan.md#verification-plan"
+      ],
+      "files": [
+        "backend/tests/integration/occupancy.test.ts"
+      ],
+      "blockers": [],
+      "status": "waiting"
+    },
+    {
+      "id": "T045",
+      "description": "Implement tenant record business operations in `backend/Managers/tenants-manager.ts`",
+      "technical_requirements": [
+        "Maintain tenant name/contact fields with scope validation; tenant identity is separate from contract-derived history. Tenant CRUD tests from T043 pass. Standalone unassigned creation is Owner-only; scoped Managers update visible contacts. Atomic Manager new-contact creation is Contract Manager responsibility in T058.",
+        "Traceability: FR-004, FR-005, FR-024, FR-026. Preserve approved stack and assigned ownership."
+      ],
+      "dependencies": [
+        "T043"
+      ],
+      "priority": "P1",
+      "acceptance_criteria": [
+        "Maintain tenant name/contact fields with scope validation; tenant identity is separate from contract-derived history. Tenant CRUD tests from T043 pass. Standalone unassigned creation is Owner-only; scoped Managers update visible contacts. Atomic Manager new-contact creation is Contract Manager responsibility in T058."
+      ],
+      "spec_refs": [
+        "specs/001-property-management/spec.md#functional-requirements"
+      ],
+      "architecture_refs": [
+        "Architecture.md#backend",
+        "specs/001-property-management/plan.md#verification-plan"
+      ],
+      "files": [
+        "backend/Managers/tenants-manager.ts"
+      ],
+      "blockers": [],
+      "status": "waiting"
+    },
+    {
+      "id": "T046",
+      "description": "Implement read-only contract-derived occupancy projections in `backend/Managers/stays-manager.ts`",
+      "technical_requirements": [
+        "Project current/upcoming/ended occupancy and availability from effective contract terms in Asia/Taipei. T043/T044 pass; no independent writable Stay/movement authority is introduced.",
+        "Traceability: FR-003, FR-005, FR-006, FR-007, FR-008, FR-028, FR-029, FR-030, FR-031, FR-033. Preserve approved stack and assigned ownership."
+      ],
+      "dependencies": [
+        "T033",
+        "T043",
+        "T044",
+        "T045"
+      ],
+      "priority": "P1",
+      "acceptance_criteria": [
+        "Project current/upcoming/ended occupancy and availability from effective contract terms in Asia/Taipei. T043/T044 pass; no independent writable Stay/movement authority is introduced."
+      ],
+      "spec_refs": [
+        "specs/001-property-management/spec.md#functional-requirements"
+      ],
+      "architecture_refs": [
+        "Architecture.md#backend",
+        "specs/001-property-management/plan.md#verification-plan"
+      ],
+      "files": [
+        "backend/Managers/stays-manager.ts"
+      ],
+      "blockers": [],
+      "status": "waiting"
+    },
+    {
+      "id": "T047",
+      "description": "Implement and register tenant CRUD and occupancy-read handlers in `backend/Src/Handler/tenants-logic.ts`, `backend/Src/Handler/stays-logic.ts`, `backend/Src/app.module.ts`",
+      "technical_requirements": [
+        "Register tenant CRUD and read-only Stay/projection operations/providers; document scope/errors and expose them in generated schema. No check-in/out endpoint exists.",
+        "Traceability: FR-004, FR-005, FR-006, FR-007, FR-008, FR-024, FR-026. Preserve approved stack and assigned ownership."
+      ],
+      "dependencies": [
+        "T042",
+        "T045",
+        "T046"
+      ],
+      "priority": "P1",
+      "acceptance_criteria": [
+        "Register tenant CRUD and read-only Stay/projection operations/providers; document scope/errors and expose them in generated schema. No check-in/out endpoint exists."
+      ],
+      "spec_refs": [
+        "specs/001-property-management/spec.md#functional-requirements"
+      ],
+      "architecture_refs": [
+        "Architecture.md#backend",
+        "specs/001-property-management/plan.md#verification-plan"
+      ],
+      "files": [
+        "backend/Src/Handler/tenants-logic.ts",
+        "backend/Src/Handler/stays-logic.ts",
+        "backend/Src/app.module.ts"
+      ],
+      "blockers": [],
+      "status": "waiting"
+    },
+    {
+      "id": "T048",
+      "description": "Regenerate the client for tenant/stay operations in `backend/OpenAPI/openapi.json`, `frontend/Generated/`",
+      "technical_requirements": [
+        "Generation is serialized after property/resource export and all new tenant/stay operations compile.",
+        "Traceability: FR-004, FR-005, FR-006, FR-007, FR-008. Preserve approved stack and assigned ownership."
+      ],
+      "dependencies": [
+        "T035",
+        "T047"
+      ],
+      "priority": "P1",
+      "acceptance_criteria": [
+        "Generation is serialized after property/resource export and all new tenant/stay operations compile."
+      ],
+      "spec_refs": [
+        "specs/001-property-management/spec.md#functional-requirements"
+      ],
+      "architecture_refs": [
+        "Architecture.md#backend",
+        "Architecture.md#api-flow",
+        "specs/001-property-management/plan.md#verification-plan"
+      ],
+      "files": [
+        "backend/OpenAPI/openapi.json",
+        "frontend/Generated/"
+      ],
+      "blockers": [],
+      "status": "waiting"
+    },
+    {
+      "id": "T049",
+      "description": "Write tenant/contact and contract-occupancy VM/journey tests in `frontend/tests/stays.vm.test.ts`, `tests/e2e/stays.spec.ts`",
+      "technical_requirements": [
+        "Cover contact edits, invalid/out-of-scope input, current/upcoming/ended contract fixtures, history and explicit demo-date refresh before implementing Views.",
+        "Traceability: FR-003, FR-004, FR-005, FR-006, FR-007, FR-008, FR-020, FR-030, FR-031, SC-001, SC-003, SC-004. Preserve approved stack and assigned ownership."
+      ],
+      "dependencies": [
+        "T040",
+        "T048"
+      ],
+      "priority": "P1",
+      "acceptance_criteria": [
+        "Cover contact edits, invalid/out-of-scope input, current/upcoming/ended contract fixtures, history and explicit demo-date refresh before implementing Views."
+      ],
+      "spec_refs": [
+        "specs/001-property-management/spec.md#functional-requirements",
+        "specs/001-property-management/spec.md#measurable-outcomes"
+      ],
+      "architecture_refs": [
+        "Architecture.md#frontend",
+        "specs/001-property-management/plan.md#verification-plan"
+      ],
+      "files": [
+        "frontend/tests/stays.vm.test.ts",
+        "tests/e2e/stays.spec.ts"
+      ],
+      "blockers": [],
+      "status": "waiting"
+    },
+    {
+      "id": "T050",
+      "description": "Define tenant/contact and contract-occupancy presentation models in `frontend/Models/stay.ts`",
+      "technical_requirements": [
+        "Reuse generated DTOs for contacts and read-only contract assignment/history; no independently editable movement or occupancy business rules.",
+        "Traceability: FR-004, FR-005, FR-006, FR-007, FR-008. Preserve approved stack and assigned ownership."
+      ],
+      "dependencies": [
+        "T048",
+        "T049"
+      ],
+      "priority": "P1",
+      "acceptance_criteria": [
+        "Reuse generated DTOs for contacts and read-only contract assignment/history; no independently editable movement or occupancy business rules."
+      ],
+      "spec_refs": [
+        "specs/001-property-management/spec.md#functional-requirements"
+      ],
+      "architecture_refs": [
+        "Architecture.md#frontend",
+        "specs/001-property-management/plan.md#verification-plan"
+      ],
+      "files": [
+        "frontend/Models/stay.ts"
+      ],
+      "blockers": [],
+      "status": "waiting"
+    },
+    {
+      "id": "T051",
+      "description": "Implement tenant/contact and occupancy presentation actions in `frontend/VMs/stays.vm.ts`",
+      "technical_requirements": [
+        "Generated contact/projection operations drive tests; refresh scoped queries on permitted updates/manual refresh/explicit demo-date changes, without manual movement commands.",
+        "Traceability: FR-004, FR-005, FR-006, FR-007, FR-008, FR-020, FR-026. Preserve approved stack and assigned ownership."
+      ],
+      "dependencies": [
+        "T049",
+        "T050"
+      ],
+      "priority": "P1",
+      "acceptance_criteria": [
+        "Generated contact/projection operations drive tests; refresh scoped queries on permitted updates/manual refresh/explicit demo-date changes, without manual movement commands."
+      ],
+      "spec_refs": [
+        "specs/001-property-management/spec.md#functional-requirements"
+      ],
+      "architecture_refs": [
+        "Architecture.md#frontend",
+        "specs/001-property-management/plan.md#verification-plan"
+      ],
+      "files": [
+        "frontend/VMs/stays.vm.ts"
+      ],
+      "blockers": [],
+      "status": "waiting"
+    },
+    {
+      "id": "T052",
+      "description": "Implement and register tenant and contract-occupancy Views in `frontend/Views/Tenants.tsx`, `frontend/Views/Stays.tsx`, `frontend/Views/App.tsx`, `frontend/Views/AppShell.tsx`",
+      "technical_requirements": [
+        "Register usable tenant/history screens with contract-derived status and contact forms; no check-in/out button. Show proposed contract intervals and permitted role actions across themes.",
+        "Traceability: FR-004, FR-005, FR-006, FR-007, FR-008, FR-021, FR-022, FR-023, FR-026. Preserve approved stack and assigned ownership."
+      ],
+      "dependencies": [
+        "T027",
+        "T049",
+        "T051"
+      ],
+      "priority": "P1",
+      "acceptance_criteria": [
+        "Register usable tenant/history screens with contract-derived status and contact forms; no check-in/out button. Show proposed contract intervals and permitted role actions across themes."
+      ],
+      "spec_refs": [
+        "specs/001-property-management/spec.md#functional-requirements"
+      ],
+      "architecture_refs": [
+        "Architecture.md#frontend",
+        "specs/001-property-management/plan.md#verification-plan"
+      ],
+      "files": [
+        "frontend/Views/Tenants.tsx",
+        "frontend/Views/Stays.tsx",
+        "frontend/Views/App.tsx",
+        "frontend/Views/AppShell.tsx"
+      ],
+      "blockers": [],
+      "status": "waiting"
+    },
+    {
+      "id": "T053",
+      "description": "Integrate resource refresh for contract projections and explicit demo-date changes in `frontend/VMs/properties.vm.ts`, `frontend/Views/Resources.tsx`",
+      "technical_requirements": [
+        "Resource/tenant/history views agree when the explicit demo date or valid fixture contracts change; successful later contract mutations use the same query invalidation path. Serialize shared-file edits.",
+        "Traceability: FR-003, FR-020, FR-029, FR-030. Preserve approved stack and assigned ownership."
+      ],
+      "dependencies": [
+        "T040",
+        "T046",
+        "T052"
+      ],
+      "priority": "P1",
+      "acceptance_criteria": [
+        "Resource/tenant/history views agree when the explicit demo date or valid fixture contracts change; successful later contract mutations use the same query invalidation path. Serialize shared-file edits."
+      ],
+      "spec_refs": [
+        "specs/001-property-management/spec.md#functional-requirements"
+      ],
+      "architecture_refs": [
+        "Architecture.md#frontend",
+        "specs/001-property-management/plan.md#verification-plan"
+      ],
+      "files": [
+        "frontend/VMs/properties.vm.ts",
+        "frontend/Views/Resources.tsx"
+      ],
+      "blockers": [],
+      "status": "waiting"
+    },
+    {
+      "id": "T054",
+      "description": "Verify and record US2 acceptance in `specs/001-property-management/validation/us2.md`",
+      "technical_requirements": [
+        "Record tenant CRUD, contract start/end/termination projections, shared capacity and cross-view agreement using fixture contracts; reserve actual contract mutation evidence for US3.",
+        "Traceability: SC-001, SC-003, SC-004. Preserve approved stack and assigned ownership."
+      ],
+      "dependencies": [
+        "T053"
+      ],
+      "priority": "P1",
+      "acceptance_criteria": [
+        "Record tenant CRUD, contract start/end/termination projections, shared capacity and cross-view agreement using fixture contracts; reserve actual contract mutation evidence for US3."
+      ],
+      "spec_refs": [
+        "specs/001-property-management/spec.md#functional-requirements",
+        "specs/001-property-management/spec.md#measurable-outcomes"
+      ],
+      "architecture_refs": [
+        "Architecture.md#backend",
+        "specs/001-property-management/plan.md#verification-plan"
+      ],
+      "files": [
+        "specs/001-property-management/validation/us2.md"
+      ],
+      "blockers": [],
+      "status": "waiting"
+    },
+    {
+      "id": "T055",
+      "description": "Define contract/document operation contracts in `backend/Src/Contracts/contract.contract.ts`, `backend/Src/Contracts/document.contract.ts`",
+      "technical_requirements": [
+        "Specify contract assignment/date/rent/deposit/termination and protected document operations using demo policy. Contract writes are occupancy authority and exported errors include shared capacity conflicts. Define createContract with exactly one of tenant_id or new_tenant contact details; Manager new contacts require this atomic scoped first-contract flow.",
+        "Traceability: FR-009, FR-010, FR-011, FR-012, FR-013, FR-024, FR-025, FR-033. Preserve approved stack and assigned ownership."
+      ],
+      "dependencies": [
+        "T008",
+        "T047"
+      ],
+      "priority": "P2",
+      "acceptance_criteria": [
+        "Specify contract assignment/date/rent/deposit/termination and protected document operations using demo policy. Contract writes are occupancy authority and exported errors include shared capacity conflicts. Define createContract with exactly one of tenant_id or new_tenant contact details; Manager new contacts require this atomic scoped first-contract flow."
+      ],
+      "spec_refs": [
+        "specs/001-property-management/spec.md#functional-requirements"
+      ],
+      "architecture_refs": [
+        "Architecture.md#backend",
+        "specs/001-property-management/plan.md#verification-plan"
+      ],
+      "files": [
+        "backend/Src/Contracts/contract.contract.ts",
+        "backend/Src/Contracts/document.contract.ts"
+      ],
+      "blockers": [],
+      "status": "waiting"
+    },
+    {
+      "id": "T056",
+      "description": "Write contract classification and effective-term tests in `backend/tests/unit/contracts-manager.test.ts`",
+      "technical_requirements": [
+        "Test Upcoming/Active/Expiring Soon/Expired/Terminated precedence, inclusive/exclusive dates, future/effective termination and explicit date refresh with no manual movements. Cover atomic new-tenant/first-contract creation, out-of-scope denial and rollback leaving no orphan tenant.",
+        "Traceability: FR-009, FR-010, FR-011, FR-032, FR-033, SC-003. Preserve approved stack and assigned ownership."
+      ],
+      "dependencies": [
+        "T055"
+      ],
+      "priority": "P2",
+      "acceptance_criteria": [
+        "Test Upcoming/Active/Expiring Soon/Expired/Terminated precedence, inclusive/exclusive dates, future/effective termination and explicit date refresh with no manual movements. Cover atomic new-tenant/first-contract creation, out-of-scope denial and rollback leaving no orphan tenant."
+      ],
+      "spec_refs": [
+        "specs/001-property-management/spec.md#functional-requirements",
+        "specs/001-property-management/spec.md#measurable-outcomes"
+      ],
+      "architecture_refs": [
+        "Architecture.md#backend",
+        "specs/001-property-management/plan.md#verification-plan"
+      ],
+      "files": [
+        "backend/tests/unit/contracts-manager.test.ts"
+      ],
+      "blockers": [],
+      "status": "waiting"
+    },
+    {
+      "id": "T057",
+      "description": "Write protected upload, BYTEA retrieval and failure integration tests in `backend/tests/integration/documents.test.ts`",
+      "technical_requirements": [
+        "Cover metadata/relationship preservation, unchanged bytes, approved limits/types, denied access, failed upload rollback and omission of binaries from ordinary lists.",
+        "Traceability: FR-012, FR-013, FR-024, FR-025, FR-026, FR-028, SC-005, SC-006. Preserve approved stack and assigned ownership."
+      ],
+      "dependencies": [
+        "T055"
+      ],
+      "priority": "P2",
+      "acceptance_criteria": [
+        "Cover metadata/relationship preservation, unchanged bytes, approved limits/types, denied access, failed upload rollback and omission of binaries from ordinary lists."
+      ],
+      "spec_refs": [
+        "specs/001-property-management/spec.md#functional-requirements",
+        "specs/001-property-management/spec.md#measurable-outcomes"
+      ],
+      "architecture_refs": [
+        "Architecture.md#backend",
+        "specs/001-property-management/plan.md#verification-plan"
+      ],
+      "files": [
+        "backend/tests/integration/documents.test.ts"
+      ],
+      "blockers": [],
+      "status": "waiting"
+    },
+    {
+      "id": "T109",
+      "description": "Write contract-mutation versus capacity-edit concurrency tests in `backend/tests/integration/contract-capacity.test.ts`",
+      "technical_requirements": [
+        "Test interval event-sweep, shared full-room rejection, simultaneous term/capacity edits, reassignment lock order and termination/end exclusivity; both mutation paths must preserve capacity.",
+        "Traceability: FR-003, FR-028, FR-029, FR-030, FR-031, SC-003. Preserve approved stack and assigned ownership."
+      ],
+      "dependencies": [
+        "T033",
+        "T055"
+      ],
+      "priority": "P2",
+      "acceptance_criteria": [
+        "Test interval event-sweep, shared full-room rejection, simultaneous term/capacity edits, reassignment lock order and termination/end exclusivity; both mutation paths must preserve capacity."
+      ],
+      "spec_refs": [
+        "specs/001-property-management/spec.md#functional-requirements",
+        "specs/001-property-management/spec.md#measurable-outcomes"
+      ],
+      "architecture_refs": [
+        "Architecture.md#backend",
+        "specs/001-property-management/plan.md#verification-plan"
+      ],
+      "files": [
+        "backend/tests/integration/contract-capacity.test.ts"
+      ],
+      "blockers": [],
+      "status": "waiting"
+    },
+    {
+      "id": "T058",
+      "description": "Implement transactional contract assignment, edit and termination operations in `backend/Managers/contracts-manager.ts`",
+      "technical_requirements": [
+        "Contract Manager owns assignments and term changes; use the same resource locks as capacity edits, enforce event-sweep capacity and transaction/version guards, and pass T056/T109. Atomically create new tenant contact with its scoped first contract when new_tenant is supplied; no independent tenant grants or duplicate assignment authority.",
+        "Traceability: FR-009, FR-010, FR-011, FR-032, FR-033. Preserve approved stack and assigned ownership."
+      ],
+      "dependencies": [
+        "T046",
+        "T056",
+        "T109"
+      ],
+      "priority": "P2",
+      "acceptance_criteria": [
+        "Contract Manager owns assignments and term changes; use the same resource locks as capacity edits, enforce event-sweep capacity and transaction/version guards, and pass T056/T109. Atomically create new tenant contact with its scoped first contract when new_tenant is supplied; no independent tenant grants or duplicate assignment authority."
+      ],
+      "spec_refs": [
+        "specs/001-property-management/spec.md#functional-requirements"
+      ],
+      "architecture_refs": [
+        "Architecture.md#backend",
+        "specs/001-property-management/plan.md#verification-plan"
+      ],
+      "files": [
+        "backend/Managers/contracts-manager.ts"
+      ],
+      "blockers": [],
+      "status": "waiting"
+    },
+    {
+      "id": "T059",
+      "description": "Implement protected transactional document storage operations in `backend/Managers/documents-manager.ts`",
+      "technical_requirements": [
+        "Persist metadata/BYTEA and applicable tenant/property/stay/contract relationships atomically; approved access/restrictions and byte-integrity tests pass.",
+        "Traceability: FR-012, FR-013, FR-024, FR-025, FR-028, SC-006. Preserve approved stack and assigned ownership."
+      ],
+      "dependencies": [
+        "T057"
+      ],
+      "priority": "P2",
+      "acceptance_criteria": [
+        "Persist metadata/BYTEA and applicable tenant/property/stay/contract relationships atomically; approved access/restrictions and byte-integrity tests pass."
+      ],
+      "spec_refs": [
+        "specs/001-property-management/spec.md#functional-requirements",
+        "specs/001-property-management/spec.md#measurable-outcomes"
+      ],
+      "architecture_refs": [
+        "Architecture.md#backend",
+        "specs/001-property-management/plan.md#verification-plan"
+      ],
+      "files": [
+        "backend/Managers/documents-manager.ts"
+      ],
+      "blockers": [],
+      "status": "waiting"
+    },
+    {
+      "id": "T060",
+      "description": "Implement contract/document HTTP operation handlers in `backend/Src/Handler/contracts-logic.ts`, `backend/Src/Handler/documents-logic.ts`, `backend/Src/app.module.ts`",
+      "technical_requirements": [
+        "Implement and register protected contract/document operations and their providers; exported schema includes them, occupancy derives from resulting contract terms and file data stays BYTEA.",
+        "Traceability: FR-009, FR-010, FR-011, FR-012, FR-013, FR-024, FR-025, FR-026. Preserve approved stack and assigned ownership."
+      ],
+      "dependencies": [
+        "T055",
+        "T058",
+        "T059"
+      ],
+      "priority": "P2",
+      "acceptance_criteria": [
+        "Implement and register protected contract/document operations and their providers; exported schema includes them, occupancy derives from resulting contract terms and file data stays BYTEA."
+      ],
+      "spec_refs": [
+        "specs/001-property-management/spec.md#functional-requirements"
+      ],
+      "architecture_refs": [
+        "Architecture.md#backend",
+        "specs/001-property-management/plan.md#verification-plan"
+      ],
+      "files": [
+        "backend/Src/Handler/contracts-logic.ts",
+        "backend/Src/Handler/documents-logic.ts",
+        "backend/Src/app.module.ts"
+      ],
+      "blockers": [],
+      "status": "waiting"
+    },
+    {
+      "id": "T061",
+      "description": "Regenerate the client for contract/document operations in `backend/OpenAPI/openapi.json`, `frontend/Generated/`",
+      "technical_requirements": [
+        "Serialized generation preserves prior operations, compiles file-transfer types and matches exported contracts without manual edits.",
+        "Traceability: FR-009, FR-010, FR-011, FR-012, FR-013. Preserve approved stack and assigned ownership."
+      ],
+      "dependencies": [
+        "T048",
+        "T060"
+      ],
+      "priority": "P2",
+      "acceptance_criteria": [
+        "Serialized generation preserves prior operations, compiles file-transfer types and matches exported contracts without manual edits."
+      ],
+      "spec_refs": [
+        "specs/001-property-management/spec.md#functional-requirements"
+      ],
+      "architecture_refs": [
+        "Architecture.md#backend",
+        "Architecture.md#api-flow",
+        "specs/001-property-management/plan.md#verification-plan"
+      ],
+      "files": [
+        "backend/OpenAPI/openapi.json",
+        "frontend/Generated/"
+      ],
+      "blockers": [],
+      "status": "waiting"
+    },
+    {
+      "id": "T062",
+      "description": "Write contract/document VM and browser acceptance tests in `frontend/tests/contracts.vm.test.ts`, `tests/e2e/contracts-documents.spec.ts`",
+      "technical_requirements": [
+        "Define association, expiry display, upload/download, permission/size/type failures and retained input before frontend behavior implementation. Include Manager new-contact creation through the first-contract form and failed-save rollback feedback.",
+        "Traceability: FR-009, FR-010, FR-011, FR-012, FR-013, FR-025, FR-026, SC-001, SC-003, SC-004, SC-006. Preserve approved stack and assigned ownership."
+      ],
+      "dependencies": [
+        "T052",
+        "T061"
+      ],
+      "priority": "P2",
+      "acceptance_criteria": [
+        "Define association, expiry display, upload/download, permission/size/type failures and retained input before frontend behavior implementation. Include Manager new-contact creation through the first-contract form and failed-save rollback feedback."
+      ],
+      "spec_refs": [
+        "specs/001-property-management/spec.md#functional-requirements",
+        "specs/001-property-management/spec.md#measurable-outcomes"
+      ],
+      "architecture_refs": [
+        "Architecture.md#frontend",
+        "specs/001-property-management/plan.md#verification-plan"
+      ],
+      "files": [
+        "frontend/tests/contracts.vm.test.ts",
+        "tests/e2e/contracts-documents.spec.ts"
+      ],
+      "blockers": [],
+      "status": "waiting"
+    },
+    {
+      "id": "T063",
+      "description": "Define contract/document presentation models in `frontend/Models/contract.ts`, `frontend/Models/document.ts`",
+      "technical_requirements": [
+        "Represent agreement forms and metadata display using generated transport types; do not place file contents into list/presentation caches unnecessarily.",
+        "Traceability: FR-009, FR-010, FR-011, FR-012, FR-013. Preserve approved stack and assigned ownership."
+      ],
+      "dependencies": [
+        "T061",
+        "T062"
+      ],
+      "priority": "P2",
+      "acceptance_criteria": [
+        "Represent agreement forms and metadata display using generated transport types; do not place file contents into list/presentation caches unnecessarily."
+      ],
+      "spec_refs": [
+        "specs/001-property-management/spec.md#functional-requirements"
+      ],
+      "architecture_refs": [
+        "Architecture.md#frontend",
+        "specs/001-property-management/plan.md#verification-plan"
+      ],
+      "files": [
+        "frontend/Models/contract.ts",
+        "frontend/Models/document.ts"
+      ],
+      "blockers": [],
+      "status": "waiting"
+    },
+    {
+      "id": "T064",
+      "description": "Implement contract/document presentation actions in `frontend/VMs/contracts.vm.ts`",
+      "technical_requirements": [
+        "VM tests pass for agreement edits, metadata upload/download, failed-operation feedback and affected query invalidation.",
+        "Traceability: FR-009, FR-010, FR-011, FR-012, FR-013, FR-020, FR-026. Preserve approved stack and assigned ownership."
+      ],
+      "dependencies": [
+        "T062",
+        "T063"
+      ],
+      "priority": "P2",
+      "acceptance_criteria": [
+        "VM tests pass for agreement edits, metadata upload/download, failed-operation feedback and affected query invalidation."
+      ],
+      "spec_refs": [
+        "specs/001-property-management/spec.md#functional-requirements"
+      ],
+      "architecture_refs": [
+        "Architecture.md#frontend",
+        "specs/001-property-management/plan.md#verification-plan"
+      ],
+      "files": [
+        "frontend/VMs/contracts.vm.ts"
+      ],
+      "blockers": [],
+      "status": "waiting"
+    },
+    {
+      "id": "T065",
+      "description": "Implement contract and document Views in `frontend/Views/Contracts.tsx`, `frontend/Views/Documents.tsx`, `frontend/Views/App.tsx`, `frontend/Views/AppShell.tsx`",
+      "technical_requirements": [
+        "Register agreement/document routes and navigation; forms manage tenant/resource terms and show proposed classifications and metadata; enforce allowed actions via server plus clear role-aware UI. Provide the Manager new-contact/initial-contract flow in the contract form; Owner standalone contacts remain supported.",
+        "Traceability: FR-009, FR-010, FR-011, FR-012, FR-013, FR-021, FR-022, FR-023, FR-025. Preserve approved stack and assigned ownership."
+      ],
+      "dependencies": [
+        "T027",
+        "T062",
+        "T064"
+      ],
+      "priority": "P2",
+      "acceptance_criteria": [
+        "Register agreement/document routes and navigation; forms manage tenant/resource terms and show proposed classifications and metadata; enforce allowed actions via server plus clear role-aware UI. Provide the Manager new-contact/initial-contract flow in the contract form; Owner standalone contacts remain supported."
+      ],
+      "spec_refs": [
+        "specs/001-property-management/spec.md#functional-requirements"
+      ],
+      "architecture_refs": [
+        "Architecture.md#frontend",
+        "specs/001-property-management/plan.md#verification-plan"
+      ],
+      "files": [
+        "frontend/Views/Contracts.tsx",
+        "frontend/Views/Documents.tsx",
+        "frontend/Views/App.tsx",
+        "frontend/Views/AppShell.tsx"
+      ],
+      "blockers": [],
+      "status": "waiting"
+    },
+    {
+      "id": "T066",
+      "description": "Link associated contracts/documents from property and tenant/stay records in `frontend/Views/Properties.tsx`, `frontend/Views/Tenants.tsx`, `frontend/Views/Stays.tsx`",
+      "technical_requirements": [
+        "Applicable records open the correct associated agreement/files; ownership/access scope and navigation context are preserved.",
+        "Traceability: FR-009, FR-012, FR-013, FR-020, FR-024. Preserve approved stack and assigned ownership."
+      ],
+      "dependencies": [
+        "T040",
+        "T052",
+        "T065"
+      ],
+      "priority": "P2",
+      "acceptance_criteria": [
+        "Applicable records open the correct associated agreement/files; ownership/access scope and navigation context are preserved."
+      ],
+      "spec_refs": [
+        "specs/001-property-management/spec.md#functional-requirements"
+      ],
+      "architecture_refs": [
+        "Architecture.md#frontend",
+        "specs/001-property-management/plan.md#verification-plan"
+      ],
+      "files": [
+        "frontend/Views/Properties.tsx",
+        "frontend/Views/Tenants.tsx",
+        "frontend/Views/Stays.tsx"
+      ],
+      "blockers": [],
+      "status": "waiting"
+    },
+    {
+      "id": "T067",
+      "description": "Verify and record US3 acceptance in `specs/001-property-management/validation/us3.md`",
+      "technical_requirements": [
+        "Record contract date/termination results, upload restrictions, byte integrity, denied access and responsive/theme user journeys.",
+        "Traceability: SC-001, SC-003, SC-004, SC-005, SC-006. Preserve approved stack and assigned ownership."
+      ],
+      "dependencies": [
+        "T066"
+      ],
+      "priority": "P2",
+      "acceptance_criteria": [
+        "Record contract date/termination results, upload restrictions, byte integrity, denied access and responsive/theme user journeys."
+      ],
+      "spec_refs": [
+        "specs/001-property-management/spec.md#functional-requirements",
+        "specs/001-property-management/spec.md#measurable-outcomes"
+      ],
+      "architecture_refs": [
+        "Architecture.md#backend",
+        "specs/001-property-management/plan.md#verification-plan"
+      ],
+      "files": [
+        "specs/001-property-management/validation/us3.md"
+      ],
+      "blockers": [],
+      "status": "waiting"
+    },
+    {
+      "id": "T068",
+      "description": "Define rent-obligation, payment and adjustment operation contracts in `backend/Src/Contracts/payment.contract.ts`",
+      "technical_requirements": [
+        "Define explicit obligation creation and exact whole-TWD payment/reversal operations, due-day/period inputs, manual partial amounts, precedence and request-key conflict rules; no automatic proration.",
+        "Traceability: FR-014, FR-015, FR-016, FR-017, FR-032, FR-034, FR-035. Preserve approved stack and assigned ownership."
+      ],
+      "dependencies": [
+        "T008",
+        "T047"
+      ],
+      "priority": "P2",
+      "acceptance_criteria": [
+        "Define explicit obligation creation and exact whole-TWD payment/reversal operations, due-day/period inputs, manual partial amounts, precedence and request-key conflict rules; no automatic proration."
+      ],
+      "spec_refs": [
+        "specs/001-property-management/spec.md#functional-requirements"
+      ],
+      "architecture_refs": [
+        "Architecture.md#backend",
+        "specs/001-property-management/plan.md#verification-plan"
+      ],
+      "files": [
+        "backend/Src/Contracts/payment.contract.ts"
+      ],
+      "blockers": [],
+      "status": "waiting"
+    },
+    {
+      "id": "T069",
+      "description": "Write billing, balance and status-precedence unit tests in `backend/tests/unit/payments-manager.test.ts`",
+      "technical_requirements": [
+        "Use policy fixtures for explicit periods/due dates, integer-TWD validation, Paid/Overdue/Partial/Unpaid precedence, reversals/replacements and rejected overpayment; record meaningful RED.",
+        "Traceability: FR-014, FR-015, FR-016, FR-017, FR-032, FR-034, FR-035, SC-003. Preserve approved stack and assigned ownership."
+      ],
+      "dependencies": [
+        "T068"
+      ],
+      "priority": "P2",
+      "acceptance_criteria": [
+        "Use policy fixtures for explicit periods/due dates, integer-TWD validation, Paid/Overdue/Partial/Unpaid precedence, reversals/replacements and rejected overpayment; record meaningful RED."
+      ],
+      "spec_refs": [
+        "specs/001-property-management/spec.md#functional-requirements",
+        "specs/001-property-management/spec.md#measurable-outcomes"
+      ],
+      "architecture_refs": [
+        "Architecture.md#backend",
+        "specs/001-property-management/plan.md#verification-plan"
+      ],
+      "files": [
+        "backend/tests/unit/payments-manager.test.ts"
+      ],
+      "blockers": [],
+      "status": "waiting"
+    },
+    {
+      "id": "T070",
+      "description": "Write payment duplicate, correction and concurrency integration tests in `backend/tests/integration/payments.test.ts`",
+      "technical_requirements": [
+        "Assert identical-key retries return the original result, conflicting reuse fails, reversals remain single/append-only, overpayments preserve records and concurrent/failed writes retain valid balances.",
+        "Traceability: FR-014, FR-015, FR-020, FR-028, FR-035, SC-003. Preserve approved stack and assigned ownership."
+      ],
+      "dependencies": [
+        "T068"
+      ],
+      "priority": "P2",
+      "acceptance_criteria": [
+        "Assert identical-key retries return the original result, conflicting reuse fails, reversals remain single/append-only, overpayments preserve records and concurrent/failed writes retain valid balances."
+      ],
+      "spec_refs": [
+        "specs/001-property-management/spec.md#functional-requirements",
+        "specs/001-property-management/spec.md#measurable-outcomes"
+      ],
+      "architecture_refs": [
+        "Architecture.md#backend",
+        "specs/001-property-management/plan.md#verification-plan"
+      ],
+      "files": [
+        "backend/tests/integration/payments.test.ts"
+      ],
+      "blockers": [],
+      "status": "waiting"
+    },
+    {
+      "id": "T071",
+      "description": "Implement rental-obligation and due-period operations in `backend/Managers/billing-manager.ts`",
+      "technical_requirements": [
+        "Create/retrieve explicit unique contract-period obligations with stored due dates/amounts. Do not auto-post historic or prorated charges; policy cases pass.",
+        "Traceability: FR-014, FR-015, FR-017, FR-032. Preserve approved stack and assigned ownership."
+      ],
+      "dependencies": [
+        "T046",
+        "T069"
+      ],
+      "priority": "P2",
+      "acceptance_criteria": [
+        "Create/retrieve explicit unique contract-period obligations with stored due dates/amounts. Do not auto-post historic or prorated charges; policy cases pass."
+      ],
+      "spec_refs": [
+        "specs/001-property-management/spec.md#functional-requirements"
+      ],
+      "architecture_refs": [
+        "Architecture.md#backend",
+        "specs/001-property-management/plan.md#verification-plan"
+      ],
+      "files": [
+        "backend/Managers/billing-manager.ts"
+      ],
+      "blockers": [],
+      "status": "waiting"
+    },
+    {
+      "id": "T072",
+      "description": "Implement transactional payment and adjustment operations in `backend/Managers/payments-manager.ts`",
+      "technical_requirements": [
+        "Paid totals, outstanding balance and status follow confirmed rules atomically; duplicate/concurrency/rollback cases pass.",
+        "Traceability: FR-014, FR-015, FR-016, FR-017, FR-028, FR-032, FR-034, FR-035. Preserve approved stack and assigned ownership."
+      ],
+      "dependencies": [
+        "T069",
+        "T070",
+        "T071"
+      ],
+      "priority": "P2",
+      "acceptance_criteria": [
+        "Paid totals, outstanding balance and status follow confirmed rules atomically; duplicate/concurrency/rollback cases pass."
+      ],
+      "spec_refs": [
+        "specs/001-property-management/spec.md#functional-requirements"
+      ],
+      "architecture_refs": [
+        "Architecture.md#backend",
+        "specs/001-property-management/plan.md#verification-plan"
+      ],
+      "files": [
+        "backend/Managers/payments-manager.ts"
+      ],
+      "blockers": [],
+      "status": "waiting"
+    },
+    {
+      "id": "T073",
+      "description": "Implement rental payment HTTP operation handlers in `backend/Src/Handler/payments-logic.ts`, `backend/Src/app.module.ts`",
+      "technical_requirements": [
+        "Register scoped obligation/payment/reversal operations/providers and export schemas. Serialize root-module edits after contract/document registration; retain documented conflicts and exact amounts.",
+        "Traceability: FR-014, FR-015, FR-016, FR-017, FR-024, FR-026, FR-035. Preserve approved stack and assigned ownership."
+      ],
+      "dependencies": [
+        "T068",
+        "T071",
+        "T072",
+        "T060"
+      ],
+      "priority": "P2",
+      "acceptance_criteria": [
+        "Register scoped obligation/payment/reversal operations/providers and export schemas. Serialize root-module edits after contract/document registration; retain documented conflicts and exact amounts."
+      ],
+      "spec_refs": [
+        "specs/001-property-management/spec.md#functional-requirements"
+      ],
+      "architecture_refs": [
+        "Architecture.md#backend",
+        "specs/001-property-management/plan.md#verification-plan"
+      ],
+      "files": [
+        "backend/Src/Handler/payments-logic.ts",
+        "backend/Src/app.module.ts"
+      ],
+      "blockers": [],
+      "status": "waiting"
+    },
+    {
+      "id": "T074",
+      "description": "Regenerate the client for rental payment operations in `backend/OpenAPI/openapi.json`, `frontend/Generated/`",
+      "technical_requirements": [
+        "Serialized generation retains existing APIs and compiles payment amounts/status/adjustment operations without manual generated edits.",
+        "Traceability: FR-014, FR-015, FR-016, FR-017. Preserve approved stack and assigned ownership."
+      ],
+      "dependencies": [
+        "T061",
+        "T073"
+      ],
+      "priority": "P2",
+      "acceptance_criteria": [
+        "Serialized generation retains existing APIs and compiles payment amounts/status/adjustment operations without manual generated edits."
+      ],
+      "spec_refs": [
+        "specs/001-property-management/spec.md#functional-requirements"
+      ],
+      "architecture_refs": [
+        "Architecture.md#backend",
+        "Architecture.md#api-flow",
+        "specs/001-property-management/plan.md#verification-plan"
+      ],
+      "files": [
+        "backend/OpenAPI/openapi.json",
+        "frontend/Generated/"
+      ],
+      "blockers": [],
+      "status": "waiting"
+    },
+    {
+      "id": "T075",
+      "description": "Write payment VM and rental-period user-journey tests in `frontend/tests/payments.vm.test.ts`, `tests/e2e/payments.spec.ts`",
+      "technical_requirements": [
+        "Cover amount due/paid/balance, unpaid tenant identification, Overdue/partial precedence, adjustments, duplicates and error/input preservation before UI implementation.",
+        "Traceability: FR-014, FR-015, FR-016, FR-017, FR-020, FR-026, FR-034, FR-035, SC-001, SC-003, SC-004. Preserve approved stack and assigned ownership."
+      ],
+      "dependencies": [
+        "T052",
+        "T074"
+      ],
+      "priority": "P2",
+      "acceptance_criteria": [
+        "Cover amount due/paid/balance, unpaid tenant identification, Overdue/partial precedence, adjustments, duplicates and error/input preservation before UI implementation."
+      ],
+      "spec_refs": [
+        "specs/001-property-management/spec.md#functional-requirements",
+        "specs/001-property-management/spec.md#measurable-outcomes"
+      ],
+      "architecture_refs": [
+        "Architecture.md#frontend",
+        "specs/001-property-management/plan.md#verification-plan"
+      ],
+      "files": [
+        "frontend/tests/payments.vm.test.ts",
+        "tests/e2e/payments.spec.ts"
+      ],
+      "blockers": [],
+      "status": "waiting"
+    },
+    {
+      "id": "T076",
+      "description": "Define payment presentation models and exact-money display mapping in `frontend/Models/payment.ts`",
+      "technical_requirements": [
+        "Display/format the approved currency and precision without floating-point business calculations or duplicated API models.",
+        "Traceability: FR-014, FR-015, FR-016, FR-032. Preserve approved stack and assigned ownership."
+      ],
+      "dependencies": [
+        "T074",
+        "T075"
+      ],
+      "priority": "P2",
+      "acceptance_criteria": [
+        "Display/format the approved currency and precision without floating-point business calculations or duplicated API models."
+      ],
+      "spec_refs": [
+        "specs/001-property-management/spec.md#functional-requirements"
+      ],
+      "architecture_refs": [
+        "Architecture.md#frontend",
+        "specs/001-property-management/plan.md#verification-plan"
+      ],
+      "files": [
+        "frontend/Models/payment.ts"
+      ],
+      "blockers": [],
+      "status": "waiting"
+    },
+    {
+      "id": "T077",
+      "description": "Implement rental payment presentation actions in `frontend/VMs/payments.vm.ts`",
+      "technical_requirements": [
+        "Generated operations drive period filters, recording and approved adjustments; success invalidates balances/status queries and duplicate clicks are handled safely.",
+        "Traceability: FR-014, FR-015, FR-016, FR-017, FR-020, FR-026, FR-035. Preserve approved stack and assigned ownership."
+      ],
+      "dependencies": [
+        "T075",
+        "T076"
+      ],
+      "priority": "P2",
+      "acceptance_criteria": [
+        "Generated operations drive period filters, recording and approved adjustments; success invalidates balances/status queries and duplicate clicks are handled safely."
+      ],
+      "spec_refs": [
+        "specs/001-property-management/spec.md#functional-requirements"
+      ],
+      "architecture_refs": [
+        "Architecture.md#frontend",
+        "specs/001-property-management/plan.md#verification-plan"
+      ],
+      "files": [
+        "frontend/VMs/payments.vm.ts"
+      ],
+      "blockers": [],
+      "status": "waiting"
+    },
+    {
+      "id": "T078",
+      "description": "Implement rental-period and outstanding-rent Views in `frontend/Views/Payments.tsx`, `frontend/Views/PaymentPanel.tsx`, `frontend/Views/App.tsx`, `frontend/Views/AppShell.tsx`",
+      "technical_requirements": [
+        "Register payment routes/navigation and show due/paid/outstanding amounts, overdue/partial cues and permitted actions. Owner/Manager create obligations and payments; Viewer reads only.",
+        "Traceability: FR-014, FR-015, FR-016, FR-017, FR-021, FR-022, FR-023, FR-034, FR-035. Preserve approved stack and assigned ownership."
+      ],
+      "dependencies": [
+        "T027",
+        "T075",
+        "T077",
+        "T065"
+      ],
+      "priority": "P2",
+      "acceptance_criteria": [
+        "Register payment routes/navigation and show due/paid/outstanding amounts, overdue/partial cues and permitted actions. Owner/Manager create obligations and payments; Viewer reads only."
+      ],
+      "spec_refs": [
+        "specs/001-property-management/spec.md#functional-requirements"
+      ],
+      "architecture_refs": [
+        "Architecture.md#frontend",
+        "specs/001-property-management/plan.md#verification-plan"
+      ],
+      "files": [
+        "frontend/Views/Payments.tsx",
+        "frontend/Views/PaymentPanel.tsx",
+        "frontend/Views/App.tsx",
+        "frontend/Views/AppShell.tsx"
+      ],
+      "blockers": [],
+      "status": "waiting"
+    },
+    {
+      "id": "T079",
+      "description": "Integrate payment panels with tenant/stay records in `frontend/Views/Tenants.tsx`, `frontend/Views/Stays.tsx`",
+      "technical_requirements": [
+        "The selected tenant/stay shows its own payment periods/status; saved payments refresh associated views without leaking another property scope.",
+        "Traceability: FR-014, FR-015, FR-017, FR-020, FR-024. Preserve approved stack and assigned ownership."
+      ],
+      "dependencies": [
+        "T066",
+        "T078"
+      ],
+      "priority": "P2",
+      "acceptance_criteria": [
+        "The selected tenant/stay shows its own payment periods/status; saved payments refresh associated views without leaking another property scope."
+      ],
+      "spec_refs": [
+        "specs/001-property-management/spec.md#functional-requirements"
+      ],
+      "architecture_refs": [
+        "Architecture.md#frontend",
+        "specs/001-property-management/plan.md#verification-plan"
+      ],
+      "files": [
+        "frontend/Views/Tenants.tsx",
+        "frontend/Views/Stays.tsx"
+      ],
+      "blockers": [],
+      "status": "waiting"
+    },
+    {
+      "id": "T080",
+      "description": "Verify and record US4 acceptance in `specs/001-property-management/validation/us4.md`",
+      "technical_requirements": [
+        "Record exact-money/date fixtures, duplicate/concurrent/failure cases, correction/overpayment outcomes and browser workflows.",
+        "Traceability: SC-001, SC-003, SC-004. Preserve approved stack and assigned ownership."
+      ],
+      "dependencies": [
+        "T079"
+      ],
+      "priority": "P2",
+      "acceptance_criteria": [
+        "Record exact-money/date fixtures, duplicate/concurrent/failure cases, correction/overpayment outcomes and browser workflows."
+      ],
+      "spec_refs": [
+        "specs/001-property-management/spec.md#functional-requirements",
+        "specs/001-property-management/spec.md#measurable-outcomes"
+      ],
+      "architecture_refs": [
+        "Architecture.md#backend",
+        "specs/001-property-management/plan.md#verification-plan"
+      ],
+      "files": [
+        "specs/001-property-management/validation/us4.md"
+      ],
+      "blockers": [],
+      "status": "waiting"
+    },
+    {
+      "id": "T081",
+      "description": "Define dashboard metric and drill-down contracts in `backend/Src/Contracts/dashboard.contract.ts`",
+      "technical_requirements": [
+        "Define the nine core metric categories with contract starts/ends replacing movements, explicit outstanding-period counts and separate TWD totals; share property/demo-date/filter context.",
+        "Traceability: FR-018, FR-019, FR-020, FR-033. Preserve approved stack and assigned ownership."
+      ],
+      "dependencies": [
+        "T008",
+        "T047",
+        "T060",
+        "T073"
+      ],
+      "priority": "P2",
+      "acceptance_criteria": [
+        "Define the nine core metric categories with contract starts/ends replacing movements, explicit outstanding-period counts and separate TWD totals; share property/demo-date/filter context."
+      ],
+      "spec_refs": [
+        "specs/001-property-management/spec.md#functional-requirements"
+      ],
+      "architecture_refs": [
+        "Architecture.md#backend",
+        "specs/001-property-management/plan.md#verification-plan"
+      ],
+      "files": [
+        "backend/Src/Contracts/dashboard.contract.ts"
+      ],
+      "blockers": [],
+      "status": "waiting"
+    },
+    {
+      "id": "T082",
+      "description": "Write dashboard aggregate and drill-down consistency tests in `backend/tests/integration/dashboard.test.ts`",
+      "technical_requirements": [
+        "Known fixtures cover totals versus full record sets, empty data, date boundaries, pagination, shared occupancy, scope and concurrent refresh without unexplained discrepancies.",
+        "Traceability: FR-018, FR-019, FR-020, FR-028, SC-002, SC-003. Preserve approved stack and assigned ownership."
+      ],
+      "dependencies": [
+        "T081"
+      ],
+      "priority": "P2",
+      "acceptance_criteria": [
+        "Known fixtures cover totals versus full record sets, empty data, date boundaries, pagination, shared occupancy, scope and concurrent refresh without unexplained discrepancies."
+      ],
+      "spec_refs": [
+        "specs/001-property-management/spec.md#functional-requirements",
+        "specs/001-property-management/spec.md#measurable-outcomes"
+      ],
+      "architecture_refs": [
+        "Architecture.md#backend",
+        "specs/001-property-management/plan.md#verification-plan"
+      ],
+      "files": [
+        "backend/tests/integration/dashboard.test.ts"
+      ],
+      "blockers": [],
+      "status": "waiting"
+    },
+    {
+      "id": "T083",
+      "description": "Implement dashboard calculations and shared filtered queries in `backend/Managers/dashboard-manager.ts`",
+      "technical_requirements": [
+        "Every metric reuses authoritative rules and matching detail filters/date context; T082 passes and Redis never changes business truth.",
+        "Traceability: FR-018, FR-019, FR-020, FR-033. Preserve approved stack and assigned ownership."
+      ],
+      "dependencies": [
+        "T046",
+        "T058",
+        "T072",
+        "T082"
+      ],
+      "priority": "P2",
+      "acceptance_criteria": [
+        "Every metric reuses authoritative rules and matching detail filters/date context; T082 passes and Redis never changes business truth."
+      ],
+      "spec_refs": [
+        "specs/001-property-management/spec.md#functional-requirements"
+      ],
+      "architecture_refs": [
+        "Architecture.md#backend",
+        "specs/001-property-management/plan.md#verification-plan"
+      ],
+      "files": [
+        "backend/Managers/dashboard-manager.ts"
+      ],
+      "blockers": [],
+      "status": "waiting"
+    },
+    {
+      "id": "T084",
+      "description": "Implement dashboard HTTP operation handlers in `backend/Src/Handler/dashboard-logic.ts`, `backend/Src/app.module.ts`",
+      "technical_requirements": [
+        "Register dashboard handler/provider, expose schema operations, and enforce date/property scope identically for summary and drill-down records.",
+        "Traceability: FR-018, FR-019, FR-020, FR-024, FR-026. Preserve approved stack and assigned ownership."
+      ],
+      "dependencies": [
+        "T081",
+        "T083"
+      ],
+      "priority": "P2",
+      "acceptance_criteria": [
+        "Register dashboard handler/provider, expose schema operations, and enforce date/property scope identically for summary and drill-down records."
+      ],
+      "spec_refs": [
+        "specs/001-property-management/spec.md#functional-requirements"
+      ],
+      "architecture_refs": [
+        "Architecture.md#backend",
+        "specs/001-property-management/plan.md#verification-plan"
+      ],
+      "files": [
+        "backend/Src/Handler/dashboard-logic.ts",
+        "backend/Src/app.module.ts"
+      ],
+      "blockers": [],
+      "status": "waiting"
+    },
+    {
+      "id": "T085",
+      "description": "Regenerate the client for dashboard operations in `backend/OpenAPI/openapi.json`, `frontend/Generated/`",
+      "technical_requirements": [
+        "Serialized generation compiles all APIs and documents the final dashboard operation types without drift.",
+        "Traceability: FR-018, FR-019. Preserve approved stack and assigned ownership."
+      ],
+      "dependencies": [
+        "T074",
+        "T084"
+      ],
+      "priority": "P2",
+      "acceptance_criteria": [
+        "Serialized generation compiles all APIs and documents the final dashboard operation types without drift."
+      ],
+      "spec_refs": [
+        "specs/001-property-management/spec.md#functional-requirements"
+      ],
+      "architecture_refs": [
+        "Architecture.md#backend",
+        "Architecture.md#api-flow",
+        "specs/001-property-management/plan.md#verification-plan"
+      ],
+      "files": [
+        "backend/OpenAPI/openapi.json",
+        "frontend/Generated/"
+      ],
+      "blockers": [],
+      "status": "waiting"
+    },
+    {
+      "id": "T086",
+      "description": "Write dashboard VM and metric drill-down browser tests in `frontend/tests/dashboard.vm.test.ts`, `tests/e2e/dashboard.spec.ts`",
+      "technical_requirements": [
+        "Test metric counts, empty/loading/error states, filter/date-preserving navigation and mutation refresh across supported device/theme contexts before UI implementation.",
+        "Traceability: FR-018, FR-019, FR-020, FR-021, FR-022, FR-026, SC-002, SC-004. Preserve approved stack and assigned ownership."
+      ],
+      "dependencies": [
+        "T079",
+        "T085"
+      ],
+      "priority": "P2",
+      "acceptance_criteria": [
+        "Test metric counts, empty/loading/error states, filter/date-preserving navigation and mutation refresh across supported device/theme contexts before UI implementation."
+      ],
+      "spec_refs": [
+        "specs/001-property-management/spec.md#functional-requirements",
+        "specs/001-property-management/spec.md#measurable-outcomes"
+      ],
+      "architecture_refs": [
+        "Architecture.md#frontend",
+        "specs/001-property-management/plan.md#verification-plan"
+      ],
+      "files": [
+        "frontend/tests/dashboard.vm.test.ts",
+        "tests/e2e/dashboard.spec.ts"
+      ],
+      "blockers": [],
+      "status": "waiting"
+    },
+    {
+      "id": "T087",
+      "description": "Implement dashboard presentation state and query refresh in `frontend/VMs/dashboard.vm.ts`",
+      "technical_requirements": [
+        "Use generated responses and retained filter/date context. Refresh on page open/manual refresh, mutations and explicit demo-date changes; no background refresh scheduler.",
+        "Traceability: FR-018, FR-019, FR-020. Preserve approved stack and assigned ownership."
+      ],
+      "dependencies": [
+        "T086"
+      ],
+      "priority": "P2",
+      "acceptance_criteria": [
+        "Use generated responses and retained filter/date context. Refresh on page open/manual refresh, mutations and explicit demo-date changes; no background refresh scheduler."
+      ],
+      "spec_refs": [
+        "specs/001-property-management/spec.md#functional-requirements"
+      ],
+      "architecture_refs": [
+        "Architecture.md#frontend",
+        "specs/001-property-management/plan.md#verification-plan"
+      ],
+      "files": [
+        "frontend/VMs/dashboard.vm.ts"
+      ],
+      "blockers": [],
+      "status": "waiting"
+    },
+    {
+      "id": "T088",
+      "description": "Implement the operational dashboard View in `frontend/Views/Dashboard.tsx`, `frontend/Views/App.tsx`, `frontend/Views/AppShell.tsx`",
+      "technical_requirements": [
+        "Register dashboard route/navigation and render scoped contract-driven metrics, empty states and separate outstanding TWD; show demo date and retain responsive/theme acceptance.",
+        "Traceability: FR-018, FR-019, FR-021, FR-022, FR-023. Preserve approved stack and assigned ownership."
+      ],
+      "dependencies": [
+        "T027",
+        "T086",
+        "T087"
+      ],
+      "priority": "P2",
+      "acceptance_criteria": [
+        "Register dashboard route/navigation and render scoped contract-driven metrics, empty states and separate outstanding TWD; show demo date and retain responsive/theme acceptance."
+      ],
+      "spec_refs": [
+        "specs/001-property-management/spec.md#functional-requirements"
+      ],
+      "architecture_refs": [
+        "Architecture.md#frontend",
+        "specs/001-property-management/plan.md#verification-plan"
+      ],
+      "files": [
+        "frontend/Views/Dashboard.tsx",
+        "frontend/Views/App.tsx",
+        "frontend/Views/AppShell.tsx"
+      ],
+      "blockers": [],
+      "status": "waiting"
+    },
+    {
+      "id": "T089",
+      "description": "Integrate drill-down filters into existing feature VMs in `frontend/VMs/properties.vm.ts`, `frontend/VMs/stays.vm.ts`, `frontend/VMs/contracts.vm.ts`, `frontend/VMs/payments.vm.ts`",
+      "technical_requirements": [
+        "All dashboard destinations retain the same filters and business-date context; old feature journeys still pass after serialized shared-file updates.",
+        "Traceability: FR-019, FR-020, SC-002. Preserve approved stack and assigned ownership."
+      ],
+      "dependencies": [
+        "T053",
+        "T064",
+        "T077",
+        "T088"
+      ],
+      "priority": "P2",
+      "acceptance_criteria": [
+        "All dashboard destinations retain the same filters and business-date context; old feature journeys still pass after serialized shared-file updates."
+      ],
+      "spec_refs": [
+        "specs/001-property-management/spec.md#functional-requirements",
+        "specs/001-property-management/spec.md#measurable-outcomes"
+      ],
+      "architecture_refs": [
+        "Architecture.md#frontend",
+        "specs/001-property-management/plan.md#verification-plan"
+      ],
+      "files": [
+        "frontend/VMs/properties.vm.ts",
+        "frontend/VMs/stays.vm.ts",
+        "frontend/VMs/contracts.vm.ts",
+        "frontend/VMs/payments.vm.ts"
+      ],
+      "blockers": [],
+      "status": "waiting"
+    },
+    {
+      "id": "T090",
+      "description": "Verify and record US5 acceptance in `specs/001-property-management/validation/us5.md`",
+      "technical_requirements": [
+        "Record exact expected totals/full filtered lists, empty cases, mutation refresh and browser drill-down results with zero unexplained discrepancies.",
+        "Traceability: SC-001, SC-002, SC-003, SC-004. Preserve approved stack and assigned ownership."
+      ],
+      "dependencies": [
+        "T089"
+      ],
+      "priority": "P2",
+      "acceptance_criteria": [
+        "Record exact expected totals/full filtered lists, empty cases, mutation refresh and browser drill-down results with zero unexplained discrepancies."
+      ],
+      "spec_refs": [
+        "specs/001-property-management/spec.md#functional-requirements",
+        "specs/001-property-management/spec.md#measurable-outcomes"
+      ],
+      "architecture_refs": [
+        "Architecture.md#backend",
+        "specs/001-property-management/plan.md#verification-plan"
+      ],
+      "files": [
+        "specs/001-property-management/validation/us5.md"
+      ],
+      "blockers": [],
+      "status": "waiting"
+    },
+    {
+      "id": "T091",
+      "description": "Verify cross-feature journeys, permissions and all device/theme combinations in `tests/e2e/regression.spec.ts`",
+      "technical_requirements": [
+        "Verify the contract-driven journey, role/ownership boundaries, denied actions and basic four-device/two-theme essential workflows. No formal browser-certification matrix or background-clock project.",
+        "Traceability: FR-020, FR-021, FR-022, FR-023, FR-024, FR-026, FR-028, SC-001, SC-002, SC-003, SC-004, SC-005, SC-006. Preserve approved stack and assigned ownership."
+      ],
+      "dependencies": [
+        "T030",
+        "T041",
+        "T054",
+        "T067",
+        "T080",
+        "T090"
+      ],
+      "priority": "P1",
+      "acceptance_criteria": [
+        "Verify the contract-driven journey, role/ownership boundaries, denied actions and basic four-device/two-theme essential workflows. No formal browser-certification matrix or background-clock project."
+      ],
+      "spec_refs": [
+        "specs/001-property-management/spec.md#functional-requirements",
+        "specs/001-property-management/spec.md#measurable-outcomes"
+      ],
+      "architecture_refs": [
+        "Architecture.md#frontend",
+        "specs/001-property-management/plan.md#verification-plan"
+      ],
+      "files": [
+        "tests/e2e/regression.spec.ts"
+      ],
+      "blockers": [],
+      "status": "waiting"
+    },
+    {
+      "id": "T092",
+      "description": "Record the small demo timing/session smoke in `specs/001-property-management/validation/performance.md`",
+      "technical_requirements": [
+        "Record local environment and three-session common-action timings against the proposed two-second budget after policy review. This is a small manual smoke, not a new load/stress suite.",
+        "Traceability: SC-008. Preserve approved stack and assigned ownership."
+      ],
+      "dependencies": [
+        "T005",
+        "T090"
+      ],
+      "priority": "P1",
+      "acceptance_criteria": [
+        "Record local environment and three-session common-action timings against the proposed two-second budget after policy review. This is a small manual smoke, not a new load/stress suite."
+      ],
+      "spec_refs": [
+        "specs/001-property-management/spec.md#functional-requirements",
+        "specs/001-property-management/spec.md#measurable-outcomes"
+      ],
+      "architecture_refs": [
+        "Architecture.md#backend",
+        "specs/001-property-management/plan.md#verification-plan"
+      ],
+      "files": [
+        "specs/001-property-management/validation/performance.md"
+      ],
+      "blockers": [],
+      "status": "waiting"
+    },
+    {
+      "id": "T111",
+      "description": "Write repeatable seed/reset and golden-result integration tests in `backend/tests/integration/demo-fixtures.test.ts`",
+      "technical_requirements": [
+        "Test reimport twice without duplicates, foreign keys/bytes, scoped golden API results after domain handlers exist, role-denied reset and non-demo refusal; separate import fixtures from app runtime expectations.",
+        "Traceability: FR-038, FR-039, SC-002, SC-006, SC-007. Preserve approved stack and assigned ownership."
+      ],
+      "dependencies": [
+        "T014",
+        "T017",
+        "T098",
+        "T099",
+        "T060",
+        "T073",
+        "T084",
+        "T103"
+      ],
+      "priority": "P1",
+      "acceptance_criteria": [
+        "Test reimport twice without duplicates, foreign keys/bytes, scoped golden API results after domain handlers exist, role-denied reset and non-demo refusal; separate import fixtures from app runtime expectations."
+      ],
+      "spec_refs": [
+        "specs/001-property-management/spec.md#functional-requirements",
+        "specs/001-property-management/spec.md#measurable-outcomes"
+      ],
+      "architecture_refs": [
+        "Architecture.md#backend",
+        "specs/001-property-management/plan.md#verification-plan"
+      ],
+      "files": [
+        "backend/tests/integration/demo-fixtures.test.ts"
+      ],
+      "blockers": [],
+      "status": "waiting"
+    },
+    {
+      "id": "T110",
+      "description": "Implement the explicit transactional demo fixture loader in `backend/prisma/seed.ts`, `backend/Src/Infrastructure/demo-fixtures.ts`, `package.json`",
+      "technical_requirements": [
+        "Implement future demo:seed from static JSON with stable IDs, credential hashing from environment and BYTEA conversion. Atomic repeat/import/reset is explicit and isolated; integrate Owner-only reset without automatic startup seeding.",
+        "Traceability: FR-038, FR-039, SC-006, SC-007. Preserve approved stack and assigned ownership."
+      ],
+      "dependencies": [
+        "T111",
+        "T060",
+        "T073",
+        "T103"
+      ],
+      "priority": "P1",
+      "acceptance_criteria": [
+        "Implement future demo:seed from static JSON with stable IDs, credential hashing from environment and BYTEA conversion. Atomic repeat/import/reset is explicit and isolated; integrate Owner-only reset without automatic startup seeding."
+      ],
+      "spec_refs": [
+        "specs/001-property-management/spec.md#functional-requirements",
+        "specs/001-property-management/spec.md#measurable-outcomes"
+      ],
+      "architecture_refs": [
+        "Architecture.md#backend",
+        "specs/001-property-management/plan.md#verification-plan"
+      ],
+      "files": [
+        "backend/prisma/seed.ts",
+        "backend/Src/Infrastructure/demo-fixtures.ts",
+        "package.json"
+      ],
+      "blockers": [],
+      "status": "waiting"
+    },
+    {
+      "id": "T093",
+      "description": "Verify migrations, backup restoration and document recovery in `backend/tests/operations/recovery.test.ts`, `specs/001-property-management/validation/recovery.md`",
+      "technical_requirements": [
+        "Verify fresh migration/one isolated backup-restore sample retains relational and BYTEA integrity; future fixture reimport meets the proposed five-minute recovery budget after services are ready.",
+        "Traceability: FR-013, FR-028, SC-006. Preserve approved stack and assigned ownership."
+      ],
+      "dependencies": [
+        "T013",
+        "T014",
+        "T059",
+        "T072",
+        "T110"
+      ],
+      "priority": "P1",
+      "acceptance_criteria": [
+        "Verify fresh migration/one isolated backup-restore sample retains relational and BYTEA integrity; future fixture reimport meets the proposed five-minute recovery budget after services are ready."
+      ],
+      "spec_refs": [
+        "specs/001-property-management/spec.md#functional-requirements",
+        "specs/001-property-management/spec.md#measurable-outcomes"
+      ],
+      "architecture_refs": [
+        "Architecture.md#backend",
+        "specs/001-property-management/plan.md#verification-plan"
+      ],
+      "files": [
+        "backend/tests/operations/recovery.test.ts",
+        "specs/001-property-management/validation/recovery.md"
+      ],
+      "blockers": [],
+      "status": "waiting"
+    },
+    {
+      "id": "T094",
+      "description": "Integrate the required build, generation and acceptance checks into CI in `.github/workflows/checks.yml`, `package.json`",
+      "technical_requirements": [
+        "CI uses pinned install, generation drift, type/build and meaningful unit/integration/browser smoke checks; record manual demo timing/recovery evidence separately. No deployment, agent dispatch, formal browser certification or stress suite added.",
+        "Traceability: shared architectural/readiness prerequisite; Constitution workflow gates. Preserve approved stack and assigned ownership."
+      ],
+      "dependencies": [
+        "T091",
+        "T092",
+        "T093",
+        "T110"
+      ],
+      "priority": "P1",
+      "acceptance_criteria": [
+        "CI uses pinned install, generation drift, type/build and meaningful unit/integration/browser smoke checks; record manual demo timing/recovery evidence separately. No deployment, agent dispatch, formal browser certification or stress suite added."
+      ],
+      "spec_refs": [
+        "specs/001-property-management/spec.md#constitutional-acceptance-and-open-decisions-mandatory"
+      ],
+      "architecture_refs": [
+        "Architecture.md#backend",
+        "specs/001-property-management/plan.md#verification-plan"
+      ],
+      "files": [
+        ".github/workflows/checks.yml",
+        "package.json"
+      ],
+      "blockers": [],
+      "status": "waiting"
+    },
+    {
+      "id": "T095",
+      "description": "Write the feature quickstart using actual implemented commands in `specs/001-property-management/quickstart.md`",
+      "technical_requirements": [
+        "Refresh the existing design quickstart with actual implemented install/start/migrate/generate/seed/test commands and observed demo walkthrough outputs; keep secrets out.",
+        "Traceability: SC-001, SC-002, SC-003, SC-004, SC-005, SC-006. Preserve approved stack and assigned ownership."
+      ],
+      "dependencies": [
+        "T094",
+        "T110",
+        "T111"
+      ],
+      "priority": "P1",
+      "acceptance_criteria": [
+        "Refresh the existing design quickstart with actual implemented install/start/migrate/generate/seed/test commands and observed demo walkthrough outputs; keep secrets out."
+      ],
+      "spec_refs": [
+        "specs/001-property-management/spec.md#functional-requirements",
+        "specs/001-property-management/spec.md#measurable-outcomes"
+      ],
+      "architecture_refs": [
+        "Architecture.md#backend",
+        "specs/001-property-management/plan.md#verification-plan"
+      ],
+      "files": [
+        "specs/001-property-management/quickstart.md"
+      ],
+      "blockers": [],
+      "status": "waiting"
+    },
+    {
+      "id": "T096",
+      "description": "Record requirement coverage and final implementation verification evidence in `specs/001-property-management/validation/coverage.md`",
+      "technical_requirements": [
+        "Map all FR-001\u2013039 and SC-001\u2013008 to observed evidence/open limits. Include contract authority, roles/ownership, demo clock, repeatable fixtures, basic device/theme smoke and preserved restrictions.",
+        "Traceability: FR-001, FR-002, FR-003, FR-004, FR-005, FR-006, FR-007, FR-008, FR-009, FR-010, FR-011, FR-012, FR-013, FR-014, FR-015, FR-016, FR-017, FR-018, FR-019, FR-020, FR-021, FR-022, FR-023, FR-024, FR-025, FR-026, FR-027, FR-028, FR-029, FR-030, FR-031, FR-032, FR-033, FR-034, FR-035, FR-036, FR-037, FR-038, FR-039, SC-001, SC-002, SC-003, SC-004, SC-005, SC-006, SC-007, SC-008. Preserve approved stack and assigned ownership."
+      ],
+      "dependencies": [
+        "T091",
+        "T092",
+        "T093",
+        "T094",
+        "T095",
+        "T108",
+        "T110",
+        "T111"
+      ],
+      "priority": "P1",
+      "acceptance_criteria": [
+        "Map all FR-001\u2013039 and SC-001\u2013008 to observed evidence/open limits. Include contract authority, roles/ownership, demo clock, repeatable fixtures, basic device/theme smoke and preserved restrictions."
+      ],
+      "spec_refs": [
+        "specs/001-property-management/spec.md#functional-requirements",
+        "specs/001-property-management/spec.md#measurable-outcomes"
+      ],
+      "architecture_refs": [
+        "Architecture.md#backend",
+        "specs/001-property-management/plan.md#verification-plan"
+      ],
+      "files": [
+        "specs/001-property-management/validation/coverage.md"
+      ],
+      "blockers": [],
+      "status": "waiting"
+    }
+  ],
+  "parallel_groups": []
+}

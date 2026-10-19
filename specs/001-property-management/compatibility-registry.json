@@ -1,0 +1,347 @@
+{
+  "typescript": {
+    "version": "5.9.3",
+    "engines": {
+      "node": ">=14.17"
+    },
+    "peerDependencies": {},
+    "source": "https://registry.npmjs.org/typescript/5.9.3"
+  },
+  "@nestjs/common": {
+    "version": "11.1.9",
+    "engines": {},
+    "peerDependencies": {
+      "rxjs": "^7.1.0",
+      "class-validator": ">=0.13.2",
+      "reflect-metadata": "^0.1.12 || ^0.2.0",
+      "class-transformer": ">=0.4.1"
+    },
+    "source": "https://registry.npmjs.org/@nestjs%2fcommon/11.1.9"
+  },
+  "@nestjs/core": {
+    "version": "11.1.9",
+    "engines": {
+      "node": ">= 20"
+    },
+    "peerDependencies": {
+      "rxjs": "^7.1.0",
+      "@nestjs/common": "^11.0.0",
+      "reflect-metadata": "^0.1.12 || ^0.2.0",
+      "@nestjs/websockets": "^11.0.0",
+      "@nestjs/microservices": "^11.0.0",
+      "@nestjs/platform-express": "^11.0.0"
+    },
+    "source": "https://registry.npmjs.org/@nestjs%2fcore/11.1.9"
+  },
+  "@nestjs/platform-express": {
+    "version": "11.1.9",
+    "engines": {},
+    "peerDependencies": {
+      "@nestjs/core": "^11.0.0",
+      "@nestjs/common": "^11.0.0"
+    },
+    "source": "https://registry.npmjs.org/@nestjs%2fplatform-express/11.1.9"
+  },
+  "@nestjs/swagger": {
+    "version": "11.2.1",
+    "engines": {},
+    "peerDependencies": {
+      "@nestjs/core": "^11.0.1",
+      "@nestjs/common": "^11.0.1",
+      "@fastify/static": "^8.0.0",
+      "class-validator": "*",
+      "reflect-metadata": "^0.1.12 || ^0.2.0",
+      "class-transformer": "*"
+    },
+    "source": "https://registry.npmjs.org/@nestjs%2fswagger/11.2.1"
+  },
+  "reflect-metadata": {
+    "version": "0.2.2",
+    "engines": {},
+    "peerDependencies": {},
+    "source": "https://registry.npmjs.org/reflect-metadata/0.2.2"
+  },
+  "rxjs": {
+    "version": "7.8.2",
+    "engines": {},
+    "peerDependencies": {},
+    "source": "https://registry.npmjs.org/rxjs/7.8.2"
+  },
+  "class-validator": {
+    "version": "0.14.2",
+    "engines": {},
+    "peerDependencies": {},
+    "source": "https://registry.npmjs.org/class-validator/0.14.2"
+  },
+  "class-transformer": {
+    "version": "0.5.1",
+    "engines": {},
+    "peerDependencies": {},
+    "source": "https://registry.npmjs.org/class-transformer/0.5.1"
+  },
+  "prisma": {
+    "version": "6.19.0",
+    "engines": {
+      "node": ">=18.18"
+    },
+    "peerDependencies": {
+      "typescript": ">=5.1.0"
+    },
+    "source": "https://registry.npmjs.org/prisma/6.19.0"
+  },
+  "@prisma/client": {
+    "version": "6.19.0",
+    "engines": {
+      "node": ">=18.18"
+    },
+    "peerDependencies": {
+      "prisma": "*",
+      "typescript": ">=5.1.0"
+    },
+    "source": "https://registry.npmjs.org/@prisma%2fclient/6.19.0"
+  },
+  "@hey-api/openapi-ts": {
+    "version": "0.87.5",
+    "engines": {
+      "node": ">=20.19.0"
+    },
+    "peerDependencies": {
+      "typescript": ">=5.5.3"
+    },
+    "source": "https://registry.npmjs.org/@hey-api%2fopenapi-ts/0.87.5"
+  },
+  "react": {
+    "version": "19.2.0",
+    "engines": {
+      "node": ">=0.10.0"
+    },
+    "peerDependencies": {},
+    "source": "https://registry.npmjs.org/react/19.2.0"
+  },
+  "react-dom": {
+    "version": "19.2.0",
+    "engines": {},
+    "peerDependencies": {
+      "react": "^19.2.0"
+    },
+    "source": "https://registry.npmjs.org/react-dom/19.2.0"
+  },
+  "@types/react": {
+    "version": "19.2.2",
+    "engines": {},
+    "peerDependencies": {},
+    "source": "https://registry.npmjs.org/@types%2freact/19.2.2"
+  },
+  "@types/react-dom": {
+    "version": "19.2.2",
+    "engines": {},
+    "peerDependencies": {
+      "@types/react": "^19.2.0"
+    },
+    "source": "https://registry.npmjs.org/@types%2freact-dom/19.2.2"
+  },
+  "vite": {
+    "version": "7.2.2",
+    "engines": {
+      "node": "^20.19.0 || >=22.12.0"
+    },
+    "peerDependencies": {
+      "tsx": "^4.8.1",
+      "jiti": ">=1.21.0",
+      "less": "^4.0.0",
+      "sass": "^1.70.0",
+      "yaml": "^2.4.2",
+      "stylus": ">=0.54.8",
+      "terser": "^5.16.0",
+      "sugarss": "^5.0.0",
+      "@types/node": "^20.19.0 || >=22.12.0",
+      "lightningcss": "^1.21.0",
+      "sass-embedded": "^1.70.0"
+    },
+    "source": "https://registry.npmjs.org/vite/7.2.2"
+  },
+  "@vitejs/plugin-react": {
+    "version": "5.1.1",
+    "engines": {
+      "node": "^20.19.0 || >=22.12.0"
+    },
+    "peerDependencies": {
+      "vite": "^4.2.0 || ^5.0.0 || ^6.0.0 || ^7.0.0"
+    },
+    "source": "https://registry.npmjs.org/@vitejs%2fplugin-react/5.1.1"
+  },
+  "tailwindcss": {
+    "version": "4.1.17",
+    "engines": {},
+    "peerDependencies": {},
+    "source": "https://registry.npmjs.org/tailwindcss/4.1.17"
+  },
+  "@tailwindcss/vite": {
+    "version": "4.1.17",
+    "engines": {},
+    "peerDependencies": {
+      "vite": "^5.2.0 || ^6 || ^7"
+    },
+    "source": "https://registry.npmjs.org/@tailwindcss%2fvite/4.1.17"
+  },
+  "@tanstack/react-query": {
+    "version": "5.90.7",
+    "engines": {},
+    "peerDependencies": {
+      "react": "^18 || ^19"
+    },
+    "source": "https://registry.npmjs.org/@tanstack%2freact-query/5.90.7"
+  },
+  "react-hook-form": {
+    "version": "7.66.0",
+    "engines": {
+      "node": ">=18.0.0"
+    },
+    "peerDependencies": {
+      "react": "^16.8.0 || ^17 || ^18 || ^19"
+    },
+    "source": "https://registry.npmjs.org/react-hook-form/7.66.0"
+  },
+  "zod": {
+    "version": "4.1.12",
+    "engines": {},
+    "peerDependencies": {},
+    "source": "https://registry.npmjs.org/zod/4.1.12"
+  },
+  "@hookform/resolvers": {
+    "version": "5.2.2",
+    "engines": {},
+    "peerDependencies": {
+      "react-hook-form": "^7.55.0"
+    },
+    "source": "https://registry.npmjs.org/@hookform%2fresolvers/5.2.2"
+  },
+  "happy-dom": {
+    "version": "20.0.10",
+    "engines": {
+      "node": ">=20.0.0"
+    },
+    "peerDependencies": {},
+    "source": "https://registry.npmjs.org/happy-dom/20.0.10"
+  },
+  "@testing-library/react": {
+    "version": "16.3.0",
+    "engines": {
+      "node": ">=18"
+    },
+    "peerDependencies": {
+      "react": "^18.0.0 || ^19.0.0",
+      "react-dom": "^18.0.0 || ^19.0.0",
+      "@types/react": "^18.0.0 || ^19.0.0",
+      "@types/react-dom": "^18.0.0 || ^19.0.0",
+      "@testing-library/dom": "^10.0.0"
+    },
+    "source": "https://registry.npmjs.org/@testing-library%2freact/16.3.0"
+  },
+  "@testing-library/dom": {
+    "version": "10.4.1",
+    "engines": {
+      "node": ">=18"
+    },
+    "peerDependencies": {},
+    "source": "https://registry.npmjs.org/@testing-library%2fdom/10.4.1"
+  },
+  "@playwright/test": {
+    "version": "1.56.1",
+    "engines": {
+      "node": ">=18"
+    },
+    "peerDependencies": {},
+    "source": "https://registry.npmjs.org/@playwright%2ftest/1.56.1"
+  },
+  "ioredis": {
+    "version": "5.8.2",
+    "engines": {
+      "node": ">=12.22.0"
+    },
+    "peerDependencies": {},
+    "source": "https://registry.npmjs.org/ioredis/5.8.2"
+  },
+  "@radix-ui/react-dialog": {
+    "version": "1.1.15",
+    "engines": {},
+    "peerDependencies": {
+      "react": "^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc",
+      "react-dom": "^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc",
+      "@types/react": "*",
+      "@types/react-dom": "*"
+    },
+    "source": "https://registry.npmjs.org/@radix-ui%2freact-dialog/1.1.15"
+  },
+  "@radix-ui/react-slot": {
+    "version": "1.2.3",
+    "engines": {},
+    "peerDependencies": {
+      "react": "^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc",
+      "@types/react": "*"
+    },
+    "source": "https://registry.npmjs.org/@radix-ui%2freact-slot/1.2.3"
+  },
+  "class-variance-authority": {
+    "version": "0.7.1",
+    "engines": {},
+    "peerDependencies": {},
+    "source": "https://registry.npmjs.org/class-variance-authority/0.7.1"
+  },
+  "clsx": {
+    "version": "2.1.1",
+    "engines": {
+      "node": ">=6"
+    },
+    "peerDependencies": {},
+    "source": "https://registry.npmjs.org/clsx/2.1.1"
+  },
+  "tailwind-merge": {
+    "version": "3.3.1",
+    "engines": {},
+    "peerDependencies": {},
+    "source": "https://registry.npmjs.org/tailwind-merge/3.3.1"
+  },
+  "lucide-react": {
+    "version": "0.553.0",
+    "engines": {},
+    "peerDependencies": {
+      "react": "^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0"
+    },
+    "source": "https://registry.npmjs.org/lucide-react/0.553.0"
+  },
+  "@types/bun": {
+    "version": "1.3.2",
+    "engines": {},
+    "peerDependencies": {},
+    "source": "https://registry.npmjs.org/@types%2fbun/1.3.2"
+  },
+  "@types/express": {
+    "version": "5.0.5",
+    "engines": {},
+    "peerDependencies": {},
+    "source": "https://registry.npmjs.org/@types%2fexpress/5.0.5"
+  },
+  "@types/multer": {
+    "version": "2.0.0",
+    "engines": {},
+    "peerDependencies": {},
+    "source": "https://registry.npmjs.org/@types%2fmulter/2.0.0"
+  },
+  "multer": {
+    "version": "2.0.2",
+    "engines": {
+      "node": ">= 10.16.0"
+    },
+    "peerDependencies": {},
+    "source": "https://registry.npmjs.org/multer/2.0.2"
+  },
+  "@happy-dom/global-registrator": {
+    "version": "20.0.10",
+    "engines": {
+      "node": ">=20.0.0"
+    },
+    "peerDependencies": {},
+    "source": "https://registry.npmjs.org/@happy-dom%2fglobal-registrator/20.0.10"
+  }
+}

@@ -1,0 +1,60 @@
+bun test v1.3.14 (0d9b296a)
+
+backend/tests/integration/access.test.ts:
+3 | export interface Actor {id:string;role:'OWNER'|'MANAGER'|'VIEWER';session_version:number;property_ids:string[];}
+4 | export interface SessionRecord {user_id:string;version:number;csrf:string;}
+5 | @Injectable()
+6 | export class Access {
+7 |  constructor(readonly db:Database,readonly store:TemporaryStore){}
+8 |  async login(email:string,password:string):Promise<{id:string;csrf_token:string;actor:Actor}>{throw new UnauthorizedException('Invalid credentials');}
+                                                                                                        ^
+UnauthorizedException: Invalid credentials
+ response: {
+  message: "Invalid credentials",
+  error: "Unauthorized",
+  statusCode: 401,
+},
+   status: 401,
+  options: {},
+
+      at login (/Users/kuan/Library/Mobile Documents/com~apple~CloudDocs/ELearning/Rental/backend/Src/Infrastructure/access.ts:8:101)
+      at <anonymous> (/Users/kuan/Library/Mobile Documents/com~apple~CloudDocs/ELearning/Rental/backend/tests/integration/access.test.ts:8:23)
+(fail) valid credentials create an opaque Redis session with persisted role and grants [265.09ms]
+3 | export interface Actor {id:string;role:'OWNER'|'MANAGER'|'VIEWER';session_version:number;property_ids:string[];}
+4 | export interface SessionRecord {user_id:string;version:number;csrf:string;}
+5 | @Injectable()
+6 | export class Access {
+7 |  constructor(readonly db:Database,readonly store:TemporaryStore){}
+8 |  async login(email:string,password:string):Promise<{id:string;csrf_token:string;actor:Actor}>{throw new UnauthorizedException('Invalid credentials');}
+                                                                                                        ^
+UnauthorizedException: Invalid credentials
+ response: {
+  message: "Invalid credentials",
+  error: "Unauthorized",
+  statusCode: 401,
+},
+   status: 401,
+  options: {},
+
+      at login (/Users/kuan/Library/Mobile Documents/com~apple~CloudDocs/ELearning/Rental/backend/Src/Infrastructure/access.ts:8:101)
+      at <anonymous> (/Users/kuan/Library/Mobile Documents/com~apple~CloudDocs/ELearning/Rental/backend/tests/integration/access.test.ts:12:98)
+(fail) invalid credentials and stale/disabled sessions fail [162.93ms]
+12 |  await expect(access.login('owner@example.test','wrong')).rejects.toThrow();const s=await access.login('owner@example.test',password);
+13 |  await db.user.update({where:{id:'U001'},data:{session_version:{increment:1}}});await expect(access.authenticate(s.id)).rejects.toThrow();
+14 | });
+15 | test('Owner, Manager and Viewer checks use server scope',()=>{
+16 |  const owner={id:'U001',role:'OWNER' as const,session_version:1,property_ids:[]};const manager={...owner,id:'U002',role:'MANAGER' as const,property_ids:['P001']};const viewer={...manager,id:'U003',role:'VIEWER' as const};
+17 |  expect(()=>access.property(owner,'P003')).not.toThrow();expect(()=>access.property(manager,'P001')).not.toThrow();expect(()=>access.property(manager,'P003')).toThrow();expect(()=>access.write(viewer)).toThrow();expect(()=>access.owner(manager)).toThrow();
+                                                    ^
+error: expect(received).not.toThrow()
+
+Error name: "ForbiddenException"
+Error message: "Property access denied"
+
+      at <anonymous> (/Users/kuan/Library/Mobile Documents/com~apple~CloudDocs/ELearning/Rental/backend/tests/integration/access.test.ts:17:48)
+(fail) Owner, Manager and Viewer checks use server scope [164.14ms]
+
+ 0 pass
+ 3 fail
+ 2 expect() calls
+Ran 3 tests across 1 file. [836.00ms]
