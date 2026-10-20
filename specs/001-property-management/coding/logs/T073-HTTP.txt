@@ -1,0 +1,9 @@
+bun test v1.3.14 (0d9b296a)
+
+backend/tests/integration/payments-http.test.ts:
+(pass) scoped exact billing HTTP supports explicit periods, safe retries and append-only corrections [657.59ms]
+
+ 1 pass
+ 0 fail
+ 23 expect() calls
+Ran 1 test across 1 file. [1.51s]

@@ -1,0 +1,27 @@
+bun test v1.3.14 (0d9b296a)
+
+backend/tests/contract/openapi.test.ts:
+1 | import {test,expect} from 'bun:test';import {readFileSync} from 'node:fs';
+2 | const schema=JSON.parse(readFileSync('backend/OpenAPI/openapi.json','utf8'));
+3 | test('OpenAPI documents anonymous login and cookie plus CSRF security for authenticated mutations',()=>{expect(schema.openapi).toBe('3.0.0');expect(schema.paths['/api/session'].post.security).toEqual([]);expect(schema.components.securitySchemes.csrf).toMatchObject({type:'apiKey',in:'header',name:'X-CSRF-Token'});for(const [path,operations] of Object.entries(schema.paths)){for(const [method,op] of Object.entries(operations as Record<string,any>)){if(['post','patch','put','delete'].includes(method)&&!(path==='/api/session'&&method==='post'))expect(op.security.some((s:Record<string,unknown>)=>'cookie' in s&&'csrf' in s)).toBe(true);}}});
+
+error: expect(received).toEqual(expected)
+
+- []
++ [
++   {
++     "cookie": [],
++   },
++ ]
+
+- Expected  - 1
++ Received  + 5
+
+      at <anonymous> (/Users/kuan/Library/Mobile Documents/com~apple~CloudDocs/ELearning/Rental/backend/tests/contract/openapi.test.ts:3:193)
+(fail) OpenAPI documents anonymous login and cookie plus CSRF security for authenticated mutations [0.84ms]
+(pass) registered domain operations retain standard errors, payment intent headers and read-only occupancy [0.28ms]
+
+ 1 pass
+ 1 fail
+ 368 expect() calls
+Ran 2 tests across 1 file. [26.00ms]

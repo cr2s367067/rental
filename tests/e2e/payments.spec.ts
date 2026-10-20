@@ -1,0 +1,40 @@
+import { test, expect } from './fixtures';
+test('Owner records exact payments, corrects append-only ledger and creates explicit partial periods', async ({
+  page,
+}) => {
+  await page.goto('/');
+  await page.getByLabel('Email', { exact: true }).fill('owner@example.test');
+  await page.getByLabel('Password', { exact: true }).fill(process.env.DEMO_PASSWORD!);
+  await page.getByRole('button', { name: 'Sign in', exact: true }).click();
+  await page.getByRole('link', { name: 'Payments', exact: true }).click();
+  const partial = page.getByRole('row').filter({ hasText: 'Demo Tenant 04' });
+  await expect(partial).toContainText('Partial Payment');
+  await partial.getByRole('button', { name: 'Record payment', exact: true }).click();
+  await page.getByLabel('Amount TWD', { exact: true }).fill('11001');
+  await page.getByRole('button', { name: 'Save payment', exact: true }).click();
+  await expect(page.getByRole('alert')).toContainText('exceeds');
+  await expect(page.getByLabel('Amount TWD', { exact: true })).toHaveValue('11001');
+  await page.getByLabel('Amount TWD', { exact: true }).fill('11000');
+  await page.getByRole('button', { name: 'Save payment', exact: true }).click();
+  await expect(partial.getByText('Paid', { exact: true })).toBeVisible();
+  const overdue = page.getByRole('row').filter({ hasText: 'Demo Tenant 03' });
+  await overdue.getByRole('button', { name: 'Payment history', exact: true }).click();
+  await page.getByRole('button', { name: 'Reverse payment PAY002', exact: true }).click();
+  await page.getByLabel('Replacement amount TWD', { exact: true }).fill('8000');
+  await page.getByRole('button', { name: 'Save correction', exact: true }).click();
+  await expect(overdue).toContainText('TWD 10,000');
+  await expect(overdue).toContainText('Overdue');
+  await overdue.getByRole('button', { name: 'Payment history', exact: true }).click();
+  await expect(page.getByText('PAY002', { exact: true })).toBeVisible();
+  await expect(page.getByText('Reversed', { exact: true })).toBeVisible();
+  await page.getByLabel('Close dialog').click();
+  await page.getByRole('button', { name: 'Add obligation', exact: true }).click();
+  await page.getByLabel('Contract', { exact: true }).selectOption('C001');
+  await page.getByLabel('Entry mode', { exact: true }).selectOption('MANUAL_PARTIAL_PERIOD');
+  await page.getByLabel('Period start', { exact: true }).fill('2026-11-01');
+  await page.getByLabel('Period end', { exact: true }).fill('2026-11-10');
+  await page.getByLabel('Due date', { exact: true }).fill('2026-11-04');
+  await page.getByLabel('Amount due TWD', { exact: true }).fill('4321');
+  await page.getByRole('button', { name: 'Save obligation', exact: true }).click();
+  await expect(page.getByRole('row').filter({ hasText: '2026-11-10' })).toContainText('TWD 4,321');
+});

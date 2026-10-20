@@ -1,0 +1,10 @@
+[0.14ms] ".env"
+bun add v1.3.14 (0d9b296a)
+Resolving dependencies
+Resolved, downloaded and extracted [1]
+Saved lockfile
+
+installed prettier@3.6.2 with binaries:
+ - prettier
+
+2 packages installed [639.00ms]

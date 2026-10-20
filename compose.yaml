@@ -29,6 +29,7 @@ services:
       REDIS_URL: redis://redis:6379
       APP_ORIGIN: http://localhost:5173
       DEMO_MODE: "true"
+      DEMO_ISOLATED: "true"
       DEMO_DATABASE: rental_demo
       DEMO_PASSWORD: ${DEMO_PASSWORD:?Configure .env}
       NODE_ENV: development

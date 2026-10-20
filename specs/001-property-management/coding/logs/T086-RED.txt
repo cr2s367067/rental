@@ -1,0 +1,21 @@
+bun test v1.3.14 (0d9b296a)
+
+frontend/tests/dashboard.vm.test.tsx:
+1 | import './setup';import {test,expect,afterEach} from 'bun:test';import {renderHook,waitFor,cleanup,act} from '@testing-library/react';import {metricLinks,useDashboard} from '../VMs/dashboard.vm';import {createQueryClient} from '../Services/query';import type {DashboardView} from '../Generated/types.gen';
+2 | const data:DashboardView={business_date:'2026-10-19',timezone:'Asia/Taipei',property_id:'P001',counts:{total_properties:1,total_resources:4,occupied_resources:3,available_resources:1,current_tenants:4,upcoming_contract_starts:1,upcoming_contract_ends:1,unpaid_rent_periods:3,outstanding_twd:'54000',contracts_expiring:2,document_metadata_count:7},metrics:[{key:'available_resources',count:1,label:'Available resources',description:'No active contracts',path:'/resources',query:{metric:'available_resources',business_date:'2026-10-19',property_id:'P001'}}]};afterEach(cleanup);
+3 | test('metric links preserve server count and identical date/property/filter context',()=>{const links=metricLinks(data);expect(links).toHaveLength(1);expect(links[0].count).toBe(1);const url=new URL(links[0].href.slice(1),'http://rental.local');expect(url.pathname).toBe('/resources');expect(url.searchParams.get('property_id')).toBe('P001');expect(url.searchParams.get('business_date')).toBe('2026-10-19');expect(url.searchParams.get('metric')).toBe('available_resources');});
+                                                                                                                                          ^
+error: expect(received).toHaveLength(expected)
+
+Expected length: 1
+Received length: 0
+
+      at <anonymous> (/Users/kuan/Library/Mobile Documents/com~apple~CloudDocs/ELearning/Rental/frontend/tests/dashboard.vm.test.tsx:3:135)
+(fail) metric links preserve server count and identical date/property/filter context [0.38ms]
+(pass) dashboard VM exposes loading, data and scope changes through injected generated service [65.98ms]
+(pass) dashboard VM keeps empty zeros and error state explicit [110.69ms]
+
+ 2 pass
+ 1 fail
+ 9 expect() calls
+Ran 3 tests across 1 file. [424.00ms]

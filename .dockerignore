@@ -7,3 +7,12 @@ node_modules
 **/*.log
 test-results
 playwright-report
+.codex
+.agents
+.specify
+specs/001-property-management/coding
+specs/001-property-management/validation
+specs/001-property-management/pipeline
+specs/001-property-management/chrome-devtools-capability.json
+specs/001-property-management/handoff*
+specs/001-property-management/qa-handoff*

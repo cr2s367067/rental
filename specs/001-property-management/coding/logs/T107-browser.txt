@@ -25,3 +25,35 @@ Running 3 tests using 1 worker
 (Use `node --trace-warnings ...` to show where the warning was created)
   ✓  2 tests/e2e/users-roles.spec.ts:4:71 › manager@example.test has scoped navigation and server denies role escalation (999ms)
   ✓  3 tests/e2e/users-roles.spec.ts:4:71 › viewer@example.test has scoped navigation and server denies role escalation (595ms)
+
+
+  1) tests/e2e/users-roles.spec.ts:3:5 › Owner account/ownership/date controls preserve last Owner and refresh context 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: locator.selectOption: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - waiting for getByLabel('Role', { exact: true })[22m
+
+
+      1 | import {test,expect} from '@playwright/test';
+      2 | async function signIn(page:import('@playwright/test').Page,email:string){await page.goto('/');await page.getByLabel('Email',{exact:true}).fill(email);await page.getByLabel('Password',{exact:true}).fill(process.env.DEMO_PASSWORD!);await page.getByRole('button',{name:'Sign in',exact:true}).click();await expect(page.getByRole('navigation')).toBeVisible();}
+    > 3 | test('Owner account/ownership/date controls preserve last Owner and refresh context',async({page})=>{await signIn(page,'owner@example.test');await page.getByRole('link',{name:'Users',exact:true}).click();await page.getByRole('button',{name:'Edit Demo Owner',exact:true}).click();await page.getByLabel('Role',{exact:true}).selectOption('MANAGER');await page.getByRole('button',{name:'Save user',exact:true}).click();await expect(page.getByRole('alert')).toContainText('Keep at least one enabled Owner');await page.getByLabel('Close dialog').click();await page.getByRole('button',{name:'Add user',exact:true}).click();await page.getByLabel('Display name',{exact:true}).fill('Browser Owner');await page.getByLabel('Email',{exact:true}).fill('browser-owner@example.test');await page.getByLabel('Password',{exact:true}).fill(process.env.DEMO_PASSWORD!);await page.getByLabel('Role',{exact:true}).selectOption('OWNER');await page.getByRole('button',{name:'Save user',exact:true}).click();await expect(page.getByText('Browser Owner',{exact:true})).toBeVisible();await page.getByRole('link',{name:'Property access',exact:true}).click();await page.getByLabel('Owner for Demo Taipei House').selectOption({label:'Browser Owner'});await page.getByRole('button',{name:'Save owner for Demo Taipei House'}).click();await expect(page.getByText('Ownership saved')).toBeVisible();await page.getByRole('link',{name:'Demo settings',exact:true}).click();await page.getByLabel('Business date',{exact:true}).fill('2026-10-22');await page.getByRole('button',{name:'Update date',exact:true}).click();await expect(page.getByText(/Demo date: 2026-10-22/)).toBeVisible();await page.getByLabel('Business date',{exact:true}).fill('2026-10-19');await page.getByRole('button',{name:'Update date',exact:true}).click();await expect(page.getByText(/Demo date: 2026-10-19/)).toBeVisible();});
+        |                                                                                                                                                                                                                                                                                                                                   ^
+      4 | for(const email of ['manager@example.test','viewer@example.test'])test(`${email} has scoped navigation and server denies role escalation`,async({page})=>{await signIn(page,email);await expect(page.getByRole('link',{name:'Users',exact:true})).toHaveCount(0);const session=await (await page.request.get('/api/session')).json();expect(session.properties.length).toBe(email.startsWith('manager')?2:1);const res=await page.request.patch('/api/users/'+session.user.id,{headers:{origin:'http://localhost:5174','x-csrf-token':session.csrf_token},data:{version:1,role:'OWNER'}});expect(res.status()).toBe(403);});
+      5 |
+        at /Users/kuan/Library/Mobile Documents/com~apple~CloudDocs/ELearning/Rental/tests/e2e/users-roles.spec.ts:3:323
+
+    Error Context: test-results/users-roles-Owner-account--be5f9-t-Owner-and-refresh-context/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/users-roles-Owner-account--be5f9-t-Owner-and-refresh-context/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/users-roles-Owner-account--be5f9-t-Owner-and-refresh-context/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    tests/e2e/users-roles.spec.ts:3:5 › Owner account/ownership/date controls preserve last Owner and refresh context 
+  2 passed (51.2s)

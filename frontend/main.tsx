@@ -1,1 +1,10 @@
-import {themeStore} from './VMs/theme.vm';document.documentElement.dataset.theme=themeStore.getSnapshot().theme;import React from 'react';import {createRoot} from 'react-dom/client';import {App} from './Views/App';createRoot(document.getElementById('root')!).render(<React.StrictMode><App/></React.StrictMode>);
+import { themeStore } from './VMs/theme.vm';
+document.documentElement.dataset.theme = themeStore.getSnapshot().theme;
+import React from 'react';
+import { createRoot } from 'react-dom/client';
+import { App } from './Views/App';
+createRoot(document.getElementById('root')!).render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+);

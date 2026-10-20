@@ -1,2 +1,7 @@
 retry_count: 0
-processed_runs: {}
+processed_runs:
+  qa-20261019-01:
+    verdict: passed
+    evidence_sha256: 7a3bf50be4bb6b7b212419c472fa5bd1d27f6eebc442f1251f34c0d744a52a32
+    retry_count_after: 0
+    feature_dir: specs/001-property-management

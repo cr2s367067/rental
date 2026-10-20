@@ -1,4 +1,133 @@
-import {useState} from 'react';import {useForm} from 'react-hook-form';import {useUsers,type UsersVM} from '../VMs/users.vm';import type {UserView,SessionView,SessionProperty} from '../Generated/types.gen';import {Button} from './shared/Button';import {Feedback,Field} from './shared/FormLayout';import {errorMessage} from '../Services/client';
-function GrantForm({user,properties,vm}:{user:UserView;properties:SessionProperty[];vm:UsersVM}){const {register,handleSubmit}=useForm<{property_ids:string[]}>({defaultValues:{property_ids:user.property_ids}});return <form onSubmit={handleSubmit(v=>vm.grants(user.id,{version:user.version,property_ids:v.property_ids}).then(()=>{}))}><div className="checkbox-grid">{properties.map(p=><label key={p.id}><input type="checkbox" value={p.id} {...register('property_ids')}/>{p.name}</label>)}</div><Button disabled={vm.pending}>Save grants</Button></form>;}
-function OwnershipForm({property,owners,vm}:{property:SessionProperty;owners:UserView[];vm:UsersVM}){const [saved,setSaved]=useState(false);const {register,handleSubmit}=useForm<{owner_user_id:string}>({defaultValues:{owner_user_id:property.owner_user_id}});return <form onSubmit={handleSubmit(async v=>{if(await vm.owner(property.id,{...v,version:property.version}))setSaved(true);})}><Field label={'Owner for '+property.name}><select {...register('owner_user_id')}>{owners.map(u=><option key={u.id} value={u.id}>{u.display_name}</option>)}</select></Field><Button variant="outline" aria-label={'Save owner for '+property.name} disabled={vm.pending}>Save owner</Button>{saved&&<p role="status">Ownership saved</p>}</form>;}
-export function PropertyAccess({session}:{session:SessionView}){const {query,actions}=useUsers(session.user.role==='OWNER');const [selected,setSelected]=useState('');if(session.user.role!=='OWNER')return <p role="alert">Owner access required</p>;const user=query.data?.items.find(u=>u.id===selected);return <><div className="page-header"><div><p className="eyebrow">PERMISSIONS & OWNERSHIP</p><h1>Property access</h1><p>Explicit grants control Manager and Viewer scope.</p></div></div><Feedback pending={query.isPending} error={actions.error||(query.error?errorMessage(query.error):'')}/><div className="card"><h2>Property grants</h2><Field label="Select user"><select value={selected} onChange={e=>setSelected(e.target.value)}><option value="">Choose an account</option>{query.data?.items.filter(u=>u.role!=='OWNER').map(u=><option key={u.id} value={u.id}>{u.display_name}</option>)}</select></Field>{user&&<GrantForm key={user.id+user.version} user={user} properties={session.properties} vm={actions}/>}</div><h2 className="mt-8 mb-5">Property owners</h2><div className="detail-grid">{session.properties.map(p=><section className="card" key={p.id}><h3>{p.name}</h3><OwnershipForm property={p} owners={query.data?.items.filter(u=>u.enabled&&u.role==='OWNER')||[]} vm={actions}/></section>)}</div></>;}
+import { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { useUsers, type UsersVM } from '../VMs/users.vm';
+import type { UserView, SessionView, SessionProperty } from '../Generated/types.gen';
+import { Button } from './shared/Button';
+import { Feedback, Field } from './shared/FormLayout';
+import { errorMessage } from '../Services/client';
+function GrantForm({
+  user,
+  properties,
+  vm,
+}: {
+  user: UserView;
+  properties: SessionProperty[];
+  vm: UsersVM;
+}) {
+  const { register, handleSubmit } = useForm<{ property_ids: string[] }>({
+    defaultValues: { property_ids: user.property_ids },
+  });
+  return (
+    <form
+      onSubmit={handleSubmit((v) =>
+        vm.grants(user.id, { version: user.version, property_ids: v.property_ids }).then(() => {}),
+      )}
+    >
+      <div className="checkbox-grid">
+        {properties.map((p) => (
+          <label key={p.id}>
+            <input type="checkbox" value={p.id} {...register('property_ids')} />
+            {p.name}
+          </label>
+        ))}
+      </div>
+      <Button disabled={vm.pending}>Save grants</Button>
+    </form>
+  );
+}
+function OwnershipForm({
+  property,
+  owners,
+  vm,
+}: {
+  property: SessionProperty;
+  owners: UserView[];
+  vm: UsersVM;
+}) {
+  const [saved, setSaved] = useState(false);
+  const { register, handleSubmit } = useForm<{ owner_user_id: string }>({
+    defaultValues: { owner_user_id: property.owner_user_id },
+  });
+  return (
+    <form
+      onSubmit={handleSubmit(async (v) => {
+        if (await vm.owner(property.id, { ...v, version: property.version })) setSaved(true);
+      })}
+    >
+      <Field label={'Owner for ' + property.name}>
+        <select {...register('owner_user_id')}>
+          {owners.map((u) => (
+            <option key={u.id} value={u.id}>
+              {u.display_name}
+            </option>
+          ))}
+        </select>
+      </Field>
+      <Button
+        variant="outline"
+        aria-label={'Save owner for ' + property.name}
+        disabled={vm.pending}
+      >
+        Save owner
+      </Button>
+      {saved && <p role="status">Ownership saved</p>}
+    </form>
+  );
+}
+export function PropertyAccess({ session }: { session: SessionView }) {
+  const { query, actions } = useUsers(session.user.role === 'OWNER');
+  const [selected, setSelected] = useState('');
+  if (session.user.role !== 'OWNER') return <p role="alert">Owner access required</p>;
+  const user = query.data?.items.find((u) => u.id === selected);
+  return (
+    <>
+      <div className="page-header">
+        <div>
+          <p className="eyebrow">PERMISSIONS & OWNERSHIP</p>
+          <h1>Property access</h1>
+          <p>Explicit grants control Manager and Viewer scope.</p>
+        </div>
+      </div>
+      <Feedback
+        pending={query.isPending}
+        error={actions.error || (query.error ? errorMessage(query.error) : '')}
+      />
+      <div className="card">
+        <h2>Property grants</h2>
+        <Field label="Select user">
+          <select value={selected} onChange={(e) => setSelected(e.target.value)}>
+            <option value="">Choose an account</option>
+            {query.data?.items
+              .filter((u) => u.role !== 'OWNER')
+              .map((u) => (
+                <option key={u.id} value={u.id}>
+                  {u.display_name}
+                </option>
+              ))}
+          </select>
+        </Field>
+        {user && (
+          <GrantForm
+            key={user.id + user.version}
+            user={user}
+            properties={session.properties}
+            vm={actions}
+          />
+        )}
+      </div>
+      <h2 className="mt-8 mb-5">Property owners</h2>
+      <div className="detail-grid">
+        {session.properties.map((p) => (
+          <section className="card" key={p.id}>
+            <h3>{p.name}</h3>
+            <OwnershipForm
+              property={p}
+              owners={query.data?.items.filter((u) => u.enabled && u.role === 'OWNER') || []}
+              vm={actions}
+            />
+          </section>
+        ))}
+      </div>
+    </>
+  );
+}

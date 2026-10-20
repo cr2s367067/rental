@@ -1,2 +1,19 @@
-import {useTheme} from '../VMs/theme.vm';import type {ThemePreference} from '../Models/theme';
-export function ThemeControl(){const vm=useTheme();return <label className="theme-control">Theme<select aria-label="Theme" value={vm.preference} onChange={e=>vm.select(e.target.value as ThemePreference)}><option value="system">System</option><option value="light">Light</option><option value="dark">Dark</option></select></label>;}
+import { useTheme } from '../VMs/theme.vm';
+import type { ThemePreference } from '../Models/theme';
+export function ThemeControl() {
+  const vm = useTheme();
+  return (
+    <label className="theme-control">
+      Theme
+      <select
+        aria-label="Theme"
+        value={vm.preference}
+        onChange={(e) => vm.select(e.target.value as ThemePreference)}
+      >
+        <option value="system">System</option>
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+      </select>
+    </label>
+  );
+}

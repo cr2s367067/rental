@@ -1,0 +1,65 @@
+bun test v1.3.14 (0d9b296a)
+
+backend/tests/unit/payments-manager.test.ts:
+1 | import {test,expect,beforeEach,afterAll} from 'bun:test';import {readFileSync} from 'node:fs';import {billingState} from '../../Managers/payment-rules';import {wholeTWD} from '../../Src/Infrastructure/rules';import {fixtures} from '../fixtures';import {domain} from '../domain';import {BillingManager} from '../../Managers/billing-manager';import {ContractsManager} from '../../Managers/contracts-manager';import {TenantsManager} from '../../Managers/tenants-manager';const d=domain(),contracts=new ContractsManager(d.db,d.access,d.records,d.sessions,new TenantsManager(d.db,d.access,d.records)),billing=new BillingManager(d.db,d.access,d.records,contracts);beforeEach(fixtures);afterAll(d.close);
+2 | test('all nine policy payment states exactly match independent golden results',()=>{const f=JSON.parse(readFileSync('specs/001-property-management/mock-data/fixtures.json','utf8'));const expected=JSON.parse(readFileSync('specs/001-property-management/mock-data/expected-results.json','utf8'));for(const o of f.obligations)expect(billingState(o.amount_due_twd,f.payments.filter((p:{obligation_id:string})=>p.obligation_id===o.id),o.due_date,'2026-10-19')).toEqual(expected.obligations[o.id]);});
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                           ^
+error: expect(received).toEqual(expected)
+
+  {
+-   "amount_paid_twd": "20000",
++   "amount_paid_twd": "0",
+    "is_partial": false,
+-   "outstanding_twd": "0",
+-   "status": "Paid",
++   "outstanding_twd": "20000",
++   "status": "Unpaid",
+  }
+
+- Expected  - 3
++ Received  + 3
+
+      at <anonymous> (/Users/kuan/Library/Mobile Documents/com~apple~CloudDocs/ELearning/Rental/backend/tests/unit/payments-manager.test.ts:2:456)
+(fail) all nine policy payment states exactly match independent golden results [180.32ms]
+1 | import {test,expect,beforeEach,afterAll} from 'bun:test';import {readFileSync} from 'node:fs';import {billingState} from '../../Managers/payment-rules';import {wholeTWD} from '../../Src/Infrastructure/rules';import {fixtures} from '../fixtures';import {domain} from '../domain';import {BillingManager} from '../../Managers/billing-manager';import {ContractsManager} from '../../Managers/contracts-manager';import {TenantsManager} from '../../Managers/tenants-manager';const d=domain(),contracts=new ContractsManager(d.db,d.access,d.records,d.sessions,new TenantsManager(d.db,d.access,d.records)),billing=new BillingManager(d.db,d.access,d.records,contracts);beforeEach(fixtures);afterAll(d.close);
+2 | test('all nine policy payment states exactly match independent golden results',()=>{const f=JSON.parse(readFileSync('specs/001-property-management/mock-data/fixtures.json','utf8'));const expected=JSON.parse(readFileSync('specs/001-property-management/mock-data/expected-results.json','utf8'));for(const o of f.obligations)expect(billingState(o.amount_due_twd,f.payments.filter((p:{obligation_id:string})=>p.obligation_id===o.id),o.due_date,'2026-10-19')).toEqual(expected.obligations[o.id]);});
+3 | test('Overdue beats partial only after due day; reversal/replacement net stays exact',()=>{const payments=[{kind:'PAYMENT' as const,amount_twd:'999999999998'},{kind:'REVERSAL' as const,amount_twd:'999999999998'},{kind:'PAYMENT' as const,amount_twd:'9000'}];expect(billingState('18000',payments,'2026-10-19','2026-10-19')).toEqual({amount_paid_twd:'9000',outstanding_twd:'9000',status:'Partial Payment',is_partial:true});expect(billingState('18000',payments,'2026-10-19','2026-10-20').status).toBe('Overdue');for(const v of ['0.5','-1','1e3','1000000000000'])expect(()=>wholeTWD(v)).toThrow();});
+
+error: expect(received).toEqual(expected)
+
+  {
+-   "amount_paid_twd": "9000",
+-   "is_partial": true,
+-   "outstanding_twd": "9000",
+-   "status": "Partial Payment",
++   "amount_paid_twd": "0",
++   "is_partial": false,
++   "outstanding_twd": "18000",
++   "status": "Unpaid",
+  }
+
+- Expected  - 4
++ Received  + 4
+
+      at <anonymous> (/Users/kuan/Library/Mobile Documents/com~apple~CloudDocs/ELearning/Rental/backend/tests/unit/payments-manager.test.ts:3:323)
+(fail) Overdue beats partial only after due day; reversal/replacement net stays exact [144.26ms]
+1 | import {Injectable,ForbiddenException} from '@nestjs/common';import {Database} from '../Src/Infrastructure/database';import {Access,Actor} from '../Src/Infrastructure/access';import {RecordsManager} from './records-manager';import {ContractsManager} from './contracts-manager';import type {CreateObligationInput} from '../Src/Contracts/payment.contract';import type {ListQuery} from '../Src/Contracts/common.contract';
+2 | @Injectable() export class BillingManager {constructor(private db:Database,private access:Access,private records:RecordsManager,private contracts:ContractsManager){}async list(actor:Actor,query:ListQuery):Promise<any>{return {items:[],total:0};}async create(actor:Actor,contract_id:string,input:CreateObligationInput):Promise<any>{throw new ForbiddenException('Billing changes unavailable');}}
+                                                                                                                                                                                                                                                                                                                                                     ^
+ForbiddenException: Billing changes unavailable
+ response: {
+  message: "Billing changes unavailable",
+  error: "Forbidden",
+  statusCode: 403,
+},
+   status: 403,
+  options: {},
+
+      at create (/Users/kuan/Library/Mobile Documents/com~apple~CloudDocs/ELearning/Rental/backend/Managers/billing-manager.ts:2:338)
+      at <anonymous> (/Users/kuan/Library/Mobile Documents/com~apple~CloudDocs/ELearning/Rental/backend/tests/unit/payments-manager.test.ts:4:313)
+(fail) explicit manual partial obligation persists values and duplicate periods fail [131.05ms]
+
+ 0 pass
+ 3 fail
+ 2 expect() calls
+Ran 3 tests across 1 file. [788.00ms]

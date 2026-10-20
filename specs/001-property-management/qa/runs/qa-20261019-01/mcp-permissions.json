@@ -1,0 +1,90 @@
+[
+  {
+    "role": "manager",
+    "checks": [
+      {
+        "name": "role escalation",
+        "status": 403,
+        "error": "Owner access required",
+        "noProtectedObject": true
+      },
+      {
+        "name": "users list",
+        "status": 403,
+        "error": "Owner access required",
+        "noProtectedObject": true
+      },
+      {
+        "name": "unassigned contact",
+        "status": 403,
+        "error": "Tenant access denied",
+        "noProtectedObject": true
+      },
+      {
+        "name": "outscope property",
+        "status": 403,
+        "error": "Property access denied",
+        "noProtectedObject": true
+      },
+      {
+        "name": "outscope documents",
+        "status": 403,
+        "error": "Property access denied",
+        "noProtectedObject": true
+      },
+      {
+        "name": "owner-only mode",
+        "status": 403,
+        "error": "Only Owner can change ownership or rental mode",
+        "noProtectedObject": true
+      }
+    ]
+  },
+  {
+    "role": "viewer",
+    "checks": [
+      {
+        "name": "role escalation",
+        "status": 403,
+        "error": "Owner access required",
+        "noProtectedObject": true
+      },
+      {
+        "name": "users list",
+        "status": 403,
+        "error": "Owner access required",
+        "noProtectedObject": true
+      },
+      {
+        "name": "unassigned contact",
+        "status": 403,
+        "error": "Tenant access denied",
+        "noProtectedObject": true
+      },
+      {
+        "name": "outscope property",
+        "status": 403,
+        "error": "Property access denied",
+        "noProtectedObject": true
+      },
+      {
+        "name": "outscope documents",
+        "status": 403,
+        "error": "Property access denied",
+        "noProtectedObject": true
+      },
+      {
+        "name": "document contents",
+        "status": 403,
+        "error": "Write access denied",
+        "noProtectedObject": true
+      },
+      {
+        "name": "property write",
+        "status": 403,
+        "error": "Write access denied",
+        "noProtectedObject": true
+      }
+    ]
+  }
+]

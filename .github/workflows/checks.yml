@@ -1,0 +1,26 @@
+name: Demo checks
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+      - uses: oven-sh/setup-bun@735343b667d3e6f658f44d0eca948eb6282f2b76 # v2.0.2
+        with:
+          bun-version: 1.3.14
+      - run: bun install --frozen-lockfile --ignore-scripts
+      - run: bun scripts/ci-env.ts
+      - run: docker compose up -d --wait postgres redis
+      - run: docker compose exec -T postgres createdb -U rental rental_demo_test
+      - run: bun run db:generate && bun run migrate
+      - run: bun run check:generated
+      - run: bun run format:check && bun run typecheck && bun run build
+      - run: bun run test
+      - run: bunx playwright install --with-deps chrome
+      - run: bun run test:e2e
+      - run: docker compose build
+      - if: always()
+        run: docker compose down

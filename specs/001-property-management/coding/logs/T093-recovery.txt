@@ -1,0 +1,10 @@
+bun test v1.3.14 (0d9b296a)
+
+backend/tests/operations/recovery.test.ts:
+{"recovery":"PASS","timestamp":"2026-10-19T14:34:37.208Z","fresh_migrations":2,"counts":[3,4,11,10,9,9,6,15,6],"bytea_files":15,"reimport_ms":373,"budget_ms":300000}
+(pass) fresh migrations, one isolated backup/restore and explicit reimport recover relationships and BYTEA [2253.63ms]
+
+ 1 pass
+ 0 fail
+ 6 expect() calls
+Ran 1 test across 1 file. [2.40s]

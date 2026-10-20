@@ -1,0 +1,3 @@
+$ prettier --check "backend/{Managers,Src,tests,prisma}/**/*.{ts,json}" "frontend/{Models,Services,VMs,Views,tests}/**/*.{ts,tsx,css}" "scripts/**/*.ts" "tests/**/*.ts" "*.{json,ts}" "frontend/*.{html,json,ts}" "backend/*.json"
+Checking formatting...
+All matched files use Prettier code style!

@@ -27,10 +27,10 @@
     "specs/001-property-management/mock-data/fixtures.json": "f85eb4d2a679a62600537fc47a84b4ce822693ff33df7ac2b2c335fab1f83bc8",
     "specs/001-property-management/mock-data-plan.md": "84ea73a8454ec4c8addb9e130aa79970457c9243ff10536aa8d6fd91938b2f45",
     "specs/001-property-management/plan.md": "43d26e8de469d80e6308366759e037ad3c44758537db491e071ad9716fa4bd14",
-    "specs/001-property-management/quickstart.md": "9dd9af6043d65df2f26752daa1473e4017ad593770858cdac1b26de26d3fe6c7",
+    "specs/001-property-management/quickstart.md": "31060db2591d8485ddb41f8f63df67fc7e0948fe27fa2f4820dce3b493a208ee",
     "specs/001-property-management/research.md": "43038b4bd8fde27cb50d547733b667e37493af747d437ba171d11e35efc02ff9",
     "specs/001-property-management/spec.md": "d9214045416972fea9637cdefadc6e5671b5aeaba9084f97aa87b5309e436bf0",
-    "specs/001-property-management/tasks.md": "5b4baee8507cedd6610504998652c3dd1323e5263f089defff97c8817d294d19",
+    "specs/001-property-management/tasks.md": "14ae518012da5b7092fa926ea7bb830d9a6bace4c85b7a0d610bd3a9a29c26b7",
     "specs/001-property-management/toolchain.json": "38c89bcadfde8f2dbf462233f85893ed1e2e9ae6f74389c12df09360b0c7ae2e",
     "specs/001-property-management/compose-delivery-addendum.md": "397ee293fe09a56d1073c05c024b81f73f37f4ad9f2d519d186c62d9e6266e1f"
   },
@@ -1308,7 +1308,7 @@
         "frontend/Views/AppShell.tsx"
       ],
       "blockers": [],
-      "status": "in_progress"
+      "status": "done"
     },
     {
       "id": "T108",
@@ -1336,7 +1336,7 @@
         "specs/001-property-management/validation/us7.md"
       ],
       "blockers": [],
-      "status": "waiting"
+      "status": "done"
     },
     {
       "id": "T031",
@@ -1364,7 +1364,7 @@
         "backend/Src/Contracts/property.contract.ts"
       ],
       "blockers": [],
-      "status": "ready"
+      "status": "done"
     },
     {
       "id": "T032",
@@ -1393,7 +1393,7 @@
         "backend/tests/integration/properties.test.ts"
       ],
       "blockers": [],
-      "status": "waiting"
+      "status": "done"
     },
     {
       "id": "T033",
@@ -1420,7 +1420,7 @@
         "backend/Managers/properties-manager.ts"
       ],
       "blockers": [],
-      "status": "waiting"
+      "status": "done"
     },
     {
       "id": "T034",
@@ -1451,7 +1451,7 @@
         "backend/Src/app.module.ts"
       ],
       "blockers": [],
-      "status": "waiting"
+      "status": "done"
     },
     {
       "id": "T035",
@@ -1482,7 +1482,7 @@
         "frontend/Generated/"
       ],
       "blockers": [],
-      "status": "waiting"
+      "status": "done"
     },
     {
       "id": "T036",
@@ -1509,7 +1509,7 @@
         "frontend/tests/properties.vm.test.ts"
       ],
       "blockers": [],
-      "status": "waiting"
+      "status": "done"
     },
     {
       "id": "T037",
@@ -1538,7 +1538,7 @@
         "tests/e2e/properties.spec.ts"
       ],
       "blockers": [],
-      "status": "waiting"
+      "status": "done"
     },
     {
       "id": "T038",
@@ -1566,7 +1566,7 @@
         "frontend/Models/property.ts"
       ],
       "blockers": [],
-      "status": "waiting"
+      "status": "done"
     },
     {
       "id": "T039",
@@ -1594,7 +1594,7 @@
         "frontend/VMs/properties.vm.ts"
       ],
       "blockers": [],
-      "status": "waiting"
+      "status": "done"
     },
     {
       "id": "T040",
@@ -1627,7 +1627,7 @@
         "frontend/Views/AppShell.tsx"
       ],
       "blockers": [],
-      "status": "waiting"
+      "status": "done"
     },
     {
       "id": "T041",
@@ -1655,7 +1655,7 @@
         "specs/001-property-management/validation/us1.md"
       ],
       "blockers": [],
-      "status": "waiting"
+      "status": "done"
     },
     {
       "id": "T042",
@@ -1683,7 +1683,7 @@
         "backend/Src/Contracts/stay.contract.ts"
       ],
       "blockers": [],
-      "status": "waiting"
+      "status": "done"
     },
     {
       "id": "T043",
@@ -1712,7 +1712,7 @@
         "backend/tests/unit/tenants-manager.test.ts"
       ],
       "blockers": [],
-      "status": "waiting"
+      "status": "done"
     },
     {
       "id": "T044",
@@ -1740,7 +1740,7 @@
         "backend/tests/integration/occupancy.test.ts"
       ],
       "blockers": [],
-      "status": "waiting"
+      "status": "done"
     },
     {
       "id": "T045",
@@ -1767,7 +1767,7 @@
         "backend/Managers/tenants-manager.ts"
       ],
       "blockers": [],
-      "status": "waiting"
+      "status": "done"
     },
     {
       "id": "T046",
@@ -1797,7 +1797,7 @@
         "backend/Managers/stays-manager.ts"
       ],
       "blockers": [],
-      "status": "waiting"
+      "status": "done"
     },
     {
       "id": "T047",
@@ -1828,7 +1828,7 @@
         "backend/Src/app.module.ts"
       ],
       "blockers": [],
-      "status": "waiting"
+      "status": "done"
     },
     {
       "id": "T048",
@@ -1858,7 +1858,7 @@
         "frontend/Generated/"
       ],
       "blockers": [],
-      "status": "waiting"
+      "status": "done"
     },
     {
       "id": "T049",
@@ -1888,7 +1888,7 @@
         "tests/e2e/stays.spec.ts"
       ],
       "blockers": [],
-      "status": "waiting"
+      "status": "done"
     },
     {
       "id": "T050",
@@ -1916,7 +1916,7 @@
         "frontend/Models/stay.ts"
       ],
       "blockers": [],
-      "status": "waiting"
+      "status": "done"
     },
     {
       "id": "T051",
@@ -1944,7 +1944,7 @@
         "frontend/VMs/stays.vm.ts"
       ],
       "blockers": [],
-      "status": "waiting"
+      "status": "done"
     },
     {
       "id": "T052",
@@ -1976,7 +1976,7 @@
         "frontend/Views/AppShell.tsx"
       ],
       "blockers": [],
-      "status": "waiting"
+      "status": "done"
     },
     {
       "id": "T053",
@@ -2006,7 +2006,7 @@
         "frontend/Views/Resources.tsx"
       ],
       "blockers": [],
-      "status": "waiting"
+      "status": "done"
     },
     {
       "id": "T054",
@@ -2034,7 +2034,7 @@
         "specs/001-property-management/validation/us2.md"
       ],
       "blockers": [],
-      "status": "waiting"
+      "status": "done"
     },
     {
       "id": "T055",
@@ -2063,7 +2063,7 @@
         "backend/Src/Contracts/document.contract.ts"
       ],
       "blockers": [],
-      "status": "waiting"
+      "status": "done"
     },
     {
       "id": "T056",
@@ -2091,7 +2091,7 @@
         "backend/tests/unit/contracts-manager.test.ts"
       ],
       "blockers": [],
-      "status": "waiting"
+      "status": "done"
     },
     {
       "id": "T057",
@@ -2119,7 +2119,7 @@
         "backend/tests/integration/documents.test.ts"
       ],
       "blockers": [],
-      "status": "waiting"
+      "status": "done"
     },
     {
       "id": "T109",
@@ -2148,7 +2148,7 @@
         "backend/tests/integration/contract-capacity.test.ts"
       ],
       "blockers": [],
-      "status": "waiting"
+      "status": "done"
     },
     {
       "id": "T058",
@@ -2177,7 +2177,7 @@
         "backend/Managers/contracts-manager.ts"
       ],
       "blockers": [],
-      "status": "waiting"
+      "status": "done"
     },
     {
       "id": "T059",
@@ -2205,7 +2205,7 @@
         "backend/Managers/documents-manager.ts"
       ],
       "blockers": [],
-      "status": "waiting"
+      "status": "done"
     },
     {
       "id": "T060",
@@ -2236,7 +2236,7 @@
         "backend/Src/app.module.ts"
       ],
       "blockers": [],
-      "status": "waiting"
+      "status": "done"
     },
     {
       "id": "T061",
@@ -2266,7 +2266,7 @@
         "frontend/Generated/"
       ],
       "blockers": [],
-      "status": "waiting"
+      "status": "done"
     },
     {
       "id": "T062",
@@ -2296,7 +2296,7 @@
         "tests/e2e/contracts-documents.spec.ts"
       ],
       "blockers": [],
-      "status": "waiting"
+      "status": "done"
     },
     {
       "id": "T063",
@@ -2325,7 +2325,7 @@
         "frontend/Models/document.ts"
       ],
       "blockers": [],
-      "status": "waiting"
+      "status": "done"
     },
     {
       "id": "T064",
@@ -2353,7 +2353,7 @@
         "frontend/VMs/contracts.vm.ts"
       ],
       "blockers": [],
-      "status": "waiting"
+      "status": "done"
     },
     {
       "id": "T065",
@@ -2385,7 +2385,7 @@
         "frontend/Views/AppShell.tsx"
       ],
       "blockers": [],
-      "status": "waiting"
+      "status": "done"
     },
     {
       "id": "T066",
@@ -2416,7 +2416,7 @@
         "frontend/Views/Stays.tsx"
       ],
       "blockers": [],
-      "status": "waiting"
+      "status": "done"
     },
     {
       "id": "T067",
@@ -2444,7 +2444,7 @@
         "specs/001-property-management/validation/us3.md"
       ],
       "blockers": [],
-      "status": "waiting"
+      "status": "done"
     },
     {
       "id": "T068",
@@ -2472,7 +2472,7 @@
         "backend/Src/Contracts/payment.contract.ts"
       ],
       "blockers": [],
-      "status": "waiting"
+      "status": "done"
     },
     {
       "id": "T069",
@@ -2500,7 +2500,7 @@
         "backend/tests/unit/payments-manager.test.ts"
       ],
       "blockers": [],
-      "status": "waiting"
+      "status": "done"
     },
     {
       "id": "T070",
@@ -2528,7 +2528,7 @@
         "backend/tests/integration/payments.test.ts"
       ],
       "blockers": [],
-      "status": "waiting"
+      "status": "done"
     },
     {
       "id": "T071",
@@ -2556,7 +2556,7 @@
         "backend/Managers/billing-manager.ts"
       ],
       "blockers": [],
-      "status": "waiting"
+      "status": "done"
     },
     {
       "id": "T072",
@@ -2585,7 +2585,7 @@
         "backend/Managers/payments-manager.ts"
       ],
       "blockers": [],
-      "status": "waiting"
+      "status": "done"
     },
     {
       "id": "T073",
@@ -2616,7 +2616,7 @@
         "backend/Src/app.module.ts"
       ],
       "blockers": [],
-      "status": "waiting"
+      "status": "done"
     },
     {
       "id": "T074",
@@ -2646,7 +2646,7 @@
         "frontend/Generated/"
       ],
       "blockers": [],
-      "status": "waiting"
+      "status": "done"
     },
     {
       "id": "T075",
@@ -2676,7 +2676,7 @@
         "tests/e2e/payments.spec.ts"
       ],
       "blockers": [],
-      "status": "waiting"
+      "status": "done"
     },
     {
       "id": "T076",
@@ -2704,7 +2704,7 @@
         "frontend/Models/payment.ts"
       ],
       "blockers": [],
-      "status": "waiting"
+      "status": "done"
     },
     {
       "id": "T077",
@@ -2732,7 +2732,7 @@
         "frontend/VMs/payments.vm.ts"
       ],
       "blockers": [],
-      "status": "waiting"
+      "status": "done"
     },
     {
       "id": "T078",
@@ -2765,7 +2765,7 @@
         "frontend/Views/AppShell.tsx"
       ],
       "blockers": [],
-      "status": "waiting"
+      "status": "done"
     },
     {
       "id": "T079",
@@ -2794,7 +2794,7 @@
         "frontend/Views/Stays.tsx"
       ],
       "blockers": [],
-      "status": "waiting"
+      "status": "done"
     },
     {
       "id": "T080",
@@ -2822,7 +2822,7 @@
         "specs/001-property-management/validation/us4.md"
       ],
       "blockers": [],
-      "status": "waiting"
+      "status": "done"
     },
     {
       "id": "T081",
@@ -2852,7 +2852,7 @@
         "backend/Src/Contracts/dashboard.contract.ts"
       ],
       "blockers": [],
-      "status": "waiting"
+      "status": "done"
     },
     {
       "id": "T082",
@@ -2880,7 +2880,7 @@
         "backend/tests/integration/dashboard.test.ts"
       ],
       "blockers": [],
-      "status": "waiting"
+      "status": "done"
     },
     {
       "id": "T083",
@@ -2910,7 +2910,7 @@
         "backend/Managers/dashboard-manager.ts"
       ],
       "blockers": [],
-      "status": "waiting"
+      "status": "done"
     },
     {
       "id": "T084",
@@ -2939,7 +2939,7 @@
         "backend/Src/app.module.ts"
       ],
       "blockers": [],
-      "status": "waiting"
+      "status": "done"
     },
     {
       "id": "T085",
@@ -2969,7 +2969,7 @@
         "frontend/Generated/"
       ],
       "blockers": [],
-      "status": "waiting"
+      "status": "done"
     },
     {
       "id": "T086",
@@ -2999,7 +2999,7 @@
         "tests/e2e/dashboard.spec.ts"
       ],
       "blockers": [],
-      "status": "waiting"
+      "status": "done"
     },
     {
       "id": "T087",
@@ -3026,7 +3026,7 @@
         "frontend/VMs/dashboard.vm.ts"
       ],
       "blockers": [],
-      "status": "waiting"
+      "status": "done"
     },
     {
       "id": "T088",
@@ -3057,7 +3057,7 @@
         "frontend/Views/AppShell.tsx"
       ],
       "blockers": [],
-      "status": "waiting"
+      "status": "done"
     },
     {
       "id": "T089",
@@ -3091,7 +3091,7 @@
         "frontend/VMs/payments.vm.ts"
       ],
       "blockers": [],
-      "status": "waiting"
+      "status": "done"
     },
     {
       "id": "T090",
@@ -3119,7 +3119,7 @@
         "specs/001-property-management/validation/us5.md"
       ],
       "blockers": [],
-      "status": "waiting"
+      "status": "done"
     },
     {
       "id": "T091",
@@ -3152,7 +3152,7 @@
         "tests/e2e/regression.spec.ts"
       ],
       "blockers": [],
-      "status": "waiting"
+      "status": "done"
     },
     {
       "id": "T092",
@@ -3181,7 +3181,7 @@
         "specs/001-property-management/validation/performance.md"
       ],
       "blockers": [],
-      "status": "waiting"
+      "status": "done"
     },
     {
       "id": "T111",
@@ -3216,7 +3216,7 @@
         "backend/tests/integration/demo-fixtures.test.ts"
       ],
       "blockers": [],
-      "status": "waiting"
+      "status": "done"
     },
     {
       "id": "T110",
@@ -3249,7 +3249,7 @@
         "package.json"
       ],
       "blockers": [],
-      "status": "waiting"
+      "status": "done"
     },
     {
       "id": "T093",
@@ -3282,7 +3282,7 @@
         "specs/001-property-management/validation/recovery.md"
       ],
       "blockers": [],
-      "status": "waiting"
+      "status": "done"
     },
     {
       "id": "T094",
@@ -3313,7 +3313,7 @@
         "package.json"
       ],
       "blockers": [],
-      "status": "waiting"
+      "status": "done"
     },
     {
       "id": "T095",
@@ -3344,7 +3344,7 @@
         "specs/001-property-management/quickstart.md"
       ],
       "blockers": [],
-      "status": "waiting"
+      "status": "done"
     },
     {
       "id": "T096",
@@ -3379,7 +3379,7 @@
         "specs/001-property-management/validation/coverage.md"
       ],
       "blockers": [],
-      "status": "waiting"
+      "status": "done"
     }
   ],
   "parallel_groups": []

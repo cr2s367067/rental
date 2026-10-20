@@ -1,0 +1,9 @@
+{
+  "run_id": "qa-20261019-01",
+  "started_at": "2026-10-19T14:43:50.853904+00:00",
+  "retry_count": 0,
+  "revision": 0,
+  "snapshot_files": 409,
+  "snapshot_mismatches": [],
+  "pm_validator": "valid=true dispatch_eligible=true 113tasks"
+}

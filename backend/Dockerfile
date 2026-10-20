@@ -5,5 +5,5 @@ COPY frontend/package.json frontend/package.json
 COPY backend/package.json backend/package.json
 RUN --mount=type=cache,target=/root/.bun/install/cache bun install --frozen-lockfile --ignore-scripts --network-concurrency 8
 COPY . .
-RUN bun run --filter backend build
+RUN bun run db:generate && bun run --filter backend build
 CMD ["bun","backend/dist/Src/main.js"]

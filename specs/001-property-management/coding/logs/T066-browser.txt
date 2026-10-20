@@ -1,0 +1,41 @@
+(node:87179) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[2m[WebServer] [22m[0m[33mWarning[0m[2m:[0m [1mThe 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.[0m
+[2m[WebServer] [22m[0m      [2mat [0m[0m[1m[3mwarnOnDeactivatedColors[0m[2m ([0m[0m[36minternal:tty[0m[2m:[0m[33m33[0m[2m:[33m24[0m[2m)[0m
+[2m[WebServer] [22m[0m      [2mat [0m[0m[1m[3mgetColorDepth[0m[2m ([0m[0m[36minternal:tty[0m[2m:[0m[33m42[0m[2m:[33m39[0m[2m)[0m
+[2m[WebServer] [22m[0m      [2mat [0m[0m[1m[3mshouldColorize[0m[2m ([0m[0m[36minternal:util/colors[0m[2m:[0m[33m14[0m[2m:[33m109[0m[2m)[0m
+[2m[WebServer] [22m[0m      [2mat [0m[0m[1m[3mrefresh[0m[2m ([0m[0m[36minternal:util/colors[0m[2m:[0m[33m18[0m[2m:[33m31[0m[2m)[0m
+[2m[WebServer] [22m[0m      [2mat [0m[0m[1m[3minternal:util/colors[0m[2m ([0m[0m[36minternal:util/colors[0m[2m:[0m[33m24[0m[2m:[33m16[0m[2m)[0m
+[2m[WebServer] [22m[0m      [2mat [0m[0m[1m[3minternal:assert/assertion_error[0m[2m ([0m[0m[36minternal:assert/assertion_error[0m[2m:[0m[33m2[0m[2m:[33m187[0m[2m)[0m
+[2m[WebServer] [22m[0m      [2mat [0m[0m[1m[3mloadAssertionError[0m[2m ([0m[0m[36mnode:assert[0m[2m:[0m[33m28[0m[2m:[33m96[0m[2m)[0m
+[2m[WebServer] [22m
+
+Running 1 test using 1 worker
+
+(node:87204) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:87204) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(node:87204) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 tests/e2e/record-links.spec.ts:2:5 › property → scoped contracts → tenant history → associated files retains record context (30.0s)
+
+
+  1) tests/e2e/record-links.spec.ts:2:5 › property → scoped contracts → tenant history → associated files retains record context 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('link', { name: 'Contracts for property', exact: true })[22m
+
+
+      1 | import {test,expect} from '@playwright/test';
+    > 2 | test('property → scoped contracts → tenant history → associated files retains record context',async({page})=>{await page.goto('/');await page.getByLabel('Email',{exact:true}).fill('owner@example.test');await page.getByLabel('Password',{exact:true}).fill(process.env.DEMO_PASSWORD!);await page.getByRole('button',{name:'Sign in',exact:true}).click();await page.getByRole('link',{name:'Properties',exact:true}).click();await page.getByRole('link',{name:'Demo Taipei House',exact:true}).click();await page.getByRole('link',{name:'Contracts for property',exact:true}).click();await expect(page.getByText('5 records · 2026-10-19',{exact:true})).toBeVisible();await page.getByRole('link',{name:'Open contract for Demo Tenant 01',exact:true}).click();await page.getByRole('link',{name:'Tenant details',exact:true}).click();await page.getByRole('link',{name:'Files for C001',exact:true}).click();await expect(page.getByText('DEMO-CONTRACT-C001.txt',{exact:true})).toBeVisible();await expect(page.getByText('DEMO-RECEIPT-PAY001.txt',{exact:true})).toBeVisible();await expect(page.getByText('2 records · 2026-10-19',{exact:true})).toBeVisible();});
+        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     ^
+      3 |
+        at /Users/kuan/Library/Mobile Documents/com~apple~CloudDocs/ELearning/Rental/tests/e2e/record-links.spec.ts:2:565
+
+    Error Context: test-results/record-links-property-→-sc-335ff-iles-retains-record-context/error-context.md
+
+  1 failed
+    tests/e2e/record-links.spec.ts:2:5 › property → scoped contracts → tenant history → associated files retains record context 

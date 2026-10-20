@@ -1,0 +1,283 @@
+{
+  "run_id": "qa-20261019-01",
+  "functional_requirements": [
+    {
+      "id": "FR-001",
+      "implementation": "PropertiesManager + Properties/VM",
+      "independent_check": "properties unit/integration, HTTP and MCP property edit/reopen",
+      "result": "PASS"
+    },
+    {
+      "id": "FR-002",
+      "implementation": "createResource/updateResource mode and count guards",
+      "independent_check": "properties tests invalid mode/capacity; host resource create/edit",
+      "result": "PASS"
+    },
+    {
+      "id": "FR-003",
+      "implementation": "RecordsManager/current contract projection",
+      "independent_check": "occupancy tests/shared room plus MCP R2020\u21921\u21920",
+      "result": "PASS"
+    },
+    {
+      "id": "FR-004",
+      "implementation": "TenantsManager and atomic contract new_tenant",
+      "independent_check": "tenant unit/HTTP and MCP create/edit/reopen",
+      "result": "PASS"
+    },
+    {
+      "id": "FR-005",
+      "implementation": "read-only StaysManager/contract projection",
+      "independent_check": "stays/occupancy tests and MCP derived occupancy/history",
+      "result": "PASS"
+    },
+    {
+      "id": "FR-006",
+      "implementation": "businessDate/effectiveEnd + Contract DTO",
+      "independent_check": "contract boundary tests; MCP future/effective termination",
+      "result": "PASS"
+    },
+    {
+      "id": "FR-007",
+      "implementation": "upcoming filters and explicit clock",
+      "independent_check": "unit date windows, stays browser and MCP effective day",
+      "result": "PASS"
+    },
+    {
+      "id": "FR-008",
+      "implementation": "occupancyStatus/classify retains records",
+      "independent_check": "stays tests and MCP Ended history",
+      "result": "PASS"
+    },
+    {
+      "id": "FR-009",
+      "implementation": "Prisma FKs + link projections",
+      "independent_check": "contract reassignment tests, record-links host UI and MCP history",
+      "result": "PASS"
+    },
+    {
+      "id": "FR-010",
+      "implementation": "contract Manager/DTO/UI amounts/doc association",
+      "independent_check": "contracts HTTP/browser, MCP contract terms",
+      "result": "PASS"
+    },
+    {
+      "id": "FR-011",
+      "implementation": "classify precedence",
+      "independent_check": "unit start/end/30day/termination; all3role goldens",
+      "result": "PASS"
+    },
+    {
+      "id": "FR-012",
+      "implementation": "DocumentsManager Access checks",
+      "independent_check": "HTTP/integration byte equality, MCP Manager download/Viewer403",
+      "result": "PASS"
+    },
+    {
+      "id": "FR-013",
+      "implementation": "Document metadata + separate BYTEA content",
+      "independent_check": "all15hashes/recovery relationships and MCP original15",
+      "result": "PASS"
+    },
+    {
+      "id": "FR-014",
+      "implementation": "BillingManager explicit period unique DB key",
+      "independent_check": "payments unit/HTTP/browser explicit partial periods",
+      "result": "PASS"
+    },
+    {
+      "id": "FR-015",
+      "implementation": "billingState exact digit transport",
+      "independent_check": "nine obligation golden statuses, host payments and MCP net/balance",
+      "result": "PASS"
+    },
+    {
+      "id": "FR-016",
+      "implementation": "Paid/Overdue/Partial/Unpaid + is_partial",
+      "independent_check": "payment boundary/golden HTTP tests; MCP overdue partial",
+      "result": "PASS"
+    },
+    {
+      "id": "FR-017",
+      "implementation": "scope-aware obligation selectors/panels",
+      "independent_check": "payment-panels browser; all-role complete outstanding sets",
+      "result": "PASS"
+    },
+    {
+      "id": "FR-018",
+      "implementation": "DashboardManager nine metrics + separate balance",
+      "independent_check": "33goldenfield comparisons via actual MCP",
+      "result": "PASS"
+    },
+    {
+      "id": "FR-019",
+      "implementation": "shared selection-rules functions",
+      "independent_check": "all3role9fullsets direct independent ID math and clicked UI",
+      "result": "PASS"
+    },
+    {
+      "id": "FR-020",
+      "implementation": "TanStack invalidation/refresh + session refresh",
+      "independent_check": "VM tests, host mutation/date and MCP save/date/manual refresh",
+      "result": "PASS"
+    },
+    {
+      "id": "FR-021",
+      "implementation": "responsive shell/table/dialog styles",
+      "independent_check": "36host cases incl16device-role workflows,8MCP overview/forms",
+      "result": "PASS"
+    },
+    {
+      "id": "FR-022",
+      "implementation": "ThemeStore injected port/system/manual storage",
+      "independent_check": "VM tests and actual MCP emulation/reload persistence",
+      "result": "PASS"
+    },
+    {
+      "id": "FR-023",
+      "implementation": "StatusBadge text + alerts/labels",
+      "independent_check": "shared DOM tests, browser states, visually inspected MCP images",
+      "result": "PASS"
+    },
+    {
+      "id": "FR-024",
+      "implementation": "Access.current/property/write/owner in Managers",
+      "independent_check": "real HTTP scope/role tests +13MCP direct403 boundaries",
+      "result": "PASS"
+    },
+    {
+      "id": "FR-025",
+      "implementation": "actual file signature/UTF8/size validators",
+      "independent_check": "documents tests exact limit/spoof/oversize/atomic rollback",
+      "result": "PASS"
+    },
+    {
+      "id": "FR-026",
+      "implementation": "DTO/rule/version validation + Feedback",
+      "independent_check": "null/whitespace/boundary HTTP and retained MCP overpay input",
+      "result": "PASS"
+    },
+    {
+      "id": "FR-027",
+      "implementation": "logger false, safe ErrorBoundary, no payload logging",
+      "independent_check": "captured HTTP boundary logs and current backend log-safety scan",
+      "result": "PASS"
+    },
+    {
+      "id": "FR-028",
+      "implementation": "DB transactions/advisory locks + versions",
+      "independent_check": "concurrent contracts/capacity/admin/payment and injected late rollback",
+      "result": "PASS"
+    },
+    {
+      "id": "FR-029",
+      "implementation": "capacity event sweep/occupied partition",
+      "independent_check": "shared slot tests and all3role metric partitions",
+      "result": "PASS"
+    },
+    {
+      "id": "FR-030",
+      "implementation": "shared resource locks sorted before writes",
+      "independent_check": "capacity concurrent/create/update/termination integration",
+      "result": "PASS"
+    },
+    {
+      "id": "FR-031",
+      "implementation": "GET-only Stay handler; no editable movement state",
+      "independent_check": "OpenAPI contract check/occupancy HTTP + actual UI history",
+      "result": "PASS"
+    },
+    {
+      "id": "FR-032",
+      "implementation": "Taipei date-only calendar and BigInt/Decimal",
+      "independent_check": "date/money/null/boundary tests + visible Taipei MCP date",
+      "result": "PASS"
+    },
+    {
+      "id": "FR-033",
+      "implementation": "next7days strict start/inclusive horizon,30day expiry",
+      "independent_check": "unit boundaries, independently computed complete MCP sets",
+      "result": "PASS"
+    },
+    {
+      "id": "FR-034",
+      "implementation": "billingState overdue precedence",
+      "independent_check": "all9goldens and MCP OBL003 remains Overdue after partial pay",
+      "result": "PASS"
+    },
+    {
+      "id": "FR-035",
+      "implementation": "durable hash/response + obligation/key locks",
+      "independent_check": "idempotent/concurrent/changed-content/reversal/replacement/rollback tests",
+      "result": "PASS"
+    },
+    {
+      "id": "FR-036",
+      "implementation": "UsersManager administration lock/version revocation",
+      "independent_check": "role HTTP/concurrency tests and Viewer/Manager MCP escalation403",
+      "result": "PASS"
+    },
+    {
+      "id": "FR-037",
+      "implementation": "enabled Owner validation + Owner-only modes",
+      "independent_check": "property/admin concurrency tests and MCP forbidden manager mode",
+      "result": "PASS"
+    },
+    {
+      "id": "FR-038",
+      "implementation": "DemoFixtures explicit guard/transactional import",
+      "independent_check": "repeat seed/reset82assertions, fresh migration/restore and actual UI reset",
+      "result": "PASS"
+    },
+    {
+      "id": "FR-039",
+      "implementation": "DemoContext visible date/Owner update",
+      "independent_check": "MCP explicit20October projection, history and restored19October",
+      "result": "PASS"
+    }
+  ],
+  "success_criteria": [
+    {
+      "id": "SC-001",
+      "result": "PASS"
+    },
+    {
+      "id": "SC-002",
+      "result": "PASS"
+    },
+    {
+      "id": "SC-003",
+      "result": "PASS"
+    },
+    {
+      "id": "SC-004",
+      "result": "PASS"
+    },
+    {
+      "id": "SC-005",
+      "result": "PASS"
+    },
+    {
+      "id": "SC-006",
+      "result": "PASS"
+    },
+    {
+      "id": "SC-007",
+      "result": "PASS"
+    },
+    {
+      "id": "SC-008",
+      "result": "PASS"
+    }
+  ],
+  "story_acceptance_counts": {
+    "US1": 4,
+    "US2": 5,
+    "US3": 4,
+    "US4": 4,
+    "US5": 4,
+    "US6": 3,
+    "US7": 4
+  },
+  "total_acceptance_scenarios": 28
+}

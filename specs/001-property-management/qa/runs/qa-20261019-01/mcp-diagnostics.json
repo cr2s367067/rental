@@ -1,0 +1,30 @@
+{
+  "final_pages": [
+    {
+      "page": 5,
+      "unexpected_http_errors": [],
+      "unauthenticated_bootstrap_401_expected": true,
+      "uncaught_exception": false
+    },
+    {
+      "page": 6,
+      "unexpected_http_errors": [],
+      "unauthenticated_bootstrap_401_expected": true,
+      "uncaught_exception": false
+    },
+    {
+      "page": 7,
+      "unexpected_http_errors": [],
+      "unauthenticated_bootstrap_401_expected": true,
+      "uncaught_exception": false
+    }
+  ],
+  "earlier_expected_denials": {
+    "manager": 6,
+    "viewer": 7,
+    "overpay_conflict": 1
+  },
+  "unexpected_500_or_429": 0,
+  "all3roles_logout_revoked": true,
+  "final_compose_services_left_running": true
+}

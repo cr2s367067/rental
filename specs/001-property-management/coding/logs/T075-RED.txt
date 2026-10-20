@@ -1,0 +1,31 @@
+bun test v1.3.14 (0d9b296a)
+
+frontend/tests/payments.vm.test.ts:
+1 | import {test,expect} from 'bun:test';import {PaymentsVM} from '../VMs/payments.vm';import {paymentsService,type PaymentsService} from '../Services/payments.service';
+2 | const payment={id:'PAY1',obligation_id:'O1',amount_twd:'1000',kind:'PAYMENT' as const,reverses_payment_id:null,reversal_id:null,recorded_at:'2026-10-19T00:00:00Z'};
+3 | test('payment intent key is stable through the request and duplicate pending clicks do not send twice',async()=>{let finish!:(p:typeof payment)=>void,calls=0,refresh=0;const service:PaymentsService={...paymentsService,record:async(id,body,key)=>{calls++;expect(key).toBe('intent-fixed');return new Promise(resolve=>{finish=resolve;});}};const vm=new PaymentsVM(service,async()=>{refresh++;},()=> 'intent-fixed');const key=vm.newIntent();const first=vm.record('O1',{amount_twd:'1000'},key);const second=vm.record('O1',{amount_twd:'1000'},key);expect(calls).toBe(1);finish(payment);await Promise.all([first,second]);expect(refresh).toBe(1);expect(vm.pending).toBe(false);});
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                ^
+error: expect(received).toBe(expected)
+
+Expected: 1
+Received: 0
+
+      at <anonymous> (/Users/kuan/Library/Mobile Documents/com~apple~CloudDocs/ELearning/Rental/frontend/tests/payments.vm.test.ts:3:557)
+(fail) payment intent key is stable through the request and duplicate pending clicks do not send twice [0.39ms]
+1 | import {test,expect} from 'bun:test';import {PaymentsVM} from '../VMs/payments.vm';import {paymentsService,type PaymentsService} from '../Services/payments.service';
+2 | const payment={id:'PAY1',obligation_id:'O1',amount_twd:'1000',kind:'PAYMENT' as const,reverses_payment_id:null,reversal_id:null,recorded_at:'2026-10-19T00:00:00Z'};
+3 | test('payment intent key is stable through the request and duplicate pending clicks do not send twice',async()=>{let finish!:(p:typeof payment)=>void,calls=0,refresh=0;const service:PaymentsService={...paymentsService,record:async(id,body,key)=>{calls++;expect(key).toBe('intent-fixed');return new Promise(resolve=>{finish=resolve;});}};const vm=new PaymentsVM(service,async()=>{refresh++;},()=> 'intent-fixed');const key=vm.newIntent();const first=vm.record('O1',{amount_twd:'1000'},key);const second=vm.record('O1',{amount_twd:'1000'},key);expect(calls).toBe(1);finish(payment);await Promise.all([first,second]);expect(refresh).toBe(1);expect(vm.pending).toBe(false);});
+4 | test('overpayment conflict retains input and correction failure remains actionable',async()=>{const input={amount_twd:'11001'};const vm=new PaymentsVM({...paymentsService,record:async()=>{throw {message:'Payment exceeds outstanding TWD'};}},async()=>{});await vm.record('O1',input,vm.newIntent());expect(vm.error).toContain('outstanding');expect(input.amount_twd).toBe('11001');});
+                                                                                                                                                                                                                                                                                                                              ^
+error: expect(received).toContain(expected)
+
+Expected to contain: "outstanding"
+Received: ""
+
+      at <anonymous> (/Users/kuan/Library/Mobile Documents/com~apple~CloudDocs/ELearning/Rental/frontend/tests/payments.vm.test.ts:4:315)
+(fail) overpayment conflict retains input and correction failure remains actionable [0.23ms]
+
+ 0 pass
+ 2 fail
+ 2 expect() calls
+Ran 2 tests across 1 file. [23.00ms]

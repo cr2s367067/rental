@@ -1,0 +1,35 @@
+bun test v1.3.14 (0d9b296a)
+
+backend/tests/unit/contracts-manager.test.ts:
+1 | import {test,expect,beforeEach,afterAll} from 'bun:test';import {fixtures} from '../fixtures';import {domain} from '../domain';import {ContractsManager} from '../../Managers/contracts-manager';import {TenantsManager} from '../../Managers/tenants-manager';import {classify} from '../../Managers/contract-rules';const d=domain(),m=new ContractsManager(d.db,d.access,d.records,d.sessions,new TenantsManager(d.db,d.access,d.records));beforeEach(fixtures);afterAll(d.close);
+2 | const term={id:'C',tenant_id:'T',start_date:new Date('2026-10-01'),end_date:new Date('2026-11-01'),termination_date:null as Date|null};
+3 | test('classification precedence covers start/end/30day boundary and future/effective termination',()=>{expect(classify(term,'2026-09-30')).toBe('Upcoming');expect(classify(term,'2026-10-01')).toBe('Active');expect(classify(term,'2026-10-02')).toBe('Expiring Soon');expect(classify(term,'2026-11-01')).toBe('Expired');expect(classify({...term,termination_date:new Date('2026-10-25')},'2026-10-19')).toBe('Expiring Soon');expect(classify({...term,termination_date:new Date('2026-10-19')},'2026-10-19')).toBe('Terminated');});
+
+error: expect(received).toBe(expected)
+
+Expected: "Upcoming"
+Received: "Active"
+
+      at <anonymous> (/Users/kuan/Library/Mobile Documents/com~apple~CloudDocs/ELearning/Rental/backend/tests/unit/contracts-manager.test.ts:3:140)
+(fail) classification precedence covers start/end/30day boundary and future/effective termination [193.38ms]
+1 | import {Injectable,ForbiddenException} from '@nestjs/common';import {Database} from '../Src/Infrastructure/database';import {Access,Actor} from '../Src/Infrastructure/access';import {RecordsManager} from './records-manager';import {SessionManager} from './session-manager';import {TenantsManager} from './tenants-manager';import type {CreateContractInput,UpdateContractInput,TerminationInput} from '../Src/Contracts/contract.contract';import type {ListQuery} from '../Src/Contracts/common.contract';
+2 | @Injectable() export class ContractsManager {constructor(private db:Database,private access:Access,private records:RecordsManager,private sessions:SessionManager,private tenants:TenantsManager){}async list(actor:Actor,query:ListQuery):Promise<any>{return {items:[],total:0};}async get(actor:Actor,id:string,query:ListQuery):Promise<any>{throw new ForbiddenException('Contract unavailable');}async create(actor:Actor,input:CreateContractInput):Promise<any>{throw new ForbiddenException('Contract changes unavailable');}async update(actor:Actor,id:string,input:UpdateContractInput):Promise<any>{throw new ForbiddenException('Contract changes unavailable');}async terminate(actor:Actor,id:string,input:TerminationInput):Promise<any>{throw new ForbiddenException('Contract changes unavailable');}}
+
+ForbiddenException: Contract changes unavailable
+ response: {
+  message: "Contract changes unavailable",
+  error: "Forbidden",
+  statusCode: 403,
+},
+   status: 403,
+  options: {},
+
+      at create (/Users/kuan/Library/Mobile Documents/com~apple~CloudDocs/ELearning/Rental/backend/Managers/contracts-manager.ts:2:463)
+      at <anonymous> (/Users/kuan/Library/Mobile Documents/com~apple~CloudDocs/ELearning/Rental/backend/tests/unit/contracts-manager.test.ts:4:381)
+(fail) Manager new contact and first scoped contract commit atomically [150.28ms]
+(pass) failed or outscope first contracts leave no orphan contacts [129.78ms]
+
+ 1 pass
+ 2 fail
+ 4 expect() calls
+Ran 3 tests across 1 file. [795.00ms]

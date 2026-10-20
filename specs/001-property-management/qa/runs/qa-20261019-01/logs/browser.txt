@@ -1,0 +1,58 @@
+$ bun scripts/e2e.ts
+(node:96865) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[2m[WebServer] [22m[0m[33mWarning[0m[2m:[0m [1mThe 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.[0m
+[2m[WebServer] [22m[0m      [2mat [0m[0m[1m[3mwarnOnDeactivatedColors[0m[2m ([0m[0m[36minternal:tty[0m[2m:[0m[33m33[0m[2m:[33m24[0m[2m)[0m
+[2m[WebServer] [22m[0m      [2mat [0m[0m[1m[3mgetColorDepth[0m[2m ([0m[0m[36minternal:tty[0m[2m:[0m[33m42[0m[2m:[33m39[0m[2m)[0m
+[2m[WebServer] [22m[0m      [2mat [0m[0m[1m[3mshouldColorize[0m[2m ([0m[0m[36minternal:util/colors[0m[2m:[0m[33m14[0m[2m:[33m109[0m[2m)[0m
+[2m[WebServer] [22m[0m      [2mat [0m[0m[1m[3mrefresh[0m[2m ([0m[0m[36minternal:util/colors[0m[2m:[0m[33m18[0m[2m:[33m31[0m[2m)[0m
+[2m[WebServer] [22m[0m      [2mat [0m[0m[1m[3minternal:util/colors[0m[2m ([0m[0m[36minternal:util/colors[0m[2m:[0m[33m24[0m[2m:[33m16[0m[2m)[0m
+[2m[WebServer] [22m[0m      [2mat [0m[0m[1m[3minternal:assert/assertion_error[0m[2m ([0m[0m[36minternal:assert/assertion_error[0m[2m:[0m[33m2[0m[2m:[33m187[0m[2m)[0m
+[2m[WebServer] [22m[0m      [2mat [0m[0m[1m[3mloadAssertionError[0m[2m ([0m[0m[36mnode:assert[0m[2m:[0m[33m28[0m[2m:[33m96[0m[2m)[0m
+[2m[WebServer] [22m
+
+Running 36 tests using 1 worker
+
+(node:96897) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:96897) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(node:96897) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 tests/e2e/contracts-documents.spec.ts:10:5 › Manager first-contract form rolls back invalid assignment, saves contact, edits/terminates and transfers document bytes (2.5s)
+  ✓   2 tests/e2e/contracts-documents.spec.ts:63:5 › Viewer document metadata remains visible while content and writes are denied (1.3s)
+  ✓   3 tests/e2e/dashboard.spec.ts:11:7 › U001 sees exact scoped metrics and every drill keeps date/filters (3.3s)
+  ✓   4 tests/e2e/dashboard.spec.ts:11:7 › U002 sees exact scoped metrics and every drill keeps date/filters (3.4s)
+  ✓   5 tests/e2e/dashboard.spec.ts:11:7 › U003 sees exact scoped metrics and every drill keeps date/filters (3.3s)
+  ✓   6 tests/e2e/dashboard.spec.ts:40:5 › payment mutation refreshes dashboard and property filter retains exact scope (1.6s)
+  ✓   7 tests/e2e/demo-reset.spec.ts:2:5 › Owner explicit reset confirms, signs out and restores visible baseline (1.7s)
+  ✓   8 tests/e2e/payment-panels.spec.ts:2:5 › Manager tenant/stay panels agree after payment and related receipt context is exact (1.7s)
+  ✓   9 tests/e2e/payments.spec.ts:2:5 › Owner records exact payments, corrects append-only ledger and creates explicit partial periods (2.0s)
+  ✓  10 tests/e2e/properties.spec.ts:2:5 › Owner creates/reopens property and resource; invalid capacity preserves occupied room (2.0s)
+  ✓  11 tests/e2e/record-links.spec.ts:2:5 › property → scoped contracts → tenant history → associated files retains record context (1.6s)
+  ✓  12 tests/e2e/regression.spec.ts:9:9 › mobile light: essential contract-driven workflow (3.0s)
+  ✓  13 tests/e2e/regression.spec.ts:9:9 › mobile dark: essential contract-driven workflow (3.0s)
+  ✓  14 tests/e2e/regression.spec.ts:9:9 › tablet light: essential contract-driven workflow (2.9s)
+  ✓  15 tests/e2e/regression.spec.ts:9:9 › tablet dark: essential contract-driven workflow (3.0s)
+  ✓  16 tests/e2e/regression.spec.ts:9:9 › laptop light: essential contract-driven workflow (2.9s)
+  ✓  17 tests/e2e/regression.spec.ts:9:9 › laptop dark: essential contract-driven workflow (3.0s)
+  ✓  18 tests/e2e/regression.spec.ts:9:9 › desktop light: essential contract-driven workflow (3.0s)
+  ✓  19 tests/e2e/regression.spec.ts:9:9 › desktop dark: essential contract-driven workflow (3.0s)
+  ✓  20 tests/e2e/regression.spec.ts:103:9 › mobile light: role and ownership controls (3.1s)
+  ✓  21 tests/e2e/regression.spec.ts:103:9 › mobile dark: role and ownership controls (2.8s)
+  ✓  22 tests/e2e/regression.spec.ts:103:9 › tablet light: role and ownership controls (2.8s)
+  ✓  23 tests/e2e/regression.spec.ts:103:9 › tablet dark: role and ownership controls (2.8s)
+  ✓  24 tests/e2e/regression.spec.ts:103:9 › laptop light: role and ownership controls (2.8s)
+  ✓  25 tests/e2e/regression.spec.ts:103:9 › laptop dark: role and ownership controls (2.7s)
+  ✓  26 tests/e2e/regression.spec.ts:103:9 › desktop light: role and ownership controls (2.8s)
+  ✓  27 tests/e2e/regression.spec.ts:103:9 › desktop dark: role and ownership controls (2.7s)
+  ✓  28 tests/e2e/shell-theme.spec.ts:9:7 › mobile: light/dark essential shell (937ms)
+  ✓  29 tests/e2e/shell-theme.spec.ts:9:7 › tablet: light/dark essential shell (951ms)
+  ✓  30 tests/e2e/shell-theme.spec.ts:9:7 › laptop: light/dark essential shell (957ms)
+  ✓  31 tests/e2e/shell-theme.spec.ts:9:7 › desktop: light/dark essential shell (949ms)
+  ✓  32 tests/e2e/stays.spec.ts:9:5 › Manager edits a scoped contact, sees contract history and receives direct outscope feedback (1.4s)
+  ✓  33 tests/e2e/stays.spec.ts:29:5 › Owner explicit demo date changes recompute upcoming contract occupancy and resources (1.6s)
+  ✓  34 tests/e2e/users-roles.spec.ts:9:5 › Owner account/ownership/date controls preserve last Owner and refresh context (1.9s)
+  ✓  35 tests/e2e/users-roles.spec.ts:41:7 › manager@example.test has scoped navigation and server denies role escalation (1.2s)
+  ✓  36 tests/e2e/users-roles.spec.ts:41:7 › viewer@example.test has scoped navigation and server denies role escalation (922ms)
+
+  36 passed (1.4m)

@@ -387,7 +387,7 @@ and Coding/QA dispatch; delivery evidence is recorded separately in pipeline-sta
 
   **Sources:** spec.md#functional-requirements / #success-criteria (FR-024, FR-036, FR-037, FR-039); demo-policy.md; plan.md#project-structure / #verification-plan; Architecture.md#frontend / #backend / #api-flow.
 
-- [ ] T107 [US7] Implement and register account/property-access/demo-context Views in `frontend/Views/Users.tsx`, `frontend/Views/PropertyAccess.tsx`, `frontend/Views/DemoContext.tsx`, `frontend/Views/App.tsx`, `frontend/Views/AppShell.tsx`
+- [x] T107 [US7] Implement and register account/property-access/demo-context Views in `frontend/Views/Users.tsx`, `frontend/Views/PropertyAccess.tsx`, `frontend/Views/DemoContext.tsx`, `frontend/Views/App.tsx`, `frontend/Views/AppShell.tsx`
 
   **Priority:** P1 | **Depends:** T106 | **Gates:** G0, G6, G7.
 
@@ -395,7 +395,7 @@ and Coding/QA dispatch; delivery evidence is recorded separately in pipeline-sta
 
   **Sources:** spec.md#functional-requirements / #success-criteria (FR-021, FR-022, FR-024, FR-036, FR-037, FR-039, SC-004, SC-005); demo-policy.md; plan.md#project-structure / #verification-plan; Architecture.md#frontend / #backend / #api-flow.
 
-- [ ] T108 [US7] Verify and record ownership/role management acceptance in `specs/001-property-management/validation/us7.md`
+- [x] T108 [US7] Verify and record ownership/role management acceptance in `specs/001-property-management/validation/us7.md`
 
   **Priority:** P1 | **Depends:** T107 | **Gates:** G0, G6, G7.
 
@@ -407,7 +407,7 @@ and Coding/QA dispatch; delivery evidence is recorded separately in pipeline-sta
 
 **Independent acceptance:** Create/edit/reopen properties/resources and reject capacity/mode/ownership violations.
 
-- [ ] T031 [US1] Define property and resource NestJS operation contracts in `backend/Src/Contracts/property.contract.ts`
+- [x] T031 [US1] Define property and resource NestJS operation contracts in `backend/Src/Contracts/property.contract.ts`
 
   **Priority:** P1 | **Depends:** T008, T020 | **Gates:** G0, G6, G7.
 
@@ -415,7 +415,7 @@ and Coding/QA dispatch; delivery evidence is recorded separately in pipeline-sta
 
   **Sources:** spec.md#functional-requirements / #success-criteria (FR-001, FR-002, FR-003, FR-029, FR-037); demo-policy.md; plan.md#project-structure / #verification-plan; Architecture.md#frontend / #backend / #api-flow.
 
-- [ ] T032 [US1] Write property/resource Manager and integration tests in `backend/tests/unit/properties-manager.test.ts`, `backend/tests/integration/properties.test.ts`
+- [x] T032 [US1] Write property/resource Manager and integration tests in `backend/tests/unit/properties-manager.test.ts`, `backend/tests/integration/properties.test.ts`
 
   **Priority:** P1 | **Depends:** T031 | **Gates:** G0, G6, G7.
 
@@ -423,7 +423,7 @@ and Coding/QA dispatch; delivery evidence is recorded separately in pipeline-sta
 
   **Sources:** spec.md#functional-requirements / #success-criteria (FR-001, FR-002, FR-003, FR-026, FR-028, FR-029, SC-001); demo-policy.md; plan.md#project-structure / #verification-plan; Architecture.md#frontend / #backend / #api-flow.
 
-- [ ] T033 [US1] Implement property and resource business operations in `backend/Managers/properties-manager.ts`
+- [x] T033 [US1] Implement property and resource business operations in `backend/Managers/properties-manager.ts`
 
   **Priority:** P1 | **Depends:** T032 | **Gates:** G0, G6, G7.
 
@@ -431,7 +431,7 @@ and Coding/QA dispatch; delivery evidence is recorded separately in pipeline-sta
 
   **Sources:** spec.md#functional-requirements / #success-criteria (FR-001, FR-002, FR-003, FR-028, FR-029, FR-030, FR-037); demo-policy.md; plan.md#project-structure / #verification-plan; Architecture.md#frontend / #backend / #api-flow.
 
-- [ ] T034 [US1] Implement property and resource HTTP operation handlers in `backend/Src/Handler/properties-logic.ts`, `backend/Src/Handler/resources-logic.ts`, `backend/Src/app.module.ts`
+- [x] T034 [US1] Implement property and resource HTTP operation handlers in `backend/Src/Handler/properties-logic.ts`, `backend/Src/Handler/resources-logic.ts`, `backend/Src/app.module.ts`
 
   **Priority:** P1 | **Depends:** T031, T033, T103 | **Gates:** G0, G6, G7.
 
@@ -439,7 +439,7 @@ and Coding/QA dispatch; delivery evidence is recorded separately in pipeline-sta
 
   **Sources:** spec.md#functional-requirements / #success-criteria (FR-001, FR-002, FR-003, FR-024, FR-026); demo-policy.md; plan.md#project-structure / #verification-plan; Architecture.md#frontend / #backend / #api-flow.
 
-- [ ] T035 [US1] Regenerate the client for property/resource operations in `backend/OpenAPI/openapi.json`, `frontend/Generated/`
+- [x] T035 [US1] Regenerate the client for property/resource operations in `backend/OpenAPI/openapi.json`, `frontend/Generated/`
 
   **Priority:** P1 | **Depends:** T020, T034, T104 | **Gates:** G0, G6, G7.
 
@@ -447,7 +447,7 @@ and Coding/QA dispatch; delivery evidence is recorded separately in pipeline-sta
 
   **Sources:** spec.md#functional-requirements / #success-criteria (FR-001, FR-002, FR-003); demo-policy.md; plan.md#project-structure / #verification-plan; Architecture.md#frontend / #backend / #api-flow.
 
-- [ ] T036 [US1] Write property/resource VM tests in `frontend/tests/properties.vm.test.ts`
+- [x] T036 [US1] Write property/resource VM tests in `frontend/tests/properties.vm.test.ts`
 
   **Priority:** P1 | **Depends:** T035 | **Gates:** G0, G6, G7.
 
@@ -455,7 +455,7 @@ and Coding/QA dispatch; delivery evidence is recorded separately in pipeline-sta
 
   **Sources:** spec.md#functional-requirements / #success-criteria (FR-001, FR-002, FR-003, FR-020, FR-026); demo-policy.md; plan.md#project-structure / #verification-plan; Architecture.md#frontend / #backend / #api-flow.
 
-- [ ] T037 [US1] Write property/resource user-journey acceptance tests in `tests/e2e/properties.spec.ts`
+- [x] T037 [US1] Write property/resource user-journey acceptance tests in `tests/e2e/properties.spec.ts`
 
   **Priority:** P1 | **Depends:** T030, T035 | **Gates:** G0, G6, G7.
 
@@ -463,7 +463,7 @@ and Coding/QA dispatch; delivery evidence is recorded separately in pipeline-sta
 
   **Sources:** spec.md#functional-requirements / #success-criteria (FR-001, FR-002, FR-003, FR-021, FR-022, FR-026, SC-001, SC-004); demo-policy.md; plan.md#project-structure / #verification-plan; Architecture.md#frontend / #backend / #api-flow.
 
-- [ ] T038 [US1] Define property/resource presentation models in `frontend/Models/property.ts`
+- [x] T038 [US1] Define property/resource presentation models in `frontend/Models/property.ts`
 
   **Priority:** P1 | **Depends:** T035, T036 | **Gates:** G0, G6, G7.
 
@@ -471,7 +471,7 @@ and Coding/QA dispatch; delivery evidence is recorded separately in pipeline-sta
 
   **Sources:** spec.md#functional-requirements / #success-criteria (FR-001, FR-002, FR-003); demo-policy.md; plan.md#project-structure / #verification-plan; Architecture.md#frontend / #backend / #api-flow.
 
-- [ ] T039 [US1] Implement property/resource presentation actions in `frontend/VMs/properties.vm.ts`
+- [x] T039 [US1] Implement property/resource presentation actions in `frontend/VMs/properties.vm.ts`
 
   **Priority:** P1 | **Depends:** T036, T038 | **Gates:** G0, G6, G7.
 
@@ -479,7 +479,7 @@ and Coding/QA dispatch; delivery evidence is recorded separately in pipeline-sta
 
   **Sources:** spec.md#functional-requirements / #success-criteria (FR-001, FR-002, FR-003, FR-020, FR-026); demo-policy.md; plan.md#project-structure / #verification-plan; Architecture.md#frontend / #backend / #api-flow.
 
-- [ ] T040 [US1] Implement property/resource list, detail and form Views in `frontend/Views/Properties.tsx`, `frontend/Views/Resources.tsx`, `frontend/Views/App.tsx`, `frontend/Views/AppShell.tsx`
+- [x] T040 [US1] Implement property/resource list, detail and form Views in `frontend/Views/Properties.tsx`, `frontend/Views/Resources.tsx`, `frontend/Views/App.tsx`, `frontend/Views/AppShell.tsx`
 
   **Priority:** P1 | **Depends:** T027, T037, T039, T108 | **Gates:** G0, G6, G7.
 
@@ -487,7 +487,7 @@ and Coding/QA dispatch; delivery evidence is recorded separately in pipeline-sta
 
   **Sources:** spec.md#functional-requirements / #success-criteria (FR-001, FR-002, FR-003, FR-021, FR-022, FR-023, FR-026, FR-029); demo-policy.md; plan.md#project-structure / #verification-plan; Architecture.md#frontend / #backend / #api-flow.
 
-- [ ] T041 [US1] Verify and record US1 acceptance in `specs/001-property-management/validation/us1.md`
+- [x] T041 [US1] Verify and record US1 acceptance in `specs/001-property-management/validation/us1.md`
 
   **Priority:** P1 | **Depends:** T040 | **Gates:** G0, G6, G7.
 
@@ -499,7 +499,7 @@ and Coding/QA dispatch; delivery evidence is recorded separately in pipeline-sta
 
 **Independent acceptance:** Tenant contact CRUD and current/upcoming/ended occupancy from valid isolated contract fixtures, with no manual movement actions.
 
-- [ ] T042 [US2] Define tenant CRUD and read-only contract-occupancy contracts in `backend/Src/Contracts/stay.contract.ts`
+- [x] T042 [US2] Define tenant CRUD and read-only contract-occupancy contracts in `backend/Src/Contracts/stay.contract.ts`
 
   **Priority:** P1 | **Depends:** T008, T034 | **Gates:** G0, G6, G7.
 
@@ -507,7 +507,7 @@ and Coding/QA dispatch; delivery evidence is recorded separately in pipeline-sta
 
   **Sources:** spec.md#functional-requirements / #success-criteria (FR-004, FR-005, FR-006, FR-007, FR-008, FR-031, FR-033); demo-policy.md; plan.md#project-structure / #verification-plan; Architecture.md#frontend / #backend / #api-flow.
 
-- [ ] T043 [US2] Write tenant CRUD and contract-projection boundary tests in `backend/tests/unit/stays-manager.test.ts`, `backend/tests/unit/tenants-manager.test.ts`
+- [x] T043 [US2] Write tenant CRUD and contract-projection boundary tests in `backend/tests/unit/stays-manager.test.ts`, `backend/tests/unit/tenants-manager.test.ts`
 
   **Priority:** P1 | **Depends:** T042 | **Gates:** G0, G6, G7.
 
@@ -515,7 +515,7 @@ and Coding/QA dispatch; delivery evidence is recorded separately in pipeline-sta
 
   **Sources:** spec.md#functional-requirements / #success-criteria (FR-004, FR-005, FR-006, FR-007, FR-008, FR-031, FR-033, SC-003); demo-policy.md; plan.md#project-structure / #verification-plan; Architecture.md#frontend / #backend / #api-flow.
 
-- [ ] T044 [US2] Write fixture-based occupancy and capacity-edit integration tests in `backend/tests/integration/occupancy.test.ts`
+- [x] T044 [US2] Write fixture-based occupancy and capacity-edit integration tests in `backend/tests/integration/occupancy.test.ts`
 
   **Priority:** P1 | **Depends:** T042 | **Gates:** G0, G6, G7.
 
@@ -523,7 +523,7 @@ and Coding/QA dispatch; delivery evidence is recorded separately in pipeline-sta
 
   **Sources:** spec.md#functional-requirements / #success-criteria (FR-003, FR-005, FR-028, FR-029, FR-030, SC-003); demo-policy.md; plan.md#project-structure / #verification-plan; Architecture.md#frontend / #backend / #api-flow.
 
-- [ ] T045 [US2] Implement tenant record business operations in `backend/Managers/tenants-manager.ts`
+- [x] T045 [US2] Implement tenant record business operations in `backend/Managers/tenants-manager.ts`
 
   **Priority:** P1 | **Depends:** T043 | **Gates:** G0, G6, G7.
 
@@ -531,7 +531,7 @@ and Coding/QA dispatch; delivery evidence is recorded separately in pipeline-sta
 
   **Sources:** spec.md#functional-requirements / #success-criteria (FR-004, FR-005, FR-024, FR-026); demo-policy.md; plan.md#project-structure / #verification-plan; Architecture.md#frontend / #backend / #api-flow.
 
-- [ ] T046 [US2] Implement read-only contract-derived occupancy projections in `backend/Managers/stays-manager.ts`
+- [x] T046 [US2] Implement read-only contract-derived occupancy projections in `backend/Managers/stays-manager.ts`
 
   **Priority:** P1 | **Depends:** T033, T043, T044, T045 | **Gates:** G0, G6, G7.
 
@@ -539,7 +539,7 @@ and Coding/QA dispatch; delivery evidence is recorded separately in pipeline-sta
 
   **Sources:** spec.md#functional-requirements / #success-criteria (FR-003, FR-005, FR-006, FR-007, FR-008, FR-028, FR-029, FR-030, FR-031, FR-033); demo-policy.md; plan.md#project-structure / #verification-plan; Architecture.md#frontend / #backend / #api-flow.
 
-- [ ] T047 [US2] Implement and register tenant CRUD and occupancy-read handlers in `backend/Src/Handler/tenants-logic.ts`, `backend/Src/Handler/stays-logic.ts`, `backend/Src/app.module.ts`
+- [x] T047 [US2] Implement and register tenant CRUD and occupancy-read handlers in `backend/Src/Handler/tenants-logic.ts`, `backend/Src/Handler/stays-logic.ts`, `backend/Src/app.module.ts`
 
   **Priority:** P1 | **Depends:** T042, T045, T046 | **Gates:** G0, G6, G7.
 
@@ -547,7 +547,7 @@ and Coding/QA dispatch; delivery evidence is recorded separately in pipeline-sta
 
   **Sources:** spec.md#functional-requirements / #success-criteria (FR-004, FR-005, FR-006, FR-007, FR-008, FR-024, FR-026); demo-policy.md; plan.md#project-structure / #verification-plan; Architecture.md#frontend / #backend / #api-flow.
 
-- [ ] T048 [US2] Regenerate the client for tenant/stay operations in `backend/OpenAPI/openapi.json`, `frontend/Generated/`
+- [x] T048 [US2] Regenerate the client for tenant/stay operations in `backend/OpenAPI/openapi.json`, `frontend/Generated/`
 
   **Priority:** P1 | **Depends:** T035, T047 | **Gates:** G0, G6, G7.
 
@@ -555,7 +555,7 @@ and Coding/QA dispatch; delivery evidence is recorded separately in pipeline-sta
 
   **Sources:** spec.md#functional-requirements / #success-criteria (FR-004, FR-005, FR-006, FR-007, FR-008); demo-policy.md; plan.md#project-structure / #verification-plan; Architecture.md#frontend / #backend / #api-flow.
 
-- [ ] T049 [US2] Write tenant/contact and contract-occupancy VM/journey tests in `frontend/tests/stays.vm.test.ts`, `tests/e2e/stays.spec.ts`
+- [x] T049 [US2] Write tenant/contact and contract-occupancy VM/journey tests in `frontend/tests/stays.vm.test.ts`, `tests/e2e/stays.spec.ts`
 
   **Priority:** P1 | **Depends:** T040, T048 | **Gates:** G0, G6, G7.
 
@@ -563,7 +563,7 @@ and Coding/QA dispatch; delivery evidence is recorded separately in pipeline-sta
 
   **Sources:** spec.md#functional-requirements / #success-criteria (FR-003, FR-004, FR-005, FR-006, FR-007, FR-008, FR-020, FR-030, FR-031, SC-001, SC-003, SC-004); demo-policy.md; plan.md#project-structure / #verification-plan; Architecture.md#frontend / #backend / #api-flow.
 
-- [ ] T050 [US2] Define tenant/contact and contract-occupancy presentation models in `frontend/Models/stay.ts`
+- [x] T050 [US2] Define tenant/contact and contract-occupancy presentation models in `frontend/Models/stay.ts`
 
   **Priority:** P1 | **Depends:** T048, T049 | **Gates:** G0, G6, G7.
 
@@ -571,7 +571,7 @@ and Coding/QA dispatch; delivery evidence is recorded separately in pipeline-sta
 
   **Sources:** spec.md#functional-requirements / #success-criteria (FR-004, FR-005, FR-006, FR-007, FR-008); demo-policy.md; plan.md#project-structure / #verification-plan; Architecture.md#frontend / #backend / #api-flow.
 
-- [ ] T051 [US2] Implement tenant/contact and occupancy presentation actions in `frontend/VMs/stays.vm.ts`
+- [x] T051 [US2] Implement tenant/contact and occupancy presentation actions in `frontend/VMs/stays.vm.ts`
 
   **Priority:** P1 | **Depends:** T049, T050 | **Gates:** G0, G6, G7.
 
@@ -579,7 +579,7 @@ and Coding/QA dispatch; delivery evidence is recorded separately in pipeline-sta
 
   **Sources:** spec.md#functional-requirements / #success-criteria (FR-004, FR-005, FR-006, FR-007, FR-008, FR-020, FR-026); demo-policy.md; plan.md#project-structure / #verification-plan; Architecture.md#frontend / #backend / #api-flow.
 
-- [ ] T052 [US2] Implement and register tenant and contract-occupancy Views in `frontend/Views/Tenants.tsx`, `frontend/Views/Stays.tsx`, `frontend/Views/App.tsx`, `frontend/Views/AppShell.tsx`
+- [x] T052 [US2] Implement and register tenant and contract-occupancy Views in `frontend/Views/Tenants.tsx`, `frontend/Views/Stays.tsx`, `frontend/Views/App.tsx`, `frontend/Views/AppShell.tsx`
 
   **Priority:** P1 | **Depends:** T027, T049, T051 | **Gates:** G0, G6, G7.
 
@@ -587,7 +587,7 @@ and Coding/QA dispatch; delivery evidence is recorded separately in pipeline-sta
 
   **Sources:** spec.md#functional-requirements / #success-criteria (FR-004, FR-005, FR-006, FR-007, FR-008, FR-021, FR-022, FR-023, FR-026); demo-policy.md; plan.md#project-structure / #verification-plan; Architecture.md#frontend / #backend / #api-flow.
 
-- [ ] T053 [US2] Integrate resource refresh for contract projections and explicit demo-date changes in `frontend/VMs/properties.vm.ts`, `frontend/Views/Resources.tsx`
+- [x] T053 [US2] Integrate resource refresh for contract projections and explicit demo-date changes in `frontend/VMs/properties.vm.ts`, `frontend/Views/Resources.tsx`
 
   **Priority:** P1 | **Depends:** T040, T046, T052 | **Gates:** G0, G6, G7.
 
@@ -595,7 +595,7 @@ and Coding/QA dispatch; delivery evidence is recorded separately in pipeline-sta
 
   **Sources:** spec.md#functional-requirements / #success-criteria (FR-003, FR-020, FR-029, FR-030); demo-policy.md; plan.md#project-structure / #verification-plan; Architecture.md#frontend / #backend / #api-flow.
 
-- [ ] T054 [US2] Verify and record US2 acceptance in `specs/001-property-management/validation/us2.md`
+- [x] T054 [US2] Verify and record US2 acceptance in `specs/001-property-management/validation/us2.md`
 
   **Priority:** P1 | **Depends:** T053 | **Gates:** G0, G6, G7.
 
@@ -607,7 +607,7 @@ and Coding/QA dispatch; delivery evidence is recorded separately in pipeline-sta
 
 **Independent acceptance:** Create/edit/terminate contracts, test cross-path capacity concurrency, and upload/retrieve permitted document bytes.
 
-- [ ] T055 [US3] Define contract/document operation contracts in `backend/Src/Contracts/contract.contract.ts`, `backend/Src/Contracts/document.contract.ts`
+- [x] T055 [US3] Define contract/document operation contracts in `backend/Src/Contracts/contract.contract.ts`, `backend/Src/Contracts/document.contract.ts`
 
   **Priority:** P2 | **Depends:** T008, T047 | **Gates:** G0, G6, G7.
 
@@ -615,7 +615,7 @@ and Coding/QA dispatch; delivery evidence is recorded separately in pipeline-sta
 
   **Sources:** spec.md#functional-requirements / #success-criteria (FR-009, FR-010, FR-011, FR-012, FR-013, FR-024, FR-025, FR-033); demo-policy.md; plan.md#project-structure / #verification-plan; Architecture.md#frontend / #backend / #api-flow.
 
-- [ ] T056 [US3] Write contract classification and effective-term tests in `backend/tests/unit/contracts-manager.test.ts`
+- [x] T056 [US3] Write contract classification and effective-term tests in `backend/tests/unit/contracts-manager.test.ts`
 
   **Priority:** P2 | **Depends:** T055 | **Gates:** G0, G6, G7.
 
@@ -623,7 +623,7 @@ and Coding/QA dispatch; delivery evidence is recorded separately in pipeline-sta
 
   **Sources:** spec.md#functional-requirements / #success-criteria (FR-009, FR-010, FR-011, FR-032, FR-033, SC-003); demo-policy.md; plan.md#project-structure / #verification-plan; Architecture.md#frontend / #backend / #api-flow.
 
-- [ ] T057 [US3] Write protected upload, BYTEA retrieval and failure integration tests in `backend/tests/integration/documents.test.ts`
+- [x] T057 [US3] Write protected upload, BYTEA retrieval and failure integration tests in `backend/tests/integration/documents.test.ts`
 
   **Priority:** P2 | **Depends:** T055 | **Gates:** G0, G6, G7.
 
@@ -631,7 +631,7 @@ and Coding/QA dispatch; delivery evidence is recorded separately in pipeline-sta
 
   **Sources:** spec.md#functional-requirements / #success-criteria (FR-012, FR-013, FR-024, FR-025, FR-026, FR-028, SC-005, SC-006); demo-policy.md; plan.md#project-structure / #verification-plan; Architecture.md#frontend / #backend / #api-flow.
 
-- [ ] T109 [US3] Write contract-mutation versus capacity-edit concurrency tests in `backend/tests/integration/contract-capacity.test.ts`
+- [x] T109 [US3] Write contract-mutation versus capacity-edit concurrency tests in `backend/tests/integration/contract-capacity.test.ts`
 
   **Priority:** P2 | **Depends:** T033, T055 | **Gates:** G0, G6, G7.
 
@@ -639,7 +639,7 @@ and Coding/QA dispatch; delivery evidence is recorded separately in pipeline-sta
 
   **Sources:** spec.md#functional-requirements / #success-criteria (FR-003, FR-028, FR-029, FR-030, FR-031, SC-003); demo-policy.md; plan.md#project-structure / #verification-plan; Architecture.md#frontend / #backend / #api-flow.
 
-- [ ] T058 [US3] Implement transactional contract assignment, edit and termination operations in `backend/Managers/contracts-manager.ts`
+- [x] T058 [US3] Implement transactional contract assignment, edit and termination operations in `backend/Managers/contracts-manager.ts`
 
   **Priority:** P2 | **Depends:** T046, T056, T109 | **Gates:** G0, G6, G7.
 
@@ -647,7 +647,7 @@ and Coding/QA dispatch; delivery evidence is recorded separately in pipeline-sta
 
   **Sources:** spec.md#functional-requirements / #success-criteria (FR-009, FR-010, FR-011, FR-032, FR-033); demo-policy.md; plan.md#project-structure / #verification-plan; Architecture.md#frontend / #backend / #api-flow.
 
-- [ ] T059 [US3] Implement protected transactional document storage operations in `backend/Managers/documents-manager.ts`
+- [x] T059 [US3] Implement protected transactional document storage operations in `backend/Managers/documents-manager.ts`
 
   **Priority:** P2 | **Depends:** T057 | **Gates:** G0, G6, G7.
 
@@ -655,7 +655,7 @@ and Coding/QA dispatch; delivery evidence is recorded separately in pipeline-sta
 
   **Sources:** spec.md#functional-requirements / #success-criteria (FR-012, FR-013, FR-024, FR-025, FR-028, SC-006); demo-policy.md; plan.md#project-structure / #verification-plan; Architecture.md#frontend / #backend / #api-flow.
 
-- [ ] T060 [US3] Implement contract/document HTTP operation handlers in `backend/Src/Handler/contracts-logic.ts`, `backend/Src/Handler/documents-logic.ts`, `backend/Src/app.module.ts`
+- [x] T060 [US3] Implement contract/document HTTP operation handlers in `backend/Src/Handler/contracts-logic.ts`, `backend/Src/Handler/documents-logic.ts`, `backend/Src/app.module.ts`
 
   **Priority:** P2 | **Depends:** T055, T058, T059 | **Gates:** G0, G6, G7.
 
@@ -663,7 +663,7 @@ and Coding/QA dispatch; delivery evidence is recorded separately in pipeline-sta
 
   **Sources:** spec.md#functional-requirements / #success-criteria (FR-009, FR-010, FR-011, FR-012, FR-013, FR-024, FR-025, FR-026); demo-policy.md; plan.md#project-structure / #verification-plan; Architecture.md#frontend / #backend / #api-flow.
 
-- [ ] T061 [US3] Regenerate the client for contract/document operations in `backend/OpenAPI/openapi.json`, `frontend/Generated/`
+- [x] T061 [US3] Regenerate the client for contract/document operations in `backend/OpenAPI/openapi.json`, `frontend/Generated/`
 
   **Priority:** P2 | **Depends:** T048, T060 | **Gates:** G0, G6, G7.
 
@@ -671,7 +671,7 @@ and Coding/QA dispatch; delivery evidence is recorded separately in pipeline-sta
 
   **Sources:** spec.md#functional-requirements / #success-criteria (FR-009, FR-010, FR-011, FR-012, FR-013); demo-policy.md; plan.md#project-structure / #verification-plan; Architecture.md#frontend / #backend / #api-flow.
 
-- [ ] T062 [US3] Write contract/document VM and browser acceptance tests in `frontend/tests/contracts.vm.test.ts`, `tests/e2e/contracts-documents.spec.ts`
+- [x] T062 [US3] Write contract/document VM and browser acceptance tests in `frontend/tests/contracts.vm.test.ts`, `tests/e2e/contracts-documents.spec.ts`
 
   **Priority:** P2 | **Depends:** T052, T061 | **Gates:** G0, G6, G7.
 
@@ -679,7 +679,7 @@ and Coding/QA dispatch; delivery evidence is recorded separately in pipeline-sta
 
   **Sources:** spec.md#functional-requirements / #success-criteria (FR-009, FR-010, FR-011, FR-012, FR-013, FR-025, FR-026, SC-001, SC-003, SC-004, SC-006); demo-policy.md; plan.md#project-structure / #verification-plan; Architecture.md#frontend / #backend / #api-flow.
 
-- [ ] T063 [US3] Define contract/document presentation models in `frontend/Models/contract.ts`, `frontend/Models/document.ts`
+- [x] T063 [US3] Define contract/document presentation models in `frontend/Models/contract.ts`, `frontend/Models/document.ts`
 
   **Priority:** P2 | **Depends:** T061, T062 | **Gates:** G0, G6, G7.
 
@@ -687,7 +687,7 @@ and Coding/QA dispatch; delivery evidence is recorded separately in pipeline-sta
 
   **Sources:** spec.md#functional-requirements / #success-criteria (FR-009, FR-010, FR-011, FR-012, FR-013); demo-policy.md; plan.md#project-structure / #verification-plan; Architecture.md#frontend / #backend / #api-flow.
 
-- [ ] T064 [US3] Implement contract/document presentation actions in `frontend/VMs/contracts.vm.ts`
+- [x] T064 [US3] Implement contract/document presentation actions in `frontend/VMs/contracts.vm.ts`
 
   **Priority:** P2 | **Depends:** T062, T063 | **Gates:** G0, G6, G7.
 
@@ -695,7 +695,7 @@ and Coding/QA dispatch; delivery evidence is recorded separately in pipeline-sta
 
   **Sources:** spec.md#functional-requirements / #success-criteria (FR-009, FR-010, FR-011, FR-012, FR-013, FR-020, FR-026); demo-policy.md; plan.md#project-structure / #verification-plan; Architecture.md#frontend / #backend / #api-flow.
 
-- [ ] T065 [US3] Implement contract and document Views in `frontend/Views/Contracts.tsx`, `frontend/Views/Documents.tsx`, `frontend/Views/App.tsx`, `frontend/Views/AppShell.tsx`
+- [x] T065 [US3] Implement contract and document Views in `frontend/Views/Contracts.tsx`, `frontend/Views/Documents.tsx`, `frontend/Views/App.tsx`, `frontend/Views/AppShell.tsx`
 
   **Priority:** P2 | **Depends:** T027, T062, T064 | **Gates:** G0, G6, G7.
 
@@ -703,7 +703,7 @@ and Coding/QA dispatch; delivery evidence is recorded separately in pipeline-sta
 
   **Sources:** spec.md#functional-requirements / #success-criteria (FR-009, FR-010, FR-011, FR-012, FR-013, FR-021, FR-022, FR-023, FR-025); demo-policy.md; plan.md#project-structure / #verification-plan; Architecture.md#frontend / #backend / #api-flow.
 
-- [ ] T066 [US3] Link associated contracts/documents from property and tenant/stay records in `frontend/Views/Properties.tsx`, `frontend/Views/Tenants.tsx`, `frontend/Views/Stays.tsx`
+- [x] T066 [US3] Link associated contracts/documents from property and tenant/stay records in `frontend/Views/Properties.tsx`, `frontend/Views/Tenants.tsx`, `frontend/Views/Stays.tsx`
 
   **Priority:** P2 | **Depends:** T040, T052, T065 | **Gates:** G0, G6, G7.
 
@@ -711,7 +711,7 @@ and Coding/QA dispatch; delivery evidence is recorded separately in pipeline-sta
 
   **Sources:** spec.md#functional-requirements / #success-criteria (FR-009, FR-012, FR-013, FR-020, FR-024); demo-policy.md; plan.md#project-structure / #verification-plan; Architecture.md#frontend / #backend / #api-flow.
 
-- [ ] T067 [US3] Verify and record US3 acceptance in `specs/001-property-management/validation/us3.md`
+- [x] T067 [US3] Verify and record US3 acceptance in `specs/001-property-management/validation/us3.md`
 
   **Priority:** P2 | **Depends:** T066 | **Gates:** G0, G6, G7.
 
@@ -723,7 +723,7 @@ and Coding/QA dispatch; delivery evidence is recorded separately in pipeline-sta
 
 **Independent acceptance:** Explicit obligations, exact due/paid/balance, status precedence, reversal/replacement, overpayment and duplicate cases.
 
-- [ ] T068 [US4] Define rent-obligation, payment and adjustment operation contracts in `backend/Src/Contracts/payment.contract.ts`
+- [x] T068 [US4] Define rent-obligation, payment and adjustment operation contracts in `backend/Src/Contracts/payment.contract.ts`
 
   **Priority:** P2 | **Depends:** T008, T047 | **Gates:** G0, G6, G7.
 
@@ -731,7 +731,7 @@ and Coding/QA dispatch; delivery evidence is recorded separately in pipeline-sta
 
   **Sources:** spec.md#functional-requirements / #success-criteria (FR-014, FR-015, FR-016, FR-017, FR-032, FR-034, FR-035); demo-policy.md; plan.md#project-structure / #verification-plan; Architecture.md#frontend / #backend / #api-flow.
 
-- [ ] T069 [US4] Write billing, balance and status-precedence unit tests in `backend/tests/unit/payments-manager.test.ts`
+- [x] T069 [US4] Write billing, balance and status-precedence unit tests in `backend/tests/unit/payments-manager.test.ts`
 
   **Priority:** P2 | **Depends:** T068 | **Gates:** G0, G6, G7.
 
@@ -739,7 +739,7 @@ and Coding/QA dispatch; delivery evidence is recorded separately in pipeline-sta
 
   **Sources:** spec.md#functional-requirements / #success-criteria (FR-014, FR-015, FR-016, FR-017, FR-032, FR-034, FR-035, SC-003); demo-policy.md; plan.md#project-structure / #verification-plan; Architecture.md#frontend / #backend / #api-flow.
 
-- [ ] T070 [US4] Write payment duplicate, correction and concurrency integration tests in `backend/tests/integration/payments.test.ts`
+- [x] T070 [US4] Write payment duplicate, correction and concurrency integration tests in `backend/tests/integration/payments.test.ts`
 
   **Priority:** P2 | **Depends:** T068 | **Gates:** G0, G6, G7.
 
@@ -747,7 +747,7 @@ and Coding/QA dispatch; delivery evidence is recorded separately in pipeline-sta
 
   **Sources:** spec.md#functional-requirements / #success-criteria (FR-014, FR-015, FR-020, FR-028, FR-035, SC-003); demo-policy.md; plan.md#project-structure / #verification-plan; Architecture.md#frontend / #backend / #api-flow.
 
-- [ ] T071 [US4] Implement rental-obligation and due-period operations in `backend/Managers/billing-manager.ts`
+- [x] T071 [US4] Implement rental-obligation and due-period operations in `backend/Managers/billing-manager.ts`
 
   **Priority:** P2 | **Depends:** T046, T069 | **Gates:** G0, G6, G7.
 
@@ -755,7 +755,7 @@ and Coding/QA dispatch; delivery evidence is recorded separately in pipeline-sta
 
   **Sources:** spec.md#functional-requirements / #success-criteria (FR-014, FR-015, FR-017, FR-032); demo-policy.md; plan.md#project-structure / #verification-plan; Architecture.md#frontend / #backend / #api-flow.
 
-- [ ] T072 [US4] Implement transactional payment and adjustment operations in `backend/Managers/payments-manager.ts`
+- [x] T072 [US4] Implement transactional payment and adjustment operations in `backend/Managers/payments-manager.ts`
 
   **Priority:** P2 | **Depends:** T069, T070, T071 | **Gates:** G0, G6, G7.
 
@@ -763,7 +763,7 @@ and Coding/QA dispatch; delivery evidence is recorded separately in pipeline-sta
 
   **Sources:** spec.md#functional-requirements / #success-criteria (FR-014, FR-015, FR-016, FR-017, FR-028, FR-032, FR-034, FR-035); demo-policy.md; plan.md#project-structure / #verification-plan; Architecture.md#frontend / #backend / #api-flow.
 
-- [ ] T073 [US4] Implement rental payment HTTP operation handlers in `backend/Src/Handler/payments-logic.ts`, `backend/Src/app.module.ts`
+- [x] T073 [US4] Implement rental payment HTTP operation handlers in `backend/Src/Handler/payments-logic.ts`, `backend/Src/app.module.ts`
 
   **Priority:** P2 | **Depends:** T068, T071, T072, T060 | **Gates:** G0, G6, G7.
 
@@ -771,7 +771,7 @@ and Coding/QA dispatch; delivery evidence is recorded separately in pipeline-sta
 
   **Sources:** spec.md#functional-requirements / #success-criteria (FR-014, FR-015, FR-016, FR-017, FR-024, FR-026, FR-035); demo-policy.md; plan.md#project-structure / #verification-plan; Architecture.md#frontend / #backend / #api-flow.
 
-- [ ] T074 [US4] Regenerate the client for rental payment operations in `backend/OpenAPI/openapi.json`, `frontend/Generated/`
+- [x] T074 [US4] Regenerate the client for rental payment operations in `backend/OpenAPI/openapi.json`, `frontend/Generated/`
 
   **Priority:** P2 | **Depends:** T061, T073 | **Gates:** G0, G6, G7.
 
@@ -779,7 +779,7 @@ and Coding/QA dispatch; delivery evidence is recorded separately in pipeline-sta
 
   **Sources:** spec.md#functional-requirements / #success-criteria (FR-014, FR-015, FR-016, FR-017); demo-policy.md; plan.md#project-structure / #verification-plan; Architecture.md#frontend / #backend / #api-flow.
 
-- [ ] T075 [US4] Write payment VM and rental-period user-journey tests in `frontend/tests/payments.vm.test.ts`, `tests/e2e/payments.spec.ts`
+- [x] T075 [US4] Write payment VM and rental-period user-journey tests in `frontend/tests/payments.vm.test.ts`, `tests/e2e/payments.spec.ts`
 
   **Priority:** P2 | **Depends:** T052, T074 | **Gates:** G0, G6, G7.
 
@@ -787,7 +787,7 @@ and Coding/QA dispatch; delivery evidence is recorded separately in pipeline-sta
 
   **Sources:** spec.md#functional-requirements / #success-criteria (FR-014, FR-015, FR-016, FR-017, FR-020, FR-026, FR-034, FR-035, SC-001, SC-003, SC-004); demo-policy.md; plan.md#project-structure / #verification-plan; Architecture.md#frontend / #backend / #api-flow.
 
-- [ ] T076 [US4] Define payment presentation models and exact-money display mapping in `frontend/Models/payment.ts`
+- [x] T076 [US4] Define payment presentation models and exact-money display mapping in `frontend/Models/payment.ts`
 
   **Priority:** P2 | **Depends:** T074, T075 | **Gates:** G0, G6, G7.
 
@@ -795,7 +795,7 @@ and Coding/QA dispatch; delivery evidence is recorded separately in pipeline-sta
 
   **Sources:** spec.md#functional-requirements / #success-criteria (FR-014, FR-015, FR-016, FR-032); demo-policy.md; plan.md#project-structure / #verification-plan; Architecture.md#frontend / #backend / #api-flow.
 
-- [ ] T077 [US4] Implement rental payment presentation actions in `frontend/VMs/payments.vm.ts`
+- [x] T077 [US4] Implement rental payment presentation actions in `frontend/VMs/payments.vm.ts`
 
   **Priority:** P2 | **Depends:** T075, T076 | **Gates:** G0, G6, G7.
 
@@ -803,7 +803,7 @@ and Coding/QA dispatch; delivery evidence is recorded separately in pipeline-sta
 
   **Sources:** spec.md#functional-requirements / #success-criteria (FR-014, FR-015, FR-016, FR-017, FR-020, FR-026, FR-035); demo-policy.md; plan.md#project-structure / #verification-plan; Architecture.md#frontend / #backend / #api-flow.
 
-- [ ] T078 [US4] Implement rental-period and outstanding-rent Views in `frontend/Views/Payments.tsx`, `frontend/Views/PaymentPanel.tsx`, `frontend/Views/App.tsx`, `frontend/Views/AppShell.tsx`
+- [x] T078 [US4] Implement rental-period and outstanding-rent Views in `frontend/Views/Payments.tsx`, `frontend/Views/PaymentPanel.tsx`, `frontend/Views/App.tsx`, `frontend/Views/AppShell.tsx`
 
   **Priority:** P2 | **Depends:** T027, T075, T077, T065 | **Gates:** G0, G6, G7.
 
@@ -811,7 +811,7 @@ and Coding/QA dispatch; delivery evidence is recorded separately in pipeline-sta
 
   **Sources:** spec.md#functional-requirements / #success-criteria (FR-014, FR-015, FR-016, FR-017, FR-021, FR-022, FR-023, FR-034, FR-035); demo-policy.md; plan.md#project-structure / #verification-plan; Architecture.md#frontend / #backend / #api-flow.
 
-- [ ] T079 [US4] Integrate payment panels with tenant/stay records in `frontend/Views/Tenants.tsx`, `frontend/Views/Stays.tsx`
+- [x] T079 [US4] Integrate payment panels with tenant/stay records in `frontend/Views/Tenants.tsx`, `frontend/Views/Stays.tsx`
 
   **Priority:** P2 | **Depends:** T066, T078 | **Gates:** G0, G6, G7.
 
@@ -819,7 +819,7 @@ and Coding/QA dispatch; delivery evidence is recorded separately in pipeline-sta
 
   **Sources:** spec.md#functional-requirements / #success-criteria (FR-014, FR-015, FR-017, FR-020, FR-024); demo-policy.md; plan.md#project-structure / #verification-plan; Architecture.md#frontend / #backend / #api-flow.
 
-- [ ] T080 [US4] Verify and record US4 acceptance in `specs/001-property-management/validation/us4.md`
+- [x] T080 [US4] Verify and record US4 acceptance in `specs/001-property-management/validation/us4.md`
 
   **Priority:** P2 | **Depends:** T079 | **Gates:** G0, G6, G7.
 
@@ -831,7 +831,7 @@ and Coding/QA dispatch; delivery evidence is recorded separately in pipeline-sta
 
 **Independent acceptance:** Compare scoped dashboard totals and drill-downs to fixed-date golden results.
 
-- [ ] T081 [US5] Define dashboard metric and drill-down contracts in `backend/Src/Contracts/dashboard.contract.ts`
+- [x] T081 [US5] Define dashboard metric and drill-down contracts in `backend/Src/Contracts/dashboard.contract.ts`
 
   **Priority:** P2 | **Depends:** T008, T047, T060, T073 | **Gates:** G0, G6, G7.
 
@@ -839,7 +839,7 @@ and Coding/QA dispatch; delivery evidence is recorded separately in pipeline-sta
 
   **Sources:** spec.md#functional-requirements / #success-criteria (FR-018, FR-019, FR-020, FR-033); demo-policy.md; plan.md#project-structure / #verification-plan; Architecture.md#frontend / #backend / #api-flow.
 
-- [ ] T082 [US5] Write dashboard aggregate and drill-down consistency tests in `backend/tests/integration/dashboard.test.ts`
+- [x] T082 [US5] Write dashboard aggregate and drill-down consistency tests in `backend/tests/integration/dashboard.test.ts`
 
   **Priority:** P2 | **Depends:** T081 | **Gates:** G0, G6, G7.
 
@@ -847,7 +847,7 @@ and Coding/QA dispatch; delivery evidence is recorded separately in pipeline-sta
 
   **Sources:** spec.md#functional-requirements / #success-criteria (FR-018, FR-019, FR-020, FR-028, SC-002, SC-003); demo-policy.md; plan.md#project-structure / #verification-plan; Architecture.md#frontend / #backend / #api-flow.
 
-- [ ] T083 [US5] Implement dashboard calculations and shared filtered queries in `backend/Managers/dashboard-manager.ts`
+- [x] T083 [US5] Implement dashboard calculations and shared filtered queries in `backend/Managers/dashboard-manager.ts`
 
   **Priority:** P2 | **Depends:** T046, T058, T072, T082 | **Gates:** G0, G6, G7.
 
@@ -855,7 +855,7 @@ and Coding/QA dispatch; delivery evidence is recorded separately in pipeline-sta
 
   **Sources:** spec.md#functional-requirements / #success-criteria (FR-018, FR-019, FR-020, FR-033); demo-policy.md; plan.md#project-structure / #verification-plan; Architecture.md#frontend / #backend / #api-flow.
 
-- [ ] T084 [US5] Implement dashboard HTTP operation handlers in `backend/Src/Handler/dashboard-logic.ts`, `backend/Src/app.module.ts`
+- [x] T084 [US5] Implement dashboard HTTP operation handlers in `backend/Src/Handler/dashboard-logic.ts`, `backend/Src/app.module.ts`
 
   **Priority:** P2 | **Depends:** T081, T083 | **Gates:** G0, G6, G7.
 
@@ -863,7 +863,7 @@ and Coding/QA dispatch; delivery evidence is recorded separately in pipeline-sta
 
   **Sources:** spec.md#functional-requirements / #success-criteria (FR-018, FR-019, FR-020, FR-024, FR-026); demo-policy.md; plan.md#project-structure / #verification-plan; Architecture.md#frontend / #backend / #api-flow.
 
-- [ ] T085 [US5] Regenerate the client for dashboard operations in `backend/OpenAPI/openapi.json`, `frontend/Generated/`
+- [x] T085 [US5] Regenerate the client for dashboard operations in `backend/OpenAPI/openapi.json`, `frontend/Generated/`
 
   **Priority:** P2 | **Depends:** T074, T084 | **Gates:** G0, G6, G7.
 
@@ -871,7 +871,7 @@ and Coding/QA dispatch; delivery evidence is recorded separately in pipeline-sta
 
   **Sources:** spec.md#functional-requirements / #success-criteria (FR-018, FR-019); demo-policy.md; plan.md#project-structure / #verification-plan; Architecture.md#frontend / #backend / #api-flow.
 
-- [ ] T086 [US5] Write dashboard VM and metric drill-down browser tests in `frontend/tests/dashboard.vm.test.ts`, `tests/e2e/dashboard.spec.ts`
+- [x] T086 [US5] Write dashboard VM and metric drill-down browser tests in `frontend/tests/dashboard.vm.test.ts`, `tests/e2e/dashboard.spec.ts`
 
   **Priority:** P2 | **Depends:** T079, T085 | **Gates:** G0, G6, G7.
 
@@ -879,7 +879,7 @@ and Coding/QA dispatch; delivery evidence is recorded separately in pipeline-sta
 
   **Sources:** spec.md#functional-requirements / #success-criteria (FR-018, FR-019, FR-020, FR-021, FR-022, FR-026, SC-002, SC-004); demo-policy.md; plan.md#project-structure / #verification-plan; Architecture.md#frontend / #backend / #api-flow.
 
-- [ ] T087 [US5] Implement dashboard presentation state and query refresh in `frontend/VMs/dashboard.vm.ts`
+- [x] T087 [US5] Implement dashboard presentation state and query refresh in `frontend/VMs/dashboard.vm.ts`
 
   **Priority:** P2 | **Depends:** T086 | **Gates:** G0, G6, G7.
 
@@ -887,7 +887,7 @@ and Coding/QA dispatch; delivery evidence is recorded separately in pipeline-sta
 
   **Sources:** spec.md#functional-requirements / #success-criteria (FR-018, FR-019, FR-020); demo-policy.md; plan.md#project-structure / #verification-plan; Architecture.md#frontend / #backend / #api-flow.
 
-- [ ] T088 [US5] Implement the operational dashboard View in `frontend/Views/Dashboard.tsx`, `frontend/Views/App.tsx`, `frontend/Views/AppShell.tsx`
+- [x] T088 [US5] Implement the operational dashboard View in `frontend/Views/Dashboard.tsx`, `frontend/Views/App.tsx`, `frontend/Views/AppShell.tsx`
 
   **Priority:** P2 | **Depends:** T027, T086, T087 | **Gates:** G0, G6, G7.
 
@@ -895,7 +895,7 @@ and Coding/QA dispatch; delivery evidence is recorded separately in pipeline-sta
 
   **Sources:** spec.md#functional-requirements / #success-criteria (FR-018, FR-019, FR-021, FR-022, FR-023); demo-policy.md; plan.md#project-structure / #verification-plan; Architecture.md#frontend / #backend / #api-flow.
 
-- [ ] T089 [US5] Integrate drill-down filters into existing feature VMs in `frontend/VMs/properties.vm.ts`, `frontend/VMs/stays.vm.ts`, `frontend/VMs/contracts.vm.ts`, `frontend/VMs/payments.vm.ts`
+- [x] T089 [US5] Integrate drill-down filters into existing feature VMs in `frontend/VMs/properties.vm.ts`, `frontend/VMs/stays.vm.ts`, `frontend/VMs/contracts.vm.ts`, `frontend/VMs/payments.vm.ts`
 
   **Priority:** P2 | **Depends:** T053, T064, T077, T088 | **Gates:** G0, G6, G7.
 
@@ -903,7 +903,7 @@ and Coding/QA dispatch; delivery evidence is recorded separately in pipeline-sta
 
   **Sources:** spec.md#functional-requirements / #success-criteria (FR-019, FR-020, SC-002); demo-policy.md; plan.md#project-structure / #verification-plan; Architecture.md#frontend / #backend / #api-flow.
 
-- [ ] T090 [US5] Verify and record US5 acceptance in `specs/001-property-management/validation/us5.md`
+- [x] T090 [US5] Verify and record US5 acceptance in `specs/001-property-management/validation/us5.md`
 
   **Priority:** P2 | **Depends:** T089 | **Gates:** G0, G6, G7.
 
@@ -915,7 +915,7 @@ and Coding/QA dispatch; delivery evidence is recorded separately in pipeline-sta
 
 **Checkpoint:** Follow resolved planning gates and dependencies; mark application work only after observed checks.
 
-- [ ] T091 Verify cross-feature journeys, permissions and all device/theme combinations in `tests/e2e/regression.spec.ts`
+- [x] T091 Verify cross-feature journeys, permissions and all device/theme combinations in `tests/e2e/regression.spec.ts`
 
   **Priority:** P1 | **Depends:** T030, T041, T054, T067, T080, T090 | **Gates:** G0, G6, G7.
 
@@ -923,7 +923,7 @@ and Coding/QA dispatch; delivery evidence is recorded separately in pipeline-sta
 
   **Sources:** spec.md#functional-requirements / #success-criteria (FR-020, FR-021, FR-022, FR-023, FR-024, FR-026, FR-028, SC-001, SC-002, SC-003, SC-004, SC-005, SC-006); demo-policy.md; plan.md#project-structure / #verification-plan; Architecture.md#frontend / #backend / #api-flow.
 
-- [ ] T092 Record the small demo timing/session smoke in `specs/001-property-management/validation/performance.md`
+- [x] T092 Record the small demo timing/session smoke in `specs/001-property-management/validation/performance.md`
 
   **Priority:** P1 | **Depends:** T005, T090 | **Gates:** G0, G6, G7.
 
@@ -931,7 +931,7 @@ and Coding/QA dispatch; delivery evidence is recorded separately in pipeline-sta
 
   **Sources:** spec.md#functional-requirements / #success-criteria (SC-008); demo-policy.md; plan.md#project-structure / #verification-plan; Architecture.md#frontend / #backend / #api-flow.
 
-- [ ] T111 Write repeatable seed/reset and golden-result integration tests in `backend/tests/integration/demo-fixtures.test.ts`
+- [x] T111 Write repeatable seed/reset and golden-result integration tests in `backend/tests/integration/demo-fixtures.test.ts`
 
   **Priority:** P1 | **Depends:** T014, T017, T098, T099, T060, T073, T084, T103 | **Gates:** G0, G6, G7.
 
@@ -939,7 +939,7 @@ and Coding/QA dispatch; delivery evidence is recorded separately in pipeline-sta
 
   **Sources:** spec.md#functional-requirements / #success-criteria (FR-038, FR-039, SC-002, SC-006, SC-007); demo-policy.md; plan.md#project-structure / #verification-plan; Architecture.md#frontend / #backend / #api-flow.
 
-- [ ] T110 Implement the explicit transactional demo fixture loader in `backend/prisma/seed.ts`, `backend/Src/Infrastructure/demo-fixtures.ts`, `package.json`
+- [x] T110 Implement the explicit transactional demo fixture loader in `backend/prisma/seed.ts`, `backend/Src/Infrastructure/demo-fixtures.ts`, `package.json`
 
   **Priority:** P1 | **Depends:** T111, T060, T073, T103 | **Gates:** G0, G6, G7.
 
@@ -947,7 +947,7 @@ and Coding/QA dispatch; delivery evidence is recorded separately in pipeline-sta
 
   **Sources:** spec.md#functional-requirements / #success-criteria (FR-038, FR-039, SC-006, SC-007); demo-policy.md; plan.md#project-structure / #verification-plan; Architecture.md#frontend / #backend / #api-flow.
 
-- [ ] T093 Verify migrations, backup restoration and document recovery in `backend/tests/operations/recovery.test.ts`, `specs/001-property-management/validation/recovery.md`
+- [x] T093 Verify migrations, backup restoration and document recovery in `backend/tests/operations/recovery.test.ts`, `specs/001-property-management/validation/recovery.md`
 
   **Priority:** P1 | **Depends:** T013, T014, T059, T072, T110 | **Gates:** G0, G6, G7.
 
@@ -955,7 +955,7 @@ and Coding/QA dispatch; delivery evidence is recorded separately in pipeline-sta
 
   **Sources:** spec.md#functional-requirements / #success-criteria (FR-013, FR-028, SC-006); demo-policy.md; plan.md#project-structure / #verification-plan; Architecture.md#frontend / #backend / #api-flow.
 
-- [ ] T094 Integrate the required build, generation and acceptance checks into CI in `.github/workflows/checks.yml`, `package.json`
+- [x] T094 Integrate the required build, generation and acceptance checks into CI in `.github/workflows/checks.yml`, `package.json`
 
   **Priority:** P1 | **Depends:** T091, T092, T093, T110 | **Gates:** G0, G6, G7.
 
@@ -963,7 +963,7 @@ and Coding/QA dispatch; delivery evidence is recorded separately in pipeline-sta
 
   **Sources:** spec.md#functional-requirements / #success-criteria (Shared architecture/readiness prerequisite); demo-policy.md; plan.md#project-structure / #verification-plan; Architecture.md#frontend / #backend / #api-flow.
 
-- [ ] T095 Write the feature quickstart using actual implemented commands in `specs/001-property-management/quickstart.md`
+- [x] T095 Write the feature quickstart using actual implemented commands in `specs/001-property-management/quickstart.md`
 
   **Priority:** P1 | **Depends:** T094, T110, T111, T113 | **Gates:** G0, G6, G7.
 
@@ -971,7 +971,7 @@ and Coding/QA dispatch; delivery evidence is recorded separately in pipeline-sta
 
   **Sources:** spec.md#functional-requirements / #success-criteria (SC-001, SC-002, SC-003, SC-004, SC-005, SC-006); demo-policy.md; plan.md#project-structure / #verification-plan; Architecture.md#frontend / #backend / #api-flow.
 
-- [ ] T096 Record requirement coverage and final implementation verification evidence in `specs/001-property-management/validation/coverage.md`
+- [x] T096 Record requirement coverage and final implementation verification evidence in `specs/001-property-management/validation/coverage.md`
 
   **Priority:** P1 | **Depends:** T091, T092, T093, T094, T095, T108, T110, T111 | **Gates:** G0, G6, G7.
 

@@ -1,0 +1,55 @@
+bun test v1.3.14 (0d9b296a)
+
+backend/tests/unit/transport-boundaries.test.ts:
+1 | import {test,expect} from 'bun:test';import {ForbiddenException} from '@nestjs/common';import {checkCSRF} from '../../Src/Infrastructure/transport';import {validatedFile} from '../../Managers/document-rules';
+2 | test('non-ASCII incorrect CSRF token is403 rather than a byte-length exception',()=>{expect(()=>checkCSRF('é'.repeat(6),'secret')).toThrow(ForbiddenException);});
+                                                                                                                                      ^
+error: expect(received).toThrow(expected)
+
+Expected constructor: ForbiddenException
+Received constructor: RangeError
+
+Received message: "Input buffers must have the same byte length"
+
+      at <anonymous> (/Users/kuan/Library/Mobile Documents/com~apple~CloudDocs/ELearning/Rental/backend/tests/unit/transport-boundaries.test.ts:2:131)
+(fail) non-ASCII incorrect CSRF token is403 rather than a byte-length exception [1.46ms]
+1 | import {test,expect} from 'bun:test';import {ForbiddenException} from '@nestjs/common';import {checkCSRF} from '../../Src/Infrastructure/transport';import {validatedFile} from '../../Managers/document-rules';
+2 | test('non-ASCII incorrect CSRF token is403 rather than a byte-length exception',()=>{expect(()=>checkCSRF('é'.repeat(6),'secret')).toThrow(ForbiddenException);});
+3 | test('a whitespace-only filename is rejected as unusable metadata',()=>{expect(()=>validatedFile({bytes:Buffer.from('synthetic'),mime_type:'text/plain',file_name:'   '})).toThrow();});
+                                                                                                                                                                               ^
+error: expect(received).toThrow()
+
+Received function did not throw
+Received value: {
+  bytes: <Buffer 73 79 6e 74 68 65 74 69 63>,
+  file_name: "   ",
+  mime_type: "text/plain",
+  file_type: "txt",
+  size_bytes: 9,
+  sha256: "b3cc0475bb78a5026098858e9889acf666d31062d513d303314eca31d36e72f2",
+}
+
+      at <anonymous> (/Users/kuan/Library/Mobile Documents/com~apple~CloudDocs/ELearning/Rental/backend/tests/unit/transport-boundaries.test.ts:3:172)
+(fail) a whitespace-only filename is rejected as unusable metadata [0.43ms]
+
+backend/tests/integration/null-input.test.ts:
+(pass) nonnullable optional PATCH fields reject null without mutation; documented nullable links/contacts remain allowed [450.92ms]
+1 | import {test,expect,beforeAll,beforeEach,afterAll} from 'bun:test';import {httpServer} from '../http';let api:Awaited<ReturnType<typeof httpServer>>;beforeAll(async()=>{api=await httpServer();});beforeEach(async()=>api.reset());afterAll(async()=>api.close());
+2 | test('nonnullable optional PATCH fields reject null without mutation; documented nullable links/contacts remain allowed',async()=>{const owner=await api.login();for(const [path,fields] of [['/properties/P001',['name','city','address','owner_user_id','rental_mode']],['/resources/R202',['name','capacity']],['/tenants/TEN001',['name']],['/contracts/C001',['resource_id','tenant_id','start_date','end_date','monthly_rent_twd','deposit_twd','due_day']],['/users/U002',['email','display_name','role','enabled']]] as const){for(const field of fields){const result=await api.request(path,owner,'PATCH',{version:1,[field]:null});expect(result.status).toBe(400);}}
+3 |  expect((await api.request('/payments/PAY002/reversal',{...owner,'Idempotency-Key':'invalid-null'},'POST',{replacement_amount_twd:null})).status).toBe(400);
+4 |  expect((await api.request('/properties/P001',owner)).body.version).toBe(1);expect((await api.request('/resources?resource_id=R202',owner)).body.items[0].version).toBe(1);expect((await api.request('/tenants/TEN001',owner,'PATCH',{version:1,email:null,phone:null})).status).toBe(200);expect((await api.request('/contracts/C001',owner,'PATCH',{version:1,primary_document_id:null})).status).toBe(200);
+5 | });
+6 | test('whitespace-only account names fail before creating or changing a user',async()=>{const owner=await api.login();expect((await api.request('/users',owner,'POST',{email:'blank@example.test',display_name:'   ',role:'VIEWER',enabled:true,password:process.env.DEMO_PASSWORD})).status).toBe(400);expect((await api.request('/users/U002',owner,'PATCH',{version:1,display_name:'   '})).status).toBe(400);expect((await api.request('/users',owner)).body.total).toBe(3);});
+                                                                                                                                                                                                                                                                                                 ^
+error: expect(received).toBe(expected)
+
+Expected: 400
+Received: 201
+
+      at <anonymous> (/Users/kuan/Library/Mobile Documents/com~apple~CloudDocs/ELearning/Rental/backend/tests/integration/null-input.test.ts:6:286)
+(fail) whitespace-only account names fail before creating or changing a user [264.51ms]
+
+ 1 pass
+ 3 fail
+ 27 expect() calls
+Ran 4 tests across 2 files. [1.67s]

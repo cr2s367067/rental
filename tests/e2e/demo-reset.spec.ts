@@ -1,0 +1,20 @@
+import { test, expect } from './fixtures';
+test('Owner explicit reset confirms, signs out and restores visible baseline', async ({ page }) => {
+  await page.goto('/');
+  await page.getByLabel('Email', { exact: true }).fill('owner@example.test');
+  await page.getByLabel('Password', { exact: true }).fill(process.env.DEMO_PASSWORD!);
+  await page.getByRole('button', { name: 'Sign in', exact: true }).click();
+  await page.getByRole('link', { name: 'Demo settings', exact: true }).click();
+  await page.getByLabel('Business date', { exact: true }).fill('2026-11-01');
+  await page.getByRole('button', { name: 'Update date', exact: true }).click();
+  await expect(page.getByText(/Demo date: 2026-11-01/)).toBeVisible();
+  page.once('dialog', (d) => d.accept());
+  await page.getByRole('button', { name: 'Reset demo', exact: true }).click();
+  await expect(page.getByRole('button', { name: 'Sign in', exact: true })).toBeVisible();
+  await page.getByLabel('Email', { exact: true }).fill('owner@example.test');
+  await page.getByLabel('Password', { exact: true }).fill(process.env.DEMO_PASSWORD!);
+  await page.getByRole('button', { name: 'Sign in', exact: true }).click();
+  await expect(page.getByText(/Demo date: 2026-10-19/)).toBeVisible();
+  await page.getByRole('link', { name: 'Overview', exact: true }).click();
+  await expect(page.getByText('TWD 74,000', { exact: true })).toBeVisible();
+});

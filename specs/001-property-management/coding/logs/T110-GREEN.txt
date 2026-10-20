@@ -1,0 +1,11 @@
+bun test v1.3.14 (0d9b296a)
+
+backend/tests/integration/demo-fixtures.test.ts:
+(pass) explicit loader reimports twice: stable IDs, hashes, credential verification and durable seeded request replay [809.00ms]
+(pass) Owner reset restores all role golden API counts and invalidates every previous session [697.05ms]
+(pass) Manager/Viewer reset denied; unsafe environments refuse before mutating durable records [271.84ms]
+
+ 3 pass
+ 0 fail
+ 82 expect() calls
+Ran 3 tests across 1 file. [2.58s]

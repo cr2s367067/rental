@@ -1,0 +1,13 @@
+bun test v1.3.14 (0d9b296a)
+
+backend/tests/integration/payments.test.ts:
+(pass) identical requests replay original result; changed payload conflicts without extra payment [248.62ms]
+(pass) overpayment and concurrent payments preserve nonnegative exact outstanding [171.19ms]
+(pass) append-only reversal plus optional replacement is single and idempotent [163.27ms]
+(pass) same-key concurrent calls return one durable result and Viewer/outscope writes fail [151.30ms]
+(pass) late idempotency persistence failure rolls back payment and balance [144.39ms]
+
+ 5 pass
+ 0 fail
+ 19 expect() calls
+Ran 5 tests across 1 file. [1058.00ms]

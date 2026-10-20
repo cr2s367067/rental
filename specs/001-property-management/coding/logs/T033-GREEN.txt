@@ -1,0 +1,11 @@
+bun test v1.3.14 (0d9b296a)
+
+backend/tests/unit/properties-manager.test.ts:
+(pass) Owner saves and reopens property/resource; Manager edits scoped details [236.07ms]
+(pass) invalid capacity/mode/scope edits preserve prior records [148.66ms]
+(pass) availability is start-inclusive/end-exclusive contract projection with shared slots [142.08ms]
+
+ 3 pass
+ 0 fail
+ 12 expect() calls
+Ran 3 tests across 1 file. [831.00ms]

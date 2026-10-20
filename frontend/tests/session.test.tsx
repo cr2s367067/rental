@@ -1,6 +1,44 @@
-import './setup';import {test,expect,afterEach} from 'bun:test';import {renderHook,waitFor,act,cleanup} from '@testing-library/react';import {useSession} from '../VMs/session.vm';import type {SessionService} from '../Services/client';import type {SessionView} from '../Generated/types.gen';
-const data:SessionView={user:{id:'U1',email:'a@example.test',display_name:'Owner',role:'OWNER'},properties:[],csrf_token:'test',business_date:'2026-10-19',timezone:'Asia/Taipei',demo_mode:true};
-afterEach(cleanup);test('session VM checks saved session and handles sign-in/sign-out',async()=>{
- const service:SessionService={read:async()=>data,signIn:async()=>data,signOut:async()=>{}};const {result}=renderHook(()=>useSession(service));await waitFor(()=>expect(result.current.session).toEqual(data));await act(()=>result.current.signOut());await waitFor(()=>expect(result.current.session).toBeNull());await act(()=>result.current.signIn('a@example.test','password'));await waitFor(()=>expect(result.current.session).toEqual(data));
+import './setup';
+import { test, expect, afterEach } from 'bun:test';
+import { renderHook, waitFor, act, cleanup } from '@testing-library/react';
+import { useSession } from '../VMs/session.vm';
+import type { SessionService } from '../Services/client';
+import type { SessionView } from '../Generated/types.gen';
+const data: SessionView = {
+  user: { id: 'U1', email: 'a@example.test', display_name: 'Owner', role: 'OWNER' },
+  properties: [],
+  csrf_token: 'test',
+  business_date: '2026-10-19',
+  timezone: 'Asia/Taipei',
+  demo_mode: true,
+};
+afterEach(cleanup);
+test('session VM checks saved session and handles sign-in/sign-out', async () => {
+  const service: SessionService = {
+    read: async () => data,
+    signIn: async () => data,
+    signOut: async () => {},
+  };
+  const { result } = renderHook(() => useSession(service));
+  await waitFor(() => expect(result.current.session).toEqual(data));
+  await act(() => result.current.signOut());
+  await waitFor(() => expect(result.current.session).toBeNull());
+  await act(() => result.current.signIn('a@example.test', 'password'));
+  await waitFor(() => expect(result.current.session).toEqual(data));
 });
-test('session failure renders signed-out and preserves actionable login error',async()=>{const service:SessionService={read:async()=>{throw {status_code:401,message:'Session expired'};},signIn:async()=>{throw {message:'Invalid credentials'};},signOut:async()=>{}};const {result}=renderHook(()=>useSession(service));await waitFor(()=>expect(result.current.loading).toBe(false));await act(()=>result.current.signIn('a@example.test','wrong'));await waitFor(()=>expect(result.current.error).toBe('Invalid credentials'));expect(result.current.session).toBeNull();});
+test('session failure renders signed-out and preserves actionable login error', async () => {
+  const service: SessionService = {
+    read: async () => {
+      throw { status_code: 401, message: 'Session expired' };
+    },
+    signIn: async () => {
+      throw { message: 'Invalid credentials' };
+    },
+    signOut: async () => {},
+  };
+  const { result } = renderHook(() => useSession(service));
+  await waitFor(() => expect(result.current.loading).toBe(false));
+  await act(() => result.current.signIn('a@example.test', 'wrong'));
+  await waitFor(() => expect(result.current.error).toBe('Invalid credentials'));
+  expect(result.current.session).toBeNull();
+});

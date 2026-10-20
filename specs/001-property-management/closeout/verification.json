@@ -1,0 +1,42 @@
+{
+  "timestamp": "2026-10-19T15:00:08.456845+00:00",
+  "feature": "001-property-management",
+  "status": "CLOSED",
+  "next": "AWAITING REQUIREMENT",
+  "qa_result": "specs/001-property-management/qa/runs/qa-20261019-01.json",
+  "qa_result_sha256": "59f647d1420fdec471d980502444124c7540b8bd90f5570456f5c9e8cce895c5",
+  "qa_verdict": "PASS",
+  "qa_snapshot_files_verified": 480,
+  "qa_snapshot_mismatches": [],
+  "protected_sources_verified": {
+    "prd.md": "8d4b444631d1d92ab4a0360f79113e9e80e7290d6f25f00185396496f83f73a4",
+    "Architecture.md": "78f8c3474e681106fe9ec04471d323a911e4d4089af87e36ab6766ba9da53372",
+    ".specify/memory/constitution.md": "ca610aae3abef14cbf3af786b2042c1395c630742eacab33c9a2f3af910ad8a3",
+    "specs/001-property-management/spec.md": "d9214045416972fea9637cdefadc6e5671b5aeaba9084f97aa87b5309e436bf0"
+  },
+  "gate": {
+    "retry_count": 0,
+    "revision": 1,
+    "development_status": "ACTIVE",
+    "halted": false,
+    "last_run_id": "qa-20261019-01"
+  },
+  "task_statuses": {
+    "done": 113
+  },
+  "children_completed": 300,
+  "functional_requirements": 39,
+  "success_criteria": 8,
+  "story_acceptance_scenarios": 28,
+  "structural_validation": "specs/001-property-management/closeout/handoff-validation.json",
+  "final_startup_checks": "specs/001-property-management/closeout/startup-checks.json",
+  "final_runtime": "specs/001-property-management/closeout/runtime-identity.json",
+  "runtime_matches_qa": true,
+  "frontend_url": "http://localhost:5173",
+  "queued_requirements": [],
+  "limitations": [
+    "Hosted GitHub Actions not executed.",
+    "Basic Chrome demo acceptance, not cross-browser certification/stress testing/production SLA."
+  ],
+  "delivery": "ACKNOWLEDGED; implemented, independently QA passed and final local startup completed; no next Coding invocation"
+}

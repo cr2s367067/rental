@@ -1,0 +1,18 @@
+bun test v1.3.14 (0d9b296a)
+
+backend/tests/unit/transport-boundaries.test.ts:
+(pass) non-ASCII incorrect CSRF token is403 rather than a byte-length exception [0.97ms]
+(pass) a whitespace-only filename is rejected as unusable metadata [1.43ms]
+
+backend/tests/integration/http-boundary.test.ts:
+(pass) HTTP session cookie security, invalid fields, origin/CSRF, logout and safe errors [291.44ms]
+(pass) HTTP login and principal limits return429 with Retry-After [1076.77ms]
+
+backend/tests/integration/null-input.test.ts:
+(pass) nonnullable optional PATCH fields reject null without mutation; documented nullable links/contacts remain allowed [411.76ms]
+(pass) whitespace-only account names fail before creating or changing a user [221.18ms]
+
+ 6 pass
+ 0 fail
+ 173 expect() calls
+Ran 6 tests across 3 files. [3.25s]

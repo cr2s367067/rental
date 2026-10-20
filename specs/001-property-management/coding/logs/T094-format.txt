@@ -1,0 +1,179 @@
+backend/Managers/billing-manager.ts 32ms (unchanged)
+backend/Managers/contract-rules.ts 8ms (unchanged)
+backend/Managers/contracts-manager.ts 18ms (unchanged)
+backend/Managers/dashboard-manager.ts 5ms (unchanged)
+backend/Managers/demo-manager.ts 3ms (unchanged)
+backend/Managers/document-rules.ts 8ms (unchanged)
+backend/Managers/documents-manager.ts 9ms (unchanged)
+backend/Managers/payment-rules.ts 5ms (unchanged)
+backend/Managers/payments-manager.ts 7ms (unchanged)
+backend/Managers/properties-manager.ts 9ms (unchanged)
+backend/Managers/records-manager.ts 8ms (unchanged)
+backend/Managers/selection-rules.ts 3ms (unchanged)
+backend/Managers/session-manager.ts 2ms (unchanged)
+backend/Managers/stays-manager.ts 1ms (unchanged)
+backend/Managers/tenant-rules.ts 1ms (unchanged)
+backend/Managers/tenants-manager.ts 4ms (unchanged)
+backend/Managers/users-manager.ts 11ms (unchanged)
+backend/prisma/seed.ts 1ms (unchanged)
+backend/Src/app.module.ts 2ms (unchanged)
+backend/Src/bootstrap.ts 5ms (unchanged)
+backend/Src/Contracts/common.contract.ts 3ms (unchanged)
+backend/Src/Contracts/contract.contract.ts 4ms (unchanged)
+backend/Src/Contracts/dashboard.contract.ts 3ms (unchanged)
+backend/Src/Contracts/demo-context.contract.ts 1ms (unchanged)
+backend/Src/Contracts/document.contract.ts 2ms (unchanged)
+backend/Src/Contracts/payment.contract.ts 4ms (unchanged)
+backend/Src/Contracts/property-access.contract.ts 1ms (unchanged)
+backend/Src/Contracts/property.contract.ts 3ms (unchanged)
+backend/Src/Contracts/session.contract.ts 2ms (unchanged)
+backend/Src/Contracts/stay.contract.ts 2ms (unchanged)
+backend/Src/Contracts/user.contract.ts 2ms (unchanged)
+backend/Src/export.ts 1ms (unchanged)
+backend/Src/Handler/contracts-logic.ts 2ms
+backend/Src/Handler/dashboard-logic.ts 1ms (unchanged)
+backend/Src/Handler/demo-logic.ts 1ms (unchanged)
+backend/Src/Handler/documents-logic.ts 4ms (unchanged)
+backend/Src/Handler/payments-logic.ts 3ms (unchanged)
+backend/Src/Handler/properties-logic.ts 2ms (unchanged)
+backend/Src/Handler/property-access-logic.ts 1ms (unchanged)
+backend/Src/Handler/resources-logic.ts 2ms (unchanged)
+backend/Src/Handler/session-logic.ts 2ms (unchanged)
+backend/Src/Handler/stays-logic.ts 1ms (unchanged)
+backend/Src/Handler/tenants-logic.ts 2ms (unchanged)
+backend/Src/Handler/users-logic.ts 2ms (unchanged)
+backend/Src/Infrastructure/access.ts 3ms (unchanged)
+backend/Src/Infrastructure/config.ts 2ms (unchanged)
+backend/Src/Infrastructure/database.ts 2ms (unchanged)
+backend/Src/Infrastructure/demo-fixtures.ts 3ms (unchanged)
+backend/Src/Infrastructure/fixture-import.ts 5ms (unchanged)
+backend/Src/Infrastructure/redis.ts 1ms (unchanged)
+backend/Src/Infrastructure/rules.ts 2ms (unchanged)
+backend/Src/Infrastructure/transport.ts 4ms (unchanged)
+backend/Src/main.ts 1ms (unchanged)
+backend/tests/contract/openapi.test.ts 2ms (unchanged)
+backend/tests/dashboard-expected.ts 1ms
+backend/tests/domain.ts 1ms (unchanged)
+backend/tests/fixtures.ts 1ms (unchanged)
+backend/tests/http.ts 3ms (unchanged)
+backend/tests/integration/access.test.ts 2ms (unchanged)
+backend/tests/integration/contract-capacity.test.ts 4ms
+backend/tests/integration/contracts-http.test.ts 4ms
+backend/tests/integration/dashboard-http.test.ts 3ms
+backend/tests/integration/dashboard.test.ts 6ms
+backend/tests/integration/demo-fixtures.test.ts 6ms (unchanged)
+backend/tests/integration/documents.test.ts 5ms
+backend/tests/integration/http-boundary.test.ts 3ms (unchanged)
+backend/tests/integration/null-input.test.ts 3ms (unchanged)
+backend/tests/integration/occupancy-http.test.ts 2ms (unchanged)
+backend/tests/integration/occupancy.test.ts 2ms (unchanged)
+backend/tests/integration/payments-http.test.ts 4ms (unchanged)
+backend/tests/integration/payments.test.ts 4ms
+backend/tests/integration/properties.test.ts 2ms (unchanged)
+backend/tests/integration/tenants-http.test.ts 2ms (unchanged)
+backend/tests/integration/transport.test.ts 2ms (unchanged)
+backend/tests/integration/users-http.test.ts 2ms (unchanged)
+backend/tests/integration/users-roles.test.ts 4ms (unchanged)
+backend/tests/operations/recovery.test.ts 6ms (unchanged)
+backend/tests/reset.ts 1ms (unchanged)
+backend/tests/unit/contracts-manager.test.ts 3ms
+backend/tests/unit/payments-manager.test.ts 2ms
+backend/tests/unit/properties-manager.test.ts 3ms (unchanged)
+backend/tests/unit/stays-manager.test.ts 2ms (unchanged)
+backend/tests/unit/tenants-manager.test.ts 2ms (unchanged)
+backend/tests/unit/transport-boundaries.test.ts 1ms (unchanged)
+frontend/Models/contract.ts 2ms (unchanged)
+frontend/Models/document.ts 2ms (unchanged)
+frontend/Models/filter.ts 1ms (unchanged)
+frontend/Models/money.ts 0ms (unchanged)
+frontend/Models/payment.ts 2ms (unchanged)
+frontend/Models/property.ts 1ms (unchanged)
+frontend/Models/stay.ts 1ms (unchanged)
+frontend/Models/theme.ts 1ms (unchanged)
+frontend/Models/user.ts 1ms (unchanged)
+frontend/Services/client.ts 2ms (unchanged)
+frontend/Services/contracts.service.ts 2ms (unchanged)
+frontend/Services/dashboard.service.ts 1ms
+frontend/Services/payments.service.ts 1ms
+frontend/Services/properties.service.ts 2ms (unchanged)
+frontend/Services/query.ts 1ms (unchanged)
+frontend/Services/stays.service.ts 1ms (unchanged)
+frontend/Services/users.service.ts 1ms (unchanged)
+frontend/tests/application.test.tsx 2ms (unchanged)
+frontend/tests/contracts.vm.test.ts 2ms (unchanged)
+frontend/tests/dashboard.vm.test.tsx 3ms (unchanged)
+frontend/tests/money.test.ts 1ms
+frontend/tests/pagination.test.tsx 1ms
+frontend/tests/payments.vm.test.ts 2ms
+frontend/tests/properties.query.test.tsx 2ms (unchanged)
+frontend/tests/properties.vm.test.ts 2ms (unchanged)
+frontend/tests/session.test.tsx 2ms (unchanged)
+frontend/tests/setup.ts 0ms (unchanged)
+frontend/tests/shared.test.tsx 3ms (unchanged)
+frontend/tests/shell.test.tsx 1ms (unchanged)
+frontend/tests/stays.vm.test.ts 1ms (unchanged)
+frontend/tests/theme.vm.test.ts 2ms (unchanged)
+frontend/tests/users.vm.test.ts 2ms (unchanged)
+frontend/Views/App.tsx 3ms (unchanged)
+frontend/Views/AppShell.tsx 3ms (unchanged)
+frontend/Views/Contracts.tsx 18ms (unchanged)
+frontend/Views/Dashboard.tsx 6ms (unchanged)
+frontend/Views/DemoContext.tsx 2ms (unchanged)
+frontend/Views/Documents.tsx 7ms (unchanged)
+frontend/Views/PaymentPanel.tsx 11ms (unchanged)
+frontend/Views/Payments.tsx 2ms (unchanged)
+frontend/Views/Properties.tsx 8ms (unchanged)
+frontend/Views/PropertyAccess.tsx 5ms (unchanged)
+frontend/Views/Resources.tsx 6ms (unchanged)
+frontend/Views/shared/Button.tsx 2ms (unchanged)
+frontend/Views/shared/Collection.tsx 3ms
+frontend/Views/shared/FormLayout.tsx 2ms (unchanged)
+frontend/Views/shared/ResponsiveDialog.tsx 1ms (unchanged)
+frontend/Views/shared/ResponsiveTable.tsx 1ms (unchanged)
+frontend/Views/shared/StatusBadge.tsx 1ms (unchanged)
+frontend/Views/SignIn.tsx 2ms (unchanged)
+frontend/Views/Stays.tsx 3ms (unchanged)
+frontend/Views/styles.css 32ms (unchanged)
+frontend/Views/Tenants.tsx 6ms (unchanged)
+frontend/Views/ThemeControl.tsx 1ms (unchanged)
+frontend/Views/Users.tsx 5ms (unchanged)
+frontend/VMs/action.vm.ts 2ms (unchanged)
+frontend/VMs/contracts.vm.ts 2ms (unchanged)
+frontend/VMs/dashboard.vm.ts 1ms (unchanged)
+frontend/VMs/navigation.vm.ts 1ms (unchanged)
+frontend/VMs/payments.vm.ts 2ms
+frontend/VMs/properties.vm.ts 2ms (unchanged)
+frontend/VMs/session.vm.ts 2ms (unchanged)
+frontend/VMs/stays.vm.ts 2ms (unchanged)
+frontend/VMs/theme.vm.ts 2ms (unchanged)
+frontend/VMs/users.vm.ts 2ms (unchanged)
+scripts/check-generated.ts 2ms
+scripts/e2e-backend.ts 1ms (unchanged)
+scripts/e2e.ts 1ms (unchanged)
+scripts/performance.ts 2ms
+scripts/reset-e2e.ts 0ms (unchanged)
+tests/e2e/contracts-documents.spec.ts 5ms
+tests/e2e/dashboard.spec.ts 3ms
+tests/e2e/demo-reset.spec.ts 2ms (unchanged)
+tests/e2e/fixtures.ts 1ms (unchanged)
+tests/e2e/payment-panels.spec.ts 2ms
+tests/e2e/payments.spec.ts 3ms
+tests/e2e/properties.spec.ts 2ms
+tests/e2e/record-links.spec.ts 2ms
+tests/e2e/regression.spec.ts 12ms (unchanged)
+tests/e2e/shell-theme.spec.ts 2ms
+tests/e2e/stays.spec.ts 3ms
+tests/e2e/users-roles.spec.ts 4ms
+.prettierrc.json 10ms
+openapi-ts.config.ts 1ms
+package.json 1ms (unchanged)
+playwright.config.ts 1ms (unchanged)
+tsconfig.base.json 0ms
+tsconfig.json 0ms
+frontend/index.html 9ms (unchanged)
+frontend/package.json 0ms (unchanged)
+frontend/tsconfig.json 0ms
+frontend/vite.config.ts 1ms
+backend/nest-cli.json 0ms
+backend/package.json 0ms (unchanged)
+backend/tsconfig.json 0ms

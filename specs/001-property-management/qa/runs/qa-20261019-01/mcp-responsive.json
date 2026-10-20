@@ -1,0 +1,318 @@
+{
+  "system_light_dark": "PASS",
+  "manual_return_visit_persistence": "PASS",
+  "cases": [
+    {
+      "category": "mobile",
+      "viewport": [
+        390,
+        844
+      ],
+      "theme": "light",
+      "overview": {
+        "width": 390,
+        "height": 844,
+        "pageWidth": 390,
+        "theme": "light",
+        "nav": [
+          "Overview",
+          "Properties",
+          "Resources",
+          "Tenants",
+          "Occupancy",
+          "Contracts",
+          "Documents",
+          "Payments",
+          "Users",
+          "Property access",
+          "Demo settings"
+        ],
+        "date": "Demo date: 2026-10-19\nAsia/Taipei\nTheme\nSystem\nLight\nDark"
+      },
+      "edit_dialog": {
+        "left": 16,
+        "right": 374,
+        "top": 105.0078125,
+        "bottom": 738.9921875,
+        "inputs": 3,
+        "save": true,
+        "theme": "light",
+        "pageWidth": 390
+      },
+      "status": "PASS"
+    },
+    {
+      "category": "mobile",
+      "viewport": [
+        390,
+        844
+      ],
+      "theme": "dark",
+      "overview": {
+        "width": 390,
+        "height": 844,
+        "pageWidth": 390,
+        "theme": "dark",
+        "nav": [
+          "Overview",
+          "Properties",
+          "Resources",
+          "Tenants",
+          "Occupancy",
+          "Contracts",
+          "Documents",
+          "Payments",
+          "Users",
+          "Property access",
+          "Demo settings"
+        ],
+        "date": "Demo date: 2026-10-19\nAsia/Taipei\nTheme\nSystem\nLight\nDark"
+      },
+      "edit_dialog": {
+        "left": 16,
+        "right": 374,
+        "top": 105.0078125,
+        "bottom": 738.9921875,
+        "inputs": 3,
+        "save": true,
+        "theme": "dark",
+        "pageWidth": 390
+      },
+      "status": "PASS"
+    },
+    {
+      "category": "tablet",
+      "viewport": [
+        768,
+        1024
+      ],
+      "theme": "light",
+      "overview": {
+        "width": 768,
+        "height": 1024,
+        "pageWidth": 768,
+        "theme": "light",
+        "nav": [
+          "Overview",
+          "Properties",
+          "Resources",
+          "Tenants",
+          "Occupancy",
+          "Contracts",
+          "Documents",
+          "Payments",
+          "Users",
+          "Property access",
+          "Demo settings"
+        ],
+        "date": "Demo date: 2026-10-19\nAsia/Taipei\nTheme\nSystem\nLight\nDark"
+      },
+      "edit_dialog": {
+        "left": 59,
+        "right": 709,
+        "top": 207.8046875,
+        "bottom": 816.1953125,
+        "inputs": 3,
+        "save": true,
+        "theme": "light",
+        "pageWidth": 768
+      },
+      "status": "PASS"
+    },
+    {
+      "category": "tablet",
+      "viewport": [
+        768,
+        1024
+      ],
+      "theme": "dark",
+      "overview": {
+        "width": 768,
+        "height": 1024,
+        "pageWidth": 768,
+        "theme": "dark",
+        "nav": [
+          "Overview",
+          "Properties",
+          "Resources",
+          "Tenants",
+          "Occupancy",
+          "Contracts",
+          "Documents",
+          "Payments",
+          "Users",
+          "Property access",
+          "Demo settings"
+        ],
+        "date": "Demo date: 2026-10-19\nAsia/Taipei\nTheme\nSystem\nLight\nDark"
+      },
+      "edit_dialog": {
+        "left": 59,
+        "right": 709,
+        "top": 207.8046875,
+        "bottom": 816.1953125,
+        "inputs": 3,
+        "save": true,
+        "theme": "dark",
+        "pageWidth": 768
+      },
+      "status": "PASS"
+    },
+    {
+      "category": "laptop",
+      "viewport": [
+        1366,
+        768
+      ],
+      "theme": "light",
+      "overview": {
+        "width": 1366,
+        "height": 768,
+        "pageWidth": 1366,
+        "theme": "light",
+        "nav": [
+          "Overview",
+          "Properties",
+          "Resources",
+          "Tenants",
+          "Occupancy",
+          "Contracts",
+          "Documents",
+          "Payments",
+          "Users",
+          "Property access",
+          "Demo settings"
+        ],
+        "date": "Demo date: 2026-10-19\nAsia/Taipei\nRefresh\nTheme\nSystem\nLight\nDark"
+      },
+      "edit_dialog": {
+        "left": 358,
+        "right": 1008,
+        "top": 174.203125,
+        "bottom": 593.796875,
+        "inputs": 3,
+        "save": true,
+        "theme": "light",
+        "pageWidth": 1366
+      },
+      "status": "PASS"
+    },
+    {
+      "category": "laptop",
+      "viewport": [
+        1366,
+        768
+      ],
+      "theme": "dark",
+      "overview": {
+        "width": 1366,
+        "height": 768,
+        "pageWidth": 1366,
+        "theme": "dark",
+        "nav": [
+          "Overview",
+          "Properties",
+          "Resources",
+          "Tenants",
+          "Occupancy",
+          "Contracts",
+          "Documents",
+          "Payments",
+          "Users",
+          "Property access",
+          "Demo settings"
+        ],
+        "date": "Demo date: 2026-10-19\nAsia/Taipei\nRefresh\nTheme\nSystem\nLight\nDark"
+      },
+      "edit_dialog": {
+        "left": 358,
+        "right": 1008,
+        "top": 174.203125,
+        "bottom": 593.796875,
+        "inputs": 3,
+        "save": true,
+        "theme": "dark",
+        "pageWidth": 1366
+      },
+      "status": "PASS"
+    },
+    {
+      "category": "desktop",
+      "viewport": [
+        1920,
+        1080
+      ],
+      "theme": "light",
+      "overview": {
+        "width": 1920,
+        "height": 1080,
+        "pageWidth": 1920,
+        "theme": "light",
+        "nav": [
+          "Overview",
+          "Properties",
+          "Resources",
+          "Tenants",
+          "Occupancy",
+          "Contracts",
+          "Documents",
+          "Payments",
+          "Users",
+          "Property access",
+          "Demo settings"
+        ],
+        "date": "Demo date: 2026-10-19\nAsia/Taipei\nRefresh\nTheme\nSystem\nLight\nDark"
+      },
+      "edit_dialog": {
+        "left": 635,
+        "right": 1285,
+        "top": 330.203125,
+        "bottom": 749.796875,
+        "inputs": 3,
+        "save": true,
+        "theme": "light",
+        "pageWidth": 1920
+      },
+      "status": "PASS"
+    },
+    {
+      "category": "desktop",
+      "viewport": [
+        1920,
+        1080
+      ],
+      "theme": "dark",
+      "overview": {
+        "width": 1920,
+        "height": 1080,
+        "pageWidth": 1920,
+        "theme": "dark",
+        "nav": [
+          "Overview",
+          "Properties",
+          "Resources",
+          "Tenants",
+          "Occupancy",
+          "Contracts",
+          "Documents",
+          "Payments",
+          "Users",
+          "Property access",
+          "Demo settings"
+        ],
+        "date": "Demo date: 2026-10-19\nAsia/Taipei\nRefresh\nTheme\nSystem\nLight\nDark"
+      },
+      "edit_dialog": {
+        "left": 635,
+        "right": 1285,
+        "top": 330.203125,
+        "bottom": 749.796875,
+        "inputs": 3,
+        "save": true,
+        "theme": "dark",
+        "pageWidth": 1920
+      },
+      "status": "PASS"
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+bun test v1.3.14 (0d9b296a)
+
+backend/tests/integration/documents.test.ts:
+1 | import {Injectable,ForbiddenException} from '@nestjs/common';import {Database} from '../Src/Infrastructure/database';import {Access,Actor} from '../Src/Infrastructure/access';import {SessionManager} from './session-manager';import type {UploadDocumentInput} from '../Src/Contracts/document.contract';import type {ListQuery} from '../Src/Contracts/common.contract';
+2 | export interface FileUpload {bytes:Uint8Array;mime_type:string;file_name:string;}
+3 | @Injectable() export class DocumentsManager {constructor(private db:Database,private access:Access,private sessions:SessionManager){}async list(actor:Actor,query:ListQuery):Promise<any>{return {items:[],total:0};}async upload(actor:Actor,input:Omit<UploadDocumentInput,'file'>,file:FileUpload):Promise<any>{throw new ForbiddenException('Upload unavailable');}async download(actor:Actor,id:string):Promise<any>{throw new ForbiddenException('Content denied');}}
+                                                                                                                                                                                                                                                                                                                             ^
+ForbiddenException: Upload unavailable
+ response: {
+  message: "Upload unavailable",
+  error: "Forbidden",
+  statusCode: 403,
+},
+   status: 403,
+  options: {},
+
+      at upload (/Users/kuan/Library/Mobile Documents/com~apple~CloudDocs/ELearning/Rental/backend/Managers/documents-manager.ts:3:314)
+      at <anonymous> (/Users/kuan/Library/Mobile Documents/com~apple~CloudDocs/ELearning/Rental/backend/tests/integration/documents.test.ts:2:234)
+(fail) metadata/BYTEA save atomically, associated primary contract and exact retrieval survive reopen [203.59ms]
+1 | import {test,expect,beforeEach,afterAll} from 'bun:test';import {fixtures} from '../fixtures';import {domain} from '../domain';import {DocumentsManager} from '../../Managers/documents-manager';import {ListQuery} from '../../Src/Contracts/common.contract';import {createHash} from 'node:crypto';const d=domain(),m=new DocumentsManager(d.db,d.access,d.sessions);beforeEach(fixtures);afterAll(d.close);
+2 | test('metadata/BYTEA save atomically, associated primary contract and exact retrieval survive reopen',async()=>{const actor=await d.access.actor('U002');const bytes=Buffer.from('Synthetic uploaded contract\n台灣測試\n');const row=await m.upload(actor,{kind:'CONTRACT',property_id:'P001',contract_id:'C001'},{bytes,mime_type:'text/plain',file_name:'demo-contract.txt'});expect(row.size_bytes).toBe(bytes.length);expect(row.sha256).toBe(createHash('sha256').update(bytes).digest('hex'));const downloaded=await m.download(actor,row.id);expect(Buffer.from(downloaded.bytes)).toEqual(bytes);const list=await m.list(actor,new ListQuery());expect(JSON.stringify(list)).not.toContain('Synthetic uploaded contract');expect(JSON.stringify(list)).not.toContain('bytes');});
+3 | test('all baseline document contents have exact SHA256; Viewer sees metadata only',async()=>{const owner=await d.access.actor('U001');const list=await m.list(owner,new ListQuery());expect(list.total).toBe(15);for(const row of list.items){const content=await m.download(owner,row.id);expect(createHash('sha256').update(content.bytes).digest('hex')).toBe(row.sha256);}const viewer=await d.access.actor('U003');expect((await m.list(viewer,new ListQuery())).total).toBe(7);await expect(m.download(viewer,'DOC-C001')).rejects.toThrow();await expect(m.download(await d.access.actor('U002'),'DOC-C004')).rejects.toThrow();});
+
+error: expect(received).toBe(expected)
+
+Expected: 15
+Received: 0
+
+      at <anonymous> (/Users/kuan/Library/Mobile Documents/com~apple~CloudDocs/ELearning/Rental/backend/tests/integration/documents.test.ts:3:201)
+(fail) all baseline document contents have exact SHA256; Viewer sees metadata only [137.08ms]
+(pass) invalid/oversized/spoofed/inconsistent uploads preserve metadata and contents [139.36ms]
+
+ 1 pass
+ 2 fail
+ 8 expect() calls
+Ran 3 tests across 1 file. [798.00ms]

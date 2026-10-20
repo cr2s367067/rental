@@ -1,0 +1,12 @@
+bun test v1.3.14 (0d9b296a)
+
+backend/tests/integration/occupancy-http.test.ts:
+(pass) persisted occupancy, exclusive end and concurrent capacity edits preserve shared room [353.44ms]
+
+backend/tests/integration/tenants-http.test.ts:
+(pass) contact routes validate and enforce Owner standalone/Manager scoped edits/Viewer reads [467.89ms]
+
+ 2 pass
+ 0 fail
+ 17 expect() calls
+Ran 2 tests across 2 files. [2.05s]

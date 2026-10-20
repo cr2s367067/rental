@@ -1,0 +1,28 @@
+{
+  "intake_files": 409,
+  "intake_mismatches": 0,
+  "application_source_changes": 0,
+  "derived_outputs_regenerated_by_qa": [
+    {
+      "path": "specs/001-property-management/validation/screenshots/desktop-dark-overview.png",
+      "coding_sha256": "4b4a8a41711e06b6742686a6cd6b6e0f03c4bc853e0f3457065dc963a1823a22",
+      "qa_sha256": "88db5e59e005eed65e0348f76b41fe49385b83ecc2330498d228c06edafec6a1"
+    },
+    {
+      "path": "specs/001-property-management/validation/screenshots/laptop-dark-overview.png",
+      "coding_sha256": "db41e14efd3473c7232adc4bcf138508ab24c35737bf673f6dad9292d0ddbbf0",
+      "qa_sha256": "9e1e17ab43336b79612af9ceee09419711793f58188679d293eb4444c5f53811"
+    },
+    {
+      "path": "specs/001-property-management/validation/screenshots/tablet-dark-overview.png",
+      "coding_sha256": "1f884483b062a47a3f815bfcb3fd0fc38ed922471d3a54ac0d92bd68b641b7aa",
+      "qa_sha256": "546b057e4a9289796d904b2c62043a1e1c94db1183a1705efceceeb0e0bf038a"
+    },
+    {
+      "path": "specs/001-property-management/validation/screenshots/tablet-light-overview.png",
+      "coding_sha256": "a47a0c6024ceeb2a2d00844a1f4db90186035d638968ab5f0ead53f2206a007e",
+      "qa_sha256": "c495bd418a33df0889baa65a93f966ab3b02b2ee2bd9501613fd6c36a1c7ac16"
+    }
+  ],
+  "cause": "Independent bun run test:e2e writes shared fixed screenshot paths at tests/e2e/regression.spec.ts:18. All source files and other405 Coding artifacts remain unchanged. Incoming packet is preserved; new QA evidence/snapshots use observed current bytes. This is an accounted QA-generated output change, not an application-source change."
+}

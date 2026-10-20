@@ -1,0 +1,17 @@
+bun test v1.3.14 (0d9b296a)
+
+backend/tests/unit/contracts-manager.test.ts:
+(pass) classification precedence covers start/end/30day boundary and future/effective termination [195.59ms]
+(pass) Manager new contact and first scoped contract commit atomically [167.82ms]
+(pass) failed or outscope first contracts leave no orphan contacts [159.50ms]
+
+backend/tests/integration/contract-capacity.test.ts:
+(pass) event sweep permits sequential commitments but rejects true duplicate tenant overlap [230.48ms]
+(pass) contract creation versus capacity reduction uses the same resource transaction lock [192.10ms]
+(pass) simultaneous first contracts at capacity1 commit only one contact and contract [180.57ms]
+(pass) reassignment/termination version conflicts retain valid intervals and document relationships [177.17ms]
+
+ 7 pass
+ 0 fail
+ 25 expect() calls
+Ran 7 tests across 2 files. [1.63s]

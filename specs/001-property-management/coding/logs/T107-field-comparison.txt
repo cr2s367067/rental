@@ -1,0 +1,11 @@
+bun test v1.3.14 (0d9b296a)
+
+frontend/tests/shared.test.tsx:
+(pass) responsive table keeps labeled headings and status meaning beyond color [18.33ms]
+(pass) accessible dialog labels and close action remain available [19.73ms]
+(pass) select field has an exact accessible label independent of option text [1.90ms]
+
+ 3 pass
+ 0 fail
+ 6 expect() calls
+Ran 3 tests across 1 file. [269.00ms]

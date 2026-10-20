@@ -1,0 +1,185 @@
+bun test v1.3.14 (0d9b296a)
+
+backend/tests/integration/dashboard.test.ts:
+1 | import {test,expect,beforeEach,afterAll} from 'bun:test';import {readFileSync} from 'node:fs';import {fixtures} from '../fixtures';import {domain} from '../domain';import {DashboardManager} from '../../Managers/dashboard-manager';import {PropertiesManager} from '../../Managers/properties-manager';import {StaysManager} from '../../Managers/stays-manager';import {TenantsManager} from '../../Managers/tenants-manager';import {ContractsManager} from '../../Managers/contracts-manager';import {BillingManager} from '../../Managers/billing-manager';import {PaymentsManager} from '../../Managers/payments-manager';import {DashboardQuery,type MetricKey} from '../../Src/Contracts/dashboard.contract';import {ListQuery} from '../../Src/Contracts/common.contract';import {ownerIds,managerIds,viewerIds} from '../dashboard-expected';import type {Actor} from '../../Src/Infrastructure/access';
+2 | const d=domain(),m=new DashboardManager(d.records),tenants=new TenantsManager(d.db,d.access,d.records),properties=new PropertiesManager(d.db,d.access,d.sessions,d.records),stays=new StaysManager(d.records),contracts=new ContractsManager(d.db,d.access,d.records,d.sessions,tenants),billing=new BillingManager(d.db,d.access,d.records,contracts),payments=new PaymentsManager(d.db,d.access,d.sessions);beforeEach(fixtures);afterAll(d.close);
+3 | async function drill(actor:Actor,path:string,query:ListQuery):Promise<{items:{id:string}[];total:number}>{switch(path){case'/properties':return properties.list(actor,query);case'/resources':return properties.resources(actor,query);case'/tenants':return tenants.list(actor,query);case'/stays':return stays.list(actor,query);case'/contracts':return contracts.list(actor,query);case'/payments':return billing.list(actor,query);default:throw Error('Unexpected drill path');}}
+4 | for(const [id,ids] of [['U001',ownerIds],['U002',managerIds],['U003',viewerIds]] as const)test(id+' metrics match golden counts and complete paginated drill record IDs',async()=>{const expected=JSON.parse(readFileSync('specs/001-property-management/mock-data/expected-results.json','utf8')).dashboard_by_user[id];const actor=await d.access.actor(id),result=await m.get(actor,new DashboardQuery());expect(result.counts).toEqual(expected);expect(result.metrics.length).toBe(9);for(const metric of result.metrics){const all:string[]=[];let page=1;while(true){const response=await drill(actor,metric.path,Object.assign(new ListQuery(),metric.query,{page,page_size:2}));expect(response.total).toBe(metric.count);all.push(...response.items.map(r=>r.id));if(all.length>=response.total)break;page++;if(page>20)throw Error('Pagination did not converge');}expect([...all].sort()).toEqual([...ids[metric.key as MetricKey]].sort());expect(new Set(all).size).toBe(all.length);}expect(result.counts.occupied_resources+result.counts.availa
+
+error: expect(received).toEqual(expected)
+
+  {
+-   "available_resources": 6,
+-   "contracts_expiring": 2,
+-   "current_tenants": 6,
+-   "document_metadata_count": 15,
+-   "occupied_resources": 5,
+-   "outstanding_twd": "74000",
+-   "total_properties": 4,
+-   "total_resources": 11,
+-   "unpaid_rent_periods": 5,
+-   "upcoming_contract_ends": 1,
+-   "upcoming_contract_starts": 1,
++   "available_resources": 0,
++   "contracts_expiring": 0,
++   "current_tenants": 0,
++   "document_metadata_count": 0,
++   "occupied_resources": 0,
++   "outstanding_twd": "0",
++   "total_properties": 0,
++   "total_resources": 0,
++   "unpaid_rent_periods": 0,
++   "upcoming_contract_ends": 0,
++   "upcoming_contract_starts": 0,
+  }
+
+- Expected  - 11
++ Received  + 11
+
+      at <anonymous> (/Users/kuan/Library/Mobile Documents/com~apple~CloudDocs/ELearning/Rental/backend/tests/integration/dashboard.test.ts:4:420)
+(fail) U001 metrics match golden counts and complete paginated drill record IDs [193.92ms]
+1 | import {test,expect,beforeEach,afterAll} from 'bun:test';import {readFileSync} from 'node:fs';import {fixtures} from '../fixtures';import {domain} from '../domain';import {DashboardManager} from '../../Managers/dashboard-manager';import {PropertiesManager} from '../../Managers/properties-manager';import {StaysManager} from '../../Managers/stays-manager';import {TenantsManager} from '../../Managers/tenants-manager';import {ContractsManager} from '../../Managers/contracts-manager';import {BillingManager} from '../../Managers/billing-manager';import {PaymentsManager} from '../../Managers/payments-manager';import {DashboardQuery,type MetricKey} from '../../Src/Contracts/dashboard.contract';import {ListQuery} from '../../Src/Contracts/common.contract';import {ownerIds,managerIds,viewerIds} from '../dashboard-expected';import type {Actor} from '../../Src/Infrastructure/access';
+2 | const d=domain(),m=new DashboardManager(d.records),tenants=new TenantsManager(d.db,d.access,d.records),properties=new PropertiesManager(d.db,d.access,d.sessions,d.records),stays=new StaysManager(d.records),contracts=new ContractsManager(d.db,d.access,d.records,d.sessions,tenants),billing=new BillingManager(d.db,d.access,d.records,contracts),payments=new PaymentsManager(d.db,d.access,d.sessions);beforeEach(fixtures);afterAll(d.close);
+3 | async function drill(actor:Actor,path:string,query:ListQuery):Promise<{items:{id:string}[];total:number}>{switch(path){case'/properties':return properties.list(actor,query);case'/resources':return properties.resources(actor,query);case'/tenants':return tenants.list(actor,query);case'/stays':return stays.list(actor,query);case'/contracts':return contracts.list(actor,query);case'/payments':return billing.list(actor,query);default:throw Error('Unexpected drill path');}}
+4 | for(const [id,ids] of [['U001',ownerIds],['U002',managerIds],['U003',viewerIds]] as const)test(id+' metrics match golden counts and complete paginated drill record IDs',async()=>{const expected=JSON.parse(readFileSync('specs/001-property-management/mock-data/expected-results.json','utf8')).dashboard_by_user[id];const actor=await d.access.actor(id),result=await m.get(actor,new DashboardQuery());expect(result.counts).toEqual(expected);expect(result.metrics.length).toBe(9);for(const metric of result.metrics){const all:string[]=[];let page=1;while(true){const response=await drill(actor,metric.path,Object.assign(new ListQuery(),metric.query,{page,page_size:2}));expect(response.total).toBe(metric.count);all.push(...response.items.map(r=>r.id));if(all.length>=response.total)break;page++;if(page>20)throw Error('Pagination did not converge');}expect([...all].sort()).toEqual([...ids[metric.key as MetricKey]].sort());expect(new Set(all).size).toBe(all.length);}expect(result.counts.occupied_resources+result.counts.availa
+
+error: expect(received).toEqual(expected)
+
+  {
+-   "available_resources": 3,
+-   "contracts_expiring": 2,
+-   "current_tenants": 5,
+-   "document_metadata_count": 11,
+-   "occupied_resources": 4,
+-   "outstanding_twd": "63000",
+-   "total_properties": 2,
+-   "total_resources": 7,
+-   "unpaid_rent_periods": 4,
+-   "upcoming_contract_ends": 1,
+-   "upcoming_contract_starts": 1,
++   "available_resources": 0,
++   "contracts_expiring": 0,
++   "current_tenants": 0,
++   "document_metadata_count": 0,
++   "occupied_resources": 0,
++   "outstanding_twd": "0",
++   "total_properties": 0,
++   "total_resources": 0,
++   "unpaid_rent_periods": 0,
++   "upcoming_contract_ends": 0,
++   "upcoming_contract_starts": 0,
+  }
+
+- Expected  - 11
++ Received  + 11
+
+      at <anonymous> (/Users/kuan/Library/Mobile Documents/com~apple~CloudDocs/ELearning/Rental/backend/tests/integration/dashboard.test.ts:4:420)
+(fail) U002 metrics match golden counts and complete paginated drill record IDs [141.93ms]
+1 | import {test,expect,beforeEach,afterAll} from 'bun:test';import {readFileSync} from 'node:fs';import {fixtures} from '../fixtures';import {domain} from '../domain';import {DashboardManager} from '../../Managers/dashboard-manager';import {PropertiesManager} from '../../Managers/properties-manager';import {StaysManager} from '../../Managers/stays-manager';import {TenantsManager} from '../../Managers/tenants-manager';import {ContractsManager} from '../../Managers/contracts-manager';import {BillingManager} from '../../Managers/billing-manager';import {PaymentsManager} from '../../Managers/payments-manager';import {DashboardQuery,type MetricKey} from '../../Src/Contracts/dashboard.contract';import {ListQuery} from '../../Src/Contracts/common.contract';import {ownerIds,managerIds,viewerIds} from '../dashboard-expected';import type {Actor} from '../../Src/Infrastructure/access';
+2 | const d=domain(),m=new DashboardManager(d.records),tenants=new TenantsManager(d.db,d.access,d.records),properties=new PropertiesManager(d.db,d.access,d.sessions,d.records),stays=new StaysManager(d.records),contracts=new ContractsManager(d.db,d.access,d.records,d.sessions,tenants),billing=new BillingManager(d.db,d.access,d.records,contracts),payments=new PaymentsManager(d.db,d.access,d.sessions);beforeEach(fixtures);afterAll(d.close);
+3 | async function drill(actor:Actor,path:string,query:ListQuery):Promise<{items:{id:string}[];total:number}>{switch(path){case'/properties':return properties.list(actor,query);case'/resources':return properties.resources(actor,query);case'/tenants':return tenants.list(actor,query);case'/stays':return stays.list(actor,query);case'/contracts':return contracts.list(actor,query);case'/payments':return billing.list(actor,query);default:throw Error('Unexpected drill path');}}
+4 | for(const [id,ids] of [['U001',ownerIds],['U002',managerIds],['U003',viewerIds]] as const)test(id+' metrics match golden counts and complete paginated drill record IDs',async()=>{const expected=JSON.parse(readFileSync('specs/001-property-management/mock-data/expected-results.json','utf8')).dashboard_by_user[id];const actor=await d.access.actor(id),result=await m.get(actor,new DashboardQuery());expect(result.counts).toEqual(expected);expect(result.metrics.length).toBe(9);for(const metric of result.metrics){const all:string[]=[];let page=1;while(true){const response=await drill(actor,metric.path,Object.assign(new ListQuery(),metric.query,{page,page_size:2}));expect(response.total).toBe(metric.count);all.push(...response.items.map(r=>r.id));if(all.length>=response.total)break;page++;if(page>20)throw Error('Pagination did not converge');}expect([...all].sort()).toEqual([...ids[metric.key as MetricKey]].sort());expect(new Set(all).size).toBe(all.length);}expect(result.counts.occupied_resources+result.counts.availa
+
+error: expect(received).toEqual(expected)
+
+  {
+-   "available_resources": 1,
+-   "contracts_expiring": 2,
+-   "current_tenants": 4,
+-   "document_metadata_count": 7,
+-   "occupied_resources": 3,
+-   "outstanding_twd": "54000",
+-   "total_properties": 1,
+-   "total_resources": 4,
+-   "unpaid_rent_periods": 3,
+-   "upcoming_contract_ends": 1,
+-   "upcoming_contract_starts": 1,
++   "available_resources": 0,
++   "contracts_expiring": 0,
++   "current_tenants": 0,
++   "document_metadata_count": 0,
++   "occupied_resources": 0,
++   "outstanding_twd": "0",
++   "total_properties": 0,
++   "total_resources": 0,
++   "unpaid_rent_periods": 0,
++   "upcoming_contract_ends": 0,
++   "upcoming_contract_starts": 0,
+  }
+
+- Expected  - 11
++ Received  + 11
+
+      at <anonymous> (/Users/kuan/Library/Mobile Documents/com~apple~CloudDocs/ELearning/Rental/backend/tests/integration/dashboard.test.ts:4:420)
+(fail) U003 metrics match golden counts and complete paginated drill record IDs [145.10ms]
+1 | import {test,expect,beforeEach,afterAll} from 'bun:test';import {readFileSync} from 'node:fs';import {fixtures} from '../fixtures';import {domain} from '../domain';import {DashboardManager} from '../../Managers/dashboard-manager';import {PropertiesManager} from '../../Managers/properties-manager';import {StaysManager} from '../../Managers/stays-manager';import {TenantsManager} from '../../Managers/tenants-manager';import {ContractsManager} from '../../Managers/contracts-manager';import {BillingManager} from '../../Managers/billing-manager';import {PaymentsManager} from '../../Managers/payments-manager';import {DashboardQuery,type MetricKey} from '../../Src/Contracts/dashboard.contract';import {ListQuery} from '../../Src/Contracts/common.contract';import {ownerIds,managerIds,viewerIds} from '../dashboard-expected';import type {Actor} from '../../Src/Infrastructure/access';
+2 | const d=domain(),m=new DashboardManager(d.records),tenants=new TenantsManager(d.db,d.access,d.records),properties=new PropertiesManager(d.db,d.access,d.sessions,d.records),stays=new StaysManager(d.records),contracts=new ContractsManager(d.db,d.access,d.records,d.sessions,tenants),billing=new BillingManager(d.db,d.access,d.records,contracts),payments=new PaymentsManager(d.db,d.access,d.sessions);beforeEach(fixtures);afterAll(d.close);
+3 | async function drill(actor:Actor,path:string,query:ListQuery):Promise<{items:{id:string}[];total:number}>{switch(path){case'/properties':return properties.list(actor,query);case'/resources':return properties.resources(actor,query);case'/tenants':return tenants.list(actor,query);case'/stays':return stays.list(actor,query);case'/contracts':return contracts.list(actor,query);case'/payments':return billing.list(actor,query);default:throw Error('Unexpected drill path');}}
+4 | for(const [id,ids] of [['U001',ownerIds],['U002',managerIds],['U003',viewerIds]] as const)test(id+' metrics match golden counts and complete paginated drill record IDs',async()=>{const expected=JSON.parse(readFileSync('specs/001-property-management/mock-data/expected-results.json','utf8')).dashboard_by_user[id];const actor=await d.access.actor(id),result=await m.get(actor,new DashboardQuery());expect(result.counts).toEqual(expected);expect(result.metrics.length).toBe(9);for(const metric of result.metrics){const all:string[]=[];let page=1;while(true){const response=await drill(actor,metric.path,Object.assign(new ListQuery(),metric.query,{page,page_size:2}));expect(response.total).toBe(metric.count);all.push(...response.items.map(r=>r.id));if(all.length>=response.total)break;page++;if(page>20)throw Error('Pagination did not converge');}expect([...all].sort()).toEqual([...ids[metric.key as MetricKey]].sort());expect(new Set(all).size).toBe(all.length);}expect(result.counts.occupied_resources+result.counts.availa
+5 | test('property/date boundaries and forbidden scope reuse the same definitions',async()=>{const owner=await d.access.actor('U001');const expected=JSON.parse(readFileSync('specs/001-property-management/mock-data/expected-results.json','utf8')).dashboard_by_user.U003;expect((await m.get(owner,{property_id:'P001'})).counts).toEqual(expected);await expect(m.get(await d.access.actor('U002'),{property_id:'P003'})).rejects.toThrow();const at22=await m.get(owner,{business_date:'2026-10-22'});expect(at22.counts).toMatchObject({occupied_resources:6,available_resources:5,current_tenants:7,upcoming_contract_starts:0});const at24=await m.get(owner,{business_date:'2026-10-24'});expect(at24.counts.current_tenants).toBe(6);expect(at24.counts.upcoming_contract_ends).toBe(0);});
+
+error: expect(received).toEqual(expected)
+
+  {
+-   "available_resources": 1,
+-   "contracts_expiring": 2,
+-   "current_tenants": 4,
+-   "document_metadata_count": 7,
+-   "occupied_resources": 3,
+-   "outstanding_twd": "54000",
+-   "total_properties": 1,
+-   "total_resources": 4,
+-   "unpaid_rent_periods": 3,
+-   "upcoming_contract_ends": 1,
+-   "upcoming_contract_starts": 1,
++   "available_resources": 0,
++   "contracts_expiring": 0,
++   "current_tenants": 0,
++   "document_metadata_count": 0,
++   "occupied_resources": 0,
++   "outstanding_twd": "0",
++   "total_properties": 0,
++   "total_resources": 0,
++   "unpaid_rent_periods": 0,
++   "upcoming_contract_ends": 0,
++   "upcoming_contract_starts": 0,
+  }
+
+- Expected  - 11
++ Received  + 11
+
+      at <anonymous> (/Users/kuan/Library/Mobile Documents/com~apple~CloudDocs/ELearning/Rental/backend/tests/integration/dashboard.test.ts:5:323)
+(fail) property/date boundaries and forbidden scope reuse the same definitions [134.76ms]
+1 | import {test,expect,beforeEach,afterAll} from 'bun:test';import {readFileSync} from 'node:fs';import {fixtures} from '../fixtures';import {domain} from '../domain';import {DashboardManager} from '../../Managers/dashboard-manager';import {PropertiesManager} from '../../Managers/properties-manager';import {StaysManager} from '../../Managers/stays-manager';import {TenantsManager} from '../../Managers/tenants-manager';import {ContractsManager} from '../../Managers/contracts-manager';import {BillingManager} from '../../Managers/billing-manager';import {PaymentsManager} from '../../Managers/payments-manager';import {DashboardQuery,type MetricKey} from '../../Src/Contracts/dashboard.contract';import {ListQuery} from '../../Src/Contracts/common.contract';import {ownerIds,managerIds,viewerIds} from '../dashboard-expected';import type {Actor} from '../../Src/Infrastructure/access';
+2 | const d=domain(),m=new DashboardManager(d.records),tenants=new TenantsManager(d.db,d.access,d.records),properties=new PropertiesManager(d.db,d.access,d.sessions,d.records),stays=new StaysManager(d.records),contracts=new ContractsManager(d.db,d.access,d.records,d.sessions,tenants),billing=new BillingManager(d.db,d.access,d.records,contracts),payments=new PaymentsManager(d.db,d.access,d.sessions);beforeEach(fixtures);afterAll(d.close);
+3 | async function drill(actor:Actor,path:string,query:ListQuery):Promise<{items:{id:string}[];total:number}>{switch(path){case'/properties':return properties.list(actor,query);case'/resources':return properties.resources(actor,query);case'/tenants':return tenants.list(actor,query);case'/stays':return stays.list(actor,query);case'/contracts':return contracts.list(actor,query);case'/payments':return billing.list(actor,query);default:throw Error('Unexpected drill path');}}
+4 | for(const [id,ids] of [['U001',ownerIds],['U002',managerIds],['U003',viewerIds]] as const)test(id+' metrics match golden counts and complete paginated drill record IDs',async()=>{const expected=JSON.parse(readFileSync('specs/001-property-management/mock-data/expected-results.json','utf8')).dashboard_by_user[id];const actor=await d.access.actor(id),result=await m.get(actor,new DashboardQuery());expect(result.counts).toEqual(expected);expect(result.metrics.length).toBe(9);for(const metric of result.metrics){const all:string[]=[];let page=1;while(true){const response=await drill(actor,metric.path,Object.assign(new ListQuery(),metric.query,{page,page_size:2}));expect(response.total).toBe(metric.count);all.push(...response.items.map(r=>r.id));if(all.length>=response.total)break;page++;if(page>20)throw Error('Pagination did not converge');}expect([...all].sort()).toEqual([...ids[metric.key as MetricKey]].sort());expect(new Set(all).size).toBe(all.length);}expect(result.counts.occupied_resources+result.counts.availa
+5 | test('property/date boundaries and forbidden scope reuse the same definitions',async()=>{const owner=await d.access.actor('U001');const expected=JSON.parse(readFileSync('specs/001-property-management/mock-data/expected-results.json','utf8')).dashboard_by_user.U003;expect((await m.get(owner,{property_id:'P001'})).counts).toEqual(expected);await expect(m.get(await d.access.actor('U002'),{property_id:'P003'})).rejects.toThrow();const at22=await m.get(owner,{business_date:'2026-10-22'});expect(at22.counts).toMatchObject({occupied_resources:6,available_resources:5,current_tenants:7,upcoming_contract_starts:0});const at24=await m.get(owner,{business_date:'2026-10-24'});expect(at24.counts.current_tenants).toBe(6);expect(at24.counts.upcoming_contract_ends).toBe(0);});
+6 | test('empty permitted scope returns real zeros and nine usable drill filters',async()=>{await d.db.propertyAccess.deleteMany({where:{user_id:'U003'}});const result=await m.get(await d.access.actor('U003'),new DashboardQuery());expect(result.counts.total_properties).toBe(0);expect(result.counts.outstanding_twd).toBe('0');expect(result.metrics.length).toBe(9);expect(result.metrics.every(m=>m.count===0)).toBe(true);});
+                                                                                                                                                                                                                                                                                                                                                                    ^
+error: expect(received).toBe(expected)
+
+Expected: 9
+Received: 0
+
+      at <anonymous> (/Users/kuan/Library/Mobile Documents/com~apple~CloudDocs/ELearning/Rental/backend/tests/integration/dashboard.test.ts:6:353)
+(fail) empty permitted scope returns real zeros and nine usable drill filters [131.09ms]
+2 | const d=domain(),m=new DashboardManager(d.records),tenants=new TenantsManager(d.db,d.access,d.records),properties=new PropertiesManager(d.db,d.access,d.sessions,d.records),stays=new StaysManager(d.records),contracts=new ContractsManager(d.db,d.access,d.records,d.sessions,tenants),billing=new BillingManager(d.db,d.access,d.records,contracts),payments=new PaymentsManager(d.db,d.access,d.sessions);beforeEach(fixtures);afterAll(d.close);
+3 | async function drill(actor:Actor,path:string,query:ListQuery):Promise<{items:{id:string}[];total:number}>{switch(path){case'/properties':return properties.list(actor,query);case'/resources':return properties.resources(actor,query);case'/tenants':return tenants.list(actor,query);case'/stays':return stays.list(actor,query);case'/contracts':return contracts.list(actor,query);case'/payments':return billing.list(actor,query);default:throw Error('Unexpected drill path');}}
+4 | for(const [id,ids] of [['U001',ownerIds],['U002',managerIds],['U003',viewerIds]] as const)test(id+' metrics match golden counts and complete paginated drill record IDs',async()=>{const expected=JSON.parse(readFileSync('specs/001-property-management/mock-data/expected-results.json','utf8')).dashboard_by_user[id];const actor=await d.access.actor(id),result=await m.get(actor,new DashboardQuery());expect(result.counts).toEqual(expected);expect(result.metrics.length).toBe(9);for(const metric of result.metrics){const all:string[]=[];let page=1;while(true){const response=await drill(actor,metric.path,Object.assign(new ListQuery(),metric.query,{page,page_size:2}));expect(response.total).toBe(metric.count);all.push(...response.items.map(r=>r.id));if(all.length>=response.total)break;page++;if(page>20)throw Error('Pagination did not converge');}expect([...all].sort()).toEqual([...ids[metric.key as MetricKey]].sort());expect(new Set(all).size).toBe(all.length);}expect(result.counts.occupied_resources+result.counts.availa
+5 | test('property/date boundaries and forbidden scope reuse the same definitions',async()=>{const owner=await d.access.actor('U001');const expected=JSON.parse(readFileSync('specs/001-property-management/mock-data/expected-results.json','utf8')).dashboard_by_user.U003;expect((await m.get(owner,{property_id:'P001'})).counts).toEqual(expected);await expect(m.get(await d.access.actor('U002'),{property_id:'P003'})).rejects.toThrow();const at22=await m.get(owner,{business_date:'2026-10-22'});expect(at22.counts).toMatchObject({occupied_resources:6,available_resources:5,current_tenants:7,upcoming_contract_starts:0});const at24=await m.get(owner,{business_date:'2026-10-24'});expect(at24.counts.current_tenants).toBe(6);expect(at24.counts.upcoming_contract_ends).toBe(0);});
+6 | test('empty permitted scope returns real zeros and nine usable drill filters',async()=>{await d.db.propertyAccess.deleteMany({where:{user_id:'U003'}});const result=await m.get(await d.access.actor('U003'),new DashboardQuery());expect(result.counts.total_properties).toBe(0);expect(result.counts.outstanding_twd).toBe('0');expect(result.metrics.length).toBe(9);expect(result.metrics.every(m=>m.count===0)).toBe(true);});
+7 | test('concurrent payment refresh returns complete before/after snapshots then matching records',async()=>{const actor=await d.access.actor('U001');const [first,second]=await Promise.all([m.get(actor,new DashboardQuery()),m.get(actor,new DashboardQuery()),payments.record(actor,'OBL004',{amount_twd:'11000'},'dashboard-payment')]);for(const response of [first,second]){expect([5,4]).toContain(response.counts.unpaid_rent_periods);expect(response.counts.outstanding_twd).toBe(response.counts.unpaid_rent_periods===5?'74000':'63000');}const final=await m.get(actor,new DashboardQuery()),list=await billing.list(actor,Object.assign(new ListQuery(),{metric:'unpaid_rent_periods'}));expect(final.counts.unpaid_rent_periods).toBe(list.total);expect(final.counts.outstanding_twd).toBe(list.items.reduce((n,o)=>n+BigInt(o.outstanding_twd),0n).toString());});
+
+error: expect(received).toContain(expected)
+
+Expected to contain: 0
+Received: [ 5, 4 ]
+
+      at <anonymous> (/Users/kuan/Library/Mobile Documents/com~apple~CloudDocs/ELearning/Rental/backend/tests/integration/dashboard.test.ts:7:383)
+(fail) concurrent payment refresh returns complete before/after snapshots then matching records [151.76ms]
+
+ 0 pass
+ 6 fail
+ 8 expect() calls
+Ran 6 tests across 1 file. [1222.00ms]

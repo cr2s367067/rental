@@ -1,0 +1,6 @@
+## Network requests
+Showing 1-4 of 4 (Page 1 of 1).
+reqid=88 GET http://localhost:5173/api/session [401]
+reqid=90 POST http://localhost:5173/api/session [200]
+reqid=91 GET http://localhost:5173/api/dashboard [200]
+reqid=92 GET http://localhost:5173/api/dashboard [200]

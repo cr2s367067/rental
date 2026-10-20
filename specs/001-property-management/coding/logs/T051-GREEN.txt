@@ -1,0 +1,10 @@
+bun test v1.3.14 (0d9b296a)
+
+frontend/tests/stays.vm.test.ts:
+(pass) contact update refreshes scoped history and resource queries [0.26ms]
+(pass) outscope/invalid contact error retains form input [0.11ms]
+
+ 2 pass
+ 0 fail
+ 4 expect() calls
+Ran 2 tests across 1 file. [32.00ms]

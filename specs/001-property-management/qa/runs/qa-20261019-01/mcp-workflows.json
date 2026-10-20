@@ -1,0 +1,31 @@
+{
+  "property_edit_reopen": {
+    "city": "QA MCP City",
+    "version": 2
+  },
+  "atomic_contact_contract": {
+    "tenant_id": "70220c08-647e-4eb2-95c1-260e296e9a75",
+    "contract_id": "37e64782-2674-4a57-a630-a00ecd7b1648",
+    "resource_id": "R202",
+    "current_count": 1
+  },
+  "contact_edit_reopen": "PASS",
+  "future_termination_current_until_effective": "PASS",
+  "after_explicit_date_change": {
+    "date": "2026-10-20",
+    "count": 0,
+    "available": true,
+    "visible": true
+  },
+  "history": "Ended",
+  "payment": {
+    "before_outstanding": "9000",
+    "recorded": "1000",
+    "after_outstanding": "8000",
+    "overpay_attempt": "8001",
+    "http_status": 409,
+    "error_retains_input": true,
+    "payments_after": 2
+  },
+  "date_restored": "2026-10-19"
+}

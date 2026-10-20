@@ -1,0 +1,13 @@
+{
+  "retry_count": 0,
+  "revision": 1,
+  "development_status": "ACTIVE",
+  "halted": false,
+  "last_run_id": "qa-20261019-01",
+  "previous_retry_count": 0,
+  "verdict": "passed",
+  "applied": true,
+  "event_current": true,
+  "next_target": "pm-agent",
+  "stop_development": false
+}

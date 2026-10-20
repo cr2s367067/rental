@@ -1,5 +1,27 @@
-import {test,expect} from '@playwright/test';
+import { test, expect } from './fixtures';
 // Basic constitutional smoke, one Chromium engine; no formal certification matrix.
-for(const [category,width,height] of [['mobile',390,844],['tablet',768,1024],['laptop',1366,768],['desktop',1920,1080]] as const){
- test(`${category}: light/dark essential shell`,async({page})=>{await page.setViewportSize({width,height});await page.goto('/');await page.getByLabel('Email',{exact:true}).fill('owner@example.test');await page.getByLabel('Password',{exact:true}).fill(process.env.DEMO_PASSWORD!);await page.getByRole('button',{name:'Sign in',exact:true}).click();await expect(page.getByRole('navigation')).toBeVisible();await expect(page.getByText(/Demo date: 2026-10-19/)).toBeVisible();for(const theme of ['dark','light']){await page.getByLabel('Theme',{exact:true}).selectOption(theme);await expect(page.locator('html')).toHaveAttribute('data-theme',theme);expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);}await page.reload();await expect(page.locator('html')).toHaveAttribute('data-theme','light');});
+for (const [category, width, height] of [
+  ['mobile', 390, 844],
+  ['tablet', 768, 1024],
+  ['laptop', 1366, 768],
+  ['desktop', 1920, 1080],
+] as const) {
+  test(`${category}: light/dark essential shell`, async ({ page }) => {
+    await page.setViewportSize({ width, height });
+    await page.goto('/');
+    await page.getByLabel('Email', { exact: true }).fill('owner@example.test');
+    await page.getByLabel('Password', { exact: true }).fill(process.env.DEMO_PASSWORD!);
+    await page.getByRole('button', { name: 'Sign in', exact: true }).click();
+    await expect(page.getByRole('navigation')).toBeVisible();
+    await expect(page.getByText(/Demo date: 2026-10-19/)).toBeVisible();
+    for (const theme of ['dark', 'light']) {
+      await page.getByLabel('Theme', { exact: true }).selectOption(theme);
+      await expect(page.locator('html')).toHaveAttribute('data-theme', theme);
+      expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(
+        true,
+      );
+    }
+    await page.reload();
+    await expect(page.locator('html')).toHaveAttribute('data-theme', 'light');
+  });
 }

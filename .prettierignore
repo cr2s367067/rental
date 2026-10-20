@@ -1,0 +1,10 @@
+node_modules/
+**/dist/
+frontend/Generated/
+backend/OpenAPI/
+specs/
+.codex/
+.agents/
+.specify/
+coverage/
+bun.lock

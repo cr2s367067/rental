@@ -1,0 +1,11 @@
+{
+  "upload_ui": "PASS",
+  "download_ui": "PASS",
+  "expected_sha256": "c41ac2def94c0b620b58d71fcd2d12d2a4410808279404c00e26a1f9465edf9b",
+  "actual": [
+    {
+      "size": 32,
+      "sha256": "c41ac2def94c0b620b58d71fcd2d12d2a4410808279404c00e26a1f9465edf9b"
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+bun test v1.3.14 (0d9b296a)
+
+backend/tests/integration/payments.test.ts:
+1 | import {Injectable,ForbiddenException} from '@nestjs/common';import {Database} from '../Src/Infrastructure/database';import {Access,Actor} from '../Src/Infrastructure/access';import {SessionManager} from './session-manager';import type {RecordPaymentInput,ReversePaymentInput} from '../Src/Contracts/payment.contract';
+2 | @Injectable() export class PaymentsManager {constructor(private db:Database,private access:Access,private sessions:SessionManager){}async record(actor:Actor,id:string,input:RecordPaymentInput,key:string):Promise<any>{throw new ForbiddenException('Payment changes unavailable');}async reverse(actor:Actor,id:string,input:ReversePaymentInput,key:string):Promise<any>{throw new ForbiddenException('Payment changes unavailable');}}
+                                                                                                                                                                                                                                   ^
+ForbiddenException: Payment changes unavailable
+ response: {
+  message: "Payment changes unavailable",
+  error: "Forbidden",
+  statusCode: 403,
+},
+   status: 403,
+  options: {},
+
+      at record (/Users/kuan/Library/Mobile Documents/com~apple~CloudDocs/ELearning/Rental/backend/Managers/payments-manager.ts:2:224)
+      at <anonymous> (/Users/kuan/Library/Mobile Documents/com~apple~CloudDocs/ELearning/Rental/backend/tests/integration/payments.test.ts:2:166)
+(fail) identical requests replay original result; changed payload conflicts without extra payment [193.86ms]
+1 | import {test,expect,beforeEach,afterAll} from 'bun:test';import {fixtures} from '../fixtures';import {domain} from '../domain';import {PaymentsManager} from '../../Managers/payments-manager';const d=domain(),m=new PaymentsManager(d.db,d.access,d.sessions);beforeEach(fixtures);afterAll(d.close);
+2 | test('identical requests replay original result; changed payload conflicts without extra payment',async()=>{const a=await d.access.actor('U001');const first=await m.record(a,'OBL004',{amount_twd:'1000'},'payment-retry');expect(await m.record(a,'OBL004',{amount_twd:'1000'},'payment-retry')).toEqual(first);await expect(m.record(a,'OBL004',{amount_twd:'1001'},'payment-retry')).rejects.toThrow();expect(await d.db.paymentRecord.count({where:{obligation_id:'OBL004'}})).toBe(2);expect(await d.db.idempotencyRecord.count({where:{request_key:'payment-retry'}})).toBe(1);});
+3 | test('overpayment and concurrent payments preserve nonnegative exact outstanding',async()=>{const a=await d.access.actor('U001');const before=await d.db.paymentRecord.count();await expect(m.record(a,'OBL004',{amount_twd:'11001'},'overpay')).rejects.toThrow();expect(await d.db.paymentRecord.count()).toBe(before);const results=await Promise.allSettled([m.record(a,'OBL004',{amount_twd:'11000'},'pay-a'),m.record(a,'OBL004',{amount_twd:'11000'},'pay-b')]);expect(results.filter(r=>r.status==='fulfilled').length).toBe(1);const paid=await d.db.paymentRecord.findMany({where:{obligation_id:'OBL004'}});expect(paid.reduce((n,p)=>n+BigInt(p.amount_twd.toFixed(0)),0n)).toBe(16000n);});
+
+error: expect(received).toBe(expected)
+
+Expected: 1
+Received: 0
+
+      at <anonymous> (/Users/kuan/Library/Mobile Documents/com~apple~CloudDocs/ELearning/Rental/backend/tests/integration/payments.test.ts:3:513)
+(fail) overpayment and concurrent payments preserve nonnegative exact outstanding [143.03ms]
+1 | import {Injectable,ForbiddenException} from '@nestjs/common';import {Database} from '../Src/Infrastructure/database';import {Access,Actor} from '../Src/Infrastructure/access';import {SessionManager} from './session-manager';import type {RecordPaymentInput,ReversePaymentInput} from '../Src/Contracts/payment.contract';
+2 | @Injectable() export class PaymentsManager {constructor(private db:Database,private access:Access,private sessions:SessionManager){}async record(actor:Actor,id:string,input:RecordPaymentInput,key:string):Promise<any>{throw new ForbiddenException('Payment changes unavailable');}async reverse(actor:Actor,id:string,input:ReversePaymentInput,key:string):Promise<any>{throw new ForbiddenException('Payment changes unavailable');}}
+                                                                                                                                                                                                                                                                                                                                                                                       ^
+ForbiddenException: Payment changes unavailable
+ response: {
+  message: "Payment changes unavailable",
+  error: "Forbidden",
+  statusCode: 403,
+},
+   status: 403,
+  options: {},
+
+      at reverse (/Users/kuan/Library/Mobile Documents/com~apple~CloudDocs/ELearning/Rental/backend/Managers/payments-manager.ts:2:372)
+      at <anonymous> (/Users/kuan/Library/Mobile Documents/com~apple~CloudDocs/ELearning/Rental/backend/tests/integration/payments.test.ts:4:229)
+(fail) append-only reversal plus optional replacement is single and idempotent [137.68ms]
+1 | import {Injectable,ForbiddenException} from '@nestjs/common';import {Database} from '../Src/Infrastructure/database';import {Access,Actor} from '../Src/Infrastructure/access';import {SessionManager} from './session-manager';import type {RecordPaymentInput,ReversePaymentInput} from '../Src/Contracts/payment.contract';
+2 | @Injectable() export class PaymentsManager {constructor(private db:Database,private access:Access,private sessions:SessionManager){}async record(actor:Actor,id:string,input:RecordPaymentInput,key:string):Promise<any>{throw new ForbiddenException('Payment changes unavailable');}async reverse(actor:Actor,id:string,input:ReversePaymentInput,key:string):Promise<any>{throw new ForbiddenException('Payment changes unavailable');}}
+                                                                                                                                                                                                                                   ^
+ForbiddenException: Payment changes unavailable
+ response: {
+  message: "Payment changes unavailable",
+  error: "Forbidden",
+  statusCode: 403,
+},
+   status: 403,
+  options: {},
+
+      at record (/Users/kuan/Library/Mobile Documents/com~apple~CloudDocs/ELearning/Rental/backend/Managers/payments-manager.ts:2:224)
+      at <anonymous> (/Users/kuan/Library/Mobile Documents/com~apple~CloudDocs/ELearning/Rental/backend/tests/integration/payments.test.ts:5:181)
+(fail) same-key concurrent calls return one durable result and Viewer/outscope writes fail [134.83ms]
+(pass) late idempotency persistence failure rolls back payment and balance [127.64ms]
+
+ 1 pass
+ 4 fail
+ 5 expect() calls
+Ran 5 tests across 1 file. [895.00ms]

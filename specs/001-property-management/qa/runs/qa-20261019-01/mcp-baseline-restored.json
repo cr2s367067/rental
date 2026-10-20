@@ -1,0 +1,84 @@
+{
+  "roles": [
+    {
+      "role": "owner",
+      "page": 5,
+      "baseline_counts": {
+        "total_properties": 4,
+        "total_resources": 11,
+        "occupied_resources": 5,
+        "available_resources": 6,
+        "current_tenants": 6,
+        "upcoming_contract_starts": 1,
+        "upcoming_contract_ends": 1,
+        "unpaid_rent_periods": 5,
+        "contracts_expiring": 2,
+        "outstanding_twd": "74000",
+        "document_metadata_count": 15
+      },
+      "status": "PASS"
+    },
+    {
+      "role": "manager",
+      "page": 6,
+      "baseline_counts": {
+        "total_properties": 2,
+        "total_resources": 7,
+        "occupied_resources": 4,
+        "available_resources": 3,
+        "current_tenants": 5,
+        "upcoming_contract_starts": 1,
+        "upcoming_contract_ends": 1,
+        "unpaid_rent_periods": 4,
+        "contracts_expiring": 2,
+        "outstanding_twd": "63000",
+        "document_metadata_count": 11
+      },
+      "status": "PASS"
+    },
+    {
+      "role": "viewer",
+      "page": 7,
+      "baseline_counts": {
+        "total_properties": 1,
+        "total_resources": 4,
+        "occupied_resources": 3,
+        "available_resources": 1,
+        "current_tenants": 4,
+        "upcoming_contract_starts": 1,
+        "upcoming_contract_ends": 1,
+        "unpaid_rent_periods": 3,
+        "contracts_expiring": 2,
+        "outstanding_twd": "54000",
+        "document_metadata_count": 7
+      },
+      "status": "PASS"
+    }
+  ],
+  "obligations_payments_property": {
+    "obligations": 9,
+    "payments": 6,
+    "city": "Taipei",
+    "property_version": 1
+  },
+  "original_document_hashes": {
+    "DOC-C001": "a2a4699ad3a284654d0cdc7cb5e179fa981715c6c9b5cb9abaa09df203efcc72",
+    "DOC-C002": "d682500e0cb8a847799d9eb312d5b23ed1cddb9822bff8e323e7f60b845ae500",
+    "DOC-C003": "03589274c66d88373ba53021cbf50e80f1eab97ba11038caecf78afa42826aa0",
+    "DOC-C004": "f9cb066915773c54190284ca0bb9f9d9f48d1cdae21c0c961f79c3fcddf26ef4",
+    "DOC-C005": "dd102882a77309ffce3b1fe07224f36573d0d9e5edefa65e4ccb2eb972bc0798",
+    "DOC-C006": "4d6be7c2b6516fd14e31f4b28b0a76f779b2d40638bb4ec5c351222ffb7775ac",
+    "DOC-C007": "bc4a97317d175442eb09611d227c86ffc46bbb53d832b384b0df377b1270a759",
+    "DOC-C008": "15f2d052b4266607728ee0ab402cd5075bb9a4f067ac0cbc18b0865261e7e11b",
+    "DOC-C009": "f698e8284b3dc2ae9b13c3864d13c15119121f656c0e5cccdc41a55a9a5ec962",
+    "DOC-PAY001": "a12d4135675ce41acff000772d2c02099c38e5556caf39009bfeb8f68aa5d2e4",
+    "DOC-PAY002": "32f9edd14ff7bbe56cc2488d687845e9473bd820646dfc67ef71bec80b4c7092",
+    "DOC-PAY003": "a3ae12438d59595624802c96503a35220422c5cb7d7d0b72cb5be64778b9dd26",
+    "DOC-PAY004": "7b8224425feef593e45ef9d2b7bb21183cb62f7ac02a2e1e2cec11b3f9d9bf90",
+    "DOC-PAY005": "c073748a4edf8e5588512f3ee631bc991fe308658c27882cd9b48a644b63c4fd",
+    "DOC-PAY006": "60ec886a55f91eeb8141039666f67b94fa34d995a33a071e5bd1154749c28734"
+  },
+  "all15unchanged": true,
+  "owner_reset_invalidated_session": true,
+  "manager_viewer_logout_401": true
+}

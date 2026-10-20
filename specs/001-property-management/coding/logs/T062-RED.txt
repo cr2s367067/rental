@@ -1,0 +1,66 @@
+bun test v1.3.14 (0d9b296a)
+
+frontend/tests/contracts.vm.test.ts:
+1 | import {test,expect} from 'bun:test';import {ContractsVM} from '../VMs/contracts.vm';import {contractsService,type ContractsService} from '../Services/contracts.service';
+2 | const contract={id:'C1',contract_id:'C1',tenant_id:'T1',tenant_name:'Atomic',resource_id:'R1',resource_name:'Room',property_id:'P1',property_name:'House',start_date:'2026-10-19',end_date:'2027-10-19',effective_end_date:'2027-10-19',termination_date:null,status:'Active' as const,monthly_rent_twd:'10000',deposit_twd:'20000',due_day:1,primary_document_id:null,version:1};
+3 | test('atomic new-contact contract save refreshes occupancy/history queries',async()=>{let refreshed=0;const service:ContractsService={...contractsService,create:async()=>contract};const vm=new ContractsVM(service,async()=>{refreshed++;});expect(await vm.create({resource_id:'R1',new_tenant:{name:'Atomic'},start_date:'2026-10-19',end_date:'2027-10-19',monthly_rent_twd:'10000',deposit_twd:'20000',due_day:1})).toEqual(contract);expect(refreshed).toBe(1);});
+                                                                                                                                                                                                                                                                                                                                                                                                                              ^
+error: expect(received).toEqual(expected)
+
+- {
+-   "contract_id": "C1",
+-   "deposit_twd": "20000",
+-   "due_day": 1,
+-   "effective_end_date": "2027-10-19",
+-   "end_date": "2027-10-19",
+-   "id": "C1",
+-   "monthly_rent_twd": "10000",
+-   "primary_document_id": null,
+-   "property_id": "P1",
+-   "property_name": "House",
+-   "resource_id": "R1",
+-   "resource_name": "Room",
+-   "start_date": "2026-10-19",
+-   "status": "Active",
+-   "tenant_id": "T1",
+-   "tenant_name": "Atomic",
+-   "termination_date": null,
+-   "version": 1,
+- }
++ undefined
+
+- Expected  - 20
++ Received  + 1
+
+      at <anonymous> (/Users/kuan/Library/Mobile Documents/com~apple~CloudDocs/ELearning/Rental/frontend/tests/contracts.vm.test.ts:3:411)
+(fail) atomic new-contact contract save refreshes occupancy/history queries [0.42ms]
+1 | import {test,expect} from 'bun:test';import {ContractsVM} from '../VMs/contracts.vm';import {contractsService,type ContractsService} from '../Services/contracts.service';
+2 | const contract={id:'C1',contract_id:'C1',tenant_id:'T1',tenant_name:'Atomic',resource_id:'R1',resource_name:'Room',property_id:'P1',property_name:'House',start_date:'2026-10-19',end_date:'2027-10-19',effective_end_date:'2027-10-19',termination_date:null,status:'Active' as const,monthly_rent_twd:'10000',deposit_twd:'20000',due_day:1,primary_document_id:null,version:1};
+3 | test('atomic new-contact contract save refreshes occupancy/history queries',async()=>{let refreshed=0;const service:ContractsService={...contractsService,create:async()=>contract};const vm=new ContractsVM(service,async()=>{refreshed++;});expect(await vm.create({resource_id:'R1',new_tenant:{name:'Atomic'},start_date:'2026-10-19',end_date:'2027-10-19',monthly_rent_twd:'10000',deposit_twd:'20000',due_day:1})).toEqual(contract);expect(refreshed).toBe(1);});
+4 | test('upload denial keeps file/context and explains feedback',async()=>{const body={kind:'CONTRACT' as const,property_id:'P1',contract_id:'C1',file:new Blob(['demo'],{type:'text/plain'})};const vm=new ContractsVM({...contractsService,upload:async()=>{throw {message:'File contents do not match MIME type'};}},async()=>{});await vm.upload(body);expect(vm.error).toContain('MIME');expect(body.contract_id).toBe('C1');expect(body.file.size).toBe(4);});
+                                                                                                                                                                                                                                                                                                                                                                             ^
+error: expect(received).toContain(expected)
+
+Expected to contain: "MIME"
+Received: ""
+
+      at <anonymous> (/Users/kuan/Library/Mobile Documents/com~apple~CloudDocs/ELearning/Rental/frontend/tests/contracts.vm.test.ts:4:362)
+(fail) upload denial keeps file/context and explains feedback [0.38ms]
+1 | import {test,expect} from 'bun:test';import {ContractsVM} from '../VMs/contracts.vm';import {contractsService,type ContractsService} from '../Services/contracts.service';
+2 | const contract={id:'C1',contract_id:'C1',tenant_id:'T1',tenant_name:'Atomic',resource_id:'R1',resource_name:'Room',property_id:'P1',property_name:'House',start_date:'2026-10-19',end_date:'2027-10-19',effective_end_date:'2027-10-19',termination_date:null,status:'Active' as const,monthly_rent_twd:'10000',deposit_twd:'20000',due_day:1,primary_document_id:null,version:1};
+3 | test('atomic new-contact contract save refreshes occupancy/history queries',async()=>{let refreshed=0;const service:ContractsService={...contractsService,create:async()=>contract};const vm=new ContractsVM(service,async()=>{refreshed++;});expect(await vm.create({resource_id:'R1',new_tenant:{name:'Atomic'},start_date:'2026-10-19',end_date:'2027-10-19',monthly_rent_twd:'10000',deposit_twd:'20000',due_day:1})).toEqual(contract);expect(refreshed).toBe(1);});
+4 | test('upload denial keeps file/context and explains feedback',async()=>{const body={kind:'CONTRACT' as const,property_id:'P1',contract_id:'C1',file:new Blob(['demo'],{type:'text/plain'})};const vm=new ContractsVM({...contractsService,upload:async()=>{throw {message:'File contents do not match MIME type'};}},async()=>{});await vm.upload(body);expect(vm.error).toContain('MIME');expect(body.contract_id).toBe('C1');expect(body.file.size).toBe(4);});
+5 | test('binary download returns Blob through generated service without putting contents in query caches',async()=>{const blob=new Blob(['unchanged']);let refreshed=0;const vm=new ContractsVM({...contractsService,download:async()=>blob},async()=>{refreshed++;});expect(await vm.download('D1')).toBe(blob);expect(refreshed).toBe(0);});
+                                                                                                                                                                                                                                                                                                       ^
+error: expect(received).toBe(expected)
+
+Expected: Blob (9 bytes)
+Received: undefined
+
+      at <anonymous> (/Users/kuan/Library/Mobile Documents/com~apple~CloudDocs/ELearning/Rental/frontend/tests/contracts.vm.test.ts:5:292)
+(fail) binary download returns Blob through generated service without putting contents in query caches [0.52ms]
+
+ 0 pass
+ 3 fail
+ 3 expect() calls
+Ran 3 tests across 1 file. [19.00ms]

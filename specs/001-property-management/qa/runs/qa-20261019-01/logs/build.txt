@@ -1,0 +1,14 @@
+$ bun run --filter backend build && bun run --filter frontend build
+backend build: Exited with code 0
+frontend build: vite v7.2.2 building client environment for production...
+frontend build: (node:96717) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+frontend build: (Use `node --trace-deprecation ...` to show where the warning was created)
+frontend build: transforming...
+frontend build: ✓ 1919 modules transformed.
+frontend build: rendering chunks...
+frontend build: computing gzip size...
+frontend build: dist/index.html                   0.47 kB │ gzip:   0.30 kB
+frontend build: dist/assets/index-Bbx3gI1K.css   18.02 kB │ gzip:   4.75 kB
+frontend build: dist/assets/index-8QOxF4Cr.js   455.17 kB │ gzip: 136.33 kB
+frontend build: ✓ built in 1.28s
+frontend build: Exited with code 0

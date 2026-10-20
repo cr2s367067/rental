@@ -1,0 +1,65 @@
+{
+  "timestamp": "2026-10-19T14:37:38.480Z",
+  "url": "http://localhost:5173",
+  "results": [
+    {
+      "role": "owner",
+      "dashboard": 200,
+      "counts": {
+        "total_properties": 4,
+        "total_resources": 11,
+        "occupied_resources": 5,
+        "available_resources": 6,
+        "current_tenants": 6,
+        "upcoming_contract_starts": 1,
+        "upcoming_contract_ends": 1,
+        "unpaid_rent_periods": 5,
+        "contracts_expiring": 2,
+        "outstanding_twd": "74000",
+        "document_metadata_count": 15
+      },
+      "document": 200,
+      "sha256": "a2a4699ad3a284654d0cdc7cb5e179fa981715c6c9b5cb9abaa09df203efcc72",
+      "logout": 200
+    },
+    {
+      "role": "manager",
+      "dashboard": 200,
+      "counts": {
+        "total_properties": 2,
+        "total_resources": 7,
+        "occupied_resources": 4,
+        "available_resources": 3,
+        "current_tenants": 5,
+        "upcoming_contract_starts": 1,
+        "upcoming_contract_ends": 1,
+        "unpaid_rent_periods": 4,
+        "contracts_expiring": 2,
+        "outstanding_twd": "63000",
+        "document_metadata_count": 11
+      },
+      "document": 200,
+      "sha256": "a2a4699ad3a284654d0cdc7cb5e179fa981715c6c9b5cb9abaa09df203efcc72",
+      "logout": 200
+    },
+    {
+      "role": "viewer",
+      "dashboard": 200,
+      "counts": {
+        "total_properties": 1,
+        "total_resources": 4,
+        "occupied_resources": 3,
+        "available_resources": 1,
+        "current_tenants": 4,
+        "upcoming_contract_starts": 1,
+        "upcoming_contract_ends": 1,
+        "unpaid_rent_periods": 3,
+        "contracts_expiring": 2,
+        "outstanding_twd": "54000",
+        "document_metadata_count": 7
+      },
+      "document": 403,
+      "logout": 200
+    }
+  ]
+}

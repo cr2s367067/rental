@@ -1,0 +1,55 @@
+bun test v1.3.14 (0d9b296a)
+
+backend/tests/integration/demo-fixtures.test.ts:
+ 5 | import type { Actor } from './access';
+ 6 | @Injectable()
+ 7 | export class DemoFixtures {
+ 8 |   constructor(private db: Database, private config: Config, private store: TemporaryStore) {}
+ 9 |   async run(_actor?: Actor): Promise<{ok:boolean}> {
+10 |     throw new NotImplementedException('Explicit fixture loader is unavailable');
+               ^
+NotImplementedException: Explicit fixture loader is unavailable
+ response: {
+  message: "Explicit fixture loader is unavailable",
+  error: "Not Implemented",
+  statusCode: 501,
+},
+   status: 501,
+  options: {},
+
+      at run (/Users/kuan/Library/Mobile Documents/com~apple~CloudDocs/ELearning/Rental/backend/Src/Infrastructure/demo-fixtures.ts:10:11)
+      at <anonymous> (/Users/kuan/Library/Mobile Documents/com~apple~CloudDocs/ELearning/Rental/backend/tests/integration/demo-fixtures.test.ts:17:27)
+(fail) explicit loader reimports twice: stable IDs, hashes, credential verification and durable seeded request replay [248.66ms]
+27 |   expect((await api.request('/obligations/'+payment.obligation_id+'/payments',{...headers,'idempotency-key':payment.request_key},'POST',{amount_twd:'1'})).status).toBe(409);
+28 | });
+29 | test('Owner reset restores all role golden API counts and invalidates every previous session',async()=>{
+30 |   const headers=await api.login();const manager=await api.login('manager@example.test');
+31 |   await api.request('/demo/context',headers,'PATCH',{business_date:'2026-11-01'});
+32 |   expect((await api.request('/demo/reset',headers,'POST')).status).toBe(201);
+                                                                        ^
+error: expect(received).toBe(expected)
+
+Expected: 201
+Received: 501
+
+      at <anonymous> (/Users/kuan/Library/Mobile Documents/com~apple~CloudDocs/ELearning/Rental/backend/tests/integration/demo-fixtures.test.ts:32:68)
+(fail) Owner reset restores all role golden API counts and invalidates every previous session [297.82ms]
+36 |     expect((await api.request('/demo/context',h)).body.business_date).toBe('2026-10-19');
+37 |   }
+38 | });
+39 | test('Manager/Viewer reset denied; unsafe environments refuse before mutating durable records',async()=>{
+40 |   for(const role of ['manager','viewer']) expect((await api.request('/demo/reset',await api.login(role+'@example.test'),'POST')).status).toBe(403);
+41 |   for(const overrides of [{demo:false},{isolated:false},{environment:'production'},{demoDatabase:'unrelated'},{databaseURL:'postgresql://rental@localhost/unrelated'}]) await expect(loader(overrides).run()).rejects.toThrow('isolated demo');
+                                                                                                                                                                                                                           ^
+error: expect(received).toThrow(expected)
+
+Expected substring: "isolated demo"
+Received message: "Explicit fixture loader is unavailable"
+
+      at <anonymous> (/Users/kuan/Library/Mobile Documents/com~apple~CloudDocs/ELearning/Rental/backend/tests/integration/demo-fixtures.test.ts:41:215)
+(fail) Manager/Viewer reset denied; unsafe environments refuse before mutating durable records [271.80ms]
+
+ 0 pass
+ 3 fail
+ 4 expect() calls
+Ran 3 tests across 1 file. [1.66s]

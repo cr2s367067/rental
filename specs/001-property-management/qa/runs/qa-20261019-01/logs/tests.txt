@@ -1,0 +1,185 @@
+$ bun test backend/tests && bun test --preload ./frontend/tests/setup.ts frontend/tests
+bun test v1.3.14 (0d9b296a)
+
+backend/tests/unit/tenants-manager.test.ts:
+(pass) Owner creates unassigned contacts; Manager edits visible contact but cannot create orphan [276.26ms]
+(pass) unassigned and outscope contacts stay protected and invalid input rolls back [150.36ms]
+
+backend/tests/unit/stays-manager.test.ts:
+(pass) contract projection preserves current/upcoming/ended history and exclusive boundaries [207.42ms]
+(pass) future termination leaves current occupancy until effective end; prestart cancellation occupies none [165.86ms]
+
+backend/tests/unit/payments-manager.test.ts:
+(pass) all nine policy payment states exactly match independent golden results [174.61ms]
+(pass) Overdue beats partial only after due day; reversal/replacement net stays exact [134.64ms]
+(pass) explicit manual partial obligation persists values and duplicate periods fail [160.70ms]
+
+backend/tests/unit/properties-manager.test.ts:
+(pass) Owner saves and reopens property/resource; Manager edits scoped details [227.31ms]
+(pass) invalid capacity/mode/scope edits preserve prior records [145.82ms]
+(pass) availability is start-inclusive/end-exclusive contract projection with shared slots [147.67ms]
+
+backend/tests/unit/transport-boundaries.test.ts:
+(pass) non-ASCII incorrect CSRF token is403 rather than a byte-length exception [0.09ms]
+(pass) a whitespace-only filename is rejected as unusable metadata [0.13ms]
+
+backend/tests/unit/contracts-manager.test.ts:
+(pass) classification precedence covers start/end/30day boundary and future/effective termination [168.31ms]
+(pass) Manager new contact and first scoped contract commit atomically [159.30ms]
+(pass) failed or outscope first contracts leave no orphan contacts [146.19ms]
+
+backend/tests/contract/openapi.test.ts:
+(pass) OpenAPI documents anonymous login and cookie plus CSRF security for authenticated mutations [0.15ms]
+(pass) registered domain operations retain standard errors, payment intent headers and read-only occupancy [0.18ms]
+
+backend/tests/integration/occupancy-http.test.ts:
+(pass) persisted occupancy, exclusive end and concurrent capacity edits preserve shared room [379.75ms]
+
+backend/tests/integration/access.test.ts:
+(pass) valid credentials create an opaque Redis session with persisted role and grants [191.02ms]
+(pass) invalid credentials and stale/disabled sessions fail [257.33ms]
+(pass) Owner, Manager and Viewer checks use server scope [130.39ms]
+
+backend/tests/integration/contract-capacity.test.ts:
+(pass) event sweep permits sequential commitments but rejects true duplicate tenant overlap [239.05ms]
+(pass) contract creation versus capacity reduction uses the same resource transaction lock [197.02ms]
+(pass) simultaneous first contracts at capacity1 commit only one contact and contract [149.28ms]
+(pass) reassignment/termination version conflicts retain valid intervals and document relationships [178.75ms]
+
+backend/tests/integration/documents.test.ts:
+(pass) metadata/BYTEA save atomically, associated primary contract and exact retrieval survive reopen [189.84ms]
+(pass) all baseline document contents have exact SHA256; Viewer sees metadata only [199.80ms]
+(pass) invalid/oversized/spoofed/inconsistent uploads preserve metadata and contents [159.12ms]
+(pass) approved PNG/JPEG/PDF and exact 10MiB text are accepted; spoofed image headers fail [445.06ms]
+(pass) late PostgreSQL content insertion failure rolls back document metadata [146.29ms]
+
+backend/tests/integration/users-http.test.ts:
+(pass) registered user/ownership/date routes enforce Owner versus scoped roles [501.21ms]
+
+backend/tests/integration/demo-fixtures.test.ts:
+(pass) explicit loader reimports twice: stable IDs, hashes, credential verification and durable seeded request replay [699.88ms]
+(pass) Owner reset restores all role golden API counts and invalidates every previous session [779.65ms]
+(pass) Manager/Viewer reset denied; unsafe environments refuse before mutating durable records [259.56ms]
+
+backend/tests/integration/occupancy.test.ts:
+(pass) persisted contract projection and concurrent capacity writes preserve shared room [218.41ms]
+
+backend/tests/integration/http-boundary.test.ts:
+(pass) HTTP session cookie security, invalid fields, origin/CSRF, logout and safe errors [272.52ms]
+(pass) HTTP login and principal limits return429 with Retry-After [1009.91ms]
+
+backend/tests/integration/dashboard-http.test.ts:
+(pass) registered dashboard keeps HTTP role/date scope and all drill totals consistent before pagination [829.59ms]
+
+backend/tests/integration/dashboard.test.ts:
+(pass) U001 metrics match golden counts and complete paginated drill record IDs [324.77ms]
+(pass) U002 metrics match golden counts and complete paginated drill record IDs [272.47ms]
+(pass) U003 metrics match golden counts and complete paginated drill record IDs [237.06ms]
+(pass) property/date boundaries and forbidden scope reuse the same definitions [155.33ms]
+(pass) empty permitted scope returns real zeros and nine usable drill filters [134.38ms]
+(pass) concurrent payment refresh returns complete before/after snapshots then matching records [174.17ms]
+
+backend/tests/integration/transport.test.ts:
+(pass) mutations require exact Origin and session CSRF token [0.12ms]
+(pass) Redis rate windows implement login10 and authenticated120 with Retry-After [99.64ms]
+(pass) safe errors contain actionable status without raw payload [0.08ms]
+
+backend/tests/integration/properties.test.ts:
+(pass) property/resource routes persist, validate and enforce scoped role fields [497.29ms]
+
+backend/tests/integration/tenants-http.test.ts:
+(pass) contact routes validate and enforce Owner standalone/Manager scoped edits/Viewer reads [472.78ms]
+
+backend/tests/integration/users-roles.test.ts:
+(pass) Owner creates users, grants scope, role/password/grant changes invalidate sessions [385.75ms]
+(pass) Manager/Viewer cannot escalate or grant/assign ownership; last/owning Owner protected [154.27ms]
+(pass) owner assignment and demotion serialize on shared administration lock [288.22ms]
+(pass) concurrent Owner demotions cannot remove every enabled Owner [232.63ms]
+
+backend/tests/integration/contracts-http.test.ts:
+(pass) contract HTTP XOR/nested validation, scoped atomic creation, versions and termination [524.40ms]
+(pass) multipart uploads enforce contents/limits/relationship scope and download unchanged bytes [334.01ms]
+
+backend/tests/integration/payments.test.ts:
+(pass) identical requests replay original result; changed payload conflicts without extra payment [158.35ms]
+(pass) overpayment and concurrent payments preserve nonnegative exact outstanding [161.32ms]
+(pass) append-only reversal plus optional replacement is single and idempotent [174.75ms]
+(pass) same-key concurrent calls return one durable result and Viewer/outscope writes fail [143.83ms]
+(pass) late idempotency persistence failure rolls back payment and balance [143.45ms]
+
+backend/tests/integration/payments-http.test.ts:
+(pass) scoped exact billing HTTP supports explicit periods, safe retries and append-only corrections [629.77ms]
+
+backend/tests/integration/null-input.test.ts:
+(pass) nonnullable optional PATCH fields reject null without mutation; documented nullable links/contacts remain allowed [403.73ms]
+(pass) whitespace-only account names fail before creating or changing a user [216.46ms]
+
+backend/tests/operations/recovery.test.ts:
+{"recovery":"PASS","timestamp":"2026-10-19T14:44:29.491Z","fresh_migrations":2,"counts":[3,4,11,10,9,9,6,15,6],"bytea_files":15,"reimport_ms":393,"budget_ms":300000}
+(pass) fresh migrations, one isolated backup/restore and explicit reimport recover relationships and BYTEA [1915.68ms]
+
+ 64 pass
+ 0 fail
+ 1272 expect() calls
+Ran 64 tests across 26 files. [24.92s]
+bun test v1.3.14 (0d9b296a)
+
+frontend/tests/contracts.vm.test.ts:
+(pass) atomic new-contact contract save refreshes occupancy/history queries [0.28ms]
+(pass) upload denial keeps file/context and explains feedback [0.33ms]
+(pass) binary download returns Blob through generated service without putting contents in query caches [0.08ms]
+
+frontend/tests/shell.test.tsx:
+(pass) shell exposes navigation, Taiwan demo date, theme controls and role scope [27.15ms]
+
+frontend/tests/properties.query.test.tsx:
+(pass) property query exposes loading then an empty scoped list [60.64ms]
+(pass) property detail query exposes access errors without inventing a record [55.62ms]
+
+frontend/tests/application.test.tsx:
+(pass) application starts a session check before protected navigation [3.80ms]
+
+frontend/tests/shared.test.tsx:
+(pass) responsive table keeps labeled headings and status meaning beyond color [3.81ms]
+(pass) accessible dialog labels and close action remain available [13.79ms]
+(pass) select field has an exact accessible label independent of option text [1.00ms]
+
+frontend/tests/users.vm.test.ts:
+(pass) role creation uses injected generated service and invalidates server context [0.77ms]
+(pass) denied/conflicting grants show actionable error and retain input [0.10ms]
+
+frontend/tests/stays.vm.test.ts:
+(pass) contact update refreshes scoped history and resource queries [0.11ms]
+(pass) outscope/invalid contact error retains form input [0.06ms]
+
+frontend/tests/theme.vm.test.ts:
+(pass) system follows media changes, manual persists and return visit restores [0.16ms]
+(pass) invalid or unavailable storage falls back safely and permits manual choice [0.10ms]
+
+frontend/tests/money.test.ts:
+(pass) whole TWD display preserves every integer digit without float arithmetic [1.18ms]
+
+frontend/tests/dashboard.vm.test.tsx:
+(pass) metric links preserve server count and identical date/property/filter context [0.13ms]
+(pass) dashboard VM exposes loading, data and scope changes through injected generated service [56.21ms]
+(pass) dashboard VM keeps empty zeros and error state explicit [109.09ms]
+
+frontend/tests/payments.vm.test.ts:
+(pass) payment intent key is stable through the request and duplicate pending clicks do not send twice [0.70ms]
+(pass) overpayment conflict retains input and correction failure remains actionable [0.31ms]
+
+frontend/tests/session.test.tsx:
+(pass) session VM checks saved session and handles sign-in/sign-out [174.45ms]
+(pass) session failure renders signed-out and preserves actionable login error [130.68ms]
+
+frontend/tests/properties.vm.test.ts:
+(pass) property save returns result and refreshes related server data [0.62ms]
+(pass) capacity conflict retains form values and actionable feedback [0.31ms]
+
+frontend/tests/pagination.test.tsx:
+(pass) disabled pagination cannot navigate away; enabled links retain date and property filters [10.85ms]
+
+ 27 pass
+ 0 fail
+ 87 expect() calls
+Ran 27 tests across 14 files. [1050.00ms]

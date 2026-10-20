@@ -1,0 +1,42 @@
+bun test v1.3.14 (0d9b296a)
+
+backend/tests/unit/properties-manager.test.ts:
+3 | export class PropertiesManager {
+4 |  constructor(private db:Database,private access:Access,private sessions:SessionManager,private records:RecordsManager){}
+5 |  async list(actor:Actor,query:ListQuery):Promise<any>{return {items:[],total:0};}
+6 |  async get(actor:Actor,id:string,query:ListQuery):Promise<any>{throw new ForbiddenException('Property unavailable');}
+7 |  async resources(actor:Actor,query:ListQuery):Promise<any>{return {items:[],total:0};}
+8 |  async create(actor:Actor,input:CreatePropertyInput):Promise<any>{throw new ForbiddenException('Property changes unavailable');}
+                                                                            ^
+ForbiddenException: Property changes unavailable
+ response: {
+  message: "Property changes unavailable",
+  error: "Forbidden",
+  statusCode: 403,
+},
+   status: 403,
+  options: {},
+
+      at create (/Users/kuan/Library/Mobile Documents/com~apple~CloudDocs/ELearning/Rental/backend/Managers/properties-manager.ts:8:73)
+      at <anonymous> (/Users/kuan/Library/Mobile Documents/com~apple~CloudDocs/ELearning/Rental/backend/tests/unit/properties-manager.test.ts:4:158)
+(fail) Owner saves and reopens property/resource; Manager edits scoped details [279.11ms]
+(pass) invalid capacity/mode/scope edits preserve prior records [146.05ms]
+1 | import {RecordsManager} from '../../Managers/records-manager';
+2 | import {test,expect,beforeEach,afterAll} from 'bun:test';import {fixtures,db} from '../fixtures';import {Database} from '../../Src/Infrastructure/database';import {TemporaryStore} from '../../Src/Infrastructure/redis';import {Config} from '../../Src/Infrastructure/config';import {Access} from '../../Src/Infrastructure/access';import {SessionManager} from '../../Managers/session-manager';import {PropertiesManager} from '../../Managers/properties-manager';import {ListQuery} from '../../Src/Contracts/common.contract';
+3 | const config=new Config(),store=new TemporaryStore(config),access=new Access(db as Database,store),sessions=new SessionManager(db as Database,access,config),manager=new PropertiesManager(db as Database,access,sessions,new RecordsManager(db as Database,access,sessions));beforeEach(fixtures);afterAll(async()=>{await store.onModuleDestroy();await db.$disconnect();});
+4 | test('Owner saves and reopens property/resource; Manager edits scoped details',async()=>{const owner=await access.actor('U001');const property=await manager.create(owner,{name:'Demo property',city:'Taipei',address:'DEMO',owner_user_id:'U001',rental_mode:'ROOMS'});const resource=await manager.createResource(owner,property.id,{name:'Room 1',kind:'ROOM',capacity:2});const reopened=await manager.get(owner,property.id,new ListQuery());expect(reopened.resources[0].id).toBe(resource.id);await manager.update(await access.actor('U002'),'P001',{version:1,name:'Edited'});expect((await manager.get(owner,'P001',new ListQuery())).name).toBe('Edited');});
+5 | test('invalid capacity/mode/scope edits preserve prior records',async()=>{const owner=await access.actor('U001');await expect(manager.updateResource(owner,'R104',{version:1,capacity:1})).rejects.toThrow();expect((await db.resource.findUniqueOrThrow({where:{id:'R104'}})).capacity).toBe(2);await expect(manager.createResource(owner,'P004',{name:'Room',kind:'ROOM',capacity:1})).rejects.toThrow();await expect(manager.update(await access.actor('U002'),'P003',{version:1,name:'Denied'})).rejects.toThrow();await expect(manager.update(await access.actor('U002'),'P001',{version:1,rental_mode:'WHOLE_PROPERTY'})).rejects.toThrow();expect((await db.property.findUniqueOrThrow({where:{id:'P003'}})).name).toBe('Demo Kaohsiung House');});
+6 | test('availability is start-inclusive/end-exclusive contract projection with shared slots',async()=>{const owner=await access.actor('U001');const resources=await manager.resources(owner,new ListQuery());expect(resources.total).toBe(11);const shared=resources.items.find((r:any)=>r.id==='R104');expect(shared.current_count).toBe(2);expect(shared.available_slots).toBe(0);const q=Object.assign(new ListQuery(),{business_date:'2026-10-24'});expect((await manager.resources(owner,q)).items.find((r:any)=>r.id==='R104').current_count).toBe(1);});
+
+error: expect(received).toBe(expected)
+
+Expected: 11
+Received: 0
+
+      at <anonymous> (/Users/kuan/Library/Mobile Documents/com~apple~CloudDocs/ELearning/Rental/backend/tests/unit/properties-manager.test.ts:6:228)
+(fail) availability is start-inclusive/end-exclusive contract projection with shared slots [141.33ms]
+
+ 1 pass
+ 2 fail
+ 7 expect() calls
+Ran 3 tests across 1 file. [1087.00ms]

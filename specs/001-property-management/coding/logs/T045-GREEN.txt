@@ -1,0 +1,10 @@
+bun test v1.3.14 (0d9b296a)
+
+backend/tests/unit/tenants-manager.test.ts:
+(pass) Owner creates unassigned contacts; Manager edits visible contact but cannot create orphan [244.62ms]
+(pass) unassigned and outscope contacts stay protected and invalid input rolls back [140.76ms]
+
+ 2 pass
+ 0 fail
+ 8 expect() calls
+Ran 2 tests across 1 file. [749.00ms]

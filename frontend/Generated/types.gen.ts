@@ -4,6 +4,250 @@ export type ClientOptions = {
     baseUrl: string;
 };
 
+export type DashboardCounts = {
+    total_properties: number;
+    total_resources: number;
+    occupied_resources: number;
+    available_resources: number;
+    current_tenants: number;
+    upcoming_contract_starts: number;
+    upcoming_contract_ends: number;
+    unpaid_rent_periods: number;
+    contracts_expiring: number;
+    outstanding_twd: string;
+    document_metadata_count: number;
+};
+
+export type DrillQuery = {
+    business_date: string;
+    metric: 'total_properties' | 'total_resources' | 'occupied_resources' | 'available_resources' | 'current_tenants' | 'upcoming_contract_starts' | 'upcoming_contract_ends' | 'unpaid_rent_periods' | 'contracts_expiring';
+    property_id?: string;
+};
+
+export type DashboardMetric = {
+    key: 'total_properties' | 'total_resources' | 'occupied_resources' | 'available_resources' | 'current_tenants' | 'upcoming_contract_starts' | 'upcoming_contract_ends' | 'unpaid_rent_periods' | 'contracts_expiring';
+    label: string;
+    description: string;
+    count: number;
+    /**
+     * Frontend route; the generated SDK uses the corresponding domain API operation
+     */
+    path: '/properties' | '/resources' | '/tenants' | '/stays' | '/payments' | '/contracts';
+    query: DrillQuery;
+};
+
+export type DashboardView = {
+    business_date: string;
+    timezone: string;
+    property_id: string | null;
+    counts: DashboardCounts;
+    metrics: Array<DashboardMetric>;
+};
+
+export type PaymentView = {
+    id: string;
+    obligation_id: string;
+    amount_twd: string;
+    kind: 'PAYMENT' | 'REVERSAL';
+    reverses_payment_id: string | null;
+    reversal_id: string | null;
+    recorded_at: string;
+};
+
+export type ObligationView = {
+    id: string;
+    contract_id: string;
+    tenant_id: string;
+    tenant_name: string;
+    resource_id: string;
+    resource_name: string;
+    property_id: string;
+    property_name: string;
+    period_start: string;
+    period_end: string;
+    due_date: string;
+    entry_mode: 'FULL_MONTH' | 'MANUAL_PARTIAL_PERIOD';
+    amount_due_twd: string;
+    amount_paid_twd: string;
+    outstanding_twd: string;
+    status: 'Paid' | 'Overdue' | 'Partial Payment' | 'Unpaid';
+    is_partial: boolean;
+    payments: Array<PaymentView>;
+};
+
+export type ObligationList = {
+    total: number;
+    page: number;
+    page_size: number;
+    business_date: string;
+    items: Array<ObligationView>;
+};
+
+export type CreateObligationInput = {
+    period_start: string;
+    period_end: string;
+    due_date: string;
+    amount_due_twd: string;
+    entry_mode: 'FULL_MONTH' | 'MANUAL_PARTIAL_PERIOD';
+};
+
+export type RecordPaymentInput = {
+    amount_twd: string;
+};
+
+export type ReversePaymentInput = {
+    replacement_amount_twd?: string;
+};
+
+export type PaymentAdjustmentView = {
+    reversal: PaymentView;
+    replacement: PaymentView | null;
+};
+
+export type ContractView = {
+    id: string;
+    contract_id: string;
+    tenant_id: string;
+    tenant_name: string;
+    resource_id: string;
+    resource_name: string;
+    property_id: string;
+    property_name: string;
+    start_date: string;
+    end_date: string;
+    effective_end_date: string;
+    termination_date: string | null;
+    status: 'Upcoming' | 'Active' | 'Expiring Soon' | 'Expired' | 'Terminated';
+    monthly_rent_twd: string;
+    deposit_twd: string;
+    due_day: number;
+    primary_document_id: string | null;
+    version: number;
+};
+
+export type ContractList = {
+    total: number;
+    page: number;
+    page_size: number;
+    business_date: string;
+    items: Array<ContractView>;
+};
+
+export type CreateTenantInput = {
+    name: string;
+    email?: string | null;
+    phone?: string | null;
+};
+
+export type CreateContractInput = {
+    start_date: string;
+    end_date: string;
+    monthly_rent_twd: string;
+    deposit_twd: string;
+    due_day: number;
+    primary_document_id?: string | null;
+    resource_id: string;
+    tenant_id?: string;
+    new_tenant?: CreateTenantInput;
+};
+
+export type UpdateContractInput = {
+    start_date?: string;
+    end_date?: string;
+    monthly_rent_twd?: string;
+    deposit_twd?: string;
+    due_day?: number;
+    primary_document_id?: string | null;
+    version: number;
+    resource_id?: string;
+    tenant_id?: string;
+};
+
+export type TerminationInput = {
+    version: number;
+    termination_date: string;
+};
+
+export type DocumentView = {
+    id: string;
+    kind: string;
+    property_id: string;
+    tenant_id: string | null;
+    contract_id: string | null;
+    payment_id: string | null;
+    file_name: string;
+    file_type: string;
+    mime_type: string;
+    size_bytes: number;
+    uploaded_at: string;
+    sha256: string;
+};
+
+export type DocumentList = {
+    total: number;
+    page: number;
+    page_size: number;
+    business_date: string;
+    items: Array<DocumentView>;
+};
+
+export type UploadDocumentInput = {
+    kind: 'CONTRACT' | 'TENANT' | 'RECEIPT' | 'PROPERTY';
+    property_id: string;
+    contract_id?: string;
+    tenant_id?: string;
+    payment_id?: string;
+    file: Blob | File;
+};
+
+export type StayView = {
+    id: string;
+    contract_id: string;
+    tenant_id: string;
+    tenant_name: string;
+    resource_id: string;
+    resource_name: string;
+    property_id: string;
+    property_name: string;
+    start_date: string;
+    end_date: string;
+    effective_end_date: string;
+    termination_date: string | null;
+    status: 'Current' | 'Upcoming' | 'Ended';
+};
+
+export type TenantView = {
+    id: string;
+    name: string;
+    email: string | null;
+    phone: string | null;
+    version: number;
+    contracts: Array<StayView>;
+};
+
+export type TenantList = {
+    total: number;
+    page: number;
+    page_size: number;
+    business_date: string;
+    items: Array<TenantView>;
+};
+
+export type UpdateTenantInput = {
+    name?: string;
+    email?: string | null;
+    phone?: string | null;
+    version: number;
+};
+
+export type StayList = {
+    total: number;
+    page: number;
+    page_size: number;
+    business_date: string;
+    items: Array<StayView>;
+};
+
 export type LoginInput = {
     email: string;
 };
@@ -99,6 +343,83 @@ export type DemoDateInput = {
     business_date: string;
 };
 
+export type OccupantView = {
+    contract_id: string;
+    tenant_id: string;
+    tenant_name: string;
+};
+
+export type ResourceView = {
+    id: string;
+    property_id: string;
+    property_name: string;
+    name: string;
+    kind: 'ROOM' | 'WHOLE_PROPERTY';
+    capacity: number;
+    version: number;
+    current_count: number;
+    available_slots: number;
+    available: boolean;
+    occupants: Array<OccupantView>;
+};
+
+export type PropertyView = {
+    id: string;
+    name: string;
+    city: string;
+    address: string;
+    owner_user_id: string;
+    owner_name: string;
+    rental_mode: 'ROOMS' | 'WHOLE_PROPERTY';
+    version: number;
+    resources: Array<ResourceView>;
+};
+
+export type PropertyList = {
+    total: number;
+    page: number;
+    page_size: number;
+    business_date: string;
+    items: Array<PropertyView>;
+};
+
+export type CreatePropertyInput = {
+    name: string;
+    city: string;
+    address: string;
+    owner_user_id: string;
+    rental_mode: 'ROOMS' | 'WHOLE_PROPERTY';
+};
+
+export type UpdatePropertyInput = {
+    name?: string;
+    city?: string;
+    address?: string;
+    owner_user_id?: string;
+    rental_mode?: 'ROOMS' | 'WHOLE_PROPERTY';
+    version: number;
+};
+
+export type ResourceList = {
+    total: number;
+    page: number;
+    page_size: number;
+    business_date: string;
+    items: Array<ResourceView>;
+};
+
+export type CreateResourceInput = {
+    name: string;
+    kind: 'ROOM' | 'WHOLE_PROPERTY';
+    capacity: number;
+};
+
+export type UpdateResourceInput = {
+    name?: string;
+    capacity?: number;
+    version: number;
+};
+
 export type LoginInputWritable = {
     email: string;
     password: string;
@@ -111,6 +432,1658 @@ export type CreateUserInputWritable = {
     enabled: boolean;
     password: string;
 };
+
+export type GetDashboardData = {
+    body?: never;
+    path?: never;
+    query?: {
+        property_id?: string;
+        business_date?: string;
+    };
+    url: '/api/dashboard';
+};
+
+export type GetDashboardErrors = {
+    /**
+     * Malformed request
+     */
+    400: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Session expired
+     */
+    401: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Access denied
+     */
+    403: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Record not found
+     */
+    404: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Conflicting change
+     */
+    409: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Upload too large
+     */
+    413: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Unsupported content
+     */
+    415: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Invalid business fields
+     */
+    422: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Rate limit
+     */
+    429: {
+        status_code: number;
+        message: string;
+    };
+};
+
+export type GetDashboardError = GetDashboardErrors[keyof GetDashboardErrors];
+
+export type GetDashboardResponses = {
+    200: DashboardView;
+};
+
+export type GetDashboardResponse = GetDashboardResponses[keyof GetDashboardResponses];
+
+export type ListAllObligationsData = {
+    body?: never;
+    path?: never;
+    query?: {
+        page?: number;
+        page_size?: number;
+        property_id?: string;
+        business_date?: string;
+        tenant_id?: string;
+        resource_id?: string;
+        contract_id?: string;
+        metric?: 'total_properties' | 'total_resources' | 'occupied_resources' | 'available_resources' | 'current_tenants' | 'upcoming_contract_starts' | 'upcoming_contract_ends' | 'unpaid_rent_periods' | 'contracts_expiring';
+        status?: 'Paid' | 'Overdue' | 'Partial Payment' | 'Unpaid';
+    };
+    url: '/api/obligations';
+};
+
+export type ListAllObligationsErrors = {
+    /**
+     * Malformed request
+     */
+    400: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Session expired
+     */
+    401: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Access denied
+     */
+    403: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Record not found
+     */
+    404: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Conflicting change
+     */
+    409: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Upload too large
+     */
+    413: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Unsupported content
+     */
+    415: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Invalid business fields
+     */
+    422: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Rate limit
+     */
+    429: {
+        status_code: number;
+        message: string;
+    };
+};
+
+export type ListAllObligationsError = ListAllObligationsErrors[keyof ListAllObligationsErrors];
+
+export type ListAllObligationsResponses = {
+    200: ObligationList;
+};
+
+export type ListAllObligationsResponse = ListAllObligationsResponses[keyof ListAllObligationsResponses];
+
+export type ListObligationsData = {
+    body?: never;
+    path: {
+        id: string;
+    };
+    query?: {
+        page?: number;
+        page_size?: number;
+        property_id?: string;
+        business_date?: string;
+        tenant_id?: string;
+        resource_id?: string;
+        contract_id?: string;
+        metric?: 'total_properties' | 'total_resources' | 'occupied_resources' | 'available_resources' | 'current_tenants' | 'upcoming_contract_starts' | 'upcoming_contract_ends' | 'unpaid_rent_periods' | 'contracts_expiring';
+        status?: 'Paid' | 'Overdue' | 'Partial Payment' | 'Unpaid';
+    };
+    url: '/api/contracts/{id}/obligations';
+};
+
+export type ListObligationsErrors = {
+    /**
+     * Malformed request
+     */
+    400: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Session expired
+     */
+    401: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Access denied
+     */
+    403: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Record not found
+     */
+    404: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Conflicting change
+     */
+    409: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Upload too large
+     */
+    413: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Unsupported content
+     */
+    415: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Invalid business fields
+     */
+    422: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Rate limit
+     */
+    429: {
+        status_code: number;
+        message: string;
+    };
+};
+
+export type ListObligationsError = ListObligationsErrors[keyof ListObligationsErrors];
+
+export type ListObligationsResponses = {
+    200: ObligationList;
+};
+
+export type ListObligationsResponse = ListObligationsResponses[keyof ListObligationsResponses];
+
+export type CreateObligationData = {
+    body: CreateObligationInput;
+    path: {
+        id: string;
+    };
+    query?: never;
+    url: '/api/contracts/{id}/obligations';
+};
+
+export type CreateObligationErrors = {
+    /**
+     * Malformed request
+     */
+    400: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Session expired
+     */
+    401: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Access denied
+     */
+    403: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Record not found
+     */
+    404: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Conflicting change
+     */
+    409: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Upload too large
+     */
+    413: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Unsupported content
+     */
+    415: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Invalid business fields
+     */
+    422: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Rate limit
+     */
+    429: {
+        status_code: number;
+        message: string;
+    };
+};
+
+export type CreateObligationError = CreateObligationErrors[keyof CreateObligationErrors];
+
+export type CreateObligationResponses = {
+    201: ObligationView;
+};
+
+export type CreateObligationResponse = CreateObligationResponses[keyof CreateObligationResponses];
+
+export type RecordPaymentData = {
+    body: RecordPaymentInput;
+    headers: {
+        /**
+         * Stable key for this intent; same key/payload replays the original result
+         */
+        'Idempotency-Key': string;
+    };
+    path: {
+        id: string;
+    };
+    query?: never;
+    url: '/api/obligations/{id}/payments';
+};
+
+export type RecordPaymentErrors = {
+    /**
+     * Malformed request
+     */
+    400: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Session expired
+     */
+    401: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Access denied
+     */
+    403: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Record not found
+     */
+    404: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Conflicting change
+     */
+    409: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Upload too large
+     */
+    413: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Unsupported content
+     */
+    415: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Invalid business fields
+     */
+    422: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Rate limit
+     */
+    429: {
+        status_code: number;
+        message: string;
+    };
+};
+
+export type RecordPaymentError = RecordPaymentErrors[keyof RecordPaymentErrors];
+
+export type RecordPaymentResponses = {
+    201: PaymentView;
+};
+
+export type RecordPaymentResponse = RecordPaymentResponses[keyof RecordPaymentResponses];
+
+export type ReversePaymentData = {
+    body: ReversePaymentInput;
+    headers: {
+        /**
+         * Stable key for this intent; same key/payload replays the original result
+         */
+        'Idempotency-Key': string;
+    };
+    path: {
+        id: string;
+    };
+    query?: never;
+    url: '/api/payments/{id}/reversal';
+};
+
+export type ReversePaymentErrors = {
+    /**
+     * Malformed request
+     */
+    400: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Session expired
+     */
+    401: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Access denied
+     */
+    403: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Record not found
+     */
+    404: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Conflicting change
+     */
+    409: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Upload too large
+     */
+    413: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Unsupported content
+     */
+    415: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Invalid business fields
+     */
+    422: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Rate limit
+     */
+    429: {
+        status_code: number;
+        message: string;
+    };
+};
+
+export type ReversePaymentError = ReversePaymentErrors[keyof ReversePaymentErrors];
+
+export type ReversePaymentResponses = {
+    201: PaymentAdjustmentView;
+};
+
+export type ReversePaymentResponse = ReversePaymentResponses[keyof ReversePaymentResponses];
+
+export type ListContractsData = {
+    body?: never;
+    path?: never;
+    query?: {
+        page?: number;
+        page_size?: number;
+        property_id?: string;
+        business_date?: string;
+        tenant_id?: string;
+        resource_id?: string;
+        contract_id?: string;
+        metric?: 'total_properties' | 'total_resources' | 'occupied_resources' | 'available_resources' | 'current_tenants' | 'upcoming_contract_starts' | 'upcoming_contract_ends' | 'unpaid_rent_periods' | 'contracts_expiring';
+    };
+    url: '/api/contracts';
+};
+
+export type ListContractsErrors = {
+    /**
+     * Malformed request
+     */
+    400: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Session expired
+     */
+    401: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Access denied
+     */
+    403: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Record not found
+     */
+    404: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Conflicting change
+     */
+    409: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Upload too large
+     */
+    413: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Unsupported content
+     */
+    415: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Invalid business fields
+     */
+    422: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Rate limit
+     */
+    429: {
+        status_code: number;
+        message: string;
+    };
+};
+
+export type ListContractsError = ListContractsErrors[keyof ListContractsErrors];
+
+export type ListContractsResponses = {
+    200: ContractList;
+};
+
+export type ListContractsResponse = ListContractsResponses[keyof ListContractsResponses];
+
+export type CreateContractData = {
+    body: CreateContractInput;
+    path?: never;
+    query?: never;
+    url: '/api/contracts';
+};
+
+export type CreateContractErrors = {
+    /**
+     * Malformed request
+     */
+    400: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Session expired
+     */
+    401: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Access denied
+     */
+    403: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Record not found
+     */
+    404: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Conflicting change
+     */
+    409: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Upload too large
+     */
+    413: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Unsupported content
+     */
+    415: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Invalid business fields
+     */
+    422: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Rate limit
+     */
+    429: {
+        status_code: number;
+        message: string;
+    };
+};
+
+export type CreateContractError = CreateContractErrors[keyof CreateContractErrors];
+
+export type CreateContractResponses = {
+    201: ContractView;
+};
+
+export type CreateContractResponse = CreateContractResponses[keyof CreateContractResponses];
+
+export type GetContractData = {
+    body?: never;
+    path: {
+        id: string;
+    };
+    query?: {
+        page?: number;
+        page_size?: number;
+        property_id?: string;
+        business_date?: string;
+        tenant_id?: string;
+        resource_id?: string;
+        contract_id?: string;
+        metric?: 'total_properties' | 'total_resources' | 'occupied_resources' | 'available_resources' | 'current_tenants' | 'upcoming_contract_starts' | 'upcoming_contract_ends' | 'unpaid_rent_periods' | 'contracts_expiring';
+    };
+    url: '/api/contracts/{id}';
+};
+
+export type GetContractErrors = {
+    /**
+     * Malformed request
+     */
+    400: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Session expired
+     */
+    401: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Access denied
+     */
+    403: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Record not found
+     */
+    404: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Conflicting change
+     */
+    409: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Upload too large
+     */
+    413: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Unsupported content
+     */
+    415: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Invalid business fields
+     */
+    422: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Rate limit
+     */
+    429: {
+        status_code: number;
+        message: string;
+    };
+};
+
+export type GetContractError = GetContractErrors[keyof GetContractErrors];
+
+export type GetContractResponses = {
+    200: ContractView;
+};
+
+export type GetContractResponse = GetContractResponses[keyof GetContractResponses];
+
+export type UpdateContractData = {
+    body: UpdateContractInput;
+    path: {
+        id: string;
+    };
+    query?: never;
+    url: '/api/contracts/{id}';
+};
+
+export type UpdateContractErrors = {
+    /**
+     * Malformed request
+     */
+    400: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Session expired
+     */
+    401: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Access denied
+     */
+    403: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Record not found
+     */
+    404: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Conflicting change
+     */
+    409: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Upload too large
+     */
+    413: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Unsupported content
+     */
+    415: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Invalid business fields
+     */
+    422: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Rate limit
+     */
+    429: {
+        status_code: number;
+        message: string;
+    };
+};
+
+export type UpdateContractError = UpdateContractErrors[keyof UpdateContractErrors];
+
+export type UpdateContractResponses = {
+    200: ContractView;
+};
+
+export type UpdateContractResponse = UpdateContractResponses[keyof UpdateContractResponses];
+
+export type TerminateContractData = {
+    body: TerminationInput;
+    path: {
+        id: string;
+    };
+    query?: never;
+    url: '/api/contracts/{id}/termination';
+};
+
+export type TerminateContractErrors = {
+    /**
+     * Malformed request
+     */
+    400: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Session expired
+     */
+    401: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Access denied
+     */
+    403: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Record not found
+     */
+    404: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Conflicting change
+     */
+    409: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Upload too large
+     */
+    413: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Unsupported content
+     */
+    415: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Invalid business fields
+     */
+    422: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Rate limit
+     */
+    429: {
+        status_code: number;
+        message: string;
+    };
+};
+
+export type TerminateContractError = TerminateContractErrors[keyof TerminateContractErrors];
+
+export type TerminateContractResponses = {
+    200: ContractView;
+};
+
+export type TerminateContractResponse = TerminateContractResponses[keyof TerminateContractResponses];
+
+export type ListDocumentsData = {
+    body?: never;
+    path?: never;
+    query?: {
+        page?: number;
+        page_size?: number;
+        property_id?: string;
+        business_date?: string;
+        tenant_id?: string;
+        resource_id?: string;
+        contract_id?: string;
+        metric?: 'total_properties' | 'total_resources' | 'occupied_resources' | 'available_resources' | 'current_tenants' | 'upcoming_contract_starts' | 'upcoming_contract_ends' | 'unpaid_rent_periods' | 'contracts_expiring';
+        payment_id?: string;
+    };
+    url: '/api/documents';
+};
+
+export type ListDocumentsErrors = {
+    /**
+     * Malformed request
+     */
+    400: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Session expired
+     */
+    401: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Access denied
+     */
+    403: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Record not found
+     */
+    404: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Conflicting change
+     */
+    409: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Upload too large
+     */
+    413: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Unsupported content
+     */
+    415: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Invalid business fields
+     */
+    422: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Rate limit
+     */
+    429: {
+        status_code: number;
+        message: string;
+    };
+};
+
+export type ListDocumentsError = ListDocumentsErrors[keyof ListDocumentsErrors];
+
+export type ListDocumentsResponses = {
+    200: DocumentList;
+};
+
+export type ListDocumentsResponse = ListDocumentsResponses[keyof ListDocumentsResponses];
+
+export type UploadDocumentData = {
+    body: UploadDocumentInput;
+    path?: never;
+    query?: never;
+    url: '/api/documents';
+};
+
+export type UploadDocumentErrors = {
+    /**
+     * Malformed request
+     */
+    400: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Session expired
+     */
+    401: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Access denied
+     */
+    403: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Record not found
+     */
+    404: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Conflicting change
+     */
+    409: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Upload too large
+     */
+    413: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Unsupported content
+     */
+    415: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Invalid business fields
+     */
+    422: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Rate limit
+     */
+    429: {
+        status_code: number;
+        message: string;
+    };
+};
+
+export type UploadDocumentError = UploadDocumentErrors[keyof UploadDocumentErrors];
+
+export type UploadDocumentResponses = {
+    201: DocumentView;
+};
+
+export type UploadDocumentResponse = UploadDocumentResponses[keyof UploadDocumentResponses];
+
+export type DownloadDocumentData = {
+    body?: never;
+    path: {
+        id: string;
+    };
+    query?: never;
+    url: '/api/documents/{id}/content';
+};
+
+export type DownloadDocumentErrors = {
+    /**
+     * Malformed request
+     */
+    400: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Session expired
+     */
+    401: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Access denied
+     */
+    403: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Record not found
+     */
+    404: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Conflicting change
+     */
+    409: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Upload too large
+     */
+    413: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Unsupported content
+     */
+    415: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Invalid business fields
+     */
+    422: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Rate limit
+     */
+    429: {
+        status_code: number;
+        message: string;
+    };
+};
+
+export type DownloadDocumentError = DownloadDocumentErrors[keyof DownloadDocumentErrors];
+
+export type DownloadDocumentResponses = {
+    /**
+     * Original file bytes
+     */
+    200: Blob | File;
+};
+
+export type DownloadDocumentResponse = DownloadDocumentResponses[keyof DownloadDocumentResponses];
+
+export type ListTenantsData = {
+    body?: never;
+    path?: never;
+    query?: {
+        page?: number;
+        page_size?: number;
+        property_id?: string;
+        business_date?: string;
+        tenant_id?: string;
+        resource_id?: string;
+        contract_id?: string;
+        metric?: 'total_properties' | 'total_resources' | 'occupied_resources' | 'available_resources' | 'current_tenants' | 'upcoming_contract_starts' | 'upcoming_contract_ends' | 'unpaid_rent_periods' | 'contracts_expiring';
+    };
+    url: '/api/tenants';
+};
+
+export type ListTenantsErrors = {
+    /**
+     * Malformed request
+     */
+    400: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Session expired
+     */
+    401: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Access denied
+     */
+    403: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Record not found
+     */
+    404: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Conflicting change
+     */
+    409: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Upload too large
+     */
+    413: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Unsupported content
+     */
+    415: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Invalid business fields
+     */
+    422: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Rate limit
+     */
+    429: {
+        status_code: number;
+        message: string;
+    };
+};
+
+export type ListTenantsError = ListTenantsErrors[keyof ListTenantsErrors];
+
+export type ListTenantsResponses = {
+    200: TenantList;
+};
+
+export type ListTenantsResponse = ListTenantsResponses[keyof ListTenantsResponses];
+
+export type CreateTenantData = {
+    body: CreateTenantInput;
+    path?: never;
+    query?: never;
+    url: '/api/tenants';
+};
+
+export type CreateTenantErrors = {
+    /**
+     * Malformed request
+     */
+    400: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Session expired
+     */
+    401: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Access denied
+     */
+    403: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Record not found
+     */
+    404: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Conflicting change
+     */
+    409: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Upload too large
+     */
+    413: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Unsupported content
+     */
+    415: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Invalid business fields
+     */
+    422: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Rate limit
+     */
+    429: {
+        status_code: number;
+        message: string;
+    };
+};
+
+export type CreateTenantError = CreateTenantErrors[keyof CreateTenantErrors];
+
+export type CreateTenantResponses = {
+    201: TenantView;
+};
+
+export type CreateTenantResponse = CreateTenantResponses[keyof CreateTenantResponses];
+
+export type GetTenantData = {
+    body?: never;
+    path: {
+        id: string;
+    };
+    query?: {
+        page?: number;
+        page_size?: number;
+        property_id?: string;
+        business_date?: string;
+        tenant_id?: string;
+        resource_id?: string;
+        contract_id?: string;
+        metric?: 'total_properties' | 'total_resources' | 'occupied_resources' | 'available_resources' | 'current_tenants' | 'upcoming_contract_starts' | 'upcoming_contract_ends' | 'unpaid_rent_periods' | 'contracts_expiring';
+    };
+    url: '/api/tenants/{id}';
+};
+
+export type GetTenantErrors = {
+    /**
+     * Malformed request
+     */
+    400: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Session expired
+     */
+    401: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Access denied
+     */
+    403: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Record not found
+     */
+    404: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Conflicting change
+     */
+    409: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Upload too large
+     */
+    413: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Unsupported content
+     */
+    415: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Invalid business fields
+     */
+    422: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Rate limit
+     */
+    429: {
+        status_code: number;
+        message: string;
+    };
+};
+
+export type GetTenantError = GetTenantErrors[keyof GetTenantErrors];
+
+export type GetTenantResponses = {
+    200: TenantView;
+};
+
+export type GetTenantResponse = GetTenantResponses[keyof GetTenantResponses];
+
+export type UpdateTenantData = {
+    body: UpdateTenantInput;
+    path: {
+        id: string;
+    };
+    query?: never;
+    url: '/api/tenants/{id}';
+};
+
+export type UpdateTenantErrors = {
+    /**
+     * Malformed request
+     */
+    400: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Session expired
+     */
+    401: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Access denied
+     */
+    403: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Record not found
+     */
+    404: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Conflicting change
+     */
+    409: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Upload too large
+     */
+    413: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Unsupported content
+     */
+    415: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Invalid business fields
+     */
+    422: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Rate limit
+     */
+    429: {
+        status_code: number;
+        message: string;
+    };
+};
+
+export type UpdateTenantError = UpdateTenantErrors[keyof UpdateTenantErrors];
+
+export type UpdateTenantResponses = {
+    200: TenantView;
+};
+
+export type UpdateTenantResponse = UpdateTenantResponses[keyof UpdateTenantResponses];
+
+export type ListStaysData = {
+    body?: never;
+    path?: never;
+    query?: {
+        page?: number;
+        page_size?: number;
+        property_id?: string;
+        business_date?: string;
+        tenant_id?: string;
+        resource_id?: string;
+        contract_id?: string;
+        metric?: 'total_properties' | 'total_resources' | 'occupied_resources' | 'available_resources' | 'current_tenants' | 'upcoming_contract_starts' | 'upcoming_contract_ends' | 'unpaid_rent_periods' | 'contracts_expiring';
+    };
+    url: '/api/stays';
+};
+
+export type ListStaysErrors = {
+    /**
+     * Malformed request
+     */
+    400: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Session expired
+     */
+    401: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Access denied
+     */
+    403: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Record not found
+     */
+    404: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Conflicting change
+     */
+    409: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Upload too large
+     */
+    413: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Unsupported content
+     */
+    415: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Invalid business fields
+     */
+    422: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Rate limit
+     */
+    429: {
+        status_code: number;
+        message: string;
+    };
+};
+
+export type ListStaysError = ListStaysErrors[keyof ListStaysErrors];
+
+export type ListStaysResponses = {
+    200: StayList;
+};
+
+export type ListStaysResponse = ListStaysResponses[keyof ListStaysResponses];
 
 export type HealthHealthData = {
     body?: never;
@@ -1179,3 +3152,697 @@ export type ResetDemoResponses = {
 };
 
 export type ResetDemoResponse = ResetDemoResponses[keyof ResetDemoResponses];
+
+export type ListPropertiesData = {
+    body?: never;
+    path?: never;
+    query?: {
+        page?: number;
+        page_size?: number;
+        property_id?: string;
+        business_date?: string;
+        tenant_id?: string;
+        resource_id?: string;
+        contract_id?: string;
+        metric?: 'total_properties' | 'total_resources' | 'occupied_resources' | 'available_resources' | 'current_tenants' | 'upcoming_contract_starts' | 'upcoming_contract_ends' | 'unpaid_rent_periods' | 'contracts_expiring';
+    };
+    url: '/api/properties';
+};
+
+export type ListPropertiesErrors = {
+    /**
+     * Malformed request
+     */
+    400: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Session expired
+     */
+    401: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Access denied
+     */
+    403: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Record not found
+     */
+    404: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Conflicting change
+     */
+    409: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Upload too large
+     */
+    413: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Unsupported content
+     */
+    415: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Invalid business fields
+     */
+    422: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Rate limit
+     */
+    429: {
+        status_code: number;
+        message: string;
+    };
+};
+
+export type ListPropertiesError = ListPropertiesErrors[keyof ListPropertiesErrors];
+
+export type ListPropertiesResponses = {
+    200: PropertyList;
+};
+
+export type ListPropertiesResponse = ListPropertiesResponses[keyof ListPropertiesResponses];
+
+export type CreatePropertyData = {
+    body: CreatePropertyInput;
+    path?: never;
+    query?: never;
+    url: '/api/properties';
+};
+
+export type CreatePropertyErrors = {
+    /**
+     * Malformed request
+     */
+    400: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Session expired
+     */
+    401: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Access denied
+     */
+    403: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Record not found
+     */
+    404: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Conflicting change
+     */
+    409: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Upload too large
+     */
+    413: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Unsupported content
+     */
+    415: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Invalid business fields
+     */
+    422: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Rate limit
+     */
+    429: {
+        status_code: number;
+        message: string;
+    };
+};
+
+export type CreatePropertyError = CreatePropertyErrors[keyof CreatePropertyErrors];
+
+export type CreatePropertyResponses = {
+    201: PropertyView;
+};
+
+export type CreatePropertyResponse = CreatePropertyResponses[keyof CreatePropertyResponses];
+
+export type GetPropertyData = {
+    body?: never;
+    path: {
+        id: string;
+    };
+    query?: {
+        page?: number;
+        page_size?: number;
+        property_id?: string;
+        business_date?: string;
+        tenant_id?: string;
+        resource_id?: string;
+        contract_id?: string;
+        metric?: 'total_properties' | 'total_resources' | 'occupied_resources' | 'available_resources' | 'current_tenants' | 'upcoming_contract_starts' | 'upcoming_contract_ends' | 'unpaid_rent_periods' | 'contracts_expiring';
+    };
+    url: '/api/properties/{id}';
+};
+
+export type GetPropertyErrors = {
+    /**
+     * Malformed request
+     */
+    400: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Session expired
+     */
+    401: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Access denied
+     */
+    403: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Record not found
+     */
+    404: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Conflicting change
+     */
+    409: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Upload too large
+     */
+    413: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Unsupported content
+     */
+    415: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Invalid business fields
+     */
+    422: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Rate limit
+     */
+    429: {
+        status_code: number;
+        message: string;
+    };
+};
+
+export type GetPropertyError = GetPropertyErrors[keyof GetPropertyErrors];
+
+export type GetPropertyResponses = {
+    200: PropertyView;
+};
+
+export type GetPropertyResponse = GetPropertyResponses[keyof GetPropertyResponses];
+
+export type UpdatePropertyData = {
+    body: UpdatePropertyInput;
+    path: {
+        id: string;
+    };
+    query?: never;
+    url: '/api/properties/{id}';
+};
+
+export type UpdatePropertyErrors = {
+    /**
+     * Malformed request
+     */
+    400: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Session expired
+     */
+    401: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Access denied
+     */
+    403: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Record not found
+     */
+    404: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Conflicting change
+     */
+    409: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Upload too large
+     */
+    413: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Unsupported content
+     */
+    415: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Invalid business fields
+     */
+    422: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Rate limit
+     */
+    429: {
+        status_code: number;
+        message: string;
+    };
+};
+
+export type UpdatePropertyError = UpdatePropertyErrors[keyof UpdatePropertyErrors];
+
+export type UpdatePropertyResponses = {
+    200: PropertyView;
+};
+
+export type UpdatePropertyResponse = UpdatePropertyResponses[keyof UpdatePropertyResponses];
+
+export type ListAllResourcesData = {
+    body?: never;
+    path?: never;
+    query?: {
+        page?: number;
+        page_size?: number;
+        property_id?: string;
+        business_date?: string;
+        tenant_id?: string;
+        resource_id?: string;
+        contract_id?: string;
+        metric?: 'total_properties' | 'total_resources' | 'occupied_resources' | 'available_resources' | 'current_tenants' | 'upcoming_contract_starts' | 'upcoming_contract_ends' | 'unpaid_rent_periods' | 'contracts_expiring';
+    };
+    url: '/api/resources';
+};
+
+export type ListAllResourcesErrors = {
+    /**
+     * Malformed request
+     */
+    400: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Session expired
+     */
+    401: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Access denied
+     */
+    403: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Record not found
+     */
+    404: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Conflicting change
+     */
+    409: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Upload too large
+     */
+    413: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Unsupported content
+     */
+    415: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Invalid business fields
+     */
+    422: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Rate limit
+     */
+    429: {
+        status_code: number;
+        message: string;
+    };
+};
+
+export type ListAllResourcesError = ListAllResourcesErrors[keyof ListAllResourcesErrors];
+
+export type ListAllResourcesResponses = {
+    200: ResourceList;
+};
+
+export type ListAllResourcesResponse = ListAllResourcesResponses[keyof ListAllResourcesResponses];
+
+export type ListResourcesData = {
+    body?: never;
+    path: {
+        id: string;
+    };
+    query?: {
+        page?: number;
+        page_size?: number;
+        property_id?: string;
+        business_date?: string;
+        tenant_id?: string;
+        resource_id?: string;
+        contract_id?: string;
+        metric?: 'total_properties' | 'total_resources' | 'occupied_resources' | 'available_resources' | 'current_tenants' | 'upcoming_contract_starts' | 'upcoming_contract_ends' | 'unpaid_rent_periods' | 'contracts_expiring';
+    };
+    url: '/api/properties/{id}/resources';
+};
+
+export type ListResourcesErrors = {
+    /**
+     * Malformed request
+     */
+    400: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Session expired
+     */
+    401: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Access denied
+     */
+    403: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Record not found
+     */
+    404: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Conflicting change
+     */
+    409: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Upload too large
+     */
+    413: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Unsupported content
+     */
+    415: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Invalid business fields
+     */
+    422: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Rate limit
+     */
+    429: {
+        status_code: number;
+        message: string;
+    };
+};
+
+export type ListResourcesError = ListResourcesErrors[keyof ListResourcesErrors];
+
+export type ListResourcesResponses = {
+    200: ResourceList;
+};
+
+export type ListResourcesResponse = ListResourcesResponses[keyof ListResourcesResponses];
+
+export type CreateResourceData = {
+    body: CreateResourceInput;
+    path: {
+        id: string;
+    };
+    query?: never;
+    url: '/api/properties/{id}/resources';
+};
+
+export type CreateResourceErrors = {
+    /**
+     * Malformed request
+     */
+    400: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Session expired
+     */
+    401: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Access denied
+     */
+    403: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Record not found
+     */
+    404: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Conflicting change
+     */
+    409: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Upload too large
+     */
+    413: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Unsupported content
+     */
+    415: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Invalid business fields
+     */
+    422: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Rate limit
+     */
+    429: {
+        status_code: number;
+        message: string;
+    };
+};
+
+export type CreateResourceError = CreateResourceErrors[keyof CreateResourceErrors];
+
+export type CreateResourceResponses = {
+    201: ResourceView;
+};
+
+export type CreateResourceResponse = CreateResourceResponses[keyof CreateResourceResponses];
+
+export type UpdateResourceData = {
+    body: UpdateResourceInput;
+    path: {
+        id: string;
+    };
+    query?: never;
+    url: '/api/resources/{id}';
+};
+
+export type UpdateResourceErrors = {
+    /**
+     * Malformed request
+     */
+    400: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Session expired
+     */
+    401: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Access denied
+     */
+    403: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Record not found
+     */
+    404: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Conflicting change
+     */
+    409: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Upload too large
+     */
+    413: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Unsupported content
+     */
+    415: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Invalid business fields
+     */
+    422: {
+        status_code: number;
+        message: string;
+    };
+    /**
+     * Rate limit
+     */
+    429: {
+        status_code: number;
+        message: string;
+    };
+};
+
+export type UpdateResourceError = UpdateResourceErrors[keyof UpdateResourceErrors];
+
+export type UpdateResourceResponses = {
+    200: ResourceView;
+};
+
+export type UpdateResourceResponse = UpdateResourceResponses[keyof UpdateResourceResponses];

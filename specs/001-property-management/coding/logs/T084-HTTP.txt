@@ -1,0 +1,9 @@
+bun test v1.3.14 (0d9b296a)
+
+backend/tests/integration/dashboard-http.test.ts:
+(pass) registered dashboard keeps HTTP role/date scope and all drill totals consistent before pagination [878.76ms]
+
+ 1 pass
+ 0 fail
+ 96 expect() calls
+Ran 1 test across 1 file. [1.67s]

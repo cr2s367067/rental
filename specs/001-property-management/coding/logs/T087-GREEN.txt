@@ -1,0 +1,11 @@
+bun test v1.3.14 (0d9b296a)
+
+frontend/tests/dashboard.vm.test.tsx:
+(pass) metric links preserve server count and identical date/property/filter context [0.18ms]
+(pass) dashboard VM exposes loading, data and scope changes through injected generated service [66.19ms]
+(pass) dashboard VM keeps empty zeros and error state explicit [110.66ms]
+
+ 3 pass
+ 0 fail
+ 14 expect() calls
+Ran 3 tests across 1 file. [399.00ms]

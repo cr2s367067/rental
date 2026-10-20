@@ -1,0 +1,2 @@
+$ bun backend/prisma/seed.ts
+Synthetic demo imported transactionally; previous sessions invalidated.

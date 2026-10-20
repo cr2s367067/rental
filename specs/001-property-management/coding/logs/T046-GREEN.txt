@@ -1,0 +1,17 @@
+bun test v1.3.14 (0d9b296a)
+
+backend/tests/unit/tenants-manager.test.ts:
+(pass) Owner creates unassigned contacts; Manager edits visible contact but cannot create orphan [263.66ms]
+(pass) unassigned and outscope contacts stay protected and invalid input rolls back [150.35ms]
+
+backend/tests/unit/stays-manager.test.ts:
+(pass) contract projection preserves current/upcoming/ended history and exclusive boundaries [197.46ms]
+(pass) future termination leaves current occupancy until effective end; prestart cancellation occupies none [159.04ms]
+
+backend/tests/integration/occupancy.test.ts:
+(pass) persisted contract projection and concurrent capacity writes preserve shared room [201.02ms]
+
+ 5 pass
+ 0 fail
+ 23 expect() calls
+Ran 5 tests across 3 files. [1292.00ms]

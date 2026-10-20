@@ -1,0 +1,10 @@
+bun test v1.3.14 (0d9b296a)
+
+backend/tests/contract/openapi.test.ts:
+(pass) OpenAPI documents anonymous login and cookie plus CSRF security for authenticated mutations [0.76ms]
+(pass) registered domain operations retain standard errors, payment intent headers and read-only occupancy [0.27ms]
+
+ 2 pass
+ 0 fail
+ 390 expect() calls
+Ran 2 tests across 1 file. [19.00ms]

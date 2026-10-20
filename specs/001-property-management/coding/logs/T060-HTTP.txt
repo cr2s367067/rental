@@ -1,0 +1,10 @@
+bun test v1.3.14 (0d9b296a)
+
+backend/tests/integration/contracts-http.test.ts:
+(pass) contract HTTP XOR/nested validation, scoped atomic creation, versions and termination [469.41ms]
+(pass) multipart uploads enforce contents/limits/relationship scope and download unchanged bytes [339.34ms]
+
+ 2 pass
+ 0 fail
+ 21 expect() calls
+Ran 2 tests across 1 file. [1429.00ms]

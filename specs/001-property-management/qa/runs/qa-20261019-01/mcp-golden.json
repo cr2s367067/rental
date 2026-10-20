@@ -1,0 +1,479 @@
+[
+  {
+    "role": "owner",
+    "metric": "total_properties",
+    "expected_ids": [
+      "P001",
+      "P002",
+      "P003",
+      "P004"
+    ],
+    "actual_ids": [
+      "P001",
+      "P002",
+      "P003",
+      "P004"
+    ],
+    "ui_full_set_visible": true,
+    "api_page_size": 2,
+    "status": "PASS"
+  },
+  {
+    "role": "owner",
+    "metric": "total_resources",
+    "expected_ids": [
+      "R101",
+      "R102",
+      "R103",
+      "R104",
+      "R201",
+      "R202",
+      "R203",
+      "R301",
+      "R302",
+      "R303",
+      "R401"
+    ],
+    "actual_ids": [
+      "R101",
+      "R102",
+      "R103",
+      "R104",
+      "R201",
+      "R202",
+      "R203",
+      "R301",
+      "R302",
+      "R303",
+      "R401"
+    ],
+    "ui_full_set_visible": true,
+    "api_page_size": 2,
+    "status": "PASS"
+  },
+  {
+    "role": "owner",
+    "metric": "occupied_resources",
+    "expected_ids": [
+      "R101",
+      "R102",
+      "R104",
+      "R201",
+      "R301"
+    ],
+    "actual_ids": [
+      "R101",
+      "R102",
+      "R104",
+      "R201",
+      "R301"
+    ],
+    "ui_full_set_visible": true,
+    "api_page_size": 2,
+    "status": "PASS"
+  },
+  {
+    "role": "owner",
+    "metric": "available_resources",
+    "expected_ids": [
+      "R103",
+      "R202",
+      "R203",
+      "R302",
+      "R303",
+      "R401"
+    ],
+    "actual_ids": [
+      "R103",
+      "R202",
+      "R203",
+      "R302",
+      "R303",
+      "R401"
+    ],
+    "ui_full_set_visible": true,
+    "api_page_size": 2,
+    "status": "PASS"
+  },
+  {
+    "role": "owner",
+    "metric": "current_tenants",
+    "expected_ids": [
+      "TEN001",
+      "TEN002",
+      "TEN003",
+      "TEN004",
+      "TEN005",
+      "TEN006"
+    ],
+    "actual_ids": [
+      "TEN001",
+      "TEN002",
+      "TEN003",
+      "TEN004",
+      "TEN005",
+      "TEN006"
+    ],
+    "ui_full_set_visible": true,
+    "api_page_size": 2,
+    "status": "PASS"
+  },
+  {
+    "role": "owner",
+    "metric": "upcoming_contract_starts",
+    "expected_ids": [
+      "C007"
+    ],
+    "actual_ids": [
+      "C007"
+    ],
+    "ui_full_set_visible": true,
+    "api_page_size": 2,
+    "status": "PASS"
+  },
+  {
+    "role": "owner",
+    "metric": "upcoming_contract_ends",
+    "expected_ids": [
+      "C006"
+    ],
+    "actual_ids": [
+      "C006"
+    ],
+    "ui_full_set_visible": true,
+    "api_page_size": 2,
+    "status": "PASS"
+  },
+  {
+    "role": "owner",
+    "metric": "unpaid_rent_periods",
+    "expected_ids": [
+      "OBL002",
+      "OBL003",
+      "OBL004",
+      "OBL006",
+      "OBL007"
+    ],
+    "actual_ids": [
+      "OBL002",
+      "OBL003",
+      "OBL004",
+      "OBL006",
+      "OBL007"
+    ],
+    "ui_full_set_visible": true,
+    "api_page_size": 2,
+    "status": "PASS"
+  },
+  {
+    "role": "owner",
+    "metric": "contracts_expiring",
+    "expected_ids": [
+      "C002",
+      "C006"
+    ],
+    "actual_ids": [
+      "C002",
+      "C006"
+    ],
+    "ui_full_set_visible": true,
+    "api_page_size": 2,
+    "status": "PASS"
+  },
+  {
+    "role": "manager",
+    "metric": "total_properties",
+    "expected_ids": [
+      "P001",
+      "P002"
+    ],
+    "actual_ids": [
+      "P001",
+      "P002"
+    ],
+    "ui_full_set_visible": true,
+    "api_page_size": 2,
+    "status": "PASS"
+  },
+  {
+    "role": "manager",
+    "metric": "total_resources",
+    "expected_ids": [
+      "R101",
+      "R102",
+      "R103",
+      "R104",
+      "R201",
+      "R202",
+      "R203"
+    ],
+    "actual_ids": [
+      "R101",
+      "R102",
+      "R103",
+      "R104",
+      "R201",
+      "R202",
+      "R203"
+    ],
+    "ui_full_set_visible": true,
+    "api_page_size": 2,
+    "status": "PASS"
+  },
+  {
+    "role": "manager",
+    "metric": "occupied_resources",
+    "expected_ids": [
+      "R101",
+      "R102",
+      "R104",
+      "R201"
+    ],
+    "actual_ids": [
+      "R101",
+      "R102",
+      "R104",
+      "R201"
+    ],
+    "ui_full_set_visible": true,
+    "api_page_size": 2,
+    "status": "PASS"
+  },
+  {
+    "role": "manager",
+    "metric": "available_resources",
+    "expected_ids": [
+      "R103",
+      "R202",
+      "R203"
+    ],
+    "actual_ids": [
+      "R103",
+      "R202",
+      "R203"
+    ],
+    "ui_full_set_visible": true,
+    "api_page_size": 2,
+    "status": "PASS"
+  },
+  {
+    "role": "manager",
+    "metric": "current_tenants",
+    "expected_ids": [
+      "TEN001",
+      "TEN002",
+      "TEN003",
+      "TEN005",
+      "TEN006"
+    ],
+    "actual_ids": [
+      "TEN001",
+      "TEN002",
+      "TEN003",
+      "TEN005",
+      "TEN006"
+    ],
+    "ui_full_set_visible": true,
+    "api_page_size": 2,
+    "status": "PASS"
+  },
+  {
+    "role": "manager",
+    "metric": "upcoming_contract_starts",
+    "expected_ids": [
+      "C007"
+    ],
+    "actual_ids": [
+      "C007"
+    ],
+    "ui_full_set_visible": true,
+    "api_page_size": 2,
+    "status": "PASS"
+  },
+  {
+    "role": "manager",
+    "metric": "upcoming_contract_ends",
+    "expected_ids": [
+      "C006"
+    ],
+    "actual_ids": [
+      "C006"
+    ],
+    "ui_full_set_visible": true,
+    "api_page_size": 2,
+    "status": "PASS"
+  },
+  {
+    "role": "manager",
+    "metric": "unpaid_rent_periods",
+    "expected_ids": [
+      "OBL002",
+      "OBL003",
+      "OBL006",
+      "OBL007"
+    ],
+    "actual_ids": [
+      "OBL002",
+      "OBL003",
+      "OBL006",
+      "OBL007"
+    ],
+    "ui_full_set_visible": true,
+    "api_page_size": 2,
+    "status": "PASS"
+  },
+  {
+    "role": "manager",
+    "metric": "contracts_expiring",
+    "expected_ids": [
+      "C002",
+      "C006"
+    ],
+    "actual_ids": [
+      "C002",
+      "C006"
+    ],
+    "ui_full_set_visible": true,
+    "api_page_size": 2,
+    "status": "PASS"
+  },
+  {
+    "role": "viewer",
+    "metric": "total_properties",
+    "expected_ids": [
+      "P001"
+    ],
+    "actual_ids": [
+      "P001"
+    ],
+    "ui_full_set_visible": true,
+    "api_page_size": 2,
+    "status": "PASS"
+  },
+  {
+    "role": "viewer",
+    "metric": "total_resources",
+    "expected_ids": [
+      "R101",
+      "R102",
+      "R103",
+      "R104"
+    ],
+    "actual_ids": [
+      "R101",
+      "R102",
+      "R103",
+      "R104"
+    ],
+    "ui_full_set_visible": true,
+    "api_page_size": 2,
+    "status": "PASS"
+  },
+  {
+    "role": "viewer",
+    "metric": "occupied_resources",
+    "expected_ids": [
+      "R101",
+      "R102",
+      "R104"
+    ],
+    "actual_ids": [
+      "R101",
+      "R102",
+      "R104"
+    ],
+    "ui_full_set_visible": true,
+    "api_page_size": 2,
+    "status": "PASS"
+  },
+  {
+    "role": "viewer",
+    "metric": "available_resources",
+    "expected_ids": [
+      "R103"
+    ],
+    "actual_ids": [
+      "R103"
+    ],
+    "ui_full_set_visible": true,
+    "api_page_size": 2,
+    "status": "PASS"
+  },
+  {
+    "role": "viewer",
+    "metric": "current_tenants",
+    "expected_ids": [
+      "TEN001",
+      "TEN002",
+      "TEN005",
+      "TEN006"
+    ],
+    "actual_ids": [
+      "TEN001",
+      "TEN002",
+      "TEN005",
+      "TEN006"
+    ],
+    "ui_full_set_visible": true,
+    "api_page_size": 2,
+    "status": "PASS"
+  },
+  {
+    "role": "viewer",
+    "metric": "upcoming_contract_starts",
+    "expected_ids": [
+      "C007"
+    ],
+    "actual_ids": [
+      "C007"
+    ],
+    "ui_full_set_visible": true,
+    "api_page_size": 2,
+    "status": "PASS"
+  },
+  {
+    "role": "viewer",
+    "metric": "upcoming_contract_ends",
+    "expected_ids": [
+      "C006"
+    ],
+    "actual_ids": [
+      "C006"
+    ],
+    "ui_full_set_visible": true,
+    "api_page_size": 2,
+    "status": "PASS"
+  },
+  {
+    "role": "viewer",
+    "metric": "unpaid_rent_periods",
+    "expected_ids": [
+      "OBL002",
+      "OBL006",
+      "OBL007"
+    ],
+    "actual_ids": [
+      "OBL002",
+      "OBL006",
+      "OBL007"
+    ],
+    "ui_full_set_visible": true,
+    "api_page_size": 2,
+    "status": "PASS"
+  },
+  {
+    "role": "viewer",
+    "metric": "contracts_expiring",
+    "expected_ids": [
+      "C002",
+      "C006"
+    ],
+    "actual_ids": [
+      "C002",
+      "C006"
+    ],
+    "ui_full_set_visible": true,
+    "api_page_size": 2,
+    "status": "PASS"
+  }
+]

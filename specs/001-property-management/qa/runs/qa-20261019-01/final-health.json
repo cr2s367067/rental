@@ -1,0 +1,64 @@
+{
+  "timestamp": "2026-10-19T14:57:12.955022+00:00",
+  "frontend_status": 200,
+  "url": "http://localhost:5173",
+  "services": [
+    {
+      "Service": "backend",
+      "Image": "rental-demo-backend",
+      "State": "running",
+      "Health": "healthy",
+      "Publishers": [
+        {
+          "URL": "127.0.0.1",
+          "TargetPort": 3000,
+          "PublishedPort": 3100,
+          "Protocol": "tcp"
+        }
+      ]
+    },
+    {
+      "Service": "frontend",
+      "Image": "rental-demo-frontend",
+      "State": "running",
+      "Health": "healthy",
+      "Publishers": [
+        {
+          "URL": "127.0.0.1",
+          "TargetPort": 5173,
+          "PublishedPort": 5173,
+          "Protocol": "tcp"
+        }
+      ]
+    },
+    {
+      "Service": "postgres",
+      "Image": "postgres@sha256:b0f9560a2de083e2cc7382e75f808c7381a32852a7ec49117deedb300e552b24",
+      "State": "running",
+      "Health": "healthy",
+      "Publishers": [
+        {
+          "URL": "127.0.0.1",
+          "TargetPort": 5432,
+          "PublishedPort": 55432,
+          "Protocol": "tcp"
+        }
+      ]
+    },
+    {
+      "Service": "redis",
+      "Image": "redis@sha256:858f009f9709ce576febc734aa78b8f6d624b82571f9ddb6bda4377c833b3499",
+      "State": "running",
+      "Health": "healthy",
+      "Publishers": [
+        {
+          "URL": "127.0.0.1",
+          "TargetPort": 6379,
+          "PublishedPort": 56379,
+          "Protocol": "tcp"
+        }
+      ]
+    }
+  ],
+  "volumes_preserved": true
+}

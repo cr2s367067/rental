@@ -1,0 +1,10 @@
+bun test v1.3.14 (0d9b296a)
+
+frontend/tests/properties.vm.test.ts:
+(pass) property save returns result and refreshes related server data [0.26ms]
+(pass) capacity conflict retains form values and actionable feedback [0.13ms]
+
+ 2 pass
+ 0 fail
+ 5 expect() calls
+Ran 2 tests across 1 file. [30.00ms]

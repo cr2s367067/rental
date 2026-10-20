@@ -1,0 +1,14 @@
+bun test v1.3.14 (0d9b296a)
+
+frontend/tests/properties.query.test.tsx:
+(pass) property query exposes loading then an empty scoped list [63.68ms]
+(pass) property detail query exposes access errors without inventing a record [54.25ms]
+
+frontend/tests/properties.vm.test.ts:
+(pass) property save returns result and refreshes related server data [0.33ms]
+(pass) capacity conflict retains form values and actionable feedback [0.21ms]
+
+ 4 pass
+ 0 fail
+ 12 expect() calls
+Ran 4 tests across 2 files. [346.00ms]

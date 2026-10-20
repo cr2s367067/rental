@@ -1,0 +1,14 @@
+bun test v1.3.14 (0d9b296a)
+
+backend/tests/integration/dashboard.test.ts:
+(pass) U001 metrics match golden counts and complete paginated drill record IDs [420.43ms]
+(pass) U002 metrics match golden counts and complete paginated drill record IDs [268.21ms]
+(pass) U003 metrics match golden counts and complete paginated drill record IDs [240.74ms]
+(pass) property/date boundaries and forbidden scope reuse the same definitions [148.34ms]
+(pass) empty permitted scope returns real zeros and nine usable drill filters [126.90ms]
+(pass) concurrent payment refresh returns complete before/after snapshots then matching records [174.04ms]
+
+ 6 pass
+ 0 fail
+ 131 expect() calls
+Ran 6 tests across 1 file. [1.75s]

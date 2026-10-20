@@ -1,0 +1,41 @@
+bun test v1.3.14 (0d9b296a)
+
+frontend/tests/stays.vm.test.ts:
+1 | import {test,expect} from 'bun:test';import {StaysVM} from '../VMs/stays.vm';import {staysService,type StaysService} from '../Services/stays.service';
+2 | const tenant={id:'T1',name:'Edited',email:null,phone:null,version:2,contracts:[]};
+3 | test('contact update refreshes scoped history and resource queries',async()=>{let refreshed=0;const service:StaysService={...staysService,update:async()=>tenant};const vm=new StaysVM(service,async()=>{refreshed++;});expect(await vm.update('T1',{version:1,name:'Edited'})).toEqual(tenant);expect(refreshed).toBe(1);});
+                                                                                                                                                                                                                                                                                    ^
+error: expect(received).toEqual(expected)
+
+- {
+-   "contracts": [],
+-   "email": null,
+-   "id": "T1",
+-   "name": "Edited",
+-   "phone": null,
+-   "version": 2,
+- }
++ undefined
+
+- Expected  - 8
++ Received  + 1
+
+      at <anonymous> (/Users/kuan/Library/Mobile Documents/com~apple~CloudDocs/ELearning/Rental/frontend/tests/stays.vm.test.ts:3:273)
+(fail) contact update refreshes scoped history and resource queries [0.43ms]
+1 | import {test,expect} from 'bun:test';import {StaysVM} from '../VMs/stays.vm';import {staysService,type StaysService} from '../Services/stays.service';
+2 | const tenant={id:'T1',name:'Edited',email:null,phone:null,version:2,contracts:[]};
+3 | test('contact update refreshes scoped history and resource queries',async()=>{let refreshed=0;const service:StaysService={...staysService,update:async()=>tenant};const vm=new StaysVM(service,async()=>{refreshed++;});expect(await vm.update('T1',{version:1,name:'Edited'})).toEqual(tenant);expect(refreshed).toBe(1);});
+4 | test('outscope/invalid contact error retains form input',async()=>{const input={version:1,name:'Retained'};const vm=new StaysVM({...staysService,update:async()=>{throw {message:'Tenant access denied'};}},async()=>{});await vm.update('T1',input);expect(vm.error).toBe('Tenant access denied');expect(input.name).toBe('Retained');});
+                                                                                                                                                                                                                                                                          ^
+error: expect(received).toBe(expected)
+
+Expected: "Tenant access denied"
+Received: ""
+
+      at <anonymous> (/Users/kuan/Library/Mobile Documents/com~apple~CloudDocs/ELearning/Rental/frontend/tests/stays.vm.test.ts:4:263)
+(fail) outscope/invalid contact error retains form input [0.28ms]
+
+ 0 pass
+ 2 fail
+ 2 expect() calls
+Ran 2 tests across 1 file. [21.00ms]

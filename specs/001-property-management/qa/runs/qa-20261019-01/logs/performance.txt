@@ -1,0 +1,62 @@
+{
+  "timestamp": "2026-10-19T14:47:16.933Z",
+  "runtime": "1.3.14",
+  "sessions": 3,
+  "threshold_ms": 2000,
+  "results": [
+    {
+      "role": "owner",
+      "action": "list",
+      "ms": 34.03,
+      "status": 200
+    },
+    {
+      "role": "viewer",
+      "action": "list",
+      "ms": 26.79,
+      "status": 200
+    },
+    {
+      "role": "owner",
+      "action": "detail",
+      "ms": 21.75,
+      "status": 200
+    },
+    {
+      "role": "manager",
+      "action": "list",
+      "ms": 28.25,
+      "status": 200
+    },
+    {
+      "role": "viewer",
+      "action": "detail",
+      "ms": 18.75,
+      "status": 200
+    },
+    {
+      "role": "viewer",
+      "action": "metadata",
+      "ms": 9.36,
+      "status": 200
+    },
+    {
+      "role": "manager",
+      "action": "detail",
+      "ms": 19.21,
+      "status": 200
+    },
+    {
+      "role": "owner",
+      "action": "save",
+      "ms": 26.13,
+      "status": 200
+    },
+    {
+      "role": "manager",
+      "action": "save",
+      "ms": 22.34,
+      "status": 200
+    }
+  ]
+}

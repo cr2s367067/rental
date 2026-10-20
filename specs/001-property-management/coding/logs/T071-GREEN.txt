@@ -1,0 +1,11 @@
+bun test v1.3.14 (0d9b296a)
+
+backend/tests/unit/payments-manager.test.ts:
+(pass) all nine policy payment states exactly match independent golden results [180.49ms]
+(pass) Overdue beats partial only after due day; reversal/replacement net stays exact [155.40ms]
+(pass) explicit manual partial obligation persists values and duplicate periods fail [164.33ms]
+
+ 3 pass
+ 0 fail
+ 19 expect() calls
+Ran 3 tests across 1 file. [853.00ms]

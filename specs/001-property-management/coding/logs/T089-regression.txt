@@ -1,0 +1,72 @@
+(node:90253) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[2m[WebServer] [22m[0m[33mWarning[0m[2m:[0m [1mThe 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.[0m
+[2m[WebServer] [22m[0m      [2mat [0m[0m[1m[3mwarnOnDeactivatedColors[0m[2m ([0m[0m[36minternal:tty[0m[2m:[0m[33m33[0m[2m:[33m24[0m[2m)[0m
+[2m[WebServer] [22m[0m      [2mat [0m[0m[1m[3mgetColorDepth[0m[2m ([0m[0m[36minternal:tty[0m[2m:[0m[33m42[0m[2m:[33m39[0m[2m)[0m
+[2m[WebServer] [22m[0m      [2mat [0m[0m[1m[3mshouldColorize[0m[2m ([0m[0m[36minternal:util/colors[0m[2m:[0m[33m14[0m[2m:[33m109[0m[2m)[0m
+[2m[WebServer] [22m[0m      [2mat [0m[0m[1m[3mrefresh[0m[2m ([0m[0m[36minternal:util/colors[0m[2m:[0m[33m18[0m[2m:[33m31[0m[2m)[0m
+[2m[WebServer] [22m[0m      [2mat [0m[0m[1m[3minternal:util/colors[0m[2m ([0m[0m[36minternal:util/colors[0m[2m:[0m[33m24[0m[2m:[33m16[0m[2m)[0m
+[2m[WebServer] [22m[0m      [2mat [0m[0m[1m[3minternal:assert/assertion_error[0m[2m ([0m[0m[36minternal:assert/assertion_error[0m[2m:[0m[33m2[0m[2m:[33m187[0m[2m)[0m
+[2m[WebServer] [22m[0m      [2mat [0m[0m[1m[3mloadAssertionError[0m[2m ([0m[0m[36mnode:assert[0m[2m:[0m[33m28[0m[2m:[33m96[0m[2m)[0m
+[2m[WebServer] [22m
+
+Running 19 tests using 1 worker
+
+(node:90259) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:90259) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(node:90259) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 tests/e2e/contracts-documents.spec.ts:2:5 › Manager first-contract form rolls back invalid assignment, saves contact, edits/terminates and transfers document bytes (2.5s)
+  ✓   2 tests/e2e/contracts-documents.spec.ts:3:5 › Viewer document metadata remains visible while content and writes are denied (1.2s)
+  ✓   3 tests/e2e/dashboard.spec.ts:2:124 › U001 sees exact scoped metrics and every drill keeps date/filters (3.3s)
+  ✓   4 tests/e2e/dashboard.spec.ts:2:124 › U002 sees exact scoped metrics and every drill keeps date/filters (3.4s)
+  ✓   5 tests/e2e/dashboard.spec.ts:2:124 › U003 sees exact scoped metrics and every drill keeps date/filters (3.2s)
+  ✓   6 tests/e2e/dashboard.spec.ts:3:5 › payment mutation refreshes dashboard and property filter retains exact scope (1.5s)
+  ✓   7 tests/e2e/payment-panels.spec.ts:2:5 › Manager tenant/stay panels agree after payment and related receipt context is exact (1.5s)
+  ✓   8 tests/e2e/payments.spec.ts:2:5 › Owner records exact payments, corrects append-only ledger and creates explicit partial periods (1.8s)
+  ✓   9 tests/e2e/properties.spec.ts:2:5 › Owner creates/reopens property and resource; invalid capacity preserves occupied room (1.8s)
+  ✓  10 tests/e2e/record-links.spec.ts:2:5 › property → scoped contracts → tenant history → associated files retains record context (1.4s)
+  ✓  11 tests/e2e/shell-theme.spec.ts:4:6 › mobile: light/dark essential shell (871ms)
+  ✓  12 tests/e2e/shell-theme.spec.ts:4:6 › tablet: light/dark essential shell (840ms)
+  ✓  13 tests/e2e/shell-theme.spec.ts:4:6 › laptop: light/dark essential shell (851ms)
+  ✓  14 tests/e2e/shell-theme.spec.ts:4:6 › desktop: light/dark essential shell (839ms)
+  ✘  15 tests/e2e/stays.spec.ts:2:5 › Manager edits a scoped contact, sees contract history and receives direct outscope feedback (961ms)
+(node:90560) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:90560) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(node:90560) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  16 tests/e2e/stays.spec.ts:3:5 › Owner explicit demo date changes recompute upcoming contract occupancy and resources (1.6s)
+  ✓  17 tests/e2e/users-roles.spec.ts:3:5 › Owner account/ownership/date controls preserve last Owner and refresh context (1.8s)
+  ✓  18 tests/e2e/users-roles.spec.ts:4:71 › manager@example.test has scoped navigation and server denies role escalation (1.1s)
+  ✓  19 tests/e2e/users-roles.spec.ts:4:71 › viewer@example.test has scoped navigation and server denies role escalation (755ms)
+
+
+  1) tests/e2e/stays.spec.ts:2:5 › Manager edits a scoped contact, sees contract history and receives direct outscope feedback 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: getByText('C001', { exact: true })
+    Expected: visible
+    Error: strict mode violation: getByText('C001', { exact: true }) resolved to 2 elements:
+        1) <strong>C001</strong> aka getByLabel('Contract occupancy').getByRole('link', { name: 'C001', exact: true })
+        2) <a class="text-link" href="#/contracts/C001">C001</a> aka getByLabel('Rental periods').getByRole('link', { name: 'C001' })
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 5000ms[22m
+    [2m  - waiting for getByText('C001', { exact: true })[22m
+
+
+      1 | import {test,expect} from './fixtures';async function signIn(page:import('@playwright/test').Page,email:string){await page.goto('/');await page.getByLabel('Email',{exact:true}).fill(email);await page.getByLabel('Password',{exact:true}).fill(process.env.DEMO_PASSWORD!);await page.getByRole('button',{name:'Sign in',exact:true}).click();await expect(page.getByRole('navigation')).toBeVisible();}
+    > 2 | test('Manager edits a scoped contact, sees contract history and receives direct outscope feedback',async({page})=>{await signIn(page,'manager@example.test');await page.getByRole('link',{name:'Tenants',exact:true}).click();await page.getByRole('link',{name:'Demo Tenant 01',exact:true}).click();await expect(page.getByText('C001',{exact:true})).toBeVisible();await page.getByRole('button',{name:'Edit contact',exact:true}).click();await page.getByLabel('Tenant name',{exact:true}).fill('Browser contact');await page.getByRole('button',{name:'Save contact',exact:true}).click();await expect(page.getByRole('heading',{name:'Browser contact',exact:true})).toBeVisible();await page.goto('/#/tenants/TEN004');await expect(page.getByRole('alert')).toContainText('Tenant access denied');await page.getByRole('link',{name:'Occupancy',exact:true}).click();await expect(page.getByRole('button',{name:/check.?in|check.?out/i})).toHaveCount(0);});
+        |                                                                                                                                                                                                                                                                                                                                                         ^
+      3 | test('Owner explicit demo date changes recompute upcoming contract occupancy and resources',async({page})=>{await signIn(page,'owner@example.test');await page.getByRole('link',{name:'Occupancy',exact:true}).click();await expect(page.getByRole('row').filter({hasText:'C007'})).toContainText('Upcoming');await page.getByRole('link',{name:'Demo settings',exact:true}).click();await page.getByLabel('Business date',{exact:true}).fill('2026-10-22');await page.getByRole('button',{name:'Update date',exact:true}).click();await expect(page.getByText(/Demo date: 2026-10-22/)).toBeVisible();await page.getByRole('link',{name:'Occupancy',exact:true}).click();await expect(page.getByRole('row').filter({hasText:'C007'})).toContainText('Current');await page.getByRole('link',{name:'Resources',exact:true}).click();await expect(page.getByRole('row').filter({hasText:'Room 103'})).toContainText('Occupied');await page.getByRole('link',{name:'Demo settings',exact:true}).click();await page.getByLabel('Business date',{exact:true}).fill('2026-10-19');await page.getByRole('button',{name:'Update date',exact:true}).click();await expect(page.getByText(/Demo date: 2026-10-19/)).toBeVisible();});
+      4 |
+        at /Users/kuan/Library/Mobile Documents/com~apple~CloudDocs/ELearning/Rental/tests/e2e/stays.spec.ts:2:345
+
+    Error Context: test-results/stays-Manager-edits-a-scop-f085a-es-direct-outscope-feedback/error-context.md
+
+  1 failed
+    tests/e2e/stays.spec.ts:2:5 › Manager edits a scoped contact, sees contract history and receives direct outscope feedback 
+  18 passed (39.3s)

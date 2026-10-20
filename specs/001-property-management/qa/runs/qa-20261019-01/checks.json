@@ -1,0 +1,67 @@
+{
+  "run_id": "qa-20261019-01",
+  "checks": [
+    {
+      "command": "bun run typecheck",
+      "exit_status": 0,
+      "log": "logs/typecheck.txt",
+      "result": "PASS"
+    },
+    {
+      "command": "bun run format:check",
+      "exit_status": 0,
+      "log": "logs/format.txt",
+      "result": "PASS"
+    },
+    {
+      "command": "bun run build",
+      "exit_status": 0,
+      "log": "logs/build.txt",
+      "result": "PASS"
+    },
+    {
+      "command": "bun run check:generated",
+      "exit_status": 0,
+      "log": "logs/generated.txt",
+      "result": "PASS"
+    },
+    {
+      "command": "bun run test",
+      "exit_status": 0,
+      "log": "logs/tests.txt",
+      "result": "PASS"
+    },
+    {
+      "command": "bun run test:e2e",
+      "exit_status": 0,
+      "log": "logs/browser.txt",
+      "result": "PASS"
+    },
+    {
+      "command": "bun scripts/performance.ts",
+      "exit_status": 0,
+      "log": "logs/performance.txt",
+      "result": "PASS"
+    },
+    {
+      "command": "bun /tmp/rental-qa-runtime.ts",
+      "exit_status": 0,
+      "log": "logs/runtime-identity.txt",
+      "result": "PASS"
+    },
+    {
+      "command": "make -n up down build reload",
+      "exit_status": 0,
+      "log": "logs/make.txt",
+      "result": "PASS"
+    }
+  ],
+  "backend_tests": 64,
+  "backend_assertions": 1272,
+  "frontend_tests": 27,
+  "frontend_assertions": 87,
+  "browser_tests": 36,
+  "generated_operations": 40,
+  "mcp_calls": 545,
+  "notes": "Commands executed independently. The first six ran as one set-e sequence that exited0; performance/runtime/Make sequence also exited0. MCP setup probes and selector adjustments are separate from product results."
+}

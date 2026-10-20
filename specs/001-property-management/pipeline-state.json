@@ -3,18 +3,19 @@
   "feature": "001-property-management",
   "feature_dir": "specs/001-property-management",
   "workspace": "/Users/kuan/Library/Mobile Documents/com~apple~CloudDocs/ELearning/Rental",
-  "status": "CODING_DISPATCHED",
+  "status": "CLOSED_AWAITING_REQUIREMENT",
   "role_threads": {
-    "pm-agent": "/root",
+    "pm-agent": "/root/coding_property_management/qa_property_management/pm_closeout_property_management",
     "coding-agent": "/root/coding_property_management",
-    "qa-agent": null
+    "qa-agent": "/root/coding_property_management/qa_property_management"
   },
   "queued_requirements": [],
   "retry_state": {
     "retry_count": 0,
-    "revision": 0,
+    "revision": 1,
     "development_status": "ACTIVE",
-    "last_run_id": null
+    "halted": false,
+    "last_run_id": "qa-20261019-01"
   },
   "events": [
     {
@@ -70,6 +71,52 @@
       },
       "reason": "User requested Chrome DevTools MCP testing against running Compose application",
       "dispatched_at": "2026-10-19T12:44:53.100345+00:00"
+    },
+    {
+      "event_key": "001-property-management:qa-agent:33ce99494360c042507047359bf77f862546dc64c908e3fb79a9ecf55c42e7c2",
+      "target_role": "qa-agent",
+      "target_thread": "/root/coding_property_management/qa_property_management",
+      "payload_digest": "33ce99494360c042507047359bf77f862546dc64c908e3fb79a9ecf55c42e7c2",
+      "source_qa_run_id": null,
+      "delivery_status": "dispatched",
+      "created_at": "2026-10-19T14:43:29.294614+00:00",
+      "dispatched_at": "2026-10-19T14:43:29.294614+00:00",
+      "tool": "collaboration.spawn_agent",
+      "receipt": {
+        "tool": "collaboration.spawn_agent",
+        "returned_payload": {
+          "task_name": "/root/coding_property_management/qa_property_management"
+        },
+        "agent_type": "qa-agent",
+        "tool_completed": true
+      },
+      "packet": "specs/001-property-management/qa-handoff.json",
+      "reason": "Entire113parent implementation/checks/convergence complete; independent QA with mandatory actual Chrome DevTools MCP against final Compose runtime"
+    },
+    {
+      "event_key": "001-property-management:pm-agent:qa-20261019-01",
+      "target_role": "pm-agent",
+      "payload_digest": "59f647d1420fdec471d980502444124c7540b8bd90f5570456f5c9e8cce895c5",
+      "source_qa_run_id": "qa-20261019-01",
+      "result": "specs/001-property-management/qa/runs/qa-20261019-01.json",
+      "delivery_status": "dispatched",
+      "created_at": "2026-10-19T14:58:17.958541+00:00",
+      "reason": "Independent full comparison/tests PASS with actual final-container Chrome DevTools MCP; audited retry reset0/revision1; closeout and required local startup; queue empty",
+      "dispatched_at": "2026-10-19T14:58:51.362937+00:00",
+      "target_thread": "/root/coding_property_management/qa_property_management/pm_closeout_property_management",
+      "tool": "collaboration.spawn_agent",
+      "receipt": {
+        "task_name": "/root/coding_property_management/qa_property_management/pm_closeout_property_management",
+        "agent_type": "pm-agent",
+        "tool_completed": true
+      },
+      "acknowledgment_status": "acknowledged",
+      "acknowledged_at": "2026-10-19T15:00:08.456845+00:00",
+      "acknowledgment_evidence": {
+        "recipient_thread": "/root/coding_property_management/qa_property_management/pm_closeout_property_management",
+        "message": "PM read current QA PASS, audited reset receipt and all480 current hashes; actual recipient acknowledgment sent to QA and closure executed.",
+        "report": "specs/001-property-management/closeout.md"
+      }
     }
   ],
   "post_acceptance_actions": [
@@ -77,7 +124,7 @@
       "id": "local-compose-start",
       "source": "specs/001-property-management/compose-delivery-addendum.md#completionstartup-contract-op-002",
       "required": true,
-      "status": "pending",
+      "status": "completed",
       "owner_role": "pm-agent",
       "condition": "Latest accepted implementation independently passes QA and audited retry gate resets; start before final delivery closeout",
       "workspace": "/Users/kuan/Library/Mobile Documents/com~apple~CloudDocs/ELearning/Rental",
@@ -90,23 +137,58 @@
         "Actual frontend endpoint responds; report observed local URL",
         "Preserve database volumes and unrelated containers"
       ],
-      "evidence": null
+      "evidence": {
+        "checks": "specs/001-property-management/closeout/startup-checks.json",
+        "runtime": "specs/001-property-management/closeout/runtime-identity.json",
+        "frontend_url": "http://localhost:5173",
+        "services": "4 running/healthy",
+        "command": "docker compose up -d",
+        "exit_code": 0
+      },
+      "completed_at": "2026-10-19T15:00:08.456845+00:00"
     },
     {
       "id": "chrome-devtools-container-testing",
       "required": true,
-      "status": "pending",
+      "status": "completed",
       "owner_role": "qa-agent",
       "depends_on": [
         "local-compose-start"
       ],
       "source": "specs/001-property-management/chrome-devtools-testing-request.md",
-      "evidence": null,
+      "evidence": {
+        "qa_run_id": "qa-20261019-01",
+        "report": "specs/001-property-management/validation/chrome-devtools.md",
+        "immutable_report": "specs/001-property-management/qa/runs/qa-20261019-01/chrome-devtools.md",
+        "runtime_identity": "specs/001-property-management/qa/runs/qa-20261019-01/runtime-identity.json",
+        "application_digest": "d859b06da4bc3f76e00b8ff007f923133589595640703b712746b469fadd183c",
+        "status": "PASS",
+        "final_pm_identity_check_required": false,
+        "final_pm_identity_check": "PASS",
+        "final_runtime": "specs/001-property-management/closeout/runtime-identity.json",
+        "final_checks": "specs/001-property-management/closeout/startup-checks.json",
+        "same_tested_application_and_images_and_configs": true
+      },
       "acceptance": [
         "Actual Chrome DevTools MCP tools used against final running container app",
         "Roles/main workflows/themes and console/network checks recorded with expected/actual evidence",
         "Runtime identity matches final running build/configuration; defects routed through audited QA gate"
-      ]
+      ],
+      "completed_at": "2026-10-19T15:00:08.456845+00:00"
     }
-  ]
+  ],
+  "stage": "pm",
+  "updated_at": "2026-10-19T15:00:08.456845+00:00",
+  "latest_qa_result": "specs/001-property-management/qa/runs/qa-20261019-01.json",
+  "latest_qa_run_id": "qa-20261019-01",
+  "closure": {
+    "requirement": "001-property-management",
+    "status": "closed",
+    "qa_run_id": "qa-20261019-01",
+    "closed_at": "2026-10-19T15:00:08.456845+00:00",
+    "report": "specs/001-property-management/closeout.md",
+    "verification": "specs/001-property-management/closeout/verification.json",
+    "next_requirement": "AWAITING REQUIREMENT",
+    "queued_requirements": []
+  }
 }

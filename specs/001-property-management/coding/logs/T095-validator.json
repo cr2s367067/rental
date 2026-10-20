@@ -1,0 +1,11 @@
+{
+  "valid": true,
+  "dispatch_eligible": true,
+  "ready": [],
+  "waiting": [
+    "T096"
+  ],
+  "blocked": [],
+  "task_count": 113,
+  "errors": []
+}

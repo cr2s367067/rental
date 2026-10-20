@@ -7,21 +7,26 @@
   ],
   "packageManager": "bun@1.3.14",
   "scripts": {
-    "typecheck": "bun run --filter backend typecheck && bun run --filter frontend typecheck",
+    "typecheck": "bun run --filter backend typecheck && bun run --filter frontend typecheck && tsc --noEmit -p tsconfig.json",
     "build": "bun run --filter backend build && bun run --filter frontend build",
     "test": "bun test backend/tests && bun test --preload ./frontend/tests/setup.ts frontend/tests",
     "generate": "bun run --filter backend export && bunx openapi-ts",
     "migrate": "bunx prisma migrate deploy --schema backend/prisma/schema.prisma",
     "demo:seed": "bun backend/prisma/seed.ts",
     "dev:backend": "bun run --filter backend dev",
-    "dev:frontend": "bun run --filter frontend dev"
+    "dev:frontend": "bun run --filter frontend dev",
+    "db:generate": "bunx prisma generate --schema backend/prisma/schema.prisma",
+    "test:e2e": "bun scripts/e2e.ts",
+    "check:generated": "bun scripts/check-generated.ts",
+    "format:check": "prettier --check \"backend/{Managers,Src,tests,prisma}/**/*.{ts,json}\" \"frontend/{Models,Services,VMs,Views,tests}/**/*.{ts,tsx,css}\" \"scripts/**/*.ts\" \"tests/**/*.ts\" \"*.{json,ts}\" \"frontend/*.{html,json,ts}\" \"backend/*.json\""
   },
   "devDependencies": {
-    "typescript": "5.9.3",
-    "@types/bun": "1.3.2",
     "@hey-api/openapi-ts": "0.87.5",
     "@playwright/test": "1.56.1",
-    "prisma": "6.19.0"
+    "@types/bun": "1.3.2",
+    "prettier": "3.6.2",
+    "prisma": "6.19.0",
+    "typescript": "5.9.3"
   },
   "dependencies": {
     "@prisma/client": "6.19.0"

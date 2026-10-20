@@ -1,0 +1,18 @@
+bun test v1.3.14 (0d9b296a)
+
+backend/tests/integration/null-input.test.ts:
+1 | import {test,expect,beforeAll,beforeEach,afterAll} from 'bun:test';import {httpServer} from '../http';let api:Awaited<ReturnType<typeof httpServer>>;beforeAll(async()=>{api=await httpServer();});beforeEach(async()=>api.reset());afterAll(async()=>api.close());
+2 | test('nonnullable optional PATCH fields reject null without mutation; documented nullable links/contacts remain allowed',async()=>{const owner=await api.login();for(const [path,fields] of [['/properties/P001',['name','city','address','owner_user_id','rental_mode']],['/resources/R202',['name','capacity']],['/tenants/TEN001',['name']],['/contracts/C001',['resource_id','tenant_id','start_date','end_date','monthly_rent_twd','deposit_twd','due_day']],['/users/U002',['email','display_name','role','enabled']]] as const){for(const field of fields){const result=await api.request(path,owner,'PATCH',{version:1,[field]:null});expect(result.status).toBe(400);}}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        ^
+error: expect(received).toBe(expected)
+
+Expected: 400
+Received: 500
+
+      at <anonymous> (/Users/kuan/Library/Mobile Documents/com~apple~CloudDocs/ELearning/Rental/backend/tests/integration/null-input.test.ts:2:645)
+(fail) nonnullable optional PATCH fields reject null without mutation; documented nullable links/contacts remain allowed [290.93ms]
+
+ 0 pass
+ 1 fail
+ 1 expect() calls
+Ran 1 test across 1 file. [941.00ms]

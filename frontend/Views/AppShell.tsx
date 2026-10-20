@@ -1,3 +1,99 @@
-import type {ReactNode} from 'react';import type {SessionView} from '../Generated/types.gen';import {Building2,ArrowUpRight,LogOut,RefreshCw} from 'lucide-react';import {ThemeControl} from './ThemeControl';import {Button} from './shared/Button';
-export const navigation=[{path:'/',label:'Overview',owner:false},{path:'/users',label:'Users',owner:true},{path:'/property-access',label:'Property access',owner:true},{path:'/demo',label:'Demo settings',owner:false}];
-export function AppShell({session,children,onSignOut,onRefresh}:{session:SessionView;children:ReactNode;onSignOut:()=>void;onRefresh?:()=>void}){return <div className="app-shell"><aside className="sidebar"><a className="brand" href="#/"><span className="brand-icon"><Building2 size={22}/></span><span>Rental<span className="brand-sub">PROPERTY WORKSPACE</span></span></a><p className="nav-caption">WORKSPACE</p><nav aria-label="Main navigation">{navigation.filter(n=>!n.owner||session.user.role==='OWNER').map(n=><a key={n.path} href={'#'+n.path}>{n.label}<ArrowUpRight size={14}/></a>)}</nav><div className="sidebar-foot"><span className="avatar">{session.user.display_name.slice(0,1)}</span><div><strong>{session.user.display_name}</strong><small>{session.user.role}</small></div></div></aside><div className="main-column"><header className="topbar"><div className="clock-label"><span className="live-dot"/>{session.demo_mode?'Demo date: ':''}{session.business_date}<small>Asia/Taipei</small></div><div className="toolbar"><Button variant="ghost" aria-label="Refresh records" onClick={onRefresh}><RefreshCw size={16}/><span>Refresh</span></Button><ThemeControl/><Button variant="ghost" aria-label="Sign out" onClick={onSignOut}><LogOut size={16}/></Button></div></header><main id="main-content" className="page">{children}</main><footer>Contract-driven records · TWD · {session.demo_mode?'Synthetic demo workspace':'Property workspace'}</footer></div></div>;}
+import { useRoute } from '../VMs/navigation.vm';
+import type { ReactNode } from 'react';
+import type { SessionView } from '../Generated/types.gen';
+import { Building2, ArrowUpRight, LogOut, RefreshCw } from 'lucide-react';
+import { ThemeControl } from './ThemeControl';
+import { Button } from './shared/Button';
+export const navigation = [
+  { path: '/', label: 'Overview', owner: false },
+  { path: '/properties', label: 'Properties', owner: false },
+  { path: '/resources', label: 'Resources', owner: false },
+  { path: '/tenants', label: 'Tenants', owner: false },
+  { path: '/stays', label: 'Occupancy', owner: false },
+  { path: '/contracts', label: 'Contracts', owner: false },
+  { path: '/documents', label: 'Documents', owner: false },
+  { path: '/payments', label: 'Payments', owner: false },
+  { path: '/users', label: 'Users', owner: true },
+  { path: '/property-access', label: 'Property access', owner: true },
+  { path: '/demo', label: 'Demo settings', owner: false },
+];
+export function AppShell({
+  session,
+  children,
+  onSignOut,
+  onRefresh,
+}: {
+  session: SessionView;
+  children: ReactNode;
+  onSignOut: () => void;
+  onRefresh?: () => void;
+}) {
+  const { path } = useRoute();
+  return (
+    <div className="app-shell">
+      <aside className="sidebar">
+        <a className="brand" href="#/">
+          <span className="brand-icon">
+            <Building2 size={22} />
+          </span>
+          <span>
+            Rental<span className="brand-sub">PROPERTY WORKSPACE</span>
+          </span>
+        </a>
+        <p className="nav-caption">WORKSPACE</p>
+        <nav aria-label="Main navigation">
+          {navigation
+            .filter((n) => !n.owner || session.user.role === 'OWNER')
+            .map((n) => (
+              <a
+                key={n.path}
+                href={'#' + n.path}
+                aria-current={
+                  path === n.path || (n.path !== '/' && path.startsWith(n.path + '/'))
+                    ? 'page'
+                    : undefined
+                }
+              >
+                {n.label}
+                <ArrowUpRight size={14} />
+              </a>
+            ))}
+        </nav>
+        <div className="sidebar-foot">
+          <span className="avatar">{session.user.display_name.slice(0, 1)}</span>
+          <div>
+            <strong>{session.user.display_name}</strong>
+            <small>{session.user.role}</small>
+          </div>
+        </div>
+      </aside>
+      <div className="main-column">
+        <header className="topbar">
+          <div className="clock-label">
+            <span className="live-dot" />
+            {session.demo_mode ? 'Demo date: ' : ''}
+            {session.business_date}
+            <small>Asia/Taipei</small>
+          </div>
+          <div className="toolbar">
+            <Button variant="ghost" aria-label="Refresh records" onClick={onRefresh}>
+              <RefreshCw size={16} />
+              <span>Refresh</span>
+            </Button>
+            <ThemeControl />
+            <Button variant="ghost" aria-label="Sign out" onClick={onSignOut}>
+              <LogOut size={16} />
+            </Button>
+          </div>
+        </header>
+        <main id="main-content" className="page">
+          {children}
+        </main>
+        <footer>
+          Contract-driven records · TWD ·{' '}
+          {session.demo_mode ? 'Synthetic demo workspace' : 'Property workspace'}
+        </footer>
+      </div>
+    </div>
+  );
+}

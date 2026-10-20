@@ -1,0 +1,10 @@
+bun test v1.3.14 (0d9b296a)
+
+frontend/tests/payments.vm.test.ts:
+(pass) payment intent key is stable through the request and duplicate pending clicks do not send twice [0.35ms]
+(pass) overpayment conflict retains input and correction failure remains actionable [0.16ms]
+
+ 2 pass
+ 0 fail
+ 6 expect() calls
+Ran 2 tests across 1 file. [31.00ms]

@@ -1,0 +1,13 @@
+bun test v1.3.14 (0d9b296a)
+
+backend/tests/integration/documents.test.ts:
+(pass) metadata/BYTEA save atomically, associated primary contract and exact retrieval survive reopen [212.00ms]
+(pass) all baseline document contents have exact SHA256; Viewer sees metadata only [183.16ms]
+(pass) invalid/oversized/spoofed/inconsistent uploads preserve metadata and contents [138.80ms]
+(pass) approved PNG/JPEG/PDF and exact 10MiB text are accepted; spoofed image headers fail [432.66ms]
+(pass) late PostgreSQL content insertion failure rolls back document metadata [140.97ms]
+
+ 5 pass
+ 0 fail
+ 38 expect() calls
+Ran 5 tests across 1 file. [1476.00ms]

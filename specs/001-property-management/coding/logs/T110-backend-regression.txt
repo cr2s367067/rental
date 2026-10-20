@@ -1,0 +1,119 @@
+bun test v1.3.14 (0d9b296a)
+
+backend/tests/unit/tenants-manager.test.ts:
+(pass) Owner creates unassigned contacts; Manager edits visible contact but cannot create orphan [289.08ms]
+(pass) unassigned and outscope contacts stay protected and invalid input rolls back [165.43ms]
+
+backend/tests/unit/stays-manager.test.ts:
+(pass) contract projection preserves current/upcoming/ended history and exclusive boundaries [205.41ms]
+(pass) future termination leaves current occupancy until effective end; prestart cancellation occupies none [162.63ms]
+
+backend/tests/unit/payments-manager.test.ts:
+(pass) all nine policy payment states exactly match independent golden results [165.23ms]
+(pass) Overdue beats partial only after due day; reversal/replacement net stays exact [128.60ms]
+(pass) explicit manual partial obligation persists values and duplicate periods fail [161.80ms]
+
+backend/tests/unit/properties-manager.test.ts:
+(pass) Owner saves and reopens property/resource; Manager edits scoped details [223.88ms]
+(pass) invalid capacity/mode/scope edits preserve prior records [146.49ms]
+(pass) availability is start-inclusive/end-exclusive contract projection with shared slots [147.74ms]
+
+backend/tests/unit/transport-boundaries.test.ts:
+(pass) non-ASCII incorrect CSRF token is403 rather than a byte-length exception [0.09ms]
+(pass) a whitespace-only filename is rejected as unusable metadata [0.13ms]
+
+backend/tests/unit/contracts-manager.test.ts:
+(pass) classification precedence covers start/end/30day boundary and future/effective termination [164.38ms]
+(pass) Manager new contact and first scoped contract commit atomically [171.23ms]
+(pass) failed or outscope first contracts leave no orphan contacts [139.29ms]
+
+backend/tests/contract/openapi.test.ts:
+(pass) OpenAPI documents anonymous login and cookie plus CSRF security for authenticated mutations [0.17ms]
+(pass) registered domain operations retain standard errors, payment intent headers and read-only occupancy [0.17ms]
+
+backend/tests/integration/occupancy-http.test.ts:
+(pass) persisted occupancy, exclusive end and concurrent capacity edits preserve shared room [337.13ms]
+
+backend/tests/integration/access.test.ts:
+(pass) valid credentials create an opaque Redis session with persisted role and grants [189.05ms]
+(pass) invalid credentials and stale/disabled sessions fail [305.15ms]
+(pass) Owner, Manager and Viewer checks use server scope [134.97ms]
+
+backend/tests/integration/contract-capacity.test.ts:
+(pass) event sweep permits sequential commitments but rejects true duplicate tenant overlap [235.86ms]
+(pass) contract creation versus capacity reduction uses the same resource transaction lock [191.75ms]
+(pass) simultaneous first contracts at capacity1 commit only one contact and contract [146.56ms]
+(pass) reassignment/termination version conflicts retain valid intervals and document relationships [185.98ms]
+
+backend/tests/integration/documents.test.ts:
+(pass) metadata/BYTEA save atomically, associated primary contract and exact retrieval survive reopen [181.28ms]
+(pass) all baseline document contents have exact SHA256; Viewer sees metadata only [193.47ms]
+(pass) invalid/oversized/spoofed/inconsistent uploads preserve metadata and contents [152.51ms]
+(pass) approved PNG/JPEG/PDF and exact 10MiB text are accepted; spoofed image headers fail [494.87ms]
+(pass) late PostgreSQL content insertion failure rolls back document metadata [163.09ms]
+
+backend/tests/integration/users-http.test.ts:
+(pass) registered user/ownership/date routes enforce Owner versus scoped roles [483.36ms]
+
+backend/tests/integration/demo-fixtures.test.ts:
+(pass) explicit loader reimports twice: stable IDs, hashes, credential verification and durable seeded request replay [704.59ms]
+(pass) Owner reset restores all role golden API counts and invalidates every previous session [682.30ms]
+(pass) Manager/Viewer reset denied; unsafe environments refuse before mutating durable records [261.85ms]
+
+backend/tests/integration/occupancy.test.ts:
+(pass) persisted contract projection and concurrent capacity writes preserve shared room [224.97ms]
+
+backend/tests/integration/http-boundary.test.ts:
+(pass) HTTP session cookie security, invalid fields, origin/CSRF, logout and safe errors [285.68ms]
+(pass) HTTP login and principal limits return429 with Retry-After [916.31ms]
+
+backend/tests/integration/dashboard-http.test.ts:
+(pass) registered dashboard keeps HTTP role/date scope and all drill totals consistent before pagination [864.76ms]
+
+backend/tests/integration/dashboard.test.ts:
+(pass) U001 metrics match golden counts and complete paginated drill record IDs [334.92ms]
+(pass) U002 metrics match golden counts and complete paginated drill record IDs [348.59ms]
+(pass) U003 metrics match golden counts and complete paginated drill record IDs [235.69ms]
+(pass) property/date boundaries and forbidden scope reuse the same definitions [154.98ms]
+(pass) empty permitted scope returns real zeros and nine usable drill filters [133.34ms]
+(pass) concurrent payment refresh returns complete before/after snapshots then matching records [187.05ms]
+
+backend/tests/integration/transport.test.ts:
+(pass) mutations require exact Origin and session CSRF token [0.15ms]
+(pass) Redis rate windows implement login10 and authenticated120 with Retry-After [100.21ms]
+(pass) safe errors contain actionable status without raw payload [0.10ms]
+
+backend/tests/integration/properties.test.ts:
+(pass) property/resource routes persist, validate and enforce scoped role fields [505.04ms]
+
+backend/tests/integration/tenants-http.test.ts:
+(pass) contact routes validate and enforce Owner standalone/Manager scoped edits/Viewer reads [458.76ms]
+
+backend/tests/integration/users-roles.test.ts:
+(pass) Owner creates users, grants scope, role/password/grant changes invalidate sessions [378.78ms]
+(pass) Manager/Viewer cannot escalate or grant/assign ownership; last/owning Owner protected [160.51ms]
+(pass) owner assignment and demotion serialize on shared administration lock [210.39ms]
+(pass) concurrent Owner demotions cannot remove every enabled Owner [225.18ms]
+
+backend/tests/integration/contracts-http.test.ts:
+(pass) contract HTTP XOR/nested validation, scoped atomic creation, versions and termination [472.91ms]
+(pass) multipart uploads enforce contents/limits/relationship scope and download unchanged bytes [328.43ms]
+
+backend/tests/integration/payments.test.ts:
+(pass) identical requests replay original result; changed payload conflicts without extra payment [156.43ms]
+(pass) overpayment and concurrent payments preserve nonnegative exact outstanding [164.80ms]
+(pass) append-only reversal plus optional replacement is single and idempotent [169.95ms]
+(pass) same-key concurrent calls return one durable result and Viewer/outscope writes fail [156.08ms]
+(pass) late idempotency persistence failure rolls back payment and balance [146.73ms]
+
+backend/tests/integration/payments-http.test.ts:
+(pass) scoped exact billing HTTP supports explicit periods, safe retries and append-only corrections [634.30ms]
+
+backend/tests/integration/null-input.test.ts:
+(pass) nonnullable optional PATCH fields reject null without mutation; documented nullable links/contacts remain allowed [394.50ms]
+(pass) whitespace-only account names fail before creating or changing a user [210.36ms]
+
+ 63 pass
+ 0 fail
+ 1266 expect() calls
+Ran 63 tests across 25 files. [22.88s]
