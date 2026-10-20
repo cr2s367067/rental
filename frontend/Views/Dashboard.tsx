@@ -1,4 +1,4 @@
-import { ArrowUpRight, Building2, Wallet, CalendarDays, FolderLock } from 'lucide-react';
+import { ArrowUpRight, Building2, Wallet, CalendarDays, FolderLock, ChartPie } from 'lucide-react';
 import { useDashboard, metricLinks } from '../VMs/dashboard.vm';
 import { useRoute, link } from '../VMs/navigation.vm';
 import { formatTWD } from '../Models/money';
@@ -7,6 +7,7 @@ import { PropertyFilter } from './shared/Collection';
 import { Feedback } from './shared/FormLayout';
 import { Button } from './shared/Button';
 import { errorMessage } from '../Services/client';
+
 export function Dashboard({ session }: { session: SessionView }) {
   const route = useRoute();
   const query = useDashboard({
@@ -18,13 +19,35 @@ export function Dashboard({ session }: { session: SessionView }) {
     available = data?.counts.available_resources || 0,
     total = data?.counts.total_resources || 0;
   const percentage = total ? Math.round((occupied / total) * 100) : 0;
+  const metrics = data ? metricLinks(data) : [];
+  const metric = (key: string, prominent = false) => {
+    const item = metrics.find((entry) => entry.key === key);
+    if (!item) return null;
+    return (
+      <a
+        className={prominent ? 'dashboard-primary-metric' : 'dashboard-metric-row'}
+        href={item.href}
+        data-metric={item.key}
+        aria-label={'View ' + item.label}
+      >
+        <span className="dashboard-metric-label">
+          <span>{item.label}</span>
+          {!prominent && <small>{item.description}</small>}
+        </span>
+        <strong>{item.count}</strong>
+        <ArrowUpRight size={16} aria-hidden />
+      </a>
+    );
+  };
+  const scope = { property_id: data?.property_id || undefined, business_date: data?.business_date };
+
   return (
     <>
       <div className="page-header">
         <div>
           <p className="eyebrow">PROPERTY OPERATIONS</p>
           <h1>Overview</h1>
-          <p>A clear view of your spaces, tenants and rental commitments.</p>
+          <p>Your portfolio, occupancy and next steps. All in one place.</p>
         </div>
         <div className="status status-good">
           <CalendarDays size={13} />
@@ -41,41 +64,54 @@ export function Dashboard({ session }: { session: SessionView }) {
       {data && (
         <>
           {data.counts.total_properties === 0 && (
-            <section className="card">
-              <h2>No properties in this scope</h2>
-              <p>Records and metrics will appear when properties are available to this account.</p>
-            </section>
+            <p role="status">
+              No properties in this scope. Metrics will appear when properties are available to this
+              account.
+            </p>
           )}
-          <section className="metric-grid dashboard-metrics" aria-label="Operational metrics">
-            {metricLinks(data).map((metric) => (
-              <a
-                className="metric"
-                href={metric.href}
-                data-metric={metric.key}
-                key={metric.key}
-                aria-label={'View ' + metric.label}
-              >
-                <small>{metric.label}</small>
-                <ArrowUpRight size={15} aria-hidden />
-                <strong>{metric.count}</strong>
-                <p>{metric.description}</p>
-              </a>
-            ))}
-          </section>
-          <div className="detail-grid">
-            <section className="card occupancy-card">
-              <div className="section-heading">
+          <div className="dashboard-panels" aria-label="Operational overview">
+            <section className="dashboard-panel" aria-labelledby="portfolio-heading">
+              <div className="dashboard-panel-heading">
                 <span className="section-icon">
-                  <Building2 size={18} />
+                  <Building2 size={20} aria-hidden />
                 </span>
-                <div>
-                  <h2>Resource occupancy</h2>
-                  <p>Contract-driven availability</p>
-                </div>
+                <h2 id="portfolio-heading">Your portfolio</h2>
+                <span className="dashboard-panel-index" aria-hidden>
+                  01
+                </span>
               </div>
-              <div className="occupancy-value">
-                <strong>{percentage}%</strong>
-                <span>occupied</span>
+              {metric('total_properties', true)}
+              <p className="dashboard-panel-caption">The spaces and people you manage.</p>
+              <div className="dashboard-panel-details">
+                {metric('total_resources')}
+                {metric('current_tenants')}
+              </div>
+              <a className="dashboard-panel-footer" href={link('/documents', scope)}>
+                <FolderLock size={16} aria-hidden />
+                <span>{data.counts.document_metadata_count} protected documents</span>
+                <ArrowUpRight size={16} aria-hidden />
+              </a>
+            </section>
+
+            <section
+              className="dashboard-panel dashboard-panel-occupancy"
+              aria-labelledby="occupancy-heading"
+            >
+              <div className="dashboard-panel-heading">
+                <span className="section-icon">
+                  <ChartPie size={20} aria-hidden />
+                </span>
+                <h2 id="occupancy-heading">Occupancy</h2>
+                <span className="dashboard-panel-index" aria-hidden>
+                  02
+                </span>
+              </div>
+              <div className="dashboard-occupancy-value">
+                <strong>
+                  {percentage}
+                  <span>%</span>
+                </strong>
+                <span>of resources occupied</span>
               </div>
               <div
                 className="occupancy-track"
@@ -87,71 +123,53 @@ export function Dashboard({ session }: { session: SessionView }) {
               <div className="occupancy-legend">
                 <span>
                   <i className="legend-dot" />
-                  {occupied} occupied
+                  Occupied
                 </span>
                 <span>
                   <i className="legend-dot legend-free" />
-                  {available} available
+                  Available
                 </span>
               </div>
-              <small>
-                Shared rooms count as occupied while any contract is active; free slots appear in
-                Resources.
-              </small>
-            </section>
-            <section className="card outstanding-card">
-              <div className="section-heading">
-                <span className="section-icon">
-                  <Wallet size={18} />
-                </span>
-                <div>
-                  <h2>Outstanding rent</h2>
-                  <p>Exact unpaid balance across periods</p>
-                </div>
+              <div className="dashboard-panel-details">
+                {metric('occupied_resources')}
+                {metric('available_resources')}
               </div>
-              <strong className="outstanding-value" data-testid="outstanding-twd">
-                {formatTWD(data.counts.outstanding_twd)}
-              </strong>
-              <p>
-                {data.counts.unpaid_rent_periods} rental periods have a positive balance, including
-                partial and not-yet-due amounts.
+              <p className="dashboard-panel-note">
+                Shared rooms count as occupied while any contract is active.
               </p>
-              <Button asChild variant="outline">
-                <a
-                  href={link('/payments', {
-                    property_id: data.property_id || undefined,
-                    business_date: data.business_date,
-                    metric: 'unpaid_rent_periods',
-                  })}
-                >
-                  Review outstanding periods
-                  <ArrowUpRight size={14} />
-                </a>
-              </Button>
+            </section>
+
+            <section className="dashboard-panel" aria-labelledby="actions-heading">
+              <div className="dashboard-panel-heading">
+                <span className="section-icon">
+                  <Wallet size={20} aria-hidden />
+                </span>
+                <h2 id="actions-heading">Rent & upcoming</h2>
+                <span className="dashboard-panel-index" aria-hidden>
+                  03
+                </span>
+              </div>
+              <a
+                className="dashboard-rent"
+                href={link('/payments', { ...scope, metric: 'unpaid_rent_periods' })}
+              >
+                <span>Outstanding rent</span>
+                <strong data-testid="outstanding-twd">
+                  {formatTWD(data.counts.outstanding_twd)}
+                </strong>
+                <ArrowUpRight size={16} aria-hidden />
+              </a>
+              <div className="dashboard-panel-details">
+                {metric('unpaid_rent_periods')}
+                {metric('upcoming_contract_starts')}
+                {metric('upcoming_contract_ends')}
+                {metric('contracts_expiring')}
+              </div>
+              <p className="dashboard-panel-note">
+                Balance includes partial and not-yet-due amounts.
+              </p>
             </section>
           </div>
-          <section className="card document-summary">
-            <div className="section-heading">
-              <FolderLock size={20} />
-              <div>
-                <h2>Records stay connected</h2>
-                <p>
-                  {data.counts.document_metadata_count} protected documents in this scope. Property,
-                  tenant, contract and payment records share the same access rules.
-                </p>
-              </div>
-            </div>
-            <Button asChild variant="outline">
-              <a
-                href={link('/documents', {
-                  property_id: data.property_id || undefined,
-                  business_date: data.business_date,
-                })}
-              >
-                Open document library
-              </a>
-            </Button>
-          </section>
         </>
       )}
     </>

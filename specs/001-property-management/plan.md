@@ -91,7 +91,7 @@ backend/
 ├── Src/Contracts/
 ├── Src/Infrastructure/
 ├── Managers/
-├── OpenAPI/openapi.json        (generated export)
+├── OpenAPI/openapi.yaml        (generated export)
 ├── prisma/schema.prisma
 ├── prisma/seed.ts              (future explicit fixture loader; not created now)
 └── tests/

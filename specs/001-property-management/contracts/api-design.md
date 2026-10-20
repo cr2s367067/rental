@@ -2,7 +2,7 @@
 
 **Status**: Draft interface intent; no runtime OpenAPI/schema or handler code generated.
 **Sources**: [spec](../spec.md), [policy](../demo-policy.md), [model](../data-model.md).
-NestJS definitions remain the runtime source of truth. Export backend/OpenAPI/openapi.json
+NestJS definitions remain the runtime source of truth. Export backend/OpenAPI/openapi.yaml
 from those definitions and generate the frontend TypeScript client. This document is
 review guidance, not a separately maintained executable schema.
 

@@ -1,6 +1,9 @@
 import { test, expect } from 'bun:test';
 import { readFileSync } from 'node:fs';
-const schema = JSON.parse(readFileSync('backend/OpenAPI/openapi.json', 'utf8'));
+const schema = Bun.YAML.parse(readFileSync('backend/OpenAPI/openapi.yaml', 'utf8')) as Record<
+  string,
+  any
+>;
 test('OpenAPI documents anonymous login and cookie plus CSRF security for authenticated mutations', () => {
   expect(schema.openapi).toBe('3.0.0');
   expect(schema.paths['/api/session'].post.security).toEqual([]);

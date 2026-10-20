@@ -18,7 +18,9 @@ if (await child.exited) throw Error('OpenAPI/client generation failed');
 const after = { ...snapshot('frontend/Generated'), ...snapshot('backend/OpenAPI') };
 if (JSON.stringify(before) !== JSON.stringify(after))
   throw Error('Generated contract/client drift: regenerate and review changes');
-const spec = JSON.parse(readFileSync('backend/OpenAPI/openapi.json', 'utf8'));
+const spec = Bun.YAML.parse(readFileSync('backend/OpenAPI/openapi.yaml', 'utf8')) as {
+  paths: Record<string, Record<string, any>>;
+};
 const ids = new Set<string>();
 for (const [path, methods] of Object.entries(spec.paths) as [string, Record<string, any>][]) {
   for (const [method, operation] of Object.entries(methods)) {

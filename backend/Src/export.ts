@@ -5,7 +5,12 @@ async function main() {
   const app = await createApplication();
   const dir = join(__dirname, '../../OpenAPI');
   mkdirSync(dir, { recursive: true });
-  writeFileSync(join(dir, 'openapi.json'), JSON.stringify(schema(app), null, 2) + '\n');
+  writeFileSync(
+    join(dir, 'openapi.yaml'),
+    Bun.YAML.stringify(schema(app), null, 2)
+      .replace(/[ \t]+$/gm, '')
+      .trimEnd() + '\n',
+  );
   await app.close();
 }
 void main();
